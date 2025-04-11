@@ -1,12 +1,11 @@
 <template>
   <div class="cursor shrinkCursor">
     <div class="cursor-dot bg-black dark:bg-white"></div>
-    <div class="cursor-follower bg-violet-800/40"></div>
+    <div class="cursor-follower bg-violet-800/50"></div>
   </div>
 </template>
 
 <script setup>
-import {onMounted, onBeforeUnmount} from 'vue'
 import {gsap} from 'gsap'
 
 onMounted(() => {
