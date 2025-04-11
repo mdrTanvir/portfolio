@@ -1,12 +1,10 @@
 <template>
-  <div class="dark">
-    <NuxtRouteAnnouncer/>
-    <NuxtLayout>
-      <NuxtLoadingIndicator/>
-      <NuxtPage lazy/>
-    </NuxtLayout>
-    <LazyCursor/>
-  </div>
+  <NuxtRouteAnnouncer/>
+  <NuxtLayout>
+    <NuxtLoadingIndicator/>
+    <NuxtPage lazy/>
+  </NuxtLayout>
+  <LazyCursor/>
 </template>
 
 <script setup lang="ts">

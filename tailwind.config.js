@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: 'class',
+    darkMode: 'class', // Enable dark mode
     mode: 'jit', // optimize for just-in-time compilation
     content: [
         "./nuxt.config.{js,ts}",
@@ -15,7 +15,7 @@ export default {
     ],
     theme: {
         screens: {
-            'sm': '500px',
+            'sm': '480px',
             'md': '768px',
             'lg': '1024px',
             'xl': '1280px',
