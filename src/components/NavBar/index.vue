@@ -11,7 +11,7 @@
             <div class="-mr-2 flex items-center md:hidden">
               <PopoverButton class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
                 <span class="sr-only">Open main menu</span>
-                <!--                <MenuIcon class="h-6 w-6" aria-hidden="true"/>-->
+                <Icon name="lucide:menu" class="h-6 w-6 text-white hover:text-gray-300"/>
               </PopoverButton>
             </div>
           </div>
@@ -20,7 +20,7 @@
                class="text-base font-medium text-white hover:text-gray-300">
               <span class="hoverMove">{{ item.name }}</span>
             </a>
-            <button @click="toggleTheme">
+            <button @click="toggleTheme" data-hover>
               <Icon v-if="theme === 'light'" name="lucide:moon" class="w-6 h-6 text-white hover:text-gray-300"/>
               <Icon v-if="theme === 'dark'" name="lucide:sun" class="w-6 h-6 text-white hover:text-gray-300"/>
             </button>
@@ -42,7 +42,7 @@
             <div class="-mr-2">
               <PopoverButton class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-600">
                 <span class="sr-only">Close menu</span>
-                <!--                <XIcon class="h-6 w-6" aria-hidden="true"/>-->
+                <Icon name="lucide:x" class="h-6 w-6 text-gray-900 hover:text-gray-500"/>
               </PopoverButton>
             </div>
           </div>
@@ -65,7 +65,6 @@
 
 <script setup lang="ts">
 import {Popover, PopoverButton, PopoverPanel} from "@headlessui/vue";
-// import {MenuIcon, XIcon} from '@heroicons/vue/20/outline' // '@heroicons/vue/20/solid'
 
 const navigation = [
   {name: 'About', href: '#'},
