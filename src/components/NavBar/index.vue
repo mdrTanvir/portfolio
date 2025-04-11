@@ -1,7 +1,7 @@
 <template>
   <Popover as="header" class="relative z-10">
     <div class="bg-gray-900/20 backdrop-blur-lg pt-6 absolute w-full text-white">
-      <nav class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6" aria-label="Global">
+      <nav class="relative contain flex items-center justify-between" aria-label="Global">
         <div class="flex items-center flex-1">
           <div class="flex items-center justify-between w-full md:w-auto">
             <a href="#">
@@ -15,7 +15,7 @@
               </PopoverButton>
             </div>
           </div>
-          <div class="hidden space-x-8 md:flex md:ml-10">
+          <div class="hidden space-x-8 md:flex">
             <a v-for="item in navigation" :key="item.name" :href="item.href" data-hover
                class="text-base font-medium text-white hover:text-gray-300">
               <span class="hoverMove">{{ item.name }}</span>

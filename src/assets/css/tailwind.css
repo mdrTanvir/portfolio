@@ -36,9 +36,9 @@
         --color-error: #dc2626;
     }
 
-    body, html, #app {
+    /*body, html, #app {*/
         /*@apply bg-skin-body text-skin-base;*/
-    }
+    /*}*/
 
     .contain {
         @apply max-w-[1366px] w-full mx-auto px-4 sm:px-6 lg:px-8;
