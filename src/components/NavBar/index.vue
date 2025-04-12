@@ -11,7 +11,9 @@
           </div>
           <div class="hidden space-x-8 md:flex">
             <a v-for="item in navigation" :key="item.name" :href="item.href" data-hover
-               class="text-base font-medium text-gray-600 dark:text-white">
+               class="text-base font-medium"
+               :class="item.focus ? 'text-indigo-600 dark:text-indigo-600' : 'text-gray-600 dark:text-white'"
+            >
               <span class="hoverMove">{{ item.name }}</span>
             </a>
             <button @click="theme.toggleTheme()" data-hover class="a text-gray-600 dark:text-white">
@@ -65,7 +67,7 @@ const navigation = [
   {name: 'Experience', href: '#'},
   {name: 'Portfolio', href: '#'},
   {name: 'Services', href: '#'},
-  {name: 'Contact', href: '#'},
+  {name: "Let's Talk", href: '#', focus: true},
 ]
 
 const theme = useThemeStore()

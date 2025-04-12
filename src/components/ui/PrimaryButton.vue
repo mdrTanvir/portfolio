@@ -1,23 +1,33 @@
 <template>
-  <component
-      :is="to ? NuxtLink : 'button'"
-      :to="to || undefined"
-      :class="buttonClasses"
+  <NuxtLink
+      v-if="to"
+  >
+    <button
+        data-hover
+        :class="classes"
+    >
+      <slot></slot>
+    </button>
+  </NuxtLink>
+  <button
+      v-else
+      :class="classes"
       data-hover
   >
     <slot></slot>
-  </component>
+  </button>
 </template>
 
 <script setup lang="ts">
+// props
 const props = defineProps({
   to: {
     type: String,
     default: ''
-  }
+  },
 })
 
-const buttonClasses = [
+const classes = [
   'px-5 py-3 rounded-lg',
   'font-medium bg-gray-800 dark:bg-white text-white dark:text-black',
   'hover:bg-indigo-400 dark:hover:bg-indigo-400 hover:text-white dark:hover:text-white',
