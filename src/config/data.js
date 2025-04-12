@@ -9,7 +9,7 @@ const siteData = {
         {name: 'LinkedIn', link: 'https://www.linkedin.com/in/tanvirrahman7547/', icon: 'fa:linkedin'},
         {name: 'Instagram', link: 'https://www.instagram.com/tanvirrahman7547/', icon: 'fa:instagram'},
         {name: 'Twitter', link: 'https://twitter.com/tanvirrahman7547', icon: 'fa:twitter'},
-        {name: 'Github', link: 'https://github.com', icons: 'fa:github-square'},
+        {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
     skills: {
         development: [

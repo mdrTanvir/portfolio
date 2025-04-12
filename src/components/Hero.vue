@@ -8,26 +8,32 @@
             <span class="block text-gray-600 dark:text-white">I am Tanvir Rahman</span>
             <span class="block text-indigo-400">a Web Developer</span>
           </h1>
-          <p class="mt-3 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+          <p class="mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
             A Full-Stack Developer turning ideas into seamless digital experiences.
           </p>
 
           <!-- Social Links -->
-          <div class="mt-6 flex gap-4">
-            <a v-for="social in siteData.socials"
-               :key="social.name"
-               :href="social.link"
-               target="_blank"
-               data-hover
+          <div v-if="siteData.socials.length" class="mb-6 flex gap-4">
+            <template
+                v-for="social in siteData.socials"
+                :key="social.name"
             >
-              <Icon
-                  :name="social.icon"
-                  class="w-6 h-6 text-gray-500 dark:text-gray-200 hover:text-indigo-400 dark:hover:text-indigo-400"
-              />
-            </a>
+              <a
+                  v-if="social.link"
+                  :href="social.link"
+                  target="_blank"
+                  data-hover
+              >
+                <Icon
+                    v-if="social.icon"
+                    :name="social.icon"
+                    class="w-6 h-6 text-gray-500 dark:text-gray-200 hover:text-indigo-400 dark:hover:text-indigo-400"
+                />
+              </a>
+            </template>
           </div>
 
-          <div class="mt-6 flex gap-4">
+          <div class="mb-6 flex gap-4">
             <UiPrimaryButton to="/">
               <span class="hoverMove">
                 <Icon name="lucide:download" class="w-4 h-4 mr-2"/>
