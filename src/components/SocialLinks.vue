@@ -1,5 +1,5 @@
 <template>
-  <div v-if="siteData.socials.length" class="mb-6 flex gap-4">
+  <div v-if="siteData.socials.length" class="mb-6 flex gap-6">
     <template
         v-for="social in siteData.socials"
         :key="social.name"
