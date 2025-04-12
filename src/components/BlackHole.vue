@@ -10,6 +10,9 @@
 // import easingUtils from 'https://esm.sh/easing-utils'
 import * as easingUtils from 'easing-utils'
 
+const themeStore = useThemeStore()
+const {darkMode} = storeToRefs(themeStore)
+
 const canvas = ref(null)
 const container = ref(null)
 
@@ -94,7 +97,7 @@ function setLines() {
       linesCtx.beginPath()
       linesCtx.moveTo(p0.x, p0.y)
       linesCtx.lineTo(p1.x, p1.y)
-      linesCtx.strokeStyle = "#444"
+      linesCtx.strokeStyle = darkMode.value ? "#444" : "#bfbfbf"
       linesCtx.lineWidth = 2
       linesCtx.stroke()
       linesCtx.closePath()
@@ -116,7 +119,7 @@ function initParticle(start = false) {
     vy: 0.5 + Math.random(),
     p: 0,
     r: 0.5 + Math.random() * 4,
-    c: `rgba(255, 255, 255, ${Math.random()})`
+    c: darkMode.value ? `rgba(255, 255, 255, ${Math.random()})` : `rgba(0, 0, 0, ${Math.random()})`
   }
 }
 
@@ -149,7 +152,7 @@ function moveParticles() {
 }
 
 function drawDiscs() {
-  ctx.strokeStyle = "#444"
+  ctx.strokeStyle = darkMode.value ? "#444" : "#bfbfbf"
   ctx.lineWidth = 2
   const outer = startDisc
   ctx.beginPath()
@@ -206,6 +209,10 @@ function setup() {
   tick()
 }
 
+watch(() => darkMode.value, () => {
+  setup()
+})
+
 onMounted(() => {
   setup()
   window.addEventListener("resize", setup)
@@ -236,7 +243,7 @@ onBeforeUnmount(() => {
     display: block;
     width: 150%;
     height: 140%;
-    background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 50%);
+    background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 50%); // dark mode
     //background: radial-gradient(ellipse at 50% 55%, transparent 10%, white 50%);
     pointer-events: none;
     transform: translate3d(-50%, -50%, 0);
@@ -251,7 +258,7 @@ onBeforeUnmount(() => {
     display: block;
     width: 100%;
     height: 100%;
-    background: radial-gradient(ellipse at 50% 75%, #a900ff 20%, transparent 75%);
+    background: radial-gradient(ellipse at 50% 75%, #a900ff 20%, transparent 75%); // dark mode
     //background: radial-gradient(ellipse at 50% 75%, #cc9ae4 20%, transparent 75%);
     mix-blend-mode: overlay;
     transform: translate3d(-50%, -50%, 0);
@@ -275,7 +282,7 @@ onBeforeUnmount(() => {
     background: linear-gradient(20deg, #00f8f1, #ffbd1e20 16.5%, #fe848f 33%, #fe848f20 49.5%, #00f8f1 66%, #00f8f160 85.5%, #ffbd1e 100%) 0 100%/100% 200%;
     border-radius: 0 0 100% 100%;
     filter: blur(50px);
-    mix-blend-mode: plus-lighter;
+    mix-blend-mode: plus-lighter; // turn off in dark mode
     opacity: 0.75;
     transform: translate3d(-50%, 0, 0);
     -webkit-animation: aura-glow 6s infinite linear;
