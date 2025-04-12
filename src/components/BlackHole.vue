@@ -1,7 +1,7 @@
 <template>
   <div ref="container" class="black-hole bg-white dark:bg-gray-950">
     <canvas ref="canvas" class="js-canvas"></canvas>
-    <div class="aura"></div>
+    <div class="aura" :class="{ 'mix-blend-none': darkMode, 'mix-blend-plus-lighter': !darkMode }"></div>
     <div class="overlay"></div>
   </div>
 </template>
@@ -282,7 +282,7 @@ onBeforeUnmount(() => {
     background: linear-gradient(20deg, #00f8f1, #ffbd1e20 16.5%, #fe848f 33%, #fe848f20 49.5%, #00f8f1 66%, #00f8f160 85.5%, #ffbd1e 100%) 0 100%/100% 200%;
     border-radius: 0 0 100% 100%;
     filter: blur(50px);
-    mix-blend-mode: plus-lighter; // turn off in dark mode
+    //mix-blend-mode: plus-lighter; // turn off in dark mode
     opacity: 0.75;
     transform: translate3d(-50%, 0, 0);
     -webkit-animation: aura-glow 6s infinite linear;
