@@ -141,7 +141,7 @@ function setParticles() {
 
 function moveDiscs() {
   discs.forEach(d => {
-    d.p = (d.p + 0.0006) % 1
+    d.p = (d.p + 0.0004) % 1
     tweenDisc(d)
   })
 }
@@ -307,8 +307,8 @@ onBeforeUnmount(() => {
     //opacity: 0.75;
     opacity: 0.5;
     transform: translate3d(-50%, 0, 0);
-    -webkit-animation: aura-glow 6s infinite linear;
-    animation: aura-glow 6s infinite linear;
+    -webkit-animation: aura-glow 7s infinite linear;
+    animation: aura-glow 7s infinite linear;
   }
 
   .overlay {
