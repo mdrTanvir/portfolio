@@ -6,6 +6,7 @@
      <Projects/>
      <OtherProjects/>
      <Contact/>
+    <TheFooder/>
   </main>
 </template>
 
