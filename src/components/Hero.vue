@@ -1,5 +1,5 @@
 <template>
-  <div class="heroSection bg-white dark:bg-gray-950">
+  <div class="heroSection">
 
     <div class="relative z-10 pt-10 sm:pt-16 lg:pt-8 lg:pb-14 lg:overflow-hidden">
       <div class="contain">
@@ -23,6 +23,7 @@
       <UiBlackHole :key="count"/>
     </client-only>
   </div>
+  <div class="pb-10 md:pb-14 lg:pb-20"></div>
 </template>
 
 <script setup lang="ts">
