@@ -20,9 +20,9 @@
                class="text-base font-medium text-white hover:text-gray-300">
               <span class="hoverMove">{{ item.name }}</span>
             </a>
-            <button @click="toggleTheme" data-hover>
-              <Icon v-if="theme === 'light'" name="lucide:moon" class="w-6 h-6 text-white hover:text-gray-300"/>
-              <Icon v-if="theme === 'dark'" name="lucide:sun" class="w-6 h-6 text-white hover:text-gray-300"/>
+            <button @click="theme.toggleTheme()" data-hover>
+              <Icon v-if="theme.darkMode" name="lucide:sun" class="w-6 h-6 text-white hover:text-gray-300"/>
+              <Icon v-else name="lucide:moon" class="w-6 h-6 text-white hover:text-gray-300"/>
             </button>
           </div>
         </div>
@@ -74,23 +74,5 @@ const navigation = [
   {name: 'Contact', href: '#'},
 ]
 
-const theme = ref("light");
-const toggleTheme = () => {
-  if (theme.value === "dark") {
-    theme.value = "light";
-  } else {
-    theme.value = "dark";
-  }
-  localStorage.theme = theme.value;
-  document.documentElement.classList.toggle("dark");
-}
-
-onMounted(() => {
-  theme.value = localStorage.theme || "dark";
-  document.documentElement.classList.toggle(
-      "dark",
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-  );
-})
+const theme = useThemeStore()
 </script>

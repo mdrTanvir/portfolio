@@ -6,5 +6,9 @@
 </template>
 
 <script setup lang="ts">
+const theme = useThemeStore()
 
+onMounted(() => {
+  theme.applyTheme()
+})
 </script>
