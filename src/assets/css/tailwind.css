@@ -121,3 +121,8 @@ a:hover,
 .a:hover {
     color: oklch(67.3% 0.182 276.935) !important;
 }
+
+.btn {
+    @apply px-5 py-3 rounded-lg font-medium
+    transition duration-300 ease-in-out;
+}

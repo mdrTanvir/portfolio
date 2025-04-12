@@ -2,7 +2,10 @@
   <Popover as="header" class="relative z-10">
     <div class="bg-gray-100/30 dark:bg-gray-950/20 backdrop-blur-3xl py-4 absolute w-full text-white">
       <nav class="relative contain flex items-center justify-between" aria-label="Global">
-        <div class="flex items-center flex-1">
+        <div class="">
+          <NavBarLogo/>
+        </div>
+        <div class="flex items-center">
           <div class="-mr-2 flex items-center md:hidden">
             <PopoverButton class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
               <span class="sr-only">Open main menu</span>
@@ -22,13 +25,17 @@
             </button>
           </div>
         </div>
-        <div class="md:items-center md:space-x-6">
-          <NavBarLogo/>
-        </div>
       </nav>
     </div>
 
-    <transition enter-active-class="duration-150 ease-out" enter-from-class="opacity-0 scale-95" enter-to-class="opacity-100 scale-100" leave-active-class="duration-100 ease-in" leave-from-class="opacity-100 scale-100" leave-to-class="opacity-0 scale-95">
+    <transition
+        enter-active-class="duration-150 ease-out"
+        enter-from-class="opacity-0 scale-95"
+        enter-to-class="opacity-100 scale-100"
+        leave-active-class="duration-100 ease-in"
+        leave-from-class="opacity-100 scale-100"
+        leave-to-class="opacity-0 scale-95"
+    >
       <PopoverPanel focus class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top md:hidden">
         <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div class="px-5 pt-4 flex items-center justify-between">

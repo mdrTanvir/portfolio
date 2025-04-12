@@ -16,9 +16,12 @@
           <div>
 
           </div>
-          <div class="mt-4">
+          <div class="mt-4 flex gap-4">
             <UiPrimaryButton to="/">
               <span class="hoverMove"> Download CV </span>
+            </UiPrimaryButton>
+            <UiPrimaryButton to="/">
+              <span class="hoverMove">Let's Talk</span>
             </UiPrimaryButton>
           </div>
         </div>
