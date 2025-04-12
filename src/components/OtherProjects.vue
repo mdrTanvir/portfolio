@@ -1,7 +1,7 @@
 <template>
-  <div>
-    Other Projects
-  </div>
+  <section class="contain">
+    <ui-heading>Other Projects</ui-heading>
+  </section>
 </template>
 
 <script setup lang="ts">

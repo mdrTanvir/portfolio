@@ -126,7 +126,8 @@ function initParticle(start = false) {
     vy: 0.5 + Math.random(),
     p: 0,
     r: 0.5 + Math.random() * 4,
-    c: darkMode.value ? `rgba(255, 255, 255, ${Math.random()})` : `rgba(0, 0, 0, ${Math.random()})`
+    c: darkMode.value ? `rgba(255, 255, 255, ${Math.random()})` : `rgba(0, 0, 0, ${Math.random()})`,
+    radius: Math.random() * 2 + 1,
   }
 }
 
@@ -187,7 +188,8 @@ function drawParticles() {
   particles.forEach(p => {
     ctx.fillStyle = p.c
     ctx.beginPath()
-    ctx.rect(p.x, p.y, p.r, p.r)
+    // ctx.rect(p.x, p.y, p.r, p.r)
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
     ctx.closePath()
     ctx.fill()
   })
@@ -281,8 +283,8 @@ onBeforeUnmount(() => {
 
   &.dark {
     &::before {
-      background: radial-gradient(ellipse at 50% 55%, transparent 10%, #09090BFF 42%); // dark mode
-      //background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 50%); // dark mode
+      //background: radial-gradient(ellipse at 50% 55%, transparent 10%, #09090BFF 42%); // dark mode
+      background: radial-gradient(ellipse at 50% 50%, transparent 10%, black 50%); // dark mode
     }
 
     &::after {
@@ -305,7 +307,7 @@ onBeforeUnmount(() => {
     height: 140%;
     background: linear-gradient(20deg, #00f8f1, #ffbd1e20 16.5%, #fe848f 33%, #fe848f20 49.5%, #00f8f1 66%, #00f8f160 85.5%, #ffbd1e 100%) 0 100%/100% 200%;
     border-radius: 0 0 100% 100%;
-    filter: blur(50px);
+    filter: blur(60px);
     //mix-blend-mode: plus-lighter; // turn off in dark mode
     //opacity: 0.75;
     transform: translate3d(-50%, 0, 0);
