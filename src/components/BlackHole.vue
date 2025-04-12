@@ -278,7 +278,8 @@ onBeforeUnmount(() => {
 
   &.dark {
     &::before {
-      background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 50%); // dark mode
+      //background: radial-gradient(ellipse at 50% 55%, transparent 10%, #09090BFF 42%); // dark mode
+      background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 42%); // dark mode
     }
 
     &::after {
