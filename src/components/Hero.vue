@@ -34,7 +34,7 @@ watch(() => darkMode.value, () => {
 })
 
 onMounted(() => {
-  window.addEventListener("resize", count.value++)
+  window.addEventListener("resize", () => count.value++)
 })
 </script>
 
