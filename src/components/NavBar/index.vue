@@ -17,12 +17,12 @@
           </div>
           <div class="hidden space-x-8 md:flex">
             <a v-for="item in navigation" :key="item.name" :href="item.href" data-hover
-               class="text-base font-medium text-white hover:text-gray-300">
+               class="text-base font-medium text-gray-600 dark:text-white">
               <span class="hoverMove">{{ item.name }}</span>
             </a>
-            <button @click="theme.toggleTheme()" data-hover>
-              <Icon v-if="theme.darkMode" name="lucide:sun" class="w-6 h-6 text-white hover:text-gray-300"/>
-              <Icon v-else name="lucide:moon" class="w-6 h-6 text-white hover:text-gray-300"/>
+            <button @click="theme.toggleTheme()" data-hover class="a text-gray-600 dark:text-white">
+              <Icon v-if="theme.darkMode" name="lucide:sun" class="w-6 h-6"/>
+              <Icon v-else name="lucide:moon" class="w-6 h-6"/>
             </button>
           </div>
         </div>

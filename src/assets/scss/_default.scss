@@ -33,15 +33,18 @@ body {
 
 a,
 a:active,
-a:focus {
+a:focus,
+.a,
+.a:active,
+.a:focus, {
   @include variables.transition(200ms);
   text-decoration: none;
-  color: dodgerblue;
   outline: none;
 }
 
-a:hover {
-  color: #6a7dfe;
+a:hover,
+.a:hover {
+  color: #3951ef;
   text-decoration: none !important;
   //color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
   //color: -o-linear-gradient(left, #21d4fd, #b721ff);
