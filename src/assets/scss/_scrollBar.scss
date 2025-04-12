@@ -9,7 +9,7 @@
 
 ::-webkit-scrollbar-track {
   //background-color: #1e222a;
-  background-color: transparent;
+  @apply bg-white dark:bg-black;
   //margin-block: 100px;
   //border-radius: 10px;
 }
@@ -17,12 +17,9 @@
 ::-webkit-scrollbar-thumb {
   //background-color: #ff9e1e;
   //background-color: rgba(255, 69, 0, 0.80);
-  background-color: #1b2437;
+  background-color: oklch(67.3% 0.182 276.935);
   //border-radius: 10px;
 }
-
-
-
 
 
 //$ScrollColor: linear-gradient(#46f1dd, #5ff246);

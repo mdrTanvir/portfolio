@@ -16,6 +16,11 @@
           <div>
 
           </div>
+          <div class="mt-4">
+            <UiPrimaryButton to="/">
+              <span class="hoverMove"> Download CV </span>
+            </UiPrimaryButton>
+          </div>
         </div>
       </div>
     </div>

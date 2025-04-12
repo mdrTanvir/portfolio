@@ -4,7 +4,7 @@
       class="black-hole bg-white dark:bg-gray-950"
       :class="{ 'dark': darkMode, 'light': !darkMode }"
   >
-    <canvas ref="canvas" class="js-canvas"></canvas>
+    <canvas ref="canvas"></canvas>
     <div
         class="aura"
         :class="{ 'mix-blend-none opacity-50': !darkMode, 'mix-blend-plus-lighter opacity-[0.16]': darkMode }"
@@ -197,7 +197,7 @@ function drawParticles() {
 }
 
 function tick() {
-  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
+  ctx.clearRect(0, 0, canvas.value?.width, canvas.value?.height)
   ctx.save()
   ctx.scale(render.dpi, render.dpi)
   moveDiscs()
