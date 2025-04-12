@@ -37,9 +37,8 @@
     }
 
     /*body, html, #app {*/
-        /*@apply bg-skin-body text-skin-base;*/
+    /*@apply bg-skin-body text-skin-base;*/
     /*}*/
-
     .contain {
         @apply max-w-[1366px] w-full mx-auto px-4 sm:px-6 lg:px-8;
     }
@@ -67,27 +66,27 @@ img {
 
 
 /* Typography */
-.h1 {
+h1 {
     @apply text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight;
 }
 
-.h2 {
+h2 {
     @apply text-3xl sm:text-4xl font-bold tracking-tight;
 }
 
-.h3 {
+h3 {
     @apply text-2xl sm:text-3xl font-semibold tracking-tight;
 }
 
-.h4 {
+h4 {
     @apply text-xl sm:text-2xl font-medium tracking-tight;
 }
 
-.h5 {
+h5 {
     @apply text-lg sm:text-xl font-medium tracking-tight;
 }
 
-.h6 {
+h6 {
     @apply text-base sm:text-lg font-medium tracking-tight;
 }
 
@@ -114,16 +113,11 @@ a:focus,
 .a:active,
 .a:focus {
     @include variables.transition(200ms);
-    text-decoration: none;
+    text-decoration: none !important;
     outline: none;
 }
 
 a:hover,
 .a:hover {
     color: oklch(67.3% 0.182 276.935) !important;
-    text-decoration: none !important;
-//color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-//color: -o-linear-gradient(left, #21d4fd, #b721ff);
-//color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-//color: linear-gradient(left, #21d4fd, #b721ff);
 }
