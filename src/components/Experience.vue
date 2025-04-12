@@ -1,5 +1,5 @@
 <template>
-  <section class="contain">
+  <section class="contain content-section">
     <ui-heading>Experience</ui-heading>
   </section>
 </template>

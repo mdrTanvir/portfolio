@@ -20,7 +20,7 @@
     </div>
 
     <client-only>
-      <BlackHole :key="count"/>
+      <UiBlackHole :key="count"/>
     </client-only>
   </div>
 </template>
