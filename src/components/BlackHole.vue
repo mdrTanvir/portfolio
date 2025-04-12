@@ -5,7 +5,10 @@
       :class="{ 'dark': darkMode, 'light': !darkMode }"
   >
     <canvas ref="canvas" class="js-canvas"></canvas>
-    <div class="aura" :class="{ 'mix-blend-none': !darkMode, 'mix-blend-plus-lighter': darkMode }"></div>
+    <div
+        class="aura"
+        :class="{ 'mix-blend-none opacity-50': !darkMode, 'mix-blend-plus-lighter opacity-[0.16]': darkMode }"
+    ></div>
     <div class="overlay"></div>
   </div>
 </template>
@@ -101,7 +104,7 @@ function setLines() {
       linesCtx.beginPath()
       linesCtx.moveTo(p0.x, p0.y)
       linesCtx.lineTo(p1.x, p1.y)
-      linesCtx.strokeStyle = darkMode.value ? "#444" : "#dadada"
+      linesCtx.strokeStyle = darkMode.value ? "#272727" : "#dadada"
       linesCtx.lineWidth = 2
       linesCtx.stroke()
       linesCtx.closePath()
@@ -156,7 +159,7 @@ function moveParticles() {
 }
 
 function drawDiscs() {
-  ctx.strokeStyle = darkMode.value ? "#444" : "#dadada"
+  ctx.strokeStyle = darkMode.value ? "#272727" : "#dadada"
   ctx.lineWidth = 2
   const outer = startDisc
   ctx.beginPath()
@@ -278,8 +281,8 @@ onBeforeUnmount(() => {
 
   &.dark {
     &::before {
-      //background: radial-gradient(ellipse at 50% 55%, transparent 10%, #09090BFF 42%); // dark mode
-      background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 42%); // dark mode
+      background: radial-gradient(ellipse at 50% 55%, transparent 10%, #09090BFF 42%); // dark mode
+      //background: radial-gradient(ellipse at 50% 55%, transparent 10%, black 50%); // dark mode
     }
 
     &::after {
@@ -305,7 +308,6 @@ onBeforeUnmount(() => {
     filter: blur(50px);
     //mix-blend-mode: plus-lighter; // turn off in dark mode
     //opacity: 0.75;
-    opacity: 0.5;
     transform: translate3d(-50%, 0, 0);
     -webkit-animation: aura-glow 7s infinite linear;
     animation: aura-glow 7s infinite linear;
