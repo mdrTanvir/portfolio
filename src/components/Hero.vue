@@ -18,10 +18,16 @@
           </div>
           <div class="mt-4 flex gap-4">
             <UiPrimaryButton to="/">
-              <span class="hoverMove"> Download CV </span>
+              <span class="hoverMove">
+                <Icon name="lucide:download" class="w-4 h-4 mr-2"/>
+                Download CV
+              </span>
             </UiPrimaryButton>
-            <UiPrimaryButton to="/">
-              <span class="hoverMove">Let's Talk</span>
+            <UiPrimaryButton to="/" inverted>
+              <span class="hoverMove">
+                <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/>
+                Let's Talk
+              </span>
             </UiPrimaryButton>
           </div>
         </div>
