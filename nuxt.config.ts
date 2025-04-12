@@ -10,9 +10,9 @@ export default defineNuxtConfig({
         shim: false,
         // typeCheck: true,
     },
-    // routeRules: {
-    //     prerender: true
-    // },
+    routeRules: {
+        '/': {prerender: true},
+    },
     modules: [
         '@nuxt/fonts',
         '@nuxt/icon',
