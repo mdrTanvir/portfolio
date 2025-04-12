@@ -5,8 +5,11 @@ const siteData = {
     address: 'Dhaka, Bangladesh',
     email: 'taanvir@gmail.com',
     socials: [
-        {name: 'Facebook', link: 'https://www.facebook.com/tanvir.rahman.7547', logo: ''},
-        {name: 'LinkedIn', link: 'https://www.linkedin.com/in/tanvirrahman7547/', logo: ''},
+        {name: 'Facebook', link: 'https://www.facebook.com/tanvir.rahman.7547', icon: 'fa:facebook-square'},
+        {name: 'LinkedIn', link: 'https://www.linkedin.com/in/tanvirrahman7547/', icon: 'fa:linkedin'},
+        {name: 'Instagram', link: 'https://www.instagram.com/tanvirrahman7547/', icon: 'fa:instagram'},
+        {name: 'Twitter', link: 'https://twitter.com/tanvirrahman7547', icon: 'fa:twitter'},
+        {name: 'Github', link: 'https://github.com', icons: 'fa:github-square'},
     ],
     skills: {
         development: [

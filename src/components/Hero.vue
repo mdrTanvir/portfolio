@@ -13,10 +13,21 @@
           </p>
 
           <!-- Social Links -->
-          <div>
-
+          <div class="mt-6 flex gap-4">
+            <a v-for="social in siteData.socials"
+               :key="social.name"
+               :href="social.link"
+               target="_blank"
+               data-hover
+            >
+              <Icon
+                  :name="social.icon"
+                  class="w-6 h-6 text-gray-500 dark:text-gray-200 hover:text-indigo-400 dark:hover:text-indigo-400"
+              />
+            </a>
           </div>
-          <div class="mt-4 flex gap-4">
+
+          <div class="mt-6 flex gap-4">
             <UiPrimaryButton to="/">
               <span class="hoverMove">
                 <Icon name="lucide:download" class="w-4 h-4 mr-2"/>
@@ -42,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+import siteData from "~/config/data";
+
 const count = ref(0)
 
 const themeStore = useThemeStore()
