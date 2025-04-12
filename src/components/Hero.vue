@@ -13,7 +13,7 @@
           </p>
 
           <!-- Social Links -->
-          <SocialLinks/>
+          <SocialLinks class="mb-6"/>
 
           <div class="mb-6 flex gap-4">
             <UiPrimaryButton to="/">
