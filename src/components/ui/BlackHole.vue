@@ -140,7 +140,7 @@ function setParticles() {
   }
   particleArea.sx = (width - particleArea.sw) / 2
   particleArea.ex = (width - particleArea.ew) / 2
-  particles = Array.from({length: 100}, () => initParticle(true))
+  particles = Array.from({length: 80}, () => initParticle(true))
 }
 
 function moveDiscs() {
