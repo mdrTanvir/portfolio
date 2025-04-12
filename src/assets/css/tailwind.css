@@ -14,26 +14,26 @@
 
 @layer base {
     :root {
-        --color-body: #ffffff;
+        /*--color-body: #ffffff;*/
 
-        --color-text-link: #000000;
-        --color-text-link-hover: dodgerblue;
-        --color-text-base: #000000;
-        --color-text-inverted: #ffffff;
+        /*--color-text-link: #000000;*/
+        /*--color-text-link-hover: dodgerblue;*/
+        /*--color-text-base: #000000;*/
+        /*--color-text-inverted: #ffffff;*/
 
-        --color-muted: #525252;
-        --base-100: dodgerblue;
-        --base-200: dodgerblue;
-        --base-300: dodgerblue;
+        /*--color-muted: #525252;*/
+        /*--base-100: dodgerblue;*/
+        /*--base-200: dodgerblue;*/
+        /*--base-300: dodgerblue;*/
 
-        --color-primary: dodgerblue;
-        --color-secondary: #1f679b;
-        --color-accent: #faf6d0;
-        --color-neutral: #1a1a1a;
-        --color-info: #38bdf8;
-        --color-success: #16a34a;
-        --color-warning: #facc15;
-        --color-error: #dc2626;
+        /*--color-primary: dodgerblue;*/
+        /*--color-secondary: #1f679b;*/
+        /*--color-accent: #faf6d0;*/
+        /*--color-neutral: #1a1a1a;*/
+        /*--color-info: #38bdf8;*/
+        /*--color-success: #16a34a;*/
+        /*--color-warning: #facc15;*/
+        /*--color-error: #dc2626;*/
     }
 
     /*body, html, #app {*/
@@ -68,7 +68,7 @@ img {
 
 /* Typography */
 .h1 {
-    @apply text-4xl sm:text-5xl font-bold tracking-tight;
+    @apply text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight;
 }
 
 .h2 {
@@ -105,4 +105,25 @@ p, .p {
 
 .strong {
     @apply text-base tracking-tight leading-7 font-semibold;
+}
+
+a,
+a:active,
+a:focus,
+.a,
+.a:active,
+.a:focus {
+    @include variables.transition(200ms);
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover,
+.a:hover {
+    color: oklch(67.3% 0.182 276.935) !important;
+    text-decoration: none !important;
+//color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
+//color: -o-linear-gradient(left, #21d4fd, #b721ff);
+//color: -moz-linear-gradient(left, #21d4fd, #b721ff);
+//color: linear-gradient(left, #21d4fd, #b721ff);
 }
