@@ -13,7 +13,7 @@
         <Icon
             v-if="social.icon"
             :name="social.icon"
-            class="w-6 h-6 text-gray-800 dark:text-gray-200 hover:text-indigo-400 dark:hover:text-indigo-400"
+            class="w-6 h-6 text-gray-800 dark:text-gray-200 hover:text-primary dark:hover:text-primary"
         />
       </a>
     </template>

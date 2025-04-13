@@ -11,29 +11,8 @@
     /*}*/
 }
 
-
 @layer base {
     :root {
-        /*--color-body: #ffffff;*/
-
-        /*--color-text-link: #000000;*/
-        /*--color-text-link-hover: dodgerblue;*/
-        /*--color-text-base: #000000;*/
-        /*--color-text-inverted: #ffffff;*/
-
-        /*--color-muted: #525252;*/
-        /*--base-100: dodgerblue;*/
-        /*--base-200: dodgerblue;*/
-        /*--base-300: dodgerblue;*/
-
-        /*--color-primary: dodgerblue;*/
-        /*--color-secondary: #1f679b;*/
-        /*--color-accent: #faf6d0;*/
-        /*--color-neutral: #1a1a1a;*/
-        /*--color-info: #38bdf8;*/
-        /*--color-success: #16a34a;*/
-        /*--color-warning: #facc15;*/
-        /*--color-error: #dc2626;*/
     }
 
     /*body, html, #app {*/
@@ -41,6 +20,20 @@
     /*}*/
     .contain {
         @apply max-w-[1366px] w-full mx-auto px-4 sm:px-6 lg:px-8;
+    }
+}
+
+@layer utilities {
+    .bg-primary {
+        @apply bg-indigo-400;
+    }
+
+    .text-primary {
+        @apply text-indigo-400;
+    }
+
+    .border-primary {
+        @apply border-indigo-400;
     }
 }
 
@@ -109,20 +102,20 @@ p, .p {
 a, .a {
     text-decoration: none !important;
     outline: none;
-    @include variables.transition(200ms);
+    transition: all 0.2s ease-in-out;
 }
 
 a:active,
 a:focus,
 .a:active,
 .a:focus {
-    color: oklch(67.3% 0.182 276.935) !important;
+    @apply text-primary dark:text-primary;
 }
 
 @media (hover: hover) and (pointer: fine) {
     a:hover,
     .a:hover {
-        color: oklch(67.3% 0.182 276.935) !important;
+        @apply text-primary dark:text-primary;
     }
 }
 
@@ -132,8 +125,6 @@ a:focus,
         /*focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2*/
     transition duration-300 ease-in-out;
 }
-
-
 
 
 

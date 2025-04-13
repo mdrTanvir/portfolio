@@ -6,7 +6,7 @@
         <div class="py-24 md:py-32">
           <h1 class="mt-10 font-extrabold sm:mt-12 sm:text-6xl lg:mt-20">
             <span class="block text-gray-600 dark:text-white">I am {{ siteData.name }}</span>
-            <span class="block text-indigo-400">a Web Developer</span>
+            <span class="block text-primary">a Web Developer</span>
           </h1>
           <p v-if="siteData.slogan"
              class="mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"

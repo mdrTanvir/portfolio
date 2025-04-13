@@ -4,9 +4,11 @@
     <NuxtLoadingIndicator/>
     <NuxtPage lazy/>
   </NuxtLayout>
-  <template v-if="isDesktop">
-    <LazyUiCursor/>
-  </template>
+  <client-only>
+    <template v-if="isDesktop">
+<!--      <LazyUiCursor/>-->
+    </template>
+  </client-only>
 </template>
 
 <script setup lang="ts">
