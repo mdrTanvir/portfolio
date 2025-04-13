@@ -1,11 +1,12 @@
 <template>
   <main>
-     <Hero/>
-     <Skills/>
-     <Experience/>
-     <Projects/>
-     <OtherProjects/>
-     <Contact/>
+    <HomeHero/>
+    <SvgLine/>
+    <HomeSkills/>
+    <HomeExperience/>
+    <HomeProjects/>
+    <HomeOtherProjects/>
+    <HomeContact/>
     <TheFooder/>
   </main>
 </template>
