@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center sm:text-left before:block before:w-24 before:h-2 before:mb-3 before:rounded-md before:mx-auto sm:before:mx-0 before:dark:bg-primary">
+    <div class="text-center sm:text-left before:block before:w-24 before:h-2 before:mb-3 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-primary">
       <h3 class="text-3xl font-semibold">
         <slot></slot>
       </h3>
