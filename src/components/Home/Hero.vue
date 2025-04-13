@@ -34,9 +34,7 @@
       </div>
     </div>
 
-    <client-only>
-      <UiBlackHole :key="count"/>
-    </client-only>
+    <UiBlackHole :key="count"/>
   </div>
   <div class="pb-10 md:pb-14 lg:pb-20"></div>
 </template>
@@ -49,12 +47,16 @@ const count = ref(0)
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 
-watch(() => darkMode.value, () => {
-  count.value++
-})
+const handleResize = () => count.value++
+
+watch(() => darkMode.value, handleResize)
 
 onMounted(() => {
-  window.addEventListener("resize", () => count.value++)
+  window.addEventListener("resize", handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize)
 })
 </script>
 
