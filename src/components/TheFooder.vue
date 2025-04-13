@@ -1,5 +1,5 @@
 <template>
-  <footer id="footer" class="h-[100vh] bg-green-100">
+  <footer id="footer" class="h-[50vh] bg-gray-100 dark:bg-gray-950">
   </footer>
 </template>
 

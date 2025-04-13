@@ -5,12 +5,13 @@
       <div class="contain">
         <div class="py-24 md:py-32">
           <h1 class="mt-10 font-extrabold sm:mt-12 sm:text-6xl lg:mt-20">
-            <span class="block text-gray-600 dark:text-white">I am Tanvir Rahman</span>
+            <span class="block text-gray-600 dark:text-white">I am {{ siteData.name }}</span>
             <span class="block text-indigo-400">a Web Developer</span>
           </h1>
-          <p class="mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-            A Full-Stack Developer turning ideas into seamless digital experiences.
-          </p>
+          <p v-if="siteData.slogan"
+             class="mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+             v-html="siteData.slogan"
+          ></p>
 
           <!-- Social Links -->
           <SocialLinks class="mb-6"/>
@@ -41,6 +42,8 @@
 </template>
 
 <script setup lang="ts">
+import siteData from "~/config/data";
+
 const count = ref(0)
 
 const themeStore = useThemeStore()

@@ -1,5 +1,6 @@
 const siteData = {
     name: 'Tanvir Rahman',
+    slogan: 'A Full-Stack Developer turning ideas into seamless digital experiences.',
     description: '' +
         'Hello! I’m a passionate and detail-oriented <strong>Full Stack Web Developer</strong> with a strong foundation in both backend and frontend technologies. ' +
         'I specialize in <strong>Laravel (PHP)</strong> and <strong>Vue.js</strong>, ' +
