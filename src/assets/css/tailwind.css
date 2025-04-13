@@ -6,14 +6,24 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer components {
-    /*.card {*/
-    /*  @apply bg-skin-base-100 rounded-lg shadow-lg;*/
-    /*}*/
+    .timeline-card {
+        @apply relative ml-4 flex flex-col bg-gray-100 dark:bg-gray-900 border-2 border-indigo-400 px-8 py-3 rounded-xl shadow-md w-full max-w-[420px];
+    }
+
+    .timeline-dot::before {
+        content: '';
+        @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full rotate-[45deg] bg-primary z-10;
+        border-width: 10px;
+        border-color: white;
+    }
+
+    .dark .timeline-dot::before {
+        border-color: black;
+    }
 }
 
 @layer base {
-    :root {
-    }
+    :root {}
 
     /*body, html, #app {*/
     /*@apply bg-skin-body text-skin-base;*/

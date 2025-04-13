@@ -20,16 +20,9 @@
       <!--      ></div>-->
 
       <!-- Card -->
-      <div
-          class="relative ml-4 flex flex-col bg-gray-100 dark:bg-gray-900 border-2 border-indigo-400 px-8 py-3 rounded-xl shadow-md w-full max-w-[420px]"
-      >
+      <div class="timeline-card">
         <!-- Dot -->
-        <div class="z-10 w-10 h-10 rounded-full border-[10px] rotate-[45deg] bg-primary absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2"
-             :class="[
-          'border-l-white border-b-white border-r-white border-t-white',
-          'dark:border-l-black dark:border-b-black dark:border-r-black dark:border-t-black',
-      ]"
-        ></div>
+        <div class="timeline-dot"></div>
         <h3 class="text-lg font-semibold text-primary">
           {{ education.title }}
         </h3>
