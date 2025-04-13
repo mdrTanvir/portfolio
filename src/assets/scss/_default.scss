@@ -34,3 +34,10 @@ body {
 .content-section {
   @apply py-10 md:py-14 lg:py-20;
 }
+
+@supports (-webkit-text-stroke: 1px black) {
+  .strokeText {
+    -webkit-text-stroke: 1px red;
+    -webkit-text-fill-color: white;
+  }
+}

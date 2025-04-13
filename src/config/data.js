@@ -36,28 +36,29 @@ const siteData = {
         {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
     skills: {
-        development: [
+        frontend: [
             {name: 'HTML', logo: ''},
             {name: 'CSS', logo: ''},
             {name: 'JavaScript', logo: ''},
-            {name: 'PHP', logo: ''},
-            {name: 'Laravel', logo: ''},
             {name: 'Vue.js', logo: ''},
             {name: 'Nuxt.js', logo: ''},
             {name: 'Tailwind CSS', logo: ''},
             {name: 'Bootstrap', logo: ''},
+        ],
+        backend: [
+            {name: 'PHP', logo: ''},
+            {name: 'Laravel', logo: ''},
+        ],
+        database: [
             {name: 'MySQL', logo: ''},
             {name: 'PostgreSQL', logo: ''},
         ],
-        others: [
+        tools: [
             {name: 'Git', logo: ''},
             {name: 'GitHub', logo: ''},
-            {name: 'Figma', logo: ''},
-            {name: 'WordPress', logo: ''},
             {name: 'Docker', logo: ''},
             {name: 'Linux', logo: ''},
             {name: 'Nginx', logo: ''},
-            {name: 'Redis', logo: ''},
             {name: 'REST API', logo: ''},
         ]
     },
