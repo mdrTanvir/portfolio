@@ -106,25 +106,30 @@ p, .p {
     @apply text-base tracking-tight leading-7 font-semibold;
 }
 
-a,
-a:active,
-a:focus,
-.a,
-.a:active,
-.a:focus {
-    @include variables.transition(200ms);
+a, .a {
     text-decoration: none !important;
     outline: none;
+    @include variables.transition(200ms);
 }
 
-a:hover,
-.a:hover {
+a:active,
+a:focus,
+.a:active,
+.a:focus {
     color: oklch(67.3% 0.182 276.935) !important;
 }
 
+@media (hover: hover) and (pointer: fine) {
+    a:hover,
+    .a:hover {
+        color: oklch(67.3% 0.182 276.935) !important;
+    }
+}
+
+
 .btn {
     @apply px-5 py-3 rounded-lg font-medium
-    /*focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2*/
+        /*focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2*/
     transition duration-300 ease-in-out;
 }
 

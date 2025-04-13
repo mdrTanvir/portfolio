@@ -41,3 +41,9 @@ body {
     -webkit-text-fill-color: white;
   }
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .hover\:underline:hover {
+    text-decoration-line: underline;
+  }
+}
