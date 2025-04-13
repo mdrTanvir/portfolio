@@ -218,13 +218,13 @@ function setup() {
   tick()
 }
 
-// watch(() => darkMode.value, () => {
-//   setup()
-// })
+watch(() => darkMode.value, () => {
+  setup()
+})
 
 onMounted(() => {
   setup()
-  // window.addEventListener("resize", setup)
+  window.addEventListener("resize", setup)
 })
 
 onBeforeUnmount(() => {

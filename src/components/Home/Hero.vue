@@ -35,7 +35,7 @@
     </div>
 
     <template v-if="isDesktop">
-      <UiBlackHole :key="count"/>
+      <UiBlackHole/>
     </template>
   </div>
   <div class="pb-10 md:pb-14 lg:pb-20"></div>
@@ -44,23 +44,6 @@
 <script setup lang="ts">
 const {isDesktop} = useDevice()
 import siteData from "~/config/data";
-
-const count = ref(0)
-
-const themeStore = useThemeStore()
-const {darkMode} = storeToRefs(themeStore)
-
-const handleResize = () => count.value++
-
-watch(() => darkMode.value, handleResize)
-
-onMounted(() => {
-  window.addEventListener("resize", handleResize)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", handleResize)
-})
 </script>
 
 <style scoped>
