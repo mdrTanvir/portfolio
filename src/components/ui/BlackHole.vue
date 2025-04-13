@@ -19,7 +19,7 @@ import * as easingUtils from 'easing-utils'
 
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
-const lineCount = 80
+const lineCount = 90
 
 const canvas = ref(null)
 const container = ref(null)

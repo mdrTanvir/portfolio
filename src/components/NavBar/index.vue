@@ -15,7 +15,7 @@
           <div class="hidden space-x-8 md:flex">
             <a v-for="item in navigation" :key="item.name" :href="item.href" data-hover
                class="text-base font-medium"
-               :class="item.focus ? 'text-indigo-600 dark:text-indigo-600' : 'text-gray-600 dark:text-white'"
+               :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-600 dark:text-white'"
             >
               <span class="hoverMove">{{ item.name }}</span>
             </a>
