@@ -23,7 +23,8 @@
 }
 
 @layer base {
-    :root {}
+    :root {
+    }
 
     /*body, html, #app {*/
     /*@apply bg-skin-body text-skin-base;*/
@@ -116,9 +117,7 @@ a, .a {
 }
 
 a:active,
-a:focus,
-.a:active,
-.a:focus {
+.a:active {
     @apply text-primary dark:text-primary;
 }
 
