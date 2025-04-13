@@ -4,7 +4,7 @@
     <NuxtLoadingIndicator/>
     <NuxtPage lazy/>
   </NuxtLayout>
-  <LazyUiCursor/>
+<!--  <LazyUiCursor/>-->
 </template>
 
 <script setup lang="ts">
