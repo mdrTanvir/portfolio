@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 

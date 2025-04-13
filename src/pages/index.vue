@@ -2,6 +2,7 @@
   <main>
     <HomeHero/>
     <SvgLine/>
+    <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>

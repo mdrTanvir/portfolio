@@ -1,6 +1,29 @@
 const siteData = {
-    name: 'Tanvir ',
-    description: 'I\'m a passionate Full-Stack Web Developer from Dhaka, Bangladesh, dedicated to transforming ideas into dynamic, high-performing web applications. With over 3 yr 9 mos of experience, I specialize in building scalable, interactive, and efficient websites using PHP, Laravel, Vue.js, Nuxt.js, Tailwind CSS, and more.',
+    name: 'Tanvir Rahman',
+    description: '' +
+        'Hello! I’m a passionate and detail-oriented <strong>Full Stack Web Developer</strong> with a strong foundation in both backend and frontend technologies. ' +
+        'I specialize in <strong>Laravel (PHP)</strong> and <strong>Vue.js</strong>, ' +
+        'and I enjoy building dynamic, responsive, and user-friendly web applications.' +
+        ' My toolbox includes technologies like <b>JavaScript</b>, <b>Tailwind CSS</b>, <b>Bootstrap</b>, and <b>CSS</b>, which ' +
+        'I use to craft elegant interfaces and seamless user experiences.' +
+        '<br/>I’m always eager to learn, grow, and take on exciting new challenges.' +
+        ' Whether it’s building complex APIs with Laravel or creating smooth, interactive UIs with Vue.js, I take pride in delivering clean, efficient, and scalable code.\n' +
+        '\n' +
+        '<br/>Let’s build something amazing together!',
+    educations: [
+        {
+            title: 'Masters in Information technology',
+            institution: 'University of Tasmania (UTAS) Australia',
+            duration: '2023 - 2025',
+            description: ''
+        },
+        {
+            title: 'Bachelor of Science in Computer Science',
+            institution: 'University of Greenwich (UoG) UK',
+            duration: '2016 - 2020',
+            description: ''
+        },
+    ],
     github: 'https://github.com/Tanvir',
     address: 'Dhaka, Bangladesh',
     email: 'taanvir@gmail.com',
