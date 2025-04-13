@@ -143,9 +143,12 @@ function setParticles() {
   particles = Array.from({length: 60}, () => initParticle(true))
 }
 
+const diskP = ref(null)
+
 function moveDiscs() {
   discs.forEach(d => {
     d.p = (d.p + 0.001) % 1
+    console.log(d)
     tweenDisc(d)
   })
 }
