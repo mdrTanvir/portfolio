@@ -12,7 +12,7 @@
 
     .timeline-dot::before {
         content: '';
-        @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full rotate-[45deg] bg-primary z-10;
+        @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary z-10;
         border-width: 10px;
         border-color: white;
     }
