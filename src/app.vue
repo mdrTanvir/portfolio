@@ -5,7 +5,7 @@
     <NuxtPage lazy/>
   </NuxtLayout>
   <template v-if="isDesktop">
-    <!--      <LazyUiCursor/>-->
+    <LazyUiCursor/>
   </template>
 </template>
 

@@ -145,7 +145,7 @@ function setParticles() {
 
 function moveDiscs() {
   discs.forEach(d => {
-    d.p = (d.p + 0.0004) % 1
+    d.p = (d.p + 0.001) % 1
     tweenDisc(d)
   })
 }
