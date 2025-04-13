@@ -28,59 +28,41 @@ gsap.registerPlugin(ScrollTrigger)
 const itemTitle = ref(null)
 const item = ref(null)
 
-onMounted(() => {
-  const itemTL = gsap.timeline({
-    scrollTrigger: {
-      trigger: item.value, // <-- Fix: use .value
-      start: "0% 75%",
-      end: "25% 50%",
-      scrub: 3,
-    }
-  })
-
-  itemTL.fromTo(itemTitle.value, {scale: 2, y: "100%"}, {
-    scale: 1,
-    y: "0%",
-    ease: "power2.inOut"
-  }, 0)
-
-  // itemTL.fromTo(
-  //     itemTitle.value,
-  //     { scale: 2, y: "100%" },
-  //     {
-  //       scale: 1,
-  //       y: "0%",
-  //       ease: "power2.inOut",
-  //       scrollTrigger: {
-  //         trigger: itemTitle.value,
-  //         start: "top bottom",      // top of the title hits bottom of viewport
-  //         end: "bottom top",        // bottom of title hits top of viewport
-  //         scrub: 1,
-  //         toggleActions: "play none none none",
-  //       }
-  //     }
-  // )
-
-  const itemImg = item.value?.querySelector("img") // <-- safer and more specific
-  if (itemImg) {
-    gsap.fromTo(
-        itemImg,
-        {x: "60vw", y: "60vh", rotate: -30},
-        {
-          // x: "-60vw", y: "-60vh", rotate: 30, ease: "none",
-          x: "0vw", y: "0vh", rotate: 0, ease: "none",
-          scrollTrigger: {
-            trigger: item.value,
-            start: "80% 100%",
-            // end: "100% 60%",
-            end: "100% 80%",
-            scrub: 3,
-          }
-        }
-    )
-  }
-})
-
+// onMounted(() => {
+//   const itemTL = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: item.value, // <-- Fix: use .value
+//       start: "0% 75%",
+//       end: "25% 50%",
+//       scrub: 3,
+//     }
+//   })
+//
+//   itemTL.fromTo(itemTitle.value, {scale: 2, y: "100%"}, {
+//     scale: 1,
+//     y: "0%",
+//     ease: "power2.inOut"
+//   }, 0)
+//
+//   const itemImg = item.value?.querySelector("img") // <-- safer and more specific
+//   if (itemImg) {
+//     gsap.fromTo(
+//         itemImg,
+//         {x: "60vw", y: "60vh", rotate: -30},
+//         {
+//           // x: "-60vw", y: "-60vh", rotate: 30, ease: "none",
+//           x: "0vw", y: "0vh", rotate: 0, ease: "none",
+//           scrollTrigger: {
+//             trigger: item.value,
+//             start: "80% 100%",
+//             // end: "100% 60%",
+//             end: "100% 80%",
+//             scrub: 3,
+//           }
+//         }
+//     )
+//   }
+// })
 </script>
 
 

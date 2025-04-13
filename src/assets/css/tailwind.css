@@ -66,27 +66,27 @@ img {
 
 
 /* Typography */
-h1 {
+.h1 {
     @apply text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight;
 }
 
-h2 {
+.h2 {
     @apply text-3xl sm:text-4xl font-bold tracking-tight;
 }
 
-h3 {
+.h3 {
     @apply text-2xl sm:text-3xl font-semibold tracking-tight;
 }
 
-h4 {
+.h4 {
     @apply text-xl sm:text-2xl font-medium tracking-tight;
 }
 
-h5 {
+.h5 {
     @apply text-lg sm:text-xl font-medium tracking-tight;
 }
 
-h6 {
+.h6 {
     @apply text-base sm:text-lg font-medium tracking-tight;
 }
 
