@@ -6,6 +6,9 @@
       <div class="z-10">
         <p v-html="siteData.description" class="text-base text-gray-800 dark:text-gray-300"></p>
         <div>
+          <div class="my-4">
+            <UiSubheading>Education</UiSubheading>
+          </div>
           <EducationTimeline/>
         </div>
       </div>

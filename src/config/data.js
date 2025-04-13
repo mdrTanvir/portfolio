@@ -7,10 +7,10 @@ const siteData = {
         'and I enjoy building dynamic, responsive, and user-friendly web applications.' +
         ' My toolbox includes technologies like <b>JavaScript</b>, <b>Tailwind CSS</b>, <b>Bootstrap</b>, and <b>CSS</b>, which ' +
         'I use to craft elegant interfaces and seamless user experiences.' +
-        '<br/><br/>I’m always eager to learn, grow, and take on exciting new challenges.' +
+        '<br style="margin-bottom: 4px"/>I’m always eager to learn, grow, and take on exciting new challenges.' +
         ' Whether it’s building complex APIs with Laravel or creating smooth, interactive UIs with Vue.js, I take pride in delivering clean, efficient, and scalable code.\n' +
         '\n' +
-        '<br/><br/>Let’s build something amazing together!',
+        '<br style="margin-bottom: 4px"/>Let’s build something amazing together!',
     educations: [
         {
             title: 'Masters in Information technology',
@@ -64,7 +64,7 @@ const siteData = {
     },
     experiences: [
         {
-            title: 'Full-Stack Developer',
+            title: 'Team Lead',
             company: 'Softech Limited',
             duration: 'Jan 2023 - Present',
             description: 'Developing and maintaining web applications using PHP, Laravel, Vue.js, and MySQL.',
@@ -75,16 +75,16 @@ const siteData = {
             ]
         },
         {
-            title: 'Web Developer',
+            title: 'Full-Stack Web Developer',
             company: 'Tech Solutions',
             duration: 'Jan 2022 - Dec 2022',
             description: 'Worked on various web development projects using HTML, CSS, JavaScript, and PHP.',
             skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
         },
         {
-            title: 'Full-Stack Developer',
+            title: 'Backend Developer',
             company: 'Softech Limited',
-            duration: 'Jan 2023 - Present',
+            duration: 'Jan 2021 - Dec 2021',
             description: 'Developing and maintaining web applications using PHP, Laravel, Vue.js, and MySQL.',
             skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
             projectLinks: [

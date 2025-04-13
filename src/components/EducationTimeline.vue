@@ -1,6 +1,6 @@
 <!-- components/EducationTimeline.vue -->
 <template>
-  <div class="relative flex flex-col items-start py-6 max-w-4xl mx-auto">
+  <div class="relative flex flex-col items-start max-w-4xl mx-auto">
     <!-- Timeline items -->
     <div
         v-for="(education, index) in siteData.educations"
