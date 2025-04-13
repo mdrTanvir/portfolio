@@ -67,7 +67,7 @@ const siteData = {
             title: 'Team Lead',
             company: 'Softech Limited',
             duration: 'Jan 2023 - Present',
-            description: 'Developing and maintaining web applications using PHP, Laravel, Vue.js, and MySQL.',
+            description: 'Led the development of web applications using Laravel, Vue.js, and MySQL. Managed a small team, ensured code quality, and streamlined deployment processes across multiple projects.',
             skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
             projectLinks: [
                 {name: 'Project A', link: 'https://project-a.com'},
@@ -78,14 +78,14 @@ const siteData = {
             title: 'Full-Stack Web Developer',
             company: 'Tech Solutions',
             duration: 'Jan 2022 - Dec 2022',
-            description: 'Worked on various web development projects using HTML, CSS, JavaScript, and PHP.',
+            description: 'Built responsive websites using HTML, CSS, JavaScript, and PHP. Collaborated with designers and backend developers to deliver user-friendly interfaces and efficient backend logic.',
             skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
         },
         {
             title: 'Backend Developer',
             company: 'Softech Limited',
             duration: 'Jan 2021 - Dec 2021',
-            description: 'Developing and maintaining web applications using PHP, Laravel, Vue.js, and MySQL.',
+            description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
             skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
             projectLinks: [
                 {name: 'Project A', link: 'https://project-a.com'},
