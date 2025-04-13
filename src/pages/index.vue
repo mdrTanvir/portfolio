@@ -1,7 +1,7 @@
 <template>
   <main>
     <HomeHero/>
-    <SvgLine/>
+<!--    <SvgLine/>-->
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>

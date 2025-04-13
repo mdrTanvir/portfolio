@@ -4,9 +4,12 @@
     <NuxtLoadingIndicator/>
     <NuxtPage lazy/>
   </NuxtLayout>
-  <LazyUiCursor/>
+  <template v-if="isDesktop">
+    <LazyUiCursor/>
+  </template>
 </template>
 
 <script setup lang="ts">
 provideHeadlessUseId(() => useId())
+const {isDesktop} = useDevice()
 </script>

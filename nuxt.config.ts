@@ -21,6 +21,7 @@ export default defineNuxtConfig({
         'nuxt-headlessui',
         '@pinia/nuxt',
         'pinia-plugin-persistedstate/nuxt',
+        '@nuxtjs/device',
     ],
     tailwindcss: {
         exposeConfig: true,
