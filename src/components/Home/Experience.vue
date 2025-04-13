@@ -12,7 +12,9 @@
             <div
                 v-for="(experience, index) in siteData.experiences"
                 :key="index"
-                class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-10 sm:before:h-10 sm:before:rounded-full sm:before:left-[-47px] sm:before:z-[1] before:bg-primary before:dark:bg-primary before:border-[10px] before:border-white before:dark:border-black"
+                class="flex flex-col sm:relative
+                sm:before:absolute sm:before:top-2 sm:before:w-10 sm:before:h-10 sm:before:rounded-full sm:before:top-[-5px] sm:before:left-[-47px] sm:before:z-[1]
+                before:bg-primary before:dark:bg-primary before:border-[10px] before:border-white before:dark:border-black"
             >
               <h3 class="text-xl font-semibold tracking-wide">{{ experience.title }}</h3>
               <span class="text-sm text-gray-600 dark:text-gray-400">{{ experience.company }}</span>

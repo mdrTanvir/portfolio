@@ -34,12 +34,15 @@
       </div>
     </div>
 
-    <UiBlackHole :key="count"/>
+    <template v-if="isDesktop">
+      <UiBlackHole :key="count"/>
+    </template>
   </div>
   <div class="pb-10 md:pb-14 lg:pb-20"></div>
 </template>
 
 <script setup lang="ts">
+const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 
 const count = ref(0)
