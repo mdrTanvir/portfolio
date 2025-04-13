@@ -19,6 +19,7 @@ import * as easingUtils from 'easing-utils'
 
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
+const lineCount = 80
 
 const canvas = ref(null)
 const container = ref(null)
@@ -60,8 +61,8 @@ function setDiscs() {
   endDisc = {x: width * 0.5, y: height * 0.95, w: 0, h: 0}
   let prevBottom = height
   clip = {}
-  for (let i = 0; i < 100; i++) {
-    const p = i / 100
+  for (let i = 0; i < lineCount; i++) {
+    const p = i / lineCount
     const disc = tweenDisc({p})
     const bottom = disc.y + disc.h
     if (bottom <= prevBottom) {
@@ -77,8 +78,8 @@ function setDiscs() {
 
 function setLines() {
   const {width, height} = rect
-  lines = Array.from({length: 100}, () => [])
-  const angleStep = (Math.PI * 2) / 100
+  lines = Array.from({length: lineCount}, () => [])
+  const angleStep = (Math.PI * 2) / lineCount
   discs.forEach(disc => {
     lines.forEach((line, i) => {
       const angle = i * angleStep
@@ -104,7 +105,7 @@ function setLines() {
       linesCtx.beginPath()
       linesCtx.moveTo(p0.x, p0.y)
       linesCtx.lineTo(p1.x, p1.y)
-      linesCtx.strokeStyle = darkMode.value ? "#272727" : "#dadada"
+      linesCtx.strokeStyle = darkMode.value ? "#272727" : "#cfcfcf"
       linesCtx.lineWidth = 2
       linesCtx.stroke()
       linesCtx.closePath()
@@ -143,12 +144,9 @@ function setParticles() {
   particles = Array.from({length: 60}, () => initParticle(true))
 }
 
-const diskP = ref(null)
-
 function moveDiscs() {
   discs.forEach(d => {
     d.p = (d.p + 0.001) % 1
-    console.log(d)
     tweenDisc(d)
   })
 }
@@ -163,7 +161,7 @@ function moveParticles() {
 }
 
 function drawDiscs() {
-  ctx.strokeStyle = darkMode.value ? "#272727" : "#dadada"
+  ctx.strokeStyle = darkMode.value ? "#272727" : "#cfcfcf"
   ctx.lineWidth = 2
   const outer = startDisc
   ctx.beginPath()
