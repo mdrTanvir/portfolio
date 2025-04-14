@@ -2,7 +2,7 @@
   <main>
     <HomeHero/>
     <!--    <SvgLine/>-->
-    <UiMeteors/>
+    <UiParticlesHeroParticles/>
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
