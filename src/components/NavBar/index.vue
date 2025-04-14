@@ -88,7 +88,6 @@ const theme = useThemeStore()
 <style scoped lang="scss">
 nav {
   ul {
-    display: flex;
     flex-wrap: wrap;
     list-style: none;
 

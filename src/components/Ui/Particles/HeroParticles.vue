@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-// import type { Container } from '@tsparticles/engine'
+import type { Container } from '@tsparticles/engine'
 
 const particlesOptions = {
   fullScreen: {enable: false},
@@ -108,8 +108,8 @@ const particlesOptions = {
   detectRetina: true
 }
 
-// const onLoad = (container: Container) => {
-//   container.pause()
-//   setTimeout(() => container.play(), 2000)
-// }
+const onLoad = (container: Container) => {
+  container.pause()
+  setTimeout(() => container.play(), 2000)
+}
 </script>

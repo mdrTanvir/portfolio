@@ -2,10 +2,10 @@
   <div class="heroSection">
     <div class="contain relative h-screen z-10 pt-10 sm:pt-16 lg:pb-14">
       <div class="py-24 md:py-32">
-<!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
-<!--          <HeroText/>-->
-<!--        </div>-->
-        <h1 class="mt-10 font-extrabold sm:mt-12 sm:text-6xl lg:mt-20">
+        <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
+        <!--          <HeroText/>-->
+        <!--        </div>-->
+        <h1 class="mt-10 font-extrabold sm:mt-12 text-3xl sm:text-4xl md:text-6xl lg:mt-20">
           <div class="overflow-hidden">
             <UiAnimate
                 direction="up"
@@ -25,7 +25,7 @@
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
             >
-              <span class="fluid block">a <span class="text-primary">Web Developer</span></span>
+              <span class="fluid block  text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
             </UiAnimate>
           </div>
         </h1>
@@ -52,7 +52,7 @@
           <SocialLinksHorizontal/>
         </div>
 
-        <div class="mb-6 flex gap-4">
+        <div class="mb-6 flex flex-wrap gap-4">
           <UiAnimate
               direction="up"
               :distance="10"
