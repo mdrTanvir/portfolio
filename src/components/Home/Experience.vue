@@ -16,32 +16,44 @@
                 sm:before:absolute sm:before:top-2 sm:before:w-10 sm:before:h-10 sm:before:rounded-full sm:before:top-[-5px] sm:before:left-[-47px] sm:before:z-[1]
                 before:bg-primary before:dark:bg-primary before:border-[10px] before:border-white before:dark:border-black"
           >
-            <h3 class="text-xl font-semibold tracking-wide">{{ experience.title }}</h3>
-            <span class="text-sm text-gray-600 dark:text-gray-400">{{ experience.company }}</span>
-            <time class="text-xs tracking-wide uppercase dark:text-gray-400">{{ experience.duration }}</time>
-            <p class="mt-3" v-html="experience.description"></p>
-
+            <div class="overflow-hidden">
+              <UiAnimate :distance="20">
+                <h3 class="text-xl font-semibold tracking-wide">{{ experience.title }}</h3>
+              </UiAnimate>
+            </div>
+            <UiAnimate :distance="20">
+              <span class="text-sm text-gray-600 dark:text-gray-400">{{ experience.company }}</span>
+              <time class="text-xs tracking-wide uppercase dark:text-gray-400">{{ experience.duration }}</time>
+            </UiAnimate>
+            <UiAnimate :distance="20">
+              <p class="mt-3" v-html="experience.description"></p>
+            </UiAnimate>
             <!-- Skills -->
             <div v-if="experience.skills?.length" class="flex flex-wrap gap-2 mt-3">
-              <div
+              <template
                   v-for="(skill, skillIndex) in experience.skills"
                   :key="skillIndex"
-                  class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800"
               >
-                {{ skill }}
-              </div>
+                <UiAnimate :distance="20">
+                  <div class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800">
+                    {{ skill }}
+                  </div>
+                </UiAnimate>
+              </template>
             </div>
 
             <!-- Project Links -->
             <div v-if="experience.projectLinks?.length" class="mt-3">
-              <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
-              <ul class="list-disc ml-4 space-y-1 text-sm text-blue-600 dark:text-blue-400">
-                <li v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex">
-                  <a :href="project.link" target="_blank" class="hover:underline">
-                    {{ project.name }}
-                  </a>
-                </li>
-              </ul>
+              <UiAnimate :distance="20">
+                <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
+                <ul class="list-disc ml-4 space-y-1 text-sm text-blue-600 dark:text-blue-400">
+                  <li v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex" class="mb-2">
+                    <a :href="project.link" target="_blank" class="hover:!underline" data-hover>
+                      {{ project.name }}
+                    </a>
+                  </li>
+                </ul>
+              </UiAnimate>
             </div>
           </div>
 

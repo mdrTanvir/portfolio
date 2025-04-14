@@ -14,10 +14,8 @@
                 :key="skillIndex"
             >
               <UiAnimate
-                  direction="up"
                   :distance="60"
-                  :duration="0.4"
-                  :delay="0.4 + skillIndex * 0.1"
+                  :delay="0.2 + skillIndex * 0.1"
               >
                 <div class="relative flex flex-row items-center gap-4">
                 <span>

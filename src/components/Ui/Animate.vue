@@ -5,11 +5,11 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const props = defineProps({
-  direction: {type: String, default: null,},
-  duration: {type: Number, default: 0.6,},
+  direction: {type: String, default: 'up',},
+  duration: {type: Number, default: 0.4,},
   delay: {type: Number, default: 0.2,},
   distance: {type: Number, default: 100,},
-  scrollTriggerStart: {type: String, default: 'top 92%',},
+  scrollTriggerStart: {type: String, default: 'top 95%',},
   ease: {type: String, default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',},
   scrub: {type: Boolean, default: false,},
 })

@@ -1,10 +1,8 @@
 <template>
   <div class="overflow-hidden mb-5">
     <UiAnimate
-        direction="up"
         :distance="60"
-        :duration="0.6"
-        :delay="0.4"
+        :delay="0.2"
     >
 <!--        ease="back.out(3)"-->
       <h1

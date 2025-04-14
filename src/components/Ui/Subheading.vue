@@ -7,9 +7,7 @@
   >
     <div class="overflow-hidden">
       <UiAnimate
-          direction="up"
           :distance="30"
-          :duration="0.6"
           :delay="0.2"
       >
         <h3 class="h2 text-gray-600 dark:text-gray-400 capitalize">
