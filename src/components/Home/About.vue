@@ -1,10 +1,12 @@
 <template>
   <section class="contain content-section about relative" ref="item">
-    <ui-heading ref="itemTitle" class="z-10">About</ui-heading>
+    <UiHeading ref="itemTitle" class="z-10">About</UiHeading>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
       <div class="z-10">
-        <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
+        <div class="mb-10">
+          <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
+        </div>
         <div>
           <div class="my-4">
             <UiSubheading>Education</UiSubheading>

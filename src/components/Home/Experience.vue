@@ -1,6 +1,6 @@
 <template>
   <section v-if="siteData.experiences && siteData.experiences?.length" class="contain content-section">
-    <ui-heading>Experience</ui-heading>
+    <UiHeading>Experience</UiHeading>
 
     <div class="container max-w-5xl px-4 py-12 mx-auto">
       <div class="grid gap-4 mx-4 sm:grid-cols-12">

@@ -1,6 +1,6 @@
 <template>
   <section class="contain content-section">
-    <ui-heading>Contact</ui-heading>
+    <UiHeading>Contact</UiHeading>
   </section>
 </template>
 
