@@ -12,6 +12,7 @@
             :duration="0.6"
             :delay="0.6 + n * 0.1"
             scrollTriggerStart="center bottom"
+            :scrub="false"
         >
           <a
               v-if="social.link"

@@ -12,7 +12,7 @@ const props = defineProps({
   scrollTriggerStart: {type: String, default: 'top 95%',},
   scrollTriggerEnd: {type: String, default: 'top 80%',},
   ease: {type: String, default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',},
-  scrub: {type: Boolean, default: 1,},
+  scrub: {type: Boolean, default: true,},
 })
 
 const componentRef = ref(null)
@@ -27,7 +27,8 @@ onMounted(() => {
         trigger: componentRef.value,
         start: props.scrollTriggerStart,
         end: props.scrollTriggerEnd,
-        toggleActions: 'play none none reverse',
+        // toggleActions: 'play none none reverse',
+        toggleActions: 'restart none none reverse',
         scrub: props.scrub,
       },
       duration: props.duration,
