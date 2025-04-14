@@ -12,10 +12,12 @@
               <span class="fadeIn delay-300 block text-primary">a Web Developer</span>
             </div>
           </h1>
-          <p v-if="siteData.slogan"
-             class="fadeIn delay-700 mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
-             v-html="siteData.slogan"
-          ></p>
+          <div class="overflow-hidden mb-6">
+            <p v-if="siteData.slogan"
+               class="fadeIn delay-300  text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+               v-html="siteData.slogan"
+            ></p>
+          </div>
 
           <!-- Social Links -->
           <SocialLinks class="mb-6"/>
@@ -55,7 +57,7 @@
     </div>
 
     <template v-if="isDesktop">
-      <!--      <UiBlackHole/>-->
+<!--      <UiBlackHole/>-->
     </template>
   </div>
   <div class="pb-10 md:pb-14 lg:pb-20"></div>
