@@ -5,11 +5,15 @@
       <div class="contain">
         <div class="py-24 md:py-32">
           <h1 class="mt-10 font-extrabold sm:mt-12 sm:text-6xl lg:mt-20">
-            <span class="block text-gray-600 dark:text-white">I am {{ siteData.name }}</span>
-            <span class="block text-primary">a Web Developer</span>
+            <div class="overflow-hidden">
+              <span class="fadeIn delay-150 block text-gray-600 dark:text-white">I am {{ siteData.name }}</span>
+            </div>
+            <div class="overflow-hidden">
+              <span class="fadeIn delay-300 block text-primary">a Web Developer</span>
+            </div>
           </h1>
           <p v-if="siteData.slogan"
-             class="mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+             class="fadeIn delay-700 mb-6 text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
              v-html="siteData.slogan"
           ></p>
 
@@ -17,25 +21,41 @@
           <SocialLinks class="mb-6"/>
 
           <div class="mb-6 flex gap-4">
-            <UiPrimaryButton to="/">
+            <UiAnimate
+                direction="up"
+                :distance="10"
+                :duration="0.4"
+                :delay="0.2"
+                scrollTriggerStart="center bottom"
+            >
+              <UiPrimaryButton to="/">
               <span class="hoverMove">
                 <Icon name="lucide:download" class="w-4 h-4 mr-2"/>
                 Download CV
               </span>
-            </UiPrimaryButton>
-            <UiPrimaryButton to="/" inverted>
+              </UiPrimaryButton>
+            </UiAnimate>
+            <UiAnimate
+                direction="up"
+                :distance="10"
+                :duration="0.4"
+                :delay="0.4"
+                scrollTriggerStart="center bottom"
+            >
+              <UiPrimaryButton to="/" inverted>
               <span class="hoverMove">
                 <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/>
                 Let's Talk
               </span>
-            </UiPrimaryButton>
+              </UiPrimaryButton>
+            </UiAnimate>
           </div>
         </div>
       </div>
     </div>
 
     <template v-if="isDesktop">
-      <UiBlackHole/>
+      <!--      <UiBlackHole/>-->
     </template>
   </div>
   <div class="pb-10 md:pb-14 lg:pb-20"></div>
