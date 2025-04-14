@@ -6,7 +6,7 @@
       :delay="0.2"
       scrollTriggerStart="center bottom"
   >
-    <div class="text-center sm:text-left before:block before:w-24 before:h-2 before:mb-3 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-primary">
+    <div class="text-center sm:text-left before:block before:w-16 before:h-1 before:mb-3 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-primary">
       <h3 class="h3 text-gray-600 dark:text-gray-300 capitalize">
         <slot></slot>
       </h3>

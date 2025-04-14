@@ -17,12 +17,12 @@
                   direction="up"
                   :distance="60"
                   :duration="0.4"
-                  :delay="0.4 + skillIndex * 0.2"
+                  :delay="0.4 + skillIndex * 0.1"
                   scrollTriggerStart="center bottom"
               >
                 <div class="relative flex flex-row items-center gap-4">
                 <span>
-                  <img :src="skill.logo" :alt="skill.name" class="h-9" loading="lazy"/>
+                  <NuxtImg :src="skill.logo" :alt="skill.name" class="h-9" loading="lazy"/>
                 </span>
                   <span>{{ skill.name }}</span>
                 </div>
