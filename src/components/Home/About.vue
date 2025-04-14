@@ -5,7 +5,15 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
       <div class="z-10">
         <div class="mb-10">
-          <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
+          <UiAnimate
+              direction="up"
+              :distance="10"
+              :duration="0.6"
+              :delay="0.2"
+              scrollTriggerStart="center bottom"
+          >
+            <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
+          </UiAnimate>
         </div>
         <div>
           <div class="my-4">
