@@ -9,8 +9,7 @@
               direction="up"
               :distance="10"
               :duration="0.6"
-              :delay="0.2"
-              scrollTriggerStart="center bottom"
+              :delay="0.4"
           >
             <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
           </UiAnimate>
@@ -22,11 +21,13 @@
           <EducationTimeline/>
         </div>
       </div>
-      <img
-          src="https://images.unsplash.com/photo-1681068634386-50f0e81f50cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-          alt=""
-          class="flierImage img-fluid"
-      >
+      <div>
+        <!--      <img-->
+        <!--          src="https://images.unsplash.com/photo-1681068634386-50f0e81f50cd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"-->
+        <!--          alt=""-->
+        <!--          class="flierImage img-fluid"-->
+        <!--      >-->
+      </div>
     </div>
   </section>
 </template>

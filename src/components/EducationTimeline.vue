@@ -12,7 +12,6 @@
           :distance="60"
           :duration="0.4"
           :delay="0.4 + index * 0.2"
-          scrollTriggerStart="center bottom"
       >
         <!--      &lt;!&ndash; vertical line &ndash;&gt;-->
         <!--      <div-->

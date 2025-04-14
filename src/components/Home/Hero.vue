@@ -1,8 +1,10 @@
 <template>
   <div class="heroSection">
-
     <div class="contain relative h-screen z-10 pt-10 sm:pt-16 lg:pb-14">
       <div class="py-24 md:py-32">
+<!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
+<!--          <HeroText/>-->
+<!--        </div>-->
         <h1 class="mt-10 font-extrabold sm:mt-12 sm:text-6xl lg:mt-20">
           <div class="overflow-hidden">
             <UiAnimate
@@ -12,7 +14,7 @@
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
             >
-              <span class="block text-gray-600 dark:text-white">I am {{ siteData.name }}</span>
+              <span class="fluid block text-gray-600 dark:text-white">I am {{ siteData.name }},</span>
             </UiAnimate>
           </div>
           <div class="overflow-hidden">
@@ -23,7 +25,7 @@
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
             >
-              <span class="block text-primary">a Web Developer</span>
+              <span class="fluid block">a <span class="text-primary">Web Developer</span></span>
             </UiAnimate>
           </div>
         </h1>
@@ -83,15 +85,15 @@
       </div>
 
       <div>
-<!--        <UiAnimate-->
-<!--            direction="left"-->
-<!--            :distance="10"-->
-<!--            :duration="0.4"-->
-<!--            :delay="0.2"-->
-<!--            scrollTriggerStart="center bottom"-->
-<!--        >-->
-<!--        </UiAnimate>-->
-          <img class="img" src="/images/profile2.jpg" alt="">
+        <!--        <UiAnimate-->
+        <!--            direction="left"-->
+        <!--            :distance="10"-->
+        <!--            :duration="0.4"-->
+        <!--            :delay="0.2"-->
+        <!--            scrollTriggerStart="center bottom"-->
+        <!--        >-->
+        <!--        </UiAnimate>-->
+        <img class="img" src="/images/profile2.jpg" alt="">
       </div>
     </div>
 
@@ -103,6 +105,7 @@
 </template>
 
 <script setup lang="ts">
+
 const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 </script>
