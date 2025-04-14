@@ -37,6 +37,14 @@ const siteData = {
     ],
     skills: {
         // logos downloaded from https://devicon.dev/
+        backend: [
+            {name: 'PHP', logo: '/images/skills/php-original.svg'},
+            {name: 'Laravel', logo: '/images/skills/laravel-original.svg'},
+        ],
+        database: [
+            {name: 'MySQL', logo: '/images/skills/mysql-original.svg'},
+            {name: 'PostgreSQL', logo: '/images/skills/postgresql-original.svg'},
+        ],
         frontend: [
             {name: 'HTML', logo: '/images/skills/html5-original.svg'},
             {name: 'CSS', logo: '/images/skills/css3-original.svg'},
@@ -46,14 +54,6 @@ const siteData = {
             {name: 'Nuxt.js', logo: '/images/skills/nuxtjs-original.svg'},
             {name: 'Tailwind CSS', logo: '/images/skills/tailwindcss-original.svg'},
             {name: 'Bootstrap', logo: '/images/skills/bootstrap-original.svg'},
-        ],
-        backend: [
-            {name: 'PHP', logo: '/images/skills/php-original.svg'},
-            {name: 'Laravel', logo: '/images/skills/laravel-original.svg'},
-        ],
-        database: [
-            {name: 'MySQL', logo: '/images/skills/mysql-original.svg'},
-            {name: 'PostgreSQL', logo: '/images/skills/postgresql-original.svg'},
         ],
         tools: [
             {name: 'Git', logo: '/images/skills/git-original.svg'},

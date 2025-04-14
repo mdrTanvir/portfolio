@@ -1,7 +1,8 @@
 <template>
   <main>
     <HomeHero/>
-<!--    <SvgLine/>-->
+    <!--    <SvgLine/>-->
+    <UiMeteors/>
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
