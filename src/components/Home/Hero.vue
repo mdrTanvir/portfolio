@@ -81,10 +81,10 @@
           </UiAnimate>
         </div>
       </div>
-    </div>
 
-    <div>
-      <img class="img" src="/images/profile2.jpg" alt="">
+      <div>
+        <img class="img" src="/images/profile2.jpg" alt="">
+      </div>
     </div>
 
     <template v-if="isDesktop">
