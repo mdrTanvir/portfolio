@@ -9,7 +9,7 @@ const props = defineProps({
   duration: {type: Number, default: 0.4,},
   delay: {type: Number, default: 0.2,},
   distance: {type: Number, default: 100,},
-  scrollTriggerStart: {type: String, default: 'top 95%',},
+  scrollTriggerStart: {type: String, default: 'top 96%',},
   scrollTriggerEnd: {type: String, default: 'top 80%',},
   ease: {type: String, default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',},
   scrub: {type: Boolean, default: true,},
