@@ -2,7 +2,7 @@
   <div class="overflow-hidden mb-5">
     <UiAnimate
         :distance="60"
-        :delay="0.2"
+        :delay="0.4"
     >
 <!--        ease="back.out(3)"-->
       <h1

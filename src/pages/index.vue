@@ -7,7 +7,7 @@
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>
-    <HomeOtherProjects/>
+<!--    <HomeOtherProjects/>-->
     <HomeContact/>
     <TheFooder/>
   </main>
