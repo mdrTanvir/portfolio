@@ -34,7 +34,7 @@
                   v-for="(skill, skillIndex) in experience.skills"
                   :key="skillIndex"
               >
-                <UiAnimate :distance="20">
+                <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
                   <div class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800">
                     {{ skill }}
                   </div>
@@ -44,7 +44,7 @@
 
             <!-- Project Links -->
             <div v-if="experience.projectLinks?.length" class="mt-3">
-              <UiAnimate :distance="20">
+              <UiAnimate :distance="20" :delay="0.4">
                 <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
                 <ul class="list-disc ml-4 space-y-1 text-sm text-blue-600 dark:text-blue-400">
                   <li v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex" class="mb-2">
