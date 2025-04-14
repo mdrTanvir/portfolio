@@ -1,6 +1,6 @@
 <script setup>
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -25,6 +25,10 @@ const props = defineProps({
     type: String,
     default: 'top bottom',
   },
+  ease: {
+    type: String,
+    default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+  }
 })
 
 const componentRef = ref(null)
@@ -42,6 +46,7 @@ onMounted(() => {
       duration: props.duration,
       delay: props.delay,
       opacity: 0,
+      ease: props.ease,
       ...fadeDirection,
     })
   })
@@ -54,21 +59,21 @@ onBeforeUnmount(() => {
 function getFadeDirection(direction, distance) {
   switch (direction) {
     case 'left':
-      return { x: distance }
+      return {x: distance}
     case 'right':
-      return { x: -distance }
+      return {x: -distance}
     case 'up':
-      return { y: distance }
+      return {y: distance}
     case 'down':
-      return { y: -distance }
+      return {y: -distance}
     default:
-      return { x: 0, y: 0 }
+      return {x: 0, y: 0}
   }
 }
 </script>
 
 <template>
   <div ref="componentRef">
-    <slot />
+    <slot/>
   </div>
 </template>
