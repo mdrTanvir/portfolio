@@ -1,6 +1,6 @@
 <template>
   <div class="heroSection">
-    <div class="contain relative h-screen z-10 pt-10 sm:pt-16 lg:pb-14">
+    <div class="contain relative h-screen z-10 max-h-[1300px] pt-10 sm:pt-16 lg:pb-14">
       <div class="py-24 md:py-32">
         <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
         <!--          <HeroText/>-->
@@ -8,9 +8,7 @@
         <h1 class="mt-10 font-extrabold sm:mt-12 text-3xl sm:text-4xl md:text-6xl lg:mt-20">
           <div class="overflow-hidden">
             <UiAnimate
-                direction="up"
                 :distance="60"
-                :duration="0.4"
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
             >
@@ -19,9 +17,7 @@
           </div>
           <div class="overflow-hidden">
             <UiAnimate
-                direction="up"
                 :distance="60"
-                :duration="0.4"
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
             >
@@ -31,9 +27,7 @@
         </h1>
         <div class="overflow-hidden mb-6">
           <UiAnimate
-              direction="up"
               :distance="60"
-              :duration="0.4"
               :delay="0.4"
               scrollTriggerStart="center bottom"
           >
@@ -54,10 +48,7 @@
 
         <div class="mb-6 flex flex-wrap gap-4">
           <UiAnimate
-              direction="up"
               :distance="10"
-              :duration="0.4"
-              :delay="0.2"
               scrollTriggerStart="center bottom"
           >
             <UiPrimaryButton to="/">
@@ -68,10 +59,7 @@
             </UiPrimaryButton>
           </UiAnimate>
           <UiAnimate
-              direction="up"
               :distance="10"
-              :duration="0.4"
-              :delay="0.4"
               scrollTriggerStart="center bottom"
           >
             <UiPrimaryButton to="/" inverted>
@@ -114,7 +102,8 @@ import siteData from "~/config/data";
 .heroSection {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
+  height: 100%;
+  max-height: 1300px;
   width: 100%;
 }
 

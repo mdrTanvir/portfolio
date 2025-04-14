@@ -30,7 +30,7 @@
     /*@apply bg-skin-body text-skin-base;*/
     /*}*/
     .contain {
-        @apply max-w-[1366px] w-full mx-auto px-4 sm:px-6 lg:px-8;
+        @apply max-w-[1300px] w-full mx-auto px-4 sm:px-6 lg:px-8;
     }
 }
 
