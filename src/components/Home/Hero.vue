@@ -83,7 +83,15 @@
       </div>
 
       <div>
-        <img class="img" src="/images/profile2.jpg" alt="">
+<!--        <UiAnimate-->
+<!--            direction="left"-->
+<!--            :distance="10"-->
+<!--            :duration="0.4"-->
+<!--            :delay="0.2"-->
+<!--            scrollTriggerStart="center bottom"-->
+<!--        >-->
+<!--        </UiAnimate>-->
+          <img class="img" src="/images/profile2.jpg" alt="">
       </div>
     </div>
 
@@ -109,12 +117,12 @@ import siteData from "~/config/data";
 
 .img {
   position: absolute;
+  z-index: 1;
   bottom: 0;
-  right: 0;
+  right: 40px;
   width: auto;
   height: 80vh;
   max-width: 100%;
-  z-index: 1;
   filter: blinds(10px, 0deg);
   mix-blend-mode: lighten !important;
 }
