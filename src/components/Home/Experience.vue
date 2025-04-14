@@ -23,6 +23,7 @@
             </div>
             <UiAnimate :distance="20">
               <span class="text-sm text-gray-600 dark:text-gray-400">{{ experience.company }}</span>
+              <br>
               <time class="text-xs tracking-wide uppercase dark:text-gray-400">{{ experience.duration }}</time>
             </UiAnimate>
             <UiAnimate :distance="20">
