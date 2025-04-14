@@ -83,6 +83,10 @@
       </div>
     </div>
 
+    <div>
+      <img class="img" src="/images/profile2.jpg" alt="">
+    </div>
+
     <template v-if="isDesktop">
       <!--      <UiBlackHole/>-->
     </template>
@@ -95,11 +99,23 @@ const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .heroSection {
   position: relative;
   z-index: 1;
   min-height: 100vh;
   width: 100%;
+}
+
+.img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: 80vh;
+  max-width: 100%;
+  z-index: 1;
+  filter: blinds(10px, 0deg);
+  mix-blend-mode: lighten !important;
 }
 </style>
