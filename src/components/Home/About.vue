@@ -9,7 +9,7 @@
               direction="up"
               :distance="10"
               :duration="0.6"
-              :delay="0.4"
+              :delay="0.2"
           >
             <p v-html="siteData.description" class="text-base text-gray-600 dark:text-gray-300"></p>
           </UiAnimate>

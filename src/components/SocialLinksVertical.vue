@@ -8,9 +8,9 @@
       >
         <UiAnimate
             direction="up"
-            :distance="20"
-            :duration="0.4"
-            :delay="0.4 + n * 0.1"
+            :distance="30"
+            :duration="0.6"
+            :delay="0.6 + n * 0.1"
             scrollTriggerStart="center bottom"
         >
           <a

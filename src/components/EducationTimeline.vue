@@ -8,10 +8,8 @@
         class="relative flex items-center w-full py-2"
     >
       <UiAnimate
-          direction="up"
           :distance="60"
-          :duration="0.4"
-          :delay="0.4 + index * 0.2"
+          :delay="0.2 + index * 0.2"
       >
         <!--      &lt;!&ndash; vertical line &ndash;&gt;-->
         <!--      <div-->
