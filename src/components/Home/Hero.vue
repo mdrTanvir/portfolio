@@ -11,6 +11,7 @@
                 :distance="60"
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
+                :scrub="false"
             >
               <span class="fluid block text-gray-600 dark:text-white">I am {{ siteData.name }},</span>
             </UiAnimate>
@@ -20,6 +21,7 @@
                 :distance="60"
                 :delay="0.4"
                 scrollTriggerStart="center bottom"
+                :scrub="false"
             >
               <span class="fluid block  text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
             </UiAnimate>
@@ -30,6 +32,7 @@
               :distance="60"
               :delay="0.4"
               scrollTriggerStart="center bottom"
+              :scrub="false"
           >
             <p v-if="siteData.slogan"
                class="text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
@@ -49,7 +52,10 @@
         <div class="mb-6 flex flex-wrap gap-4">
           <UiAnimate
               :distance="10"
+              :duration="0.6"
+              :delay="0.4"
               scrollTriggerStart="center bottom"
+              :scrub="false"
           >
             <UiPrimaryButton to="/">
               <span class="hoverMove">
@@ -60,7 +66,10 @@
           </UiAnimate>
           <UiAnimate
               :distance="10"
+              :duration="0.6"
+              :delay="0.6"
               scrollTriggerStart="center bottom"
+              :scrub="false"
           >
             <UiPrimaryButton to="/" inverted>
               <span class="hoverMove">
