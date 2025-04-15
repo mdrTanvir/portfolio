@@ -16,7 +16,6 @@
               </UiAnimate>
             </div>
             <div>
-
               <UiAnimate :distance="20">
                 <label for="email" class="form-label">Your Email</label>
                 <input type="email" id="email" class="form-control" placeholder="johndoe@example.com" required>
