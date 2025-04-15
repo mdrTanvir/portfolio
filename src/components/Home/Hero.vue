@@ -90,9 +90,12 @@
         <!--            scrollTriggerStart="center bottom"-->
         <!--        >-->
         <!--        </UiAnimate>-->
-        <img class="img" src="/images/profile2.jpg" alt="">
+        <!--        <img class="img" src="/images/profile2.jpg" alt="">-->
       </div>
     </div>
+
+    <div class="beam beam-top-1"></div>
+    <div class="beam beam-top-2"></div>
 
     <template v-if="isDesktop">
       <!--      <UiBlackHole/>-->
@@ -126,5 +129,40 @@ import siteData from "~/config/data";
   max-width: 100%;
   filter: blinds(10px, 0deg);
   mix-blend-mode: lighten !important;
+}
+
+.beam {
+  opacity: 1;
+  --border-bottom-width: 0px;
+  --border-color: rgba(238, 238, 238, .1);
+  --border-left-width: 0px;
+  --border-right-width: 0px;
+  --border-style: solid;
+  --border-top-width: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(171, 171, 171, 0) 100%);
+  flex: none;
+  height: 145px;
+  overflow: hidden;
+  position: absolute;
+  width: 1065px;
+  z-index: 1;
+  border-bottom: var(--border-bottom-width) var(--border-style) var(--border-color);
+  border-left: var(--border-left-width) var(--border-style) var(--border-color);
+  border-right: var(--border-right-width) var(--border-style) var(--border-color);
+  border-top: var(--border-top-width) var(--border-style) var(--border-color);
+}
+
+.beam-top-1 {
+  right: -134px;
+  top: 104px;
+  z-index: 1;
+  transform: perspective(1200px) rotate(22deg);
+}
+
+.beam-top-2 {
+  right: -134px;
+  top: 0;
+  z-index: 2;
+  transform: perspective(1200px) rotate(26deg);
 }
 </style>
