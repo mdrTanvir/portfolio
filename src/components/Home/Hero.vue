@@ -9,7 +9,8 @@
           <div class="overflow-hidden">
             <UiAnimate
                 :distance="60"
-                :delay="0.4"
+                :delay="0.6"
+                :duration="0.8"
                 scrollTriggerStart="center bottom"
                 :scrub="false"
             >
@@ -19,7 +20,8 @@
           <div class="overflow-hidden">
             <UiAnimate
                 :distance="60"
-                :delay="0.4"
+                :delay="0.8"
+                :duration="0.8"
                 scrollTriggerStart="center bottom"
                 :scrub="false"
             >
@@ -30,7 +32,8 @@
         <div class="overflow-hidden mb-6">
           <UiAnimate
               :distance="60"
-              :delay="0.4"
+              :delay="1"
+              :duration="0.8"
               scrollTriggerStart="center bottom"
               :scrub="false"
           >
@@ -52,8 +55,8 @@
         <div class="mb-6 flex flex-wrap gap-4">
           <UiAnimate
               :distance="10"
+              :delay="1.2"
               :duration="0.6"
-              :delay="0.4"
               scrollTriggerStart="center bottom"
               :scrub="false"
           >
@@ -66,8 +69,8 @@
           </UiAnimate>
           <UiAnimate
               :distance="10"
+              :delay="1.4"
               :duration="0.6"
-              :delay="0.6"
               scrollTriggerStart="center bottom"
               :scrub="false"
           >
@@ -141,7 +144,6 @@ import siteData from "~/config/data";
   --border-top-width: 1px;
   background: linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(171, 171, 171, 0) 100%);
   flex: none;
-  height: 145px;
   overflow: hidden;
   position: absolute;
   width: 1065px;
@@ -150,6 +152,10 @@ import siteData from "~/config/data";
   border-left: var(--border-left-width) var(--border-style) var(--border-color);
   border-right: var(--border-right-width) var(--border-style) var(--border-color);
   border-top: var(--border-top-width) var(--border-style) var(--border-color);
+
+  //transform: rotate(0deg);
+  animation: 1s fadeInBig ease-in-out forwards;
+  animation-delay: 400ms;
 }
 
 .beam-top-1 {
@@ -164,5 +170,19 @@ import siteData from "~/config/data";
   top: 0;
   z-index: 2;
   transform: perspective(1200px) rotate(26deg);
+}
+
+@keyframes fadeInBig {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    height: 145px;
+  }
 }
 </style>

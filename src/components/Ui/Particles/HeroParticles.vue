@@ -15,7 +15,7 @@ const particlesOptions = {
   background: {color: {value: 'transparent'}},
   particles: {
     number: {
-      value: 120,
+      value: 80,
       density: {
         enable: true,
         area: 800
