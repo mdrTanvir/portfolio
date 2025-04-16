@@ -113,7 +113,7 @@
         <!--            scrollTriggerStart="center bottom"-->
         <!--        >-->
         <!--        </UiAnimate>-->
-                <img class="img" src="/images/profile2.jpg" alt="">
+        <img class="img" src="/images/profile2.jpg" alt="" loading="lazy">
       </div>
     </div>
 
@@ -124,7 +124,7 @@
       <!--      <UiBlackHole/>-->
     </template>
   </div>
-    <div class="py-10 md:py-14 lg:py-20"></div>
+  <div class="py-10 md:py-14 lg:py-20"></div>
 </template>
 
 <script setup lang="ts">
@@ -170,7 +170,7 @@ import siteData from "~/config/data";
   overflow: hidden;
   position: absolute;
   width: 1065px;
-  z-index: 1;
+  z-index: 2;
 
   //transform: rotate(0deg);
   animation: 1s fadeInBig ease-in-out forwards;
