@@ -3,7 +3,7 @@
     <div class="contain relative h-screen z-10 max-h-[1300px] pt-10 sm:pt-16 lg:pb-14">
       <div class="h-full flex flex-col justify-between">
         <div>
-          <div class="pt-24 md:pt-48">
+          <div class="pt-24 md:pt-38">
             <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
             <!--          <HeroText/>-->
             <!--        </div>-->
