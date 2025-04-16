@@ -1,6 +1,6 @@
 <template>
   <Popover as="header" class="relative z-50">
-    <div class="bg-gray-100/30 dark:bg-gray-950/10 backdrop-blur-xl py-4 fixed w-full text-white">
+    <div class="bg-gray-100/10 dark:bg-gray-950/10 backdrop-blur-xl py-4 fixed w-full">
       <nav class="relative contain flex items-center justify-between" aria-label="Global">
         <div class="">
           <NavBarLogo/>
@@ -69,9 +69,9 @@ import {Popover, PopoverButton, PopoverPanel} from "@headlessui/vue";
 
 const navigation = [
   {name: 'About', href: '#'},
+  {name: 'Skills', href: '#'},
   {name: 'Experience', href: '#'},
   {name: 'Portfolio', href: '#'},
-  {name: 'Services', href: '#'},
   {name: "Let's Talk", href: '#', focus: true},
 ]
 

@@ -3,13 +3,13 @@
     <UiHeading>Experience</UiHeading>
 
     <!--    <div class="container max-w-5xl px-4 py-12 mx-auto">-->
-    <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 sm:col-span-3">
+    <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
+      <div class="col-span-12 md:col-span-3">
         <UiSubheading>Work Experience</UiSubheading>
       </div>
       <div
           ref="experienceContainer"
-          class="relative col-span-12 px-0 sm:px-4 space-y-2 sm:col-span-9"
+          class="relative col-span-12 px-0 sm:px-4 space-y-2 md:col-span-9"
       >
         <svg
             ref="svg"
