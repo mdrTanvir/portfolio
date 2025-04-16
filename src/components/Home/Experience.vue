@@ -12,7 +12,7 @@
           class="relative col-span-12 px-0 sm:px-4 space-y-2 sm:col-span-9">
         <svg
             ref="svg"
-            class="absolute top-3 sm:top-5 bottom-0 left-1 z-1"
+            class="absolute top-3 sm:top-5 bottom-0 left-0 sm:left-1 z-1"
             width="2" height="100%" viewBox="0 0 2 1000" preserveAspectRatio="none"
         >
           <line ref="line" x1="1" y1="0" x2="1" y2="1000" stroke="#4F46E5" stroke-width="2"/>
@@ -23,11 +23,11 @@
           <div
               v-for="(experience, index) in siteData.experiences"
               :key="index"
-              class="flex flex-col sm:relative"
+              class="flex flex-col relative"
           >
             <UiAnimate direction="down" :distance="30">
-              <div class="hidden sm:block absolute top-2 w-10 h-10 rounded-full top-[-5px] left-[-47px] z-[1]
-                bg-primary dark:bg-primary border-[10px] border-white dark:border-black"></div>
+              <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
+                bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
             </UiAnimate>
             <div class="overflow-hidden">
               <UiAnimate :distance="20">
