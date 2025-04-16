@@ -4,7 +4,7 @@ const siteData = {
     stats: [
         {title: '4 Years +', subtitle: 'Experience'},
         {title: '20+', subtitle: 'Projects'},
-        {title: '5+', subtitle: 'Happy Clients'},
+        {title: '14+', subtitle: 'Happy Clients'},
     ],
     description: '' +
         'Hello! I’m a passionate and detail-oriented <strong>Full Stack Web Developer</strong> with a strong foundation in both backend and frontend technologies. ' +

@@ -17,8 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps} from 'vue';
-
 defineProps({
   title: {type: String, default: '',},
   subtitle: {type: String, default: '',},
