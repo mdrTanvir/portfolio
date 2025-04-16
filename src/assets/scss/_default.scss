@@ -30,7 +30,21 @@ body {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scroll-behavior: auto;
+  -webkit-tap-highlight-color: transparent;
 }
+
+img {
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  shape-margin: 1rem;
+
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
 
 .content-section {
   @apply py-10 md:py-14 lg:py-20;

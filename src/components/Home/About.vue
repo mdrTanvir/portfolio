@@ -35,9 +35,9 @@
 </template>
 
 <script setup lang="ts">
-import siteData from "~/config/data";
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 

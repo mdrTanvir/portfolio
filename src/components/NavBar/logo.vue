@@ -6,10 +6,11 @@
         :delay="0.4"
         :scrub="false"
     >
-      <h3 class="h3 text-black dark:text-white">Tanvir</h3>
+      <h3 class="h3 text-black dark:text-white">{{ siteData.logoName }}</h3>
     </UiAnimate>
   </div>
 </template>
 
 <script setup lang="ts">
+import siteData from "~/config/data";
 </script>
