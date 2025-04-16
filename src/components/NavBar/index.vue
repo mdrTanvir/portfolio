@@ -1,6 +1,6 @@
 <template>
   <Popover as="header" class="relative z-50">
-    <div class="bg-gray-100/30 dark:bg-gray-950/20 backdrop-blur-3xl py-4 fixed w-full text-white">
+    <div class="bg-gray-100/30 dark:bg-gray-950/10 backdrop-blur-xl py-4 fixed w-full text-white">
       <nav class="relative contain flex items-center justify-between" aria-label="Global">
         <div class="">
           <NavBarLogo/>
