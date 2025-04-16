@@ -9,7 +9,8 @@
       </div>
       <div
           ref="experienceContainer"
-          class="relative col-span-12 px-0 sm:px-4 space-y-2 sm:col-span-9">
+          class="relative col-span-12 px-0 sm:px-4 space-y-2 sm:col-span-9"
+      >
         <svg
             ref="svg"
             class="absolute top-3 sm:top-5 bottom-0 left-0 sm:left-1 z-1"
