@@ -3,7 +3,7 @@
     <div class="contain relative h-screen z-10 max-h-[1300px] pt-10 sm:pt-16 lg:pb-14">
       <div class="h-full flex flex-col justify-between">
         <div>
-          <div class="pt-24 md:pt-32">
+          <div class="pt-24 md:pt-48">
             <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
             <!--          <HeroText/>-->
             <!--        </div>-->
@@ -113,7 +113,7 @@
         <!--            scrollTriggerStart="center bottom"-->
         <!--        >-->
         <!--        </UiAnimate>-->
-        <!--        <img class="img" src="/images/profile2.jpg" alt="">-->
+                <img class="img" src="/images/profile2.jpg" alt="">
       </div>
     </div>
 
@@ -124,7 +124,7 @@
       <!--      <UiBlackHole/>-->
     </template>
   </div>
-  <!--  <div class="pb-10 md:pb-14 lg:pb-20"></div>-->
+    <div class="py-10 md:py-14 lg:py-20"></div>
 </template>
 
 <script setup lang="ts">
