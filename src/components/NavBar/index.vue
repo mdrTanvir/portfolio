@@ -57,12 +57,6 @@
             <div class="px-2 space-y-1">
               <a v-for="item in navigation" :key="item.name" :href="item.href" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">{{ item.name }}</a>
             </div>
-            <div class="mt-6 px-5">
-              <a href="#" class="block text-center w-full py-3 px-4 rounded-md shadow bg-indigo-600 text-white font-medium hover:bg-indigo-700">Start free trial</a>
-            </div>
-            <div class="mt-6 px-5">
-              <p class="text-center text-base font-medium text-gray-500">Existing customer? <a href="#" class="text-gray-900 hover:underline">Login</a></p>
-            </div>
           </div>
         </div>
       </PopoverPanel>
