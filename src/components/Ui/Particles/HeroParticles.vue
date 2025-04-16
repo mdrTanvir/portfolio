@@ -3,7 +3,7 @@
       id="tsparticles"
       :options="particlesOptions"
       @load="onLoad"
-      class="fixed inset-0 z-0 pointer-events-none h-screen w-screen"
+      class="fixed inset-0 z-[2] pointer-events-none h-screen w-screen"
   ></NuxtParticles>
 </template>
 
@@ -18,7 +18,7 @@ const particlesOptions = {
   background: {color: {value: 'transparent'}},
   particles: {
     number: {
-      value: 80,
+      value: 60,
       density: {
         enable: true,
         area: 800
@@ -33,12 +33,12 @@ const particlesOptions = {
       type: 'circle'
     },
     opacity: {
-      value: 0.4,
+      value: darkMode.value ? 0.3 : 0.6,
       random: false,
       animation: {
         enable: false,
         speed: 1,
-        minimumValue: 0.1,
+        minimumValue: darkMode.value ? 0.1 : 0.2,
         sync: false
       }
     },
@@ -57,7 +57,7 @@ const particlesOptions = {
     },
     move: {
       enable: true,
-      speed: 2,
+      speed: 1,
       direction: 'top-right',
       random: false,
       straight: false,

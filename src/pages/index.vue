@@ -1,13 +1,12 @@
 <template>
   <main>
     <HomeHero/>
-    <!--    <SvgLine/>-->
     <UiParticlesHeroParticles :key="count"/>
+<!--    <SvgLine/>-->
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>
-    <!--    <HomeOtherProjects/>-->
     <HomeContact/>
     <TheFooder/>
   </main>

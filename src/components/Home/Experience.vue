@@ -7,8 +7,19 @@
       <div class="col-span-12 sm:col-span-3">
         <UiSubheading>Work Experience</UiSubheading>
       </div>
-      <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
-        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-300">
+      <div
+          ref="experienceContainer"
+          class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
+        <svg
+            ref="svg"
+            class="absolute top-5 bottom-0 left-1 z-1"
+            width="2" height="100%" viewBox="0 0 2 1000" preserveAspectRatio="none"
+        >
+          <line ref="line" x1="1" y1="0" x2="1" y2="1000" stroke="#4F46E5" stroke-width="2"/>
+        </svg>
+
+        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
+          <!--        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-300">-->
           <div
               v-for="(experience, index) in siteData.experiences"
               :key="index"
@@ -57,7 +68,6 @@
               </UiAnimate>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -66,5 +76,36 @@
 </template>
 
 <script setup lang="ts">
+import {gsap} from 'gsap'
+import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import siteData from "~/config/data";
+
+gsap.registerPlugin(ScrollTrigger)
+
+const experienceContainer = ref(null)
+const line = ref(null)
+
+onMounted(async () => {
+  await nextTick() // wait until child is rendered
+
+
+
+  const length = line.value.getTotalLength()
+
+  gsap.set(line.value, {
+    strokeDasharray: length,
+    strokeDashoffset: length,
+  })
+
+  gsap.to(line.value, {
+    strokeDashoffset: 0,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: experienceContainer.value,
+      start: 'top 70%',
+      end: 'top top',
+      scrub: true,
+    },
+  })
+})
 </script>
