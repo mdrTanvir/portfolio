@@ -25,7 +25,7 @@
                 scrollTriggerStart="center bottom"
                 :scrub="false"
             >
-              <span class="fluid block  text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
+              <span class="fluid block text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
             </UiAnimate>
           </div>
         </h1>
@@ -108,7 +108,6 @@
 </template>
 
 <script setup lang="ts">
-
 const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 </script>
@@ -143,15 +142,15 @@ import siteData from "~/config/data";
   --border-style: solid;
   --border-top-width: 1px;
   background: linear-gradient(180deg, rgba(255, 255, 255, .05) 0%, rgba(171, 171, 171, 0) 100%);
+  border-bottom: var(--border-bottom-width) var(--border-style) var(--border-color);
+  border-left: var(--border-left-width) var(--border-style) var(--border-color);
+  border-right: var(--border-right-width) var(--border-style) var(--border-color);
+  border-top: var(--border-top-width) var(--border-style) var(--border-color);
   flex: none;
   overflow: hidden;
   position: absolute;
   width: 1065px;
   z-index: 1;
-  border-bottom: var(--border-bottom-width) var(--border-style) var(--border-color);
-  border-left: var(--border-left-width) var(--border-style) var(--border-color);
-  border-right: var(--border-right-width) var(--border-style) var(--border-color);
-  border-top: var(--border-top-width) var(--border-style) var(--border-color);
 
   //transform: rotate(0deg);
   animation: 1s fadeInBig ease-in-out forwards;
@@ -167,9 +166,9 @@ import siteData from "~/config/data";
 
 .beam-top-2 {
   right: -134px;
-  top: 0;
+  top: -20px;
   z-index: 2;
-  transform: perspective(1200px) rotate(26deg);
+  transform: perspective(1200px) rotate(28deg);
 }
 
 @keyframes fadeInBig {
