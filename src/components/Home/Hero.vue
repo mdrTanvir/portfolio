@@ -9,8 +9,8 @@
           <div class="overflow-hidden">
             <UiAnimate
                 :distance="60"
-                :delay="0.6"
-                :duration="0.8"
+                :delay="0.4"
+                :duration="0.4"
                 scrollTriggerStart="center bottom"
                 :scrub="false"
             >
@@ -20,8 +20,8 @@
           <div class="overflow-hidden">
             <UiAnimate
                 :distance="60"
-                :delay="0.8"
-                :duration="0.8"
+                :delay="0.6"
+                :duration="0.4"
                 scrollTriggerStart="center bottom"
                 :scrub="false"
             >
@@ -32,8 +32,8 @@
         <div class="overflow-hidden mb-6">
           <UiAnimate
               :distance="60"
-              :delay="1"
-              :duration="0.8"
+              :delay="0.8"
+              :duration="0.4"
               scrollTriggerStart="center bottom"
               :scrub="false"
           >
@@ -62,8 +62,7 @@
           >
             <UiPrimaryButton to="/">
               <span class="hoverMove">
-                <Icon name="lucide:download" class="w-4 h-4 mr-2"/>
-                Download CV
+                <Icon name="lucide:download" class="w-4 h-4 mr-2"/> Download CV
               </span>
             </UiPrimaryButton>
           </UiAnimate>
@@ -76,8 +75,7 @@
           >
             <UiPrimaryButton to="/" inverted>
               <span class="hoverMove">
-                <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/>
-                Let's Talk
+                <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/> Let's Talk
               </span>
             </UiPrimaryButton>
           </UiAnimate>

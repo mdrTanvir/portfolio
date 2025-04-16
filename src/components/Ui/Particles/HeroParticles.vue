@@ -8,27 +8,32 @@
 </template>
 
 <script setup lang="ts">
-import type { Container } from '@tsparticles/engine'
+import type {Container} from '@tsparticles/engine'
+
+const themeStore = useThemeStore()
+const {darkMode} = storeToRefs(themeStore)
 
 const particlesOptions = {
   fullScreen: {enable: false},
   background: {color: {value: 'transparent'}},
   particles: {
     number: {
-      value: 80,
+      value: 100,
       density: {
         enable: true,
         area: 800
       }
     },
     color: {
-      value: ['#EDE1D5', '#E6B033', '#D4932F', '#FFFEFC']
+      value: darkMode.value ?
+          ['#EDE1D5', '#E6B033', '#D4932F', '#FFFEFC'] :
+          ['#000000', '#14141d', '#091123', '#0e051a']
     },
     shape: {
       type: 'circle'
     },
     opacity: {
-      value: 0.5,
+      value: 0.4,
       random: false,
       animation: {
         enable: false,
@@ -52,7 +57,7 @@ const particlesOptions = {
     },
     move: {
       enable: true,
-      speed: 5,
+      speed: 2,
       direction: 'top-right',
       random: false,
       straight: false,
