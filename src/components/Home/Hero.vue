@@ -80,6 +80,24 @@
             </UiPrimaryButton>
           </UiAnimate>
         </div>
+
+        <div class="flex flex-wrap gap-4">
+          <UiDotCard
+              class="w-[180px]"
+              title="4 Years"
+              subtitle="Experience"
+          />
+          <UiDotCard
+              class="w-[180px]"
+              title="10+"
+              subtitle="Projects"
+          />
+          <UiDotCard
+              class="w-[180px]"
+              title="5+"
+              subtitle="Happy Clients"
+          />
+        </div>
       </div>
 
       <div>

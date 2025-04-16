@@ -24,19 +24,13 @@
         <!--      ></div>-->
 
         <!-- Card -->
-        <div class="timeline-card">
-          <!-- Dot -->
-          <div class="timeline-dot"></div>
-          <h3 class="text-lg font-semibold text-primary">
-            {{ education.title }}
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-gray-300">
-            {{ education.institution }}
-          </p>
-          <p class="text-xs text-gray-400 mt-1">
-            {{ education.duration }}
-          </p>
-        </div>
+        <UiDotCard
+            class="w-full"
+            :title="education.title"
+            :subtitle="education.institution"
+            :description="education.duration"
+        >
+        </UiDotCard>
       </UiAnimate>
     </div>
   </div>
