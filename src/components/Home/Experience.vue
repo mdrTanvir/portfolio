@@ -23,10 +23,12 @@
           <div
               v-for="(experience, index) in siteData.experiences"
               :key="index"
-              class="flex flex-col sm:relative
-                sm:before:absolute sm:before:top-2 sm:before:w-10 sm:before:h-10 sm:before:rounded-full sm:before:top-[-5px] sm:before:left-[-47px] sm:before:z-[1]
-                before:bg-primary before:dark:bg-primary before:border-[10px] before:border-white before:dark:border-black"
+              class="flex flex-col sm:relative"
           >
+            <UiAnimate direction="down" :distance="30">
+              <div class="sm:absolute sm:top-2 sm:w-10 sm:h-10 sm:rounded-full sm:top-[-5px] sm:left-[-47px] sm:z-[1]
+                bg-primary dark:bg-primary border-[10px] border-white dark:border-black"></div>
+            </UiAnimate>
             <div class="overflow-hidden">
               <UiAnimate :distance="20">
                 <h3 class="text-xl font-semibold tracking-wide">{{ experience.title }}</h3>
@@ -87,7 +89,6 @@ const line = ref(null)
 
 onMounted(async () => {
   await nextTick() // wait until child is rendered
-
 
 
   const length = line.value.getTotalLength()
