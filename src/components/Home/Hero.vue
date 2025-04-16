@@ -1,102 +1,106 @@
 <template>
   <div class="heroSection">
     <div class="contain relative h-screen z-10 max-h-[1300px] pt-10 sm:pt-16 lg:pb-14">
-      <div class="py-24 md:py-32">
-        <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
-        <!--          <HeroText/>-->
-        <!--        </div>-->
-        <h1 class="mt-10 font-extrabold sm:mt-12 text-3xl sm:text-4xl md:text-6xl lg:mt-20">
-          <div class="overflow-hidden">
-            <UiAnimate
-                :distance="60"
-                :delay="0.4"
-                :duration="0.4"
-                scrollTriggerStart="center bottom"
-                :scrub="false"
-            >
-              <span class="fluid block text-gray-600 dark:text-white">I am {{ siteData.name }},</span>
-            </UiAnimate>
-          </div>
-          <div class="overflow-hidden">
-            <UiAnimate
-                :distance="60"
-                :delay="0.6"
-                :duration="0.4"
-                scrollTriggerStart="center bottom"
-                :scrub="false"
-            >
-              <span class="fluid block text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
-            </UiAnimate>
-          </div>
-        </h1>
-        <div class="overflow-hidden mb-6">
-          <UiAnimate
-              :distance="60"
-              :delay="0.8"
-              :duration="0.4"
-              scrollTriggerStart="center bottom"
-              :scrub="false"
-          >
-            <p v-if="siteData.slogan"
-               class="text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
-               v-html="siteData.slogan"
-            ></p>
-          </UiAnimate>
-        </div>
+      <div class="h-full flex flex-col justify-between">
+        <div>
+          <div class="pt-24 md:pt-32">
+            <!--        <div class="sm:mt-12 sm:text-6xl lg:mt-20 ">-->
+            <!--          <HeroText/>-->
+            <!--        </div>-->
+            <h1 class="mt-10 font-extrabold sm:mt-12 text-3xl sm:text-4xl md:text-6xl lg:mt-20">
+              <div class="overflow-hidden">
+                <UiAnimate
+                    :distance="60"
+                    :delay="0.4"
+                    :duration="0.4"
+                    scrollTriggerStart="center bottom"
+                    :scrub="false"
+                >
+                  <span class="fluid block text-gray-600 dark:text-white">I am {{ siteData.name }},</span>
+                </UiAnimate>
+              </div>
+              <div class="overflow-hidden">
+                <UiAnimate
+                    :distance="60"
+                    :delay="0.6"
+                    :duration="0.4"
+                    scrollTriggerStart="center bottom"
+                    :scrub="false"
+                >
+                  <span class="fluid block text-gray-600 dark:text-white">a <span class="!text-primary">Web Developer</span></span>
+                </UiAnimate>
+              </div>
+            </h1>
+            <div class="overflow-hidden mb-6">
+              <UiAnimate
+                  :distance="60"
+                  :delay="0.8"
+                  :duration="0.4"
+                  scrollTriggerStart="center bottom"
+                  :scrub="false"
+              >
+                <p v-if="siteData.slogan"
+                   class="text-base text-gray-500 dark:text-gray-200 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl"
+                   v-html="siteData.slogan"
+                ></p>
+              </UiAnimate>
+            </div>
 
-        <!-- Social Links -->
-        <div class="absolute bottom-[40px] right-0 hidden md:block">
-          <SocialLinksVertical/>
-        </div>
-        <div class="mb-6 block md:hidden">
-          <SocialLinksHorizontal/>
-        </div>
+            <!-- Social Links -->
+            <div class="absolute bottom-[40px] right-0 hidden md:block">
+              <SocialLinksVertical/>
+            </div>
+            <div class="mb-6 block md:hidden">
+              <SocialLinksHorizontal/>
+            </div>
 
-        <div class="mb-6 flex flex-wrap gap-4">
-          <UiAnimate
-              :distance="10"
-              :delay="1.2"
-              :duration="0.6"
-              scrollTriggerStart="center bottom"
-              :scrub="false"
-          >
-            <UiPrimaryButton to="/">
+            <div class="mb-6 flex flex-wrap gap-4">
+              <UiAnimate
+                  :distance="10"
+                  :delay="1.2"
+                  :duration="0.6"
+                  scrollTriggerStart="center bottom"
+                  :scrub="false"
+              >
+                <UiPrimaryButton to="/">
               <span class="hoverMove">
                 <Icon name="lucide:download" class="w-4 h-4 mr-2"/> Download CV
               </span>
-            </UiPrimaryButton>
-          </UiAnimate>
-          <UiAnimate
-              :distance="10"
-              :delay="1.4"
-              :duration="0.6"
-              scrollTriggerStart="center bottom"
-              :scrub="false"
-          >
-            <UiPrimaryButton to="/" inverted>
+                </UiPrimaryButton>
+              </UiAnimate>
+              <UiAnimate
+                  :distance="10"
+                  :delay="1.4"
+                  :duration="0.6"
+                  scrollTriggerStart="center bottom"
+                  :scrub="false"
+              >
+                <UiPrimaryButton to="/" inverted>
               <span class="hoverMove">
                 <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/> Let's Talk
               </span>
-            </UiPrimaryButton>
-          </UiAnimate>
+                </UiPrimaryButton>
+              </UiAnimate>
+            </div>
+          </div>
         </div>
 
         <div class="flex flex-wrap gap-4">
-          <UiDotCard
-              class="w-[180px]"
-              title="4 Years"
-              subtitle="Experience"
-          />
-          <UiDotCard
-              class="w-[180px]"
-              title="10+"
-              subtitle="Projects"
-          />
-          <UiDotCard
-              class="w-[180px]"
-              title="5+"
-              subtitle="Happy Clients"
-          />
+          <template v-for="(stat, n) in siteData.stats">
+            <UiAnimate
+                :distance="10"
+                :delay="1.2 + n * 0.2"
+                :duration="0.6"
+                scrollTriggerStart="center bottom"
+                :scrub="false"
+            >
+              <UiDotCard
+                  class="w-[180px] py-5"
+                  :title="stat.title"
+                  :subtitle="stat.subtitle"
+              />
+            </UiAnimate>
+          </template>
         </div>
       </div>
 
