@@ -11,7 +11,11 @@
         <SocialLinksVertical/>
       </div>
       <div>
-        <img class="img" src="/images/profile2.jpg" alt="" loading="lazy">
+        <img class="img" src="/images/profile2.jpg" alt=""
+             ref="heroImageRef"
+             id="heroImageRef"
+             loading="lazy"
+        >
       </div>
     </div>
 
@@ -25,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+// const heroImageRef = ref<HTMLImageElement | null>(null);
+// defineExpose({ heroImageRef });
 </script>
 
 <style scoped lang="scss">
@@ -44,8 +50,10 @@
   width: auto;
   height: 80vh;
   max-width: 100%;
-  filter: blinds(10px, 0deg);
+  //filter: blinds(10px, 0deg);
   mix-blend-mode: lighten !important;
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 @media screen and (max-width: 768px) {
