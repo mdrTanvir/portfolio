@@ -6,10 +6,10 @@
       <h3 v-if="title" class="text-lg font-semibold text-primary">
         {{ title }}
       </h3>
-      <p v-if="subtitle" class="text-sm text-gray-500 dark:text-gray-300">
+      <p v-if="subtitle" class="text-sm text-gray-500 dark:text-gray-300 mix-blend-difference">
         {{ subtitle }}
       </p>
-      <p v-if="description" class="text-xs text-gray-400 mt-1">
+      <p v-if="description" class="text-xs text-gray-400 mt-1 mix-blend-difference">
         {{ description }}
       </p>
     </slot>

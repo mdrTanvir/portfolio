@@ -2,7 +2,6 @@
   <main>
     <HomeHero/>
     <UiParticlesHeroParticles :key="count"/>
-<!--    <SvgLine/>-->
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
