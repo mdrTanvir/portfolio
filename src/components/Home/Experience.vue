@@ -26,7 +26,7 @@
               :key="index"
               class="flex flex-col relative"
           >
-            <UiAnimate direction="down" :distance="30">
+            <UiAnimate direction="up" :distance="30">
               <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
                 bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
             </UiAnimate>
