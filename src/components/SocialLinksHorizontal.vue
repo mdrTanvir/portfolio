@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="overflow-hidden mb-2">
-      <p class="fadeIn delay-700 font-medium">FOLLOW ME</p>
+      <UiAnimate :distance="60" :delay="0.8" :duration="0.4" scrollTriggerStart="center bottom" :scrub="false">
+        <p class="font-medium">FOLLOW ME</p>
+      </UiAnimate>
     </div>
     <div v-if="siteData.socials.length" class="flex gap-6">
       <template
@@ -9,11 +11,11 @@
           :key="social.name"
       >
         <UiAnimate
-            direction="up"
             :distance="20"
             :duration="0.4"
-            :delay="0.2 + n * 0.1"
+            :delay="0.8 + n * 0.1"
             scrollTriggerStart="center bottom"
+            :scrub="false"
         >
           <a
               v-if="social.link"
