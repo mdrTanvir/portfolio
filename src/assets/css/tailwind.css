@@ -6,21 +6,20 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer components {
-    .timeline-card {
-        @apply relative ml-4 px-8 py-3 flex flex-col bg-gray-100 dark:bg-gray-900
-        border-2 border-indigo-400 rounded-2xl shadow-md max-w-[400px];
-    }
+    /*.timeline-card {*/
+    /*    @apply ;*/
+    /*}*/
 
-    .timeline-dot::before {
-        content: '';
-        @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary z-10;
-        border-width: 10px;
-        border-color: white;
-    }
+    /*.timeline-dot::before {*/
+    /*    content: '';*/
+    /*    @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary z-10;*/
+    /*    border-width: 10px;*/
+    /*    border-color: white;*/
+    /*}*/
 
-    .dark .timeline-dot::before {
-        border-color: black;
-    }
+    /*.dark .timeline-dot::before {*/
+    /*    border-color: black;*/
+    /*}*/
 }
 
 @layer base {

@@ -25,10 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import HeroStats from "~/components/Hero/HeroStats.vue";
-
-const {isDesktop} = useDevice()
-import siteData from "~/config/data";
 </script>
 
 <style scoped lang="scss">
