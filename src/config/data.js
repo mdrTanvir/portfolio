@@ -1,6 +1,6 @@
 const siteData = {
     name: 'Tanvir Rahman',
-    logoName: 'Tanvir Rahman',
+    logoName: 'Tanvir',
     slogan: 'A Full-Stack Developer turning ideas into seamless digital experiences.',
     stats: [
         {title: '4 Years +', subtitle: 'Experience'},
