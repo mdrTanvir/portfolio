@@ -71,12 +71,19 @@ onMounted(() => {
     scrollTrigger: {
       trigger: targetSection,
       start: 'top bottom',
-      end: 'top 20%',
-      endTrigger: targetSection,
+      end: 'top top',
+      // endTrigger: targetSection,
       scrub: true,
       markers: true,
       // pin: image,
       // pinSpacing: false
+      onEnter: () => {
+        gsap.to(image, {
+          scale: 0.9,
+          duration: 0.5,
+          ease: 'power2.out',
+        })
+      }
     },
   })
 })

@@ -6,11 +6,11 @@
         <HeroStats/>
       </div>
 
-      <!-- Social Links -->
-      <div class="absolute bottom-[40px] right-0 hidden md:block">
-        <SocialLinksVertical/>
-      </div>
       <div>
+        <!-- Social Links -->
+        <div class="absolute bottom-[40px] right-0 hidden md:block">
+          <SocialLinksVertical/>
+        </div>
         <img class="img" src="/images/profile2.jpg" alt=""
              ref="heroImageRef"
              id="heroImageRef"
@@ -22,9 +22,9 @@
     <div class="beam beam-top-1"></div>
     <div class="beam beam-top-2"></div>
 
-<!--    <template v-if="isDesktop">-->
-<!--      <UiBlackHole/>-->
-<!--    </template>-->
+    <!--    <template v-if="isDesktop">-->
+    <!--      <UiBlackHole/>-->
+    <!--    </template>-->
   </div>
 </template>
 
