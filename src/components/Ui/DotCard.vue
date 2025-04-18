@@ -8,22 +8,21 @@
     <slot>
       <h3
           v-if="title"
-          class="sm:text-lg font-semibold text-primary"
-          :class="{'text-sm': responsiveText}"
+          class="font-semibold text-primary"
+          :class="{'text-sm': responsiveText, 'text-lg': !responsiveText}"
       >
         {{ title }}
       </h3>
       <p
           v-if="subtitle"
-          class="sm:text-sm text-gray-500 dark:text-gray-300 mix-blend-difference"
-          :class="{'text-xs': responsiveText}"
+          class="text-gray-500 dark:text-gray-300 mix-blend-difference"
+          :class="{'text-xs': responsiveText, 'text-sm': !responsiveText}"
       >
         {{ subtitle }}
       </p>
       <p
           v-if="description"
-          class="sm:text-xs text-gray-400 mt-1 mix-blend-difference"
-          :class="{'text-xs': responsiveText}"
+          class="text-xs text-gray-400 mt-1 mix-blend-difference"
       >
         {{ description }}
       </p>
