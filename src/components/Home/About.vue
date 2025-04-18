@@ -62,29 +62,39 @@ const imageAnimation = () => {
       const xScale = targetBox.width / imageBox.width
       const yScale = targetBox.height / imageBox.height
 
-      gsap.to(image, {
-        x: xOffset,
-        y: yOffset,
-        scaleX: xScale,
-        scaleY: yScale,
-        // scale: 0.9,
-        ease: 'power2.out',
-        // opacity: 1,
-        transformOrigin: 'top left',
-        // objectFit: 'cover',
-        // objectPosition: 'center',
-        right: 20,
-        scrollTrigger: {
-          trigger: targetSection,
-          start: 'top bottom',
-          end: 'top 20%',
-          endTrigger: targetSection,
-          scrub: true,
-          // markers: true,
-          // pin: image,
-          // pinSpacing: false
-        },
-      })
+      gsap.fromTo(image, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            filter: 'grayscale(1)'
+          },
+          {
+            x: xOffset,
+            y: yOffset,
+            // scaleX: xScale,
+            // scaleY: yScale,
+            scale: 0.9,
+            ease: 'power2.out',
+            // opacity: 1,
+            filter: 'grayscale(0)',
+            transformOrigin: 'top left',
+            // objectFit: 'cover',
+            // objectPosition: 'center',
+            right: 20,
+            scrollTrigger: {
+              trigger: targetSection,
+              start: 'top bottom',
+              end: 'top 20%',
+              endTrigger: targetSection,
+              scrub: true,
+              // markers: true,
+              // pin: image,
+              // pinSpacing: false
+              onEnter: function () {
+                gsap.to(imageBox, {filter: 'grayscale(0)',});
+              },
+            },
+          })
     }, 500);
   })
 }

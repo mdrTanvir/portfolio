@@ -11,7 +11,7 @@
         <div class="absolute bottom-[40px] right-0 hidden md:block">
           <SocialLinksVertical/>
         </div>
-        <img class="img" src="/images/profile2.jpg" alt=""
+        <img class="img" src="/images/profile3.jpg" alt=""
              ref="heroImageRef"
              id="heroImageRef"
              loading="lazy"
@@ -49,8 +49,9 @@
   right: 40px;
   width: auto;
   height: 80vh;
+  max-height: 80vh;
   max-width: 100%;
-  //filter: blinds(10px, 0deg);
+  filter: grayscale(1);
   mix-blend-mode: lighten !important;
   transition: transform 0.3s ease;
   will-change: transform;
