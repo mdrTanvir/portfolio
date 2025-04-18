@@ -9,14 +9,14 @@
       <h3
           v-if="title"
           class="font-semibold text-primary"
-          :class="{'text-sm': responsiveText, 'text-lg': !responsiveText}"
+          :class="{'text-sm sm:text-lg': responsiveText, 'text-lg': !responsiveText}"
       >
         {{ title }}
       </h3>
       <p
           v-if="subtitle"
           class="text-gray-500 dark:text-gray-300 mix-blend-difference"
-          :class="{'text-xs': responsiveText, 'text-sm': !responsiveText}"
+          :class="{'text-xs sm:text-sm': responsiveText, 'text-sm': !responsiveText}"
       >
         {{ subtitle }}
       </p>
