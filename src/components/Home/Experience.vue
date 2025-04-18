@@ -103,9 +103,10 @@ onMounted(async () => {
     ease: 'none',
     scrollTrigger: {
       trigger: experienceContainer.value,
-      start: 'top 74%',
+      start: 'top 80%',
       end: 'top -20%',
       scrub: true,
+      // markers: true,
     },
   })
 })
