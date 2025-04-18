@@ -2,7 +2,6 @@
   <section v-if="siteData.experiences && siteData.experiences?.length" class="contain content-section">
     <UiHeading>Experience</UiHeading>
 
-    <!--    <div class="container max-w-5xl px-4 py-12 mx-auto">-->
     <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
       <div class="col-span-12 md:col-span-3">
         <UiSubheading>Work Experience</UiSubheading>
@@ -20,7 +19,7 @@
         </svg>
 
         <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
-          <!--        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-300">-->
+          <!-- Loop through the experiences, limited by totalExperience -->
           <div
               v-for="(experience, index) in siteData.experiences.slice(0, totalExperience)"
               :key="index"
@@ -43,12 +42,10 @@
             <UiAnimate :distance="20">
               <p class="mt-3" v-html="experience.description"></p>
             </UiAnimate>
+
             <!-- Skills -->
             <div v-if="experience.skills?.length" class="flex flex-wrap gap-2 mt-3">
-              <template
-                  v-for="(skill, skillIndex) in experience.skills"
-                  :key="skillIndex"
-              >
+              <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
                 <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
                   <div class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800">
                     {{ skill }}
@@ -72,7 +69,7 @@
             </div>
           </div>
 
-          <!-- View More -->
+          <!-- View More or Less -->
           <div v-if="siteData.experiences.length > 3" class="flex flex-col relative">
             <UiAnimate direction="up" :distance="30">
               <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
@@ -80,31 +77,36 @@
             </UiAnimate>
             <div class="overflow-hidden flex">
               <UiAnimate :distance="20">
-                <h3 v-show="totalExperience === siteData.experiences.length"
-                    class="text-base font-semibold tracking-wide"
+                <h3
+                    v-show="totalExperience === siteData.experiences.length"
+                    class="text-base font-semibold tracking-wide underline text-primary hover:text-black dark:hover:text-white"
                     data-hover
                     @click="totalExperience = 3"
-                >View Less</h3>
-                <h3 v-show="totalExperience !== siteData.experiences.length"
-                    class="text-base font-semibold tracking-wide"
+                >
+                  View Less
+                </h3>
+                <h3
+                    v-show="totalExperience !== siteData.experiences.length"
+                    class="text-base font-semibold tracking-wide underline text-primary hover:text-black dark:hover:text-white"
                     data-hover
                     @click="totalExperience = siteData.experiences.length"
-                >View All</h3>
+                >
+                  View All
+                </h3>
               </UiAnimate>
             </div>
           </div>
-
         </div>
       </div>
     </div>
-    <!--    </div>-->
   </section>
 </template>
 
 <script setup lang="ts">
+import {ref, onMounted, nextTick} from 'vue'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import siteData from "~/config/data";
+import siteData from "~/config/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
