@@ -4,8 +4,9 @@
     <div
         v-for="(education, index) in siteData.educations"
         :key="index"
-        class="relative flex items-center w-full py-2"
+        class="relative w-full py-2"
     >
+<!--        class="relative flex items-center w-full py-2"-->
       <UiAnimate
           :distance="60"
           :delay="0.2 + index * 0.2"
