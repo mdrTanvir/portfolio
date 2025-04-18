@@ -80,13 +80,13 @@
             </UiAnimate>
             <div class="overflow-hidden flex">
               <UiAnimate :distance="20">
-                <h3 v-if="totalExperience === siteData.experiences.length"
-                    class="text-lg font-semibold tracking-wide"
+                <h3 v-show="totalExperience === siteData.experiences.length"
+                    class="text-base font-semibold tracking-wide"
                     data-hover
                     @click="totalExperience = 3"
                 >View Less</h3>
-                <h3 v-else
-                    class="text-lg font-semibold tracking-wide"
+                <h3 v-show="totalExperience !== siteData.experiences.length"
+                    class="text-base font-semibold tracking-wide"
                     data-hover
                     @click="totalExperience = siteData.experiences.length"
                 >View All</h3>
