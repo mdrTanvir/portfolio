@@ -11,7 +11,7 @@
         <div class="absolute bottom-[40px] right-0 hidden md:block">
           <SocialLinksVertical/>
         </div>
-        <img class="img" src="/images/profile3.jpg" alt=""
+        <img class="img" src="/images/profile2.jpg" alt=""
              ref="heroImageRef"
              id="heroImageRef"
              loading="lazy"

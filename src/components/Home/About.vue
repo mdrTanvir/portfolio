@@ -81,6 +81,7 @@ const imageAnimation = () => {
             // objectFit: 'cover',
             // objectPosition: 'center',
             right: 20,
+            zIndex: 1,
             scrollTrigger: {
               trigger: targetSection,
               start: 'top bottom',
@@ -89,7 +90,7 @@ const imageAnimation = () => {
               scrub: true,
               // markers: true,
               // pin: image,
-              // pinSpacing: false
+              pinSpacing: false,
               onEnter: function () {
                 gsap.to(imageBox, {filter: 'grayscale(0)',});
               },
