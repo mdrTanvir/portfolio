@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 z-10">
-        <div id="imagePlaceTarget" class="relative h-full"></div>
+        <div id="imagePlaceTarget" class="relative h-full min-h-[340px]"></div>
         <!-- Slide the image here -->
       </div>
     </div>
@@ -36,6 +36,7 @@
 <script setup lang="ts">
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+
 const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 
@@ -68,13 +69,16 @@ const imageAnimation = () => {
         scaleY: yScale,
         // scale: 0.9,
         ease: 'power2.out',
+        opacity: 1,
         transformOrigin: 'top left',
+        objectFit: 'cover',
+        objectPosition: 'center',
         right: 20,
         scrollTrigger: {
           trigger: targetSection,
           start: 'top bottom',
           end: 'top 20%',
-          // endTrigger: targetSection,
+          endTrigger: targetSection,
           scrub: true,
           // markers: true,
           // pin: image,
