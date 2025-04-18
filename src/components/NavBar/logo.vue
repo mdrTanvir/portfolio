@@ -6,7 +6,9 @@
         :delay="0.4"
         :scrub="false"
     >
-      <h3 class="h3 text-black dark:text-white">{{ siteData.logoName }}</h3>
+      <h3 class=" text-2xl sm:text-3xl tracking-tight text-black dark:text-white cursive text-primary">
+        {{ siteData.logoName }}
+      </h3>
     </UiAnimate>
   </div>
 </template>
@@ -14,3 +16,9 @@
 <script setup lang="ts">
 import siteData from "~/config/data";
 </script>
+
+<style scoped>
+.cursive {
+  font-family: 'Pacifico', cursive;
+}
+</style>

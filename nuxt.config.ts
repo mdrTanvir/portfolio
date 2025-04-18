@@ -13,6 +13,16 @@ export default defineNuxtConfig({
     routeRules: {
         '/': {prerender: true},
     },
+    app: {
+        head: {
+            link: [
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap',
+                },
+            ],
+        },
+    },
     modules: [
         '@nuxt/fonts',
         '@nuxt/icon',
