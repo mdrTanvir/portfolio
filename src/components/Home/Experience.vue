@@ -109,10 +109,8 @@ let scrollTriggerInstance = null // Store ScrollTrigger instance
 
 // Function to initialize GSAP scroll trigger
 const handleScrollTrigger = () => {
-  // Get the total length of the line element
   const length = line.value.getTotalLength()
 
-  // Set up initial state for the line stroke
   gsap.set(line.value, {
     strokeDasharray: length,
     strokeDashoffset: length,
@@ -125,18 +123,18 @@ const handleScrollTrigger = () => {
     scrollTrigger: {
       trigger: experienceContainer.value,
       start: 'top 80%',
-      end: 'center 0%', // Dynamically update this when toggling
+      end: 'center 0%',
       scrub: true,
       markers: true,
     },
   })
 }
 
-watch(totalExperience, () => {
+watch(() => totalExperience.value, async () => {
+  await nextTick() // Wait for DOM changes
   if (scrollTriggerInstance) {
     scrollTriggerInstance.kill()
   }
-
   handleScrollTrigger()
 })
 
