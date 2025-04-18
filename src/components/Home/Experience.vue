@@ -100,7 +100,7 @@ import siteData from "~/config/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const limit = 2 // Initially show 2 items
+const limit = 3 // Initially show 2 items
 const totalExperience = ref(limit)
 const experienceContainer = ref(null)
 const line = ref(null)
