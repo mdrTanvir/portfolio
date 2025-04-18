@@ -69,10 +69,10 @@ const imageAnimation = () => {
         scaleY: yScale,
         // scale: 0.9,
         ease: 'power2.out',
-        opacity: 1,
+        // opacity: 1,
         transformOrigin: 'top left',
-        objectFit: 'cover',
-        objectPosition: 'center',
+        // objectFit: 'cover',
+        // objectPosition: 'center',
         right: 20,
         scrollTrigger: {
           trigger: targetSection,
