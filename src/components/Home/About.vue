@@ -96,7 +96,7 @@ const imageAnimation = () => {
               pinSpacing: false,
             },
           })
-    }, 500);
+    }, 1000);
   })
 }
 
