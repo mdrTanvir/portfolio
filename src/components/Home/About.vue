@@ -36,12 +36,12 @@
 <script setup lang="ts">
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+const {isDesktop} = useDevice()
 import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 
-
-onMounted(() => {
+const imageAnimation = () => {
   nextTick(() => {
     setTimeout(() => {
       const image = document.getElementById('heroImageRef')
@@ -83,6 +83,12 @@ onMounted(() => {
       })
     }, 500);
   })
+}
+
+onMounted(() => {
+  if (isDesktop) {
+    imageAnimation()
+  }
 })
 </script>
 
