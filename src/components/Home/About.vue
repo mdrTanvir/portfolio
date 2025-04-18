@@ -59,46 +59,50 @@ const imageAnimation = () => {
 
       const xOffset = targetBox.left - imageBox.left
       const yOffset = targetBox.top - imageBox.top
-      const xScale = targetBox.width / imageBox.width
-      const yScale = targetBox.height / imageBox.height
 
       gsap.fromTo(image, {
             x: 0,
             y: 0,
             scale: 1,
             filter: 'grayscale(1)',
-            // filter: 'grayscale(1) brightness(0.8) blur(2px)',
             transformOrigin: 'top right',
           },
           {
             x: xOffset,
             y: yOffset,
-            // scaleX: xScale,
-            // scaleY: yScale,
             scale: 0.8,
             ease: 'power2.out',
             opacity: 1,
             filter: 'grayscale(0)',
-            // filter: 'grayscale(0) brightness(1) blur(0px)',
             transformOrigin: 'top right',
-            // objectFit: 'cover',
-            // objectPosition: 'center',
             right: 20,
             zIndex: 1,
+            rotation: '+=3',
+            yoyo: true,
             scrollTrigger: {
               trigger: targetSection,
               start: 'top bottom',
               end: 'top 30%',
-              endTrigger: targetSection,
               scrub: true,
               // markers: true,
-              // pin: image,
-              pinSpacing: false,
             },
+            onComplete: () => {
+              // Wave-like animation (X or Y axis or both)
+              // gsap.to(image, {
+              //   y: "+=10", // Move up and down
+              //   duration: 2,
+              //   ease: "sine.inOut",
+              //   repeat: -1,
+              //   yoyo: true,
+              // rotation: '-=2',
+              // transformOrigin: 'center center',
+              // })
+            }
           })
     }, 1000);
   })
 }
+
 
 onMounted(() => {
   if (isDesktop) {
@@ -106,21 +110,3 @@ onMounted(() => {
   }
 })
 </script>
-
-
-<!--<style scoped>-->
-<!--.flierImage {-->
-<!--  //position: absolute;-->
-<!--  z-index: 2;-->
-<!--  top: 50%;-->
-<!--  left: 50%;-->
-<!--  max-width: 300px;-->
-<!--  width: 100%;-->
-<!--  height: auto;-->
-<!--  max-height: 500px;-->
-<!--  aspect-ratio: 9/14;-->
-<!--  object-fit: cover;-->
-<!--  //transform: translate(-50%, -50%);-->
-<!--  opacity: 0.7;-->
-<!--}-->
-<!--</style>-->
