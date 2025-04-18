@@ -102,6 +102,17 @@ const siteData = {
                 {name: 'Project B', link: 'https://project-b.com'}
             ]
         },
+        {
+            title: 'Backend Developer',
+            company: 'Softech Limited',
+            duration: 'Jan 2021 - Dec 2021',
+            description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
+            skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
+            projectLinks: [
+                {name: 'Project A', link: 'https://project-a.com'},
+                {name: 'Project B', link: 'https://project-b.com'}
+            ]
+        },
     ],
     works: [
         {

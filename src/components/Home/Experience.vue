@@ -22,7 +22,7 @@
         <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
           <!--        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-gray-500 before:dark:bg-gray-300">-->
           <div
-              v-for="(experience, index) in siteData.experiences"
+              v-for="(experience, index) in siteData.experiences.slice(0, totalExperience)"
               :key="index"
               class="flex flex-col relative"
           >
@@ -71,6 +71,29 @@
               </UiAnimate>
             </div>
           </div>
+
+          <!-- View More -->
+          <div v-if="siteData.experiences.length > 3" class="flex flex-col relative">
+            <UiAnimate direction="up" :distance="30">
+              <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
+                bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
+            </UiAnimate>
+            <div class="overflow-hidden flex">
+              <UiAnimate :distance="20">
+                <h3 v-if="totalExperience === siteData.experiences.length"
+                    class="text-lg font-semibold tracking-wide"
+                    data-hover
+                    @click="totalExperience = 3"
+                >View Less</h3>
+                <h3 v-else
+                    class="text-lg font-semibold tracking-wide"
+                    data-hover
+                    @click="totalExperience = siteData.experiences.length"
+                >View All</h3>
+              </UiAnimate>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -85,6 +108,7 @@ import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 
+const totalExperience = ref(3)
 const experienceContainer = ref(null)
 const line = ref(null)
 
@@ -104,7 +128,7 @@ onMounted(async () => {
     scrollTrigger: {
       trigger: experienceContainer.value,
       start: 'top 80%',
-      end: 'top -20%',
+      end: 'center -20%',
       scrub: true,
       // markers: true,
     },
