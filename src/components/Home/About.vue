@@ -42,8 +42,8 @@ import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 
-const imageAnimation = () => {
-  nextTick(() => {
+const imageAnimation = async () => {
+  await nextTick(() => {
     setTimeout(() => {
       const image = document.getElementById('heroImageRef')
       const targetSection = document.getElementById('imagePlaceTarget')
@@ -77,7 +77,7 @@ const imageAnimation = () => {
             transformOrigin: 'top right',
             right: 20,
             zIndex: 1,
-            rotation: '+=3',
+            rotation: '+=2',
             yoyo: true,
             scrollTrigger: {
               trigger: targetSection,
@@ -104,9 +104,10 @@ const imageAnimation = () => {
 }
 
 
-onMounted(() => {
+onMounted(async () => {
+  // await nextTick() // wait until child is rendered
   if (isDesktop) {
-    imageAnimation()
+    await imageAnimation()
   }
 })
 </script>

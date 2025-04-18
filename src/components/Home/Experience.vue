@@ -78,20 +78,11 @@
             <div class="overflow-hidden flex">
               <UiAnimate :distance="20">
                 <h3
-                    v-show="totalExperience === siteData.experiences.length"
                     class="text-base font-semibold tracking-wide underline text-primary hover:text-black dark:hover:text-white"
                     data-hover
-                    @click="totalExperience = 3"
+                    @click="toggleExperienceView()"
                 >
-                  View Less
-                </h3>
-                <h3
-                    v-show="totalExperience !== siteData.experiences.length"
-                    class="text-base font-semibold tracking-wide underline text-primary hover:text-black dark:hover:text-white"
-                    data-hover
-                    @click="totalExperience = siteData.experiences.length"
-                >
-                  View All
+                  {{ totalExperience === siteData.experiences.length ? 'Show Less' : 'Show All' }}
                 </h3>
               </UiAnimate>
             </div>
@@ -103,37 +94,63 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, nextTick} from 'vue'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import siteData from "~/config/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const totalExperience = ref(3)
+const limit = 2 // Initially show 2 items
+const totalExperience = ref(limit)
 const experienceContainer = ref(null)
 const line = ref(null)
 
-onMounted(async () => {
-  await nextTick() // wait until child is rendered
+let scrollTriggerInstance = null // Store ScrollTrigger instance
 
+// Function to initialize GSAP scroll trigger
+const handleScrollTrigger = () => {
+  // Get the total length of the line element
   const length = line.value.getTotalLength()
 
+  // Set up initial state for the line stroke
   gsap.set(line.value, {
     strokeDasharray: length,
     strokeDashoffset: length,
   })
 
-  gsap.to(line.value, {
+  // Initialize GSAP ScrollTrigger animation for the line element
+  scrollTriggerInstance = gsap.to(line.value, {
     strokeDashoffset: 0,
     ease: 'none',
     scrollTrigger: {
       trigger: experienceContainer.value,
       start: 'top 80%',
-      end: 'center -20%',
+      end: 'center 0%', // Dynamically update this when toggling
       scrub: true,
-      // markers: true,
+      markers: true,
     },
   })
+}
+
+watch(totalExperience, () => {
+  if (scrollTriggerInstance) {
+    scrollTriggerInstance.kill()
+  }
+
+  handleScrollTrigger()
 })
+
+onMounted(async () => {
+  await nextTick() // wait until child is rendered
+  handleScrollTrigger() // Initial scroll trigger setup
+})
+
+const toggleExperienceView = () => {
+  if (totalExperience.value === limit) {
+    totalExperience.value = siteData.experiences.length
+  } else {
+    totalExperience.value = limit // Show only 3 experiences
+  }
+}
 </script>
+
