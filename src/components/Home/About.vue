@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 z-10">
-        <div ref="imagePlaceTarget" class="relative h-full bg-red-200"></div>
+        <div id="imagePlaceTarget" class="relative h-full"></div>
         <!-- Slide the image here -->
       </div>
     </div>
@@ -40,51 +40,48 @@ import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 
-const imagePlaceTarget = ref(null)
 
 onMounted(() => {
-  const image = document.getElementById('heroImageRef')
-  const targetSection = imagePlaceTarget.value
+  nextTick(() => {
+    setTimeout(() => {
+      const image = document.getElementById('heroImageRef')
+      const targetSection = document.getElementById('imagePlaceTarget')
 
-  if (!image || !targetSection) {
-    console.log(image)
-    console.log(targetSection)
-    return
-  }
-
-  const targetBox = targetSection.getBoundingClientRect()
-  const imageBox = image.getBoundingClientRect()
-
-  const xOffset = targetBox.left - imageBox.left
-  const yOffset = targetBox.top - imageBox.top
-  const xScale = targetBox.width / imageBox.width
-  const yScale = targetBox.height / imageBox.height
-
-  gsap.to(image, {
-    x: xOffset,
-    y: yOffset,
-    // scaleX: xScale,
-    // scaleY: yScale,
-    scale: 0.9,
-    ease: 'power2.out',
-    transformOrigin: 'top left',
-    scrollTrigger: {
-      trigger: targetSection,
-      start: 'top bottom',
-      end: 'top top',
-      // endTrigger: targetSection,
-      scrub: true,
-      markers: true,
-      // pin: image,
-      // pinSpacing: false
-      onEnter: () => {
-        gsap.to(image, {
-          scale: 0.9,
-          duration: 0.5,
-          ease: 'power2.out',
-        })
+      if (!image || !targetSection) {
+        console.log(image)
+        console.log(targetSection)
+        return
       }
-    },
+
+      const targetBox = targetSection.getBoundingClientRect()
+      const imageBox = image.getBoundingClientRect()
+
+      const xOffset = targetBox.left - imageBox.left
+      const yOffset = targetBox.top - imageBox.top
+      const xScale = targetBox.width / imageBox.width
+      const yScale = targetBox.height / imageBox.height
+
+      gsap.to(image, {
+        x: xOffset,
+        y: yOffset,
+        scaleX: xScale,
+        scaleY: yScale,
+        // scale: 0.9,
+        ease: 'power2.out',
+        transformOrigin: 'top left',
+        right: 20,
+        scrollTrigger: {
+          trigger: targetSection,
+          start: 'top bottom',
+          end: 'top 20%',
+          // endTrigger: targetSection,
+          scrub: true,
+          // markers: true,
+          // pin: image,
+          // pinSpacing: false
+        },
+      })
+    }, 500);
   })
 })
 </script>
