@@ -103,7 +103,6 @@ const imageAnimation = async () => {
   })
 }
 
-
 onMounted(async () => {
   // await nextTick() // wait until child is rendered
   if (isDesktop.value) {
