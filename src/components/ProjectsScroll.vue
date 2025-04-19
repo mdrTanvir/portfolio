@@ -45,8 +45,8 @@
           </div>
 
           <div class="flex gap-4 mt-3">
-            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="" data-hover>Live</a>
-            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="" data-hover>GitHub</a>
+            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
+            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
           </div>
         </div>
         <div class="image-wrapper" :ref="el => imageRefs[index] = el">
@@ -256,6 +256,7 @@ onMounted(async () => {
 #worksText {
   //font-family: 'Montserrat', sans-serif;
   font-family: 'Pacifico', 'Arial', sans-serif;
-  transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  //transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+  transition: all 0.3s ease;
 }
 </style>
