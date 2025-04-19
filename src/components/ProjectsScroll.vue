@@ -33,8 +33,8 @@
           :key="index"
           class="projectCard"
       >
-        <div class="z-10">
-          <h2 class="h1">{{ project.title }}</h2>
+        <div class="z-10 max-w-[500px]">
+          <h2 class="h1 text-white mix-blend-difference">{{ project.title }}</h2>
           <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
           <p class="text-sm max-w-[500px]">{{ project.description }}</p>
 
@@ -45,12 +45,12 @@
           </div>
 
           <div class="flex gap-4 mt-3">
-            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="" data-hover>Live</a>
-            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="" data-hover>GitHub</a>
+            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
+            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
           </div>
         </div>
         <div class="" :ref="el => imageRefs[index] = el">
-          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="projectImage" height="100%" width="100%"/>
+          <LazyNuxtImg ref="imageRefs" :src="project.image" :alt="project.title" loading="lazy" class="projectImage" height="100%" width="100%"/>
         </div>
       </div>
 
@@ -107,10 +107,12 @@ const projectHorizontal = (totalWidth) => {
 }
 
 const imageSkew = (totalWidth) => {
-  // Skew effect based on scroll velocity
-  let proxy = {skew: 0}
-  const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
+  let proxy = { skew: 0 }
   const clamp = gsap.utils.clamp(-20, 20)
+  const images = imageRefs.value
+  const skewSetters = images.map((img) =>
+      gsap.quickSetter(img?.$el || img, 'skewX', 'deg')
+  )
 
   ScrollTrigger.create({
     trigger: container.value,
@@ -118,34 +120,23 @@ const imageSkew = (totalWidth) => {
     end: () => `+=${totalWidth - window.innerWidth}`,
     scrub: true,
     onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300)
+      const skew = clamp(self.getVelocity() / -300)
       if (Math.abs(skew) > Math.abs(proxy.skew)) {
         proxy.skew = skew
         gsap.to(proxy, {
           skew: 0,
           duration: 0.8,
-          ease: 'power3',
+          ease: 'power3.out',
           overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
+          onUpdate: () => {
+            skewSetters.forEach(set => set(proxy.skew))
+          },
         })
       }
     },
   })
-
-  // Image parallax effect
-  // imageRefs.value.forEach((imgEl) => {
-  //   gsap.to(imgEl, {
-  //     y: -50,
-  //     ease: 'none',
-  //     scrollTrigger: {
-  //       trigger: container.value,
-  //       start: 'top top',
-  //       end: () => `+=${totalWidth - window.innerWidth}`,
-  //       scrub: true,
-  //     },
-  //   })
-  // })
 }
+
 
 // Scroll-triggered animations for "WORKS" text
 const workTextAnimation = (totalWidth) => {
@@ -218,7 +209,7 @@ const GSAP = async () => {
   await workTextAnimation(totalWidth)
   await bgColorChangeOnScroll(totalWidth)
   await projectHorizontal(totalWidth)
-  // await imageSkew(totalWidth)
+  await imageSkew(totalWidth)
 }
 
 onMounted(async () => {
@@ -234,10 +225,13 @@ onMounted(async () => {
 
   .projectImage {
     width: 100%;
-    max-width: 60vw;
+    max-width: 55vw;
     height: auto;
     max-height: 100%;
     aspect-ratio: 16/9;
+    //filter: grayscale(100%);
+    will-change: transform;
+    transform-style: preserve-3d;
     @apply md:absolute z-[2] md:top-1/2 right-[0.5rem] sm:right-[2rem] md:right-[10rem] block object-cover rounded shadow-lg will-change-transform transform -translate-y-1/2;
   }
 }
