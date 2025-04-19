@@ -1,25 +1,32 @@
 <template>
   <section ref="container" class="horizontal-wrapper relative h-screen">
+    <div>
+      <svg
+          width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          class="flex items-center justify-center absolute"
+      >
+        <text
+            id="worksText"
+            ref="worksText"
+            x="50%"
+            y="50%"
+            text-anchor="middle"
+            alignment-baseline="middle"
+            font-family="Arial"
+            font-size="100"
+            fill="white"
+            stroke="white"
+            font-weight="800"
+            stroke-width="2"
+            class="absolute left-0 top-1/2"
+        >
+          WORKS
+        </text>
+      </svg>
+    </div>
     <div ref="scroller" class="h-full flex">
       <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="flex items-center justify-center">
-          <text
-              id="worksText"
-              ref="worksText"
-              x="50%"
-              y="50%"
-              text-anchor="middle"
-              alignment-baseline="middle"
-              font-family="Arial"
-              font-size="80"
-              fill="white"
-              stroke="white"
-              font-weight="800"
-              stroke-width="2"
-          >
-            WORKS
-          </text>
-        </svg>
+
       </div>
 
       <div
@@ -163,11 +170,13 @@ const GSAP = () => {
           fill: 'transparent',
           stroke: 'white',
           duration: 0.2,
-          position: 'fixed',
+          position: 'absolute',
           top: '10vh', // Pin the text 10vh from the top
-          // left: '50%',
-          // x: '-50%', // Center horizontally
-          fontSize: 180,
+          left: '0',
+          // y: '-50%', // Center horizontally
+          fontSize: 220,
+          opacity: 0.6,
+          filter: 'blur(6px)'
         })
       } else {
         // Reset to original state before scrolling past 30%
@@ -178,56 +187,14 @@ const GSAP = () => {
           position: 'absolute',
           top: '50%', // Original center position
           // left: '50%',
-          // x: '-50%', // Center horizontally
-          fontSize: 80,
+          // y: '50%', // Center horizontally
+          fontSize: 100,
+          opacity: 1,
+          filter: 'blur(0)'
         })
       }
-    },
-    onLeave: () => {
     }
   })
-
-  // ScrollTrigger.create({
-  //   trigger: container.value,
-  //   start: 'top top', // Start when "WORKS" screen comes into view
-  //   end: '+=100%', // End when the next section starts (projects section)
-  //   scrub: true,
-  //   pin: worksText.value, // Pin the text during this scroll section
-  //   markers: true,
-  //   onUpdate: (self) => {
-  //     const progress = self.progress;
-  //     const worksTextElement = worksText.value;
-  //
-  //     // Calculate font size dynamically based on scroll progress
-  //     const fontSize = 80 + (progress * 100); // Increase font size as we scroll
-  //
-  //     if (progress > 0.3) {
-  //       gsap.to(worksTextElement, {
-  //         fill: 'transparent',
-  //         stroke: 'white',
-  //         position: 'fixed', // Pin it to the screen
-  //         top: '10vh', // Keep it 10vh from the top
-  //         left: '50%',
-  //         x: '-50%',
-  //         fontSize: fontSize + 'px', // Dynamically increase font size
-  //         zIndex: 10, // Make sure the text stays on top of other elements
-  //         duration: 0.2,
-  //       });
-  //     } else {
-  //       gsap.to(worksTextElement, {
-  //         fill: 'white',
-  //         stroke: 'white',
-  //         position: 'absolute',
-  //         top: '50%',
-  //         left: '50%',
-  //         x: '-50%',
-  //         fontSize: '80px', // Reset to initial font size
-  //         zIndex: 1, // Reset z-index
-  //         duration: 0.2,
-  //       });
-  //     }
-  //   },
-  // });
 
   // Background color change on scroll
   ScrollTrigger.create({

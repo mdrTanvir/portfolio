@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden mb-5">
+  <div class="overflow-hidden mb-6">
     <UiAnimate
         :distance="60"
         :delay="0.2"
