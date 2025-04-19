@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="horizontal-wrapper">
+  <section ref="container" class="horizontal-wrapper relative h-screen">
     <div ref="scroller" class="h-full flex">
       <div
           v-for="(project, index) in siteData.works"
@@ -8,7 +8,7 @@
       >
         <div class="">
           <h2 class="h1">{{ project.title }}</h2>
-          <p class="text-sm text-gray-300 mb-2">{{ project.tag }} — {{ project.date }}</p>
+          <p class="text-sm text-gray-300 mt-1 mb-3">{{ project.tag }} — {{ project.date }}</p>
           <p class="text-sm max-w-[500px]">{{ project.description }}</p>
 
           <div class="flex flex-wrap gap-2 mt-3">
@@ -141,17 +141,15 @@ onMounted(async () => {
 
 <style scoped>
 .horizontal-wrapper {
-  position: relative;
-  height: 100vh;
   overflow: hidden;
   transition: background-color 0.5s ease;
 }
 
 .image-wrapper {
-  width: 500px;
+  width: 800px;
   max-width: 80%;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 2px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   will-change: transform;
   transform-origin: center;

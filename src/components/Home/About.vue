@@ -37,10 +37,12 @@
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const {isDesktop} = useIsDesktop()
+const {isDesktop, windowWidth} = useIsDesktop()
 import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
+
+const transformOrigin = ref('top right')
 
 const imageAnimation = async () => {
   await nextTick(() => {
@@ -65,7 +67,7 @@ const imageAnimation = async () => {
             y: 0,
             scale: 1,
             filter: 'grayscale(1)',
-            transformOrigin: 'top right',
+            transformOrigin: transformOrigin.value,
           },
           {
             x: xOffset,
@@ -74,7 +76,7 @@ const imageAnimation = async () => {
             ease: 'power2.out',
             opacity: 1,
             filter: 'grayscale(0)',
-            transformOrigin: 'top right',
+            transformOrigin: transformOrigin.value,
             right: 20,
             zIndex: 1,
             rotation: '+=2',
@@ -105,6 +107,9 @@ const imageAnimation = async () => {
 
 onMounted(async () => {
   // await nextTick() // wait until child is rendered
+  if (windowWidth.value < 1000) {
+    transformOrigin.value = 'top left'
+  }
   if (isDesktop.value) {
     await imageAnimation()
   }

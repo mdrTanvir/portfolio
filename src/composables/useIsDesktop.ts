@@ -1,8 +1,10 @@
 export default function useIsDesktop() {
     const isDesktop = ref(true)
+    const windowWidth = ref()
 
     const updateScreenSize = () => {
         isDesktop.value = window.innerWidth > 720
+        windowWidth.value = window.innerWidth
     }
 
     onMounted(() => {
@@ -19,6 +21,7 @@ export default function useIsDesktop() {
     })
 
     return {
-        isDesktop
+        isDesktop,
+        windowWidth,
     }
 }
