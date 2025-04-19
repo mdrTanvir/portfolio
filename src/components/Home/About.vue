@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 z-10">
-        <div id="imagePlaceTarget" class="relative h-full md:min-h-[340px]"></div>
+        <div ref="imagePlaceTarget" id="imagePlaceTarget" class="relative h-full md:min-h-[340px]"></div>
         <!-- Slide the image here -->
       </div>
     </div>
@@ -38,17 +38,17 @@ import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import siteData from "~/config/data";
 
-const {isDesktop, windowWidth} = useIsDesktop()
-
 gsap.registerPlugin(ScrollTrigger)
-
+const {isDesktop, windowWidth} = useIsDesktop()
 const transformOrigin = ref('top center')
+const imagePlaceTarget = ref(null)
 
 const imageAnimation = async () => {
   await nextTick(() => {
     setTimeout(() => {
       const image = document.getElementById('heroImageRef')
-      const targetSection = document.getElementById('imagePlaceTarget')
+      // const targetSection = document.getElementById('imagePlaceTarget')
+      const targetSection = imagePlaceTarget.value
 
       if (!image || !targetSection) {
         console.log(image)
