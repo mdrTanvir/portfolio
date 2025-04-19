@@ -100,8 +100,7 @@ const imageRefs = ref([])
 const worksText = ref(null) // Reference for the "WORKS" text element
 
 
-const projectHorizontal = () => {
-  const totalWidth = scroller.value.scrollWidth
+const projectHorizontal = (totalWidth) => {
   // Horizontal scroll animation
   gsap.to(scroller.value, {
     x: () => -(totalWidth - window.innerWidth),
@@ -118,8 +117,7 @@ const projectHorizontal = () => {
   })
 }
 
-const imageSkew = () => {
-  const totalWidth = scroller.value.scrollWidth
+const imageSkew = (totalWidth) => {
   // Skew effect based on scroll velocity
   let proxy = {skew: 0}
   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
@@ -161,7 +159,7 @@ const imageSkew = () => {
 }
 
 // Scroll-triggered animations for "WORKS" text
-const workTextAnimation = () => {
+const workTextAnimation = (totalWidth) => {
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -205,8 +203,7 @@ const workTextAnimation = () => {
   })
 }
 
-const bgColorChangeOnScroll = () => {
-  const totalWidth = scroller.value.scrollWidth
+const bgColorChangeOnScroll = (totalWidth) => {
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -228,10 +225,11 @@ const bgColorChangeOnScroll = () => {
 }
 
 const GSAP = async () => {
-  await workTextAnimation()
-  await bgColorChangeOnScroll()
-  await projectHorizontal()
-  await imageSkew()
+  const totalWidth = scroller.value.scrollWidth
+  await workTextAnimation(totalWidth)
+  await bgColorChangeOnScroll(totalWidth)
+  await projectHorizontal(totalWidth)
+  await imageSkew(totalWidth)
 }
 
 onMounted(async () => {
