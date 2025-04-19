@@ -1,12 +1,12 @@
 <template>
   <main>
     <!--    <NavBarMobile/>-->
-    <HomeProjects/>
     <HomeHero/>
     <UiParticlesHeroParticles :key="count"/>
     <HomeAbout/>
     <HomeSkills/>
     <HomeExperience/>
+    <HomeProjects/>
     <HomeContact/>
     <TheFooder/>
   </main>

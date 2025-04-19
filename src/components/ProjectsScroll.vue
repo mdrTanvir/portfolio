@@ -31,10 +31,10 @@
       <div
           v-for="(project, index) in projects.splice(0, 3)"
           :key="index"
-          class="projectCard"
+          class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
       >
-        <div class="z-10 max-w-[500px]">
-          <h2 class="h1 text-white mix-blend-difference">{{ project.title }}</h2>
+        <div class="">
+          <h2 class="h1">{{ project.title }}</h2>
           <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
           <p class="text-sm max-w-[500px]">{{ project.description }}</p>
 
@@ -45,12 +45,12 @@
           </div>
 
           <div class="flex gap-4 mt-3">
-            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
-            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
+            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="" data-hover>Live</a>
+            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="" data-hover>GitHub</a>
           </div>
         </div>
-        <div class="" :ref="el => imageRefs[index] = el">
-          <LazyNuxtImg ref="imageRefs" :src="project.image" :alt="project.title" loading="lazy" class="projectImage" height="100%" width="100%"/>
+        <div class="image-wrapper" :ref="el => imageRefs[index] = el">
+          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="img"/>
         </div>
       </div>
 
@@ -107,12 +107,10 @@ const projectHorizontal = (totalWidth) => {
 }
 
 const imageSkew = (totalWidth) => {
-  let proxy = { skew: 0 }
+  // Skew effect based on scroll velocity
+  let proxy = {skew: 0}
+  const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
   const clamp = gsap.utils.clamp(-20, 20)
-  const images = imageRefs.value
-  const skewSetters = images.map((img) =>
-      gsap.quickSetter(img?.$el || img, 'skewX', 'deg')
-  )
 
   ScrollTrigger.create({
     trigger: container.value,
@@ -120,23 +118,34 @@ const imageSkew = (totalWidth) => {
     end: () => `+=${totalWidth - window.innerWidth}`,
     scrub: true,
     onUpdate: (self) => {
-      const skew = clamp(self.getVelocity() / -300)
+      let skew = clamp(self.getVelocity() / -300)
       if (Math.abs(skew) > Math.abs(proxy.skew)) {
         proxy.skew = skew
         gsap.to(proxy, {
           skew: 0,
           duration: 0.8,
-          ease: 'power3.out',
+          ease: 'power3',
           overwrite: true,
-          onUpdate: () => {
-            skewSetters.forEach(set => set(proxy.skew))
-          },
+          onUpdate: () => skewSetter(proxy.skew),
         })
       }
     },
   })
-}
 
+  // Image parallax effect
+  // imageRefs.value.forEach((imgEl) => {
+  //   gsap.to(imgEl, {
+  //     y: -50,
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: container.value,
+  //       start: 'top top',
+  //       end: () => `+=${totalWidth - window.innerWidth}`,
+  //       scrub: true,
+  //     },
+  //   })
+  // })
+}
 
 // Scroll-triggered animations for "WORKS" text
 const workTextAnimation = (totalWidth) => {
@@ -218,24 +227,7 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped lang="scss">
-.projectCard {
-  //border: 2px solid red;
-  @apply relative m-auto p-2 sm:p-8 md:p-40 flex gap-4 flex-col md:flex-row items-center w-full min-w-[100vw] max-w-[1300px] h-full;
-
-  .projectImage {
-    width: 100%;
-    max-width: 55vw;
-    height: auto;
-    max-height: 100%;
-    aspect-ratio: 16/9;
-    //filter: grayscale(100%);
-    will-change: transform;
-    transform-style: preserve-3d;
-    @apply md:absolute z-[2] md:top-1/2 right-[0.5rem] sm:right-[2rem] md:right-[10rem] block object-cover rounded shadow-lg will-change-transform transform -translate-y-1/2;
-  }
-}
-
+<style scoped>
 .horizontal-wrapper {
   scroll-snap-type: x mandatory;
 }
@@ -247,6 +239,27 @@ onMounted(async () => {
 .horizontal-wrapper {
   overflow: hidden;
   transition: background-color 0.5s ease;
+}
+
+.image-wrapper {
+  width: 800px;
+  max-width: 80%;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  transform-origin: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+  aspect-ratio: 16/9;
 }
 
 #worksText {
