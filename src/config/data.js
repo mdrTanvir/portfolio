@@ -121,7 +121,7 @@ const siteData = {
             skills: ['Figma', 'UX', 'UI'],
             projectLink: 'https://dribbble.com',
             gitHub: 'https://github.com/june',
-            image: 'https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?fit=crop&w=900&q=80',
+            image: '/images/projects/p1.png',
         },
         {
             title: 'Blog CMS Platform',
@@ -130,7 +130,7 @@ const siteData = {
             description: 'Custom CMS for blogging, built with Nuxt and Firebase.',
             skills: ['Nuxt.js', 'Firebase', 'Tailwind'],
             projectLink: 'https://blogcms.com',
-            image: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?fit=crop&w=900&q=80',
+            image: '/images/projects/p1.png',
         },
         {
             title: 'Portfolio Website',
@@ -140,7 +140,7 @@ const siteData = {
             skills: ['HTML', 'CSS', 'JavaScript'],
             projectLink: 'https://myportfolio.com',
             gitHub: 'https://github.com/june',
-            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?fit=crop&w=900&q=80',
+            image: '/images/projects/p1.png',
         },
     ],
 }
