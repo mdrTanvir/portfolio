@@ -177,17 +177,6 @@ const GSAP = () => {
       }
     },
     onLeave: () => {
-      // When leaving the section, reset the text styles
-      gsap.to(worksText.value, {
-        fill: 'white',
-        stroke: 'white',
-        duration: 0.2,
-        position: 'fixed',
-        top: '50%',
-        // left: '50%',
-        // x: '-50%', // Center horizontally
-        fontSize: 180,
-      })
     }
   })
 

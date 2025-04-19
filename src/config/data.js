@@ -105,16 +105,6 @@ const siteData = {
     ],
     works: [
         {
-            title: 'Portfolio Website',
-            tag: 'client',
-            date: 'June 2023',
-            description: 'A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. ',
-            skills: ['HTML', 'CSS', 'JavaScript'],
-            projectLink: 'https://myportfolio.com',
-            gitHub: 'https://github.com/june',
-            image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?fit=crop&w=900&q=80',
-        },
-        {
             title: 'E-commerce Platform',
             tag: 'personal',
             date: 'August 2023',
