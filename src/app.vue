@@ -13,5 +13,5 @@
 
 <script setup lang="ts">
 provideHeadlessUseId(() => useId())
-const {isDesktop} = useDevice()
+const {isDesktop} = useIsDesktop()
 </script>

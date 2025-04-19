@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col-span-12 md:col-span-6 z-10">
-        <div id="imagePlaceTarget" class="relative h-full min-h-[340px]"></div>
+        <div id="imagePlaceTarget" class="relative h-full md:min-h-[340px]"></div>
         <!-- Slide the image here -->
       </div>
     </div>
@@ -37,7 +37,7 @@
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
-const {isDesktop} = useDevice()
+const {isDesktop} = useIsDesktop()
 import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
