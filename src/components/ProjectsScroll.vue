@@ -17,7 +17,7 @@
             fill="transparent"
             :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
-            stroke-width="4"
+            stroke-width="3"
             class="absolute left-0 top-1/2"
         >
           WORKS
@@ -25,14 +25,12 @@
       </svg>
     </div>
     <div ref="scroller" class="h-full flex">
-      <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
-
-      </div>
+      <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full"></div>
 
       <div
-          v-for="(project, index) in siteData.works"
+          v-for="(project, index) in projects"
           :key="index"
-          class="relative flex gap-4 items-center justify-center min-w-[100vw] h-full"
+          class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
       >
         <div class="">
           <h2 class="h1">{{ project.title }}</h2>
@@ -76,7 +74,7 @@
               </span>
             </UiPrimaryButton>
           </div>
-          <h3 class="h4">Do you have an innovative idea?</h3>
+          <h3 class="h4">Do you have a innovative idea?</h3>
           <h1 class="h1">Let's work together</h1>
         </div>
       </div>
@@ -87,20 +85,23 @@
 <script setup lang="ts">
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 import siteData from '~/config/data'
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
-gsap.registerPlugin(ScrollTrigger)
 
+const projects = siteData?.works || []
 const container = ref(null)
 const scroller = ref(null)
 const imageRefs = ref([])
 const worksText = ref(null) // Reference for the "WORKS" text element
 
-const GSAP = () => {
-  const totalWidth = scroller.value.scrollWidth
 
+const projectHorizontal = () => {
+  const totalWidth = scroller.value.scrollWidth
   // Horizontal scroll animation
   gsap.to(scroller.value, {
     x: () => -(totalWidth - window.innerWidth),
@@ -115,21 +116,10 @@ const GSAP = () => {
       invalidateOnRefresh: true,
     },
   })
+}
 
-  // Image parallax effect
-  imageRefs.value.forEach((imgEl) => {
-    gsap.to(imgEl, {
-      y: -50,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: container.value,
-        start: 'top top',
-        end: () => `+=${totalWidth - window.innerWidth}`,
-        scrub: true,
-      },
-    })
-  })
-
+const imageSkew = () => {
+  const totalWidth = scroller.value.scrollWidth
   // Skew effect based on scroll velocity
   let proxy = {skew: 0}
   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
@@ -155,7 +145,23 @@ const GSAP = () => {
     },
   })
 
-  // Scroll-triggered animations for "WORKS" text
+  // Image parallax effect
+  // imageRefs.value.forEach((imgEl) => {
+  //   gsap.to(imgEl, {
+  //     y: -50,
+  //     ease: 'none',
+  //     scrollTrigger: {
+  //       trigger: container.value,
+  //       start: 'top top',
+  //       end: () => `+=${totalWidth - window.innerWidth}`,
+  //       scrub: true,
+  //     },
+  //   })
+  // })
+}
+
+// Scroll-triggered animations for "WORKS" text
+const workTextAnimation = () => {
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -197,8 +203,10 @@ const GSAP = () => {
       }
     }
   })
+}
 
-  // Background color change on scroll
+const bgColorChangeOnScroll = () => {
+  const totalWidth = scroller.value.scrollWidth
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -219,6 +227,13 @@ const GSAP = () => {
   })
 }
 
+const GSAP = async () => {
+  await workTextAnimation()
+  await bgColorChangeOnScroll()
+  await projectHorizontal()
+  await imageSkew()
+}
+
 onMounted(async () => {
   await nextTick()
   await GSAP()
@@ -226,6 +241,14 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.horizontal-wrapper {
+  scroll-snap-type: x mandatory;
+}
+
+.horizontal-wrapper > div {
+  scroll-snap-align: start;
+}
+
 .horizontal-wrapper {
   overflow: hidden;
   transition: background-color 0.5s ease;
