@@ -1,6 +1,9 @@
 <template>
   <section ref="container" class="horizontal-wrapper relative h-screen">
     <div ref="scroller" class="h-full flex">
+      <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
+        <h1 class="h1">Works</h1>
+      </div>
       <div
           v-for="(project, index) in siteData.works"
           :key="index"
@@ -37,6 +40,9 @@
         <div class="image-wrapper" :ref="el => imageRefs[index] = el">
           <img :src="project.image" :alt="project.title" loading="lazy"/>
         </div>
+      </div>
+      <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
+        <h1 class="h1">Lets Talk</h1>
       </div>
     </div>
   </section>
@@ -118,14 +124,14 @@ const GSAP = () => {
     scrub: false,
     // pin: true,
     onEnter: () => {
-      container.value.style.backgroundColor = '#4a5bf1' // blue
+      container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeave: () => {
       container.value.style.backgroundColor = 'transparent' // default
     },
     onEnterBack: () => {
       // container.value.style.backgroundColor = '#818cf8' // blue
-      container.value.style.backgroundColor = '#4a5bf1' // blue
+      container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeaveBack: () => {
       container.value.style.backgroundColor = 'transparent' // default
