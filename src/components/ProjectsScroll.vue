@@ -31,9 +31,9 @@
       <div
           v-for="(project, index) in projects.splice(0, 3)"
           :key="index"
-          class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
+          class="projectCard"
       >
-        <div class="">
+        <div class="z-10">
           <h2 class="h1">{{ project.title }}</h2>
           <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
           <p class="text-sm max-w-[500px]">{{ project.description }}</p>
@@ -49,8 +49,8 @@
             <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="" data-hover>GitHub</a>
           </div>
         </div>
-        <div class="image-wrapper" :ref="el => imageRefs[index] = el">
-          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="img"/>
+        <div class="" :ref="el => imageRefs[index] = el">
+          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="projectImage" height="100%" width="100%"/>
         </div>
       </div>
 
@@ -218,7 +218,7 @@ const GSAP = async () => {
   await workTextAnimation(totalWidth)
   await bgColorChangeOnScroll(totalWidth)
   await projectHorizontal(totalWidth)
-  await imageSkew(totalWidth)
+  // await imageSkew(totalWidth)
 }
 
 onMounted(async () => {
@@ -227,7 +227,21 @@ onMounted(async () => {
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.projectCard {
+  //border: 2px solid red;
+  @apply relative m-auto p-2 sm:p-8 md:p-40 flex gap-4 flex-col md:flex-row items-center w-full min-w-[100vw] max-w-[1300px] h-full;
+
+  .projectImage {
+    width: 100%;
+    max-width: 60vw;
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 16/9;
+    @apply md:absolute z-[2] md:top-1/2 right-[0.5rem] sm:right-[2rem] md:right-[10rem] block object-cover rounded shadow-lg will-change-transform transform -translate-y-1/2;
+  }
+}
+
 .horizontal-wrapper {
   scroll-snap-type: x mandatory;
 }
@@ -239,26 +253,6 @@ onMounted(async () => {
 .horizontal-wrapper {
   overflow: hidden;
   transition: background-color 0.5s ease;
-}
-
-.image-wrapper {
-  width: 800px;
-  max-width: 80%;
-  overflow: hidden;
-  border-radius: 2px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  will-change: transform;
-  transform-origin: center;
-}
-
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 20px;
 }
 
 #worksText {

@@ -111,7 +111,7 @@ const siteData = {
             description: 'An e-commerce platform built with Laravel and Vue.js.',
             skills: ['Laravel', 'Vue.js', 'MySQL'],
             projectLink: 'https://ecommerce.com',
-            image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=crop&w=900&q=80',
+            image: '/images/projects/p1.png',
         },
         {
             title: 'Social App UI Design',
