@@ -5,7 +5,7 @@
     <HomeAbout/>
     <HomeSkills/>
 
-<!--    <NavBarMobile/>-->
+    <!--    <NavBarMobile/>-->
 
     <HomeExperience/>
     <HomeProjects/>

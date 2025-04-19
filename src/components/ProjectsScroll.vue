@@ -20,7 +20,8 @@
             stroke-width="3"
             class="absolute left-0 top-1/2"
         >
-          WORKS
+          WORK
+          <!--          Projects-->
         </text>
       </svg>
     </div>

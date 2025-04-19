@@ -1,7 +1,7 @@
 <template>
-  <section class="contain content-section">
-    <UiHeading>Portfolio</UiHeading>
-  </section>
+<!--  <section class="contain content-section">-->
+<!--    <UiHeading>Portfolio</UiHeading>-->
+<!--  </section>-->
   <div>
     <ProjectsScroll/>
   </div>
