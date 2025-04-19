@@ -25,11 +25,11 @@
       <div
           v-for="(project, index) in siteData.works"
           :key="index"
-          class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full"
+          class="relative flex gap-4 items-center justify-center min-w-[100vw] h-full"
       >
         <div class="">
           <h2 class="h1">{{ project.title }}</h2>
-          <p class="text-sm text-gray-300 mt-1 mb-3">{{ project.tag }} — {{ project.date }}</p>
+          <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
           <p class="text-sm max-w-[500px]">{{ project.description }}</p>
 
           <div class="flex flex-wrap gap-2 mt-3">
@@ -56,12 +56,19 @@
           </div>
         </div>
         <div class="image-wrapper" :ref="el => imageRefs[index] = el">
-          <img :src="project.image" :alt="project.title" loading="lazy"/>
+          <img :src="project.image" :alt="project.title" loading="lazy" class="img"/>
         </div>
       </div>
 
-      <div class="relative flex flex-col items-center justify-center min-w-[100vw] h-full">
+      <div class="relative flex flex-col items-center justify-center min-w-[80vw] h-full">
         <div>
+          <div class=" mb-6">
+            <UiPrimaryButton>
+              <span class="hoverMove flex items-center justify-center">
+                View More Works <Icon name="lucide:download" class="w-5 h-5 ml-2"/>
+              </span>
+            </UiPrimaryButton>
+          </div>
           <h3 class="h4">Do you have an innovative idea?</h3>
           <h1 class="h1">Let's work together</h1>
         </div>
@@ -268,6 +275,8 @@ onMounted(async () => {
 .image-wrapper img {
   width: 100%;
   height: auto;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
   object-fit: cover;
   border-radius: 20px;
