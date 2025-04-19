@@ -2,15 +2,16 @@
   <section ref="container" class="horizontal-wrapper relative h-screen">
     <div ref="scroller" class="h-full flex">
       <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
-        <svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
-          <!-- Text "WORKS" with border -->
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="flex items-center justify-center">
           <text
               id="worksText"
-              x="250"
-              y="100"
+              ref="worksText"
+              x="50%"
+              y="50%"
+              text-anchor="middle"
+              alignment-baseline="middle"
               font-family="Arial"
               font-size="80"
-              text-anchor="middle"
               fill="white"
               stroke="white"
               font-weight="800"
@@ -36,7 +37,7 @@
               <UiChip>{{ skill }}</UiChip>
             </template>
           </div>
-          <!--          https://vdownload-47.sb-cd.com/1/4/14858606-720p.mp4?secure=2RmdrMHWQ29iJau_1aaqyg,1745081890&m=47&d=1&_tid=14858606-->
+
           <div class="flex gap-4 mt-3">
             <a
                 v-if="project.projectLink"
@@ -76,7 +77,7 @@ gsap.registerPlugin(ScrollTrigger)
 const container = ref(null)
 const scroller = ref(null)
 const imageRefs = ref([])
-
+const worksText = ref(null) // Reference for the "WORKS" text element
 
 const GSAP = () => {
   const totalWidth = scroller.value.scrollWidth
@@ -135,12 +136,94 @@ const GSAP = () => {
     },
   })
 
+  // Scroll-triggered animations for "WORKS" text
+  ScrollTrigger.create({
+    trigger: container.value,
+    start: 'top top',
+    end: 'bottom top',
+    scrub: true,
+    markers: true,
+    onUpdate: (self) => {
+      const progress = self.progress
+      const worksTextElement = worksText.value
+
+      if (progress > 0.3) {
+        // When scrolling past 30%, make the text fixed and apply styles
+        gsap.to(worksTextElement, {
+          fill: 'transparent',
+          stroke: 'white',
+          duration: 0.2,
+          position: 'fixed',
+          top: '10vh', // Pin the text 10vh from the top
+          left: '50%',
+          x: '-50%', // Center horizontally
+          fontSize: 160,
+        })
+      } else {
+        // Reset to original state before scrolling past 30%
+        gsap.to(worksTextElement, {
+          fill: 'white',
+          stroke: 'white',
+          duration: 0.2,
+          position: 'absolute',
+          top: '50%', // Original center position
+          left: '50%',
+          x: '-50%', // Center horizontally
+          fontSize: 80,
+        })
+      }
+    },
+  })
+
+  // ScrollTrigger.create({
+  //   trigger: container.value,
+  //   start: 'top top', // Start when "WORKS" screen comes into view
+  //   end: '+=100%', // End when the next section starts (projects section)
+  //   scrub: true,
+  //   pin: worksText.value, // Pin the text during this scroll section
+  //   markers: true,
+  //   onUpdate: (self) => {
+  //     const progress = self.progress;
+  //     const worksTextElement = worksText.value;
+  //
+  //     // Calculate font size dynamically based on scroll progress
+  //     const fontSize = 80 + (progress * 100); // Increase font size as we scroll
+  //
+  //     if (progress > 0.3) {
+  //       gsap.to(worksTextElement, {
+  //         fill: 'transparent',
+  //         stroke: 'white',
+  //         position: 'fixed', // Pin it to the screen
+  //         top: '10vh', // Keep it 10vh from the top
+  //         left: '50%',
+  //         x: '-50%',
+  //         fontSize: fontSize + 'px', // Dynamically increase font size
+  //         zIndex: 10, // Make sure the text stays on top of other elements
+  //         duration: 0.2,
+  //       });
+  //     } else {
+  //       gsap.to(worksTextElement, {
+  //         fill: 'white',
+  //         stroke: 'white',
+  //         position: 'absolute',
+  //         top: '50%',
+  //         left: '50%',
+  //         x: '-50%',
+  //         fontSize: '80px', // Reset to initial font size
+  //         zIndex: 1, // Reset z-index
+  //         duration: 0.2,
+  //       });
+  //     }
+  //   },
+  // });
+
+
+  // Background color change on scroll
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
     end: () => `+=${totalWidth - window.innerWidth}`,
     scrub: false,
-    // pin: true,
     onEnter: () => {
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
@@ -148,7 +231,6 @@ const GSAP = () => {
       container.value.style.backgroundColor = 'transparent' // default
     },
     onEnterBack: () => {
-      // container.value.style.backgroundColor = '#818cf8' // blue
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeaveBack: () => {
@@ -185,5 +267,9 @@ onMounted(async () => {
   display: block;
   object-fit: cover;
   border-radius: 20px;
+}
+
+#worksText {
+  transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 </style>
