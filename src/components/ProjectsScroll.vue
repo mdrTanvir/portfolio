@@ -12,12 +12,12 @@
             y="50%"
             text-anchor="middle"
             alignment-baseline="middle"
-            font-family="Arial"
+            font-family="Pacifico, Arial"
             font-size="20vw"
             fill="transparent"
             :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
-            stroke-width="3"
+            stroke-width="2"
             class="absolute left-0 top-1/2"
         >
           WORK
@@ -255,7 +255,7 @@ onMounted(async () => {
 
 #worksText {
   //font-family: 'Montserrat', sans-serif;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', 'Arial', sans-serif;
   transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 </style>
