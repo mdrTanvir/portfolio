@@ -2,8 +2,25 @@
   <section ref="container" class="horizontal-wrapper relative h-screen">
     <div ref="scroller" class="h-full flex">
       <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
-        <h1 class="h1">Works</h1>
+        <svg width="500" height="200" xmlns="http://www.w3.org/2000/svg">
+          <!-- Text "WORKS" with border -->
+          <text
+              id="worksText"
+              x="250"
+              y="100"
+              font-family="Arial"
+              font-size="80"
+              text-anchor="middle"
+              fill="white"
+              stroke="white"
+              font-weight="800"
+              stroke-width="2"
+          >
+            WORKS
+          </text>
+        </svg>
       </div>
+
       <div
           v-for="(project, index) in siteData.works"
           :key="index"
@@ -41,6 +58,7 @@
           <img :src="project.image" :alt="project.title" loading="lazy"/>
         </div>
       </div>
+
       <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
         <h1 class="h1">Lets Talk</h1>
       </div>
