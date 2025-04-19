@@ -57,11 +57,13 @@
       <div class="relative flex flex-col items-center justify-center min-w-[80vw] h-full">
         <div>
           <div v-if="projects.length > 3" class=" mb-6">
-            <UiPrimaryButton>
+            <NuxtLink to="/projects">
+              <UiPrimaryButton>
               <span class="hoverMove flex items-center justify-center">
                 View More Works <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
               </span>
-            </UiPrimaryButton>
+              </UiPrimaryButton>
+            </NuxtLink>
           </div>
           <h3 class="h4">Do you have a innovative idea?</h3>
           <h1 class="h1">Let's work together</h1>

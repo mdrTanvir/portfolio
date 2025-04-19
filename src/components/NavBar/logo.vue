@@ -7,7 +7,9 @@
         :scrub="false"
     >
       <h3 class="text-2xl sm:text-3xl tracking-tight text-black dark:text-white cursive">
-        {{ siteData.logoName }}
+        <NuxtLink to="/" data-hover>
+          {{ siteData.logoName }}
+        </NuxtLink>
       </h3>
     </UiAnimate>
   </div>
