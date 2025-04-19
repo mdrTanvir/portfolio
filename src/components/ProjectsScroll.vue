@@ -17,7 +17,7 @@
             fill="transparent"
             :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
-            stroke-width="2"
+            stroke-width="4"
             class="absolute left-0 top-1/2"
         >
           WORKS
@@ -161,7 +161,7 @@ const GSAP = () => {
     start: 'top top',
     end: 'bottom top',
     scrub: true,
-    markers: true,
+    // markers: true,
     onUpdate: (self) => {
       const progress = self.progress
       const worksTextElement = worksText.value
@@ -252,6 +252,8 @@ onMounted(async () => {
 }
 
 #worksText {
+  //font-family: 'Montserrat', sans-serif;
+  font-family: 'Pacifico', cursive;
   transition: transform 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 </style>
