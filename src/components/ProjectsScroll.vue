@@ -29,7 +29,7 @@
     <div v-if="projects && projects.length" ref="scroller" class="h-full flex">
       <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full"></div>
       <div
-          v-for="(project, index) in projects.splice(0, 3)"
+          v-for="(project, index) in PROJECTS"
           :key="index"
           class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
       >
@@ -89,6 +89,11 @@ const imageRefs = ref([])
 const worksText = ref(null) // Reference for the "WORKS" text element
 
 
+const PROJECTS = computed(() => {
+  const _projects = projects
+  return _projects.slice(0, 3)
+})
+
 const projectHorizontal = (totalWidth) => {
   // Horizontal scroll animation
   gsap.to(scroller.value, {
@@ -131,20 +136,6 @@ const imageSkew = (totalWidth) => {
       }
     },
   })
-
-  // Image parallax effect
-  // imageRefs.value.forEach((imgEl) => {
-  //   gsap.to(imgEl, {
-  //     y: -50,
-  //     ease: 'none',
-  //     scrollTrigger: {
-  //       trigger: container.value,
-  //       start: 'top top',
-  //       end: () => `+=${totalWidth - window.innerWidth}`,
-  //       scrub: true,
-  //     },
-  //   })
-  // })
 }
 
 // Scroll-triggered animations for "WORKS" text
