@@ -59,7 +59,7 @@
           <div v-if="projects.length > 3" class=" mb-6">
             <UiPrimaryButton>
               <span class="hoverMove flex items-center justify-center">
-                View More Works <Icon name="lucide:download" class="w-5 h-5 ml-2"/>
+                View More Works <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
               </span>
             </UiPrimaryButton>
           </div>
