@@ -47,9 +47,7 @@
             <div v-if="experience.skills?.length" class="flex flex-wrap gap-2 mt-3">
               <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
                 <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
-                  <div class="text-xs px-2 py-1 rounded bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800">
-                    {{ skill }}
-                  </div>
+                  <UiChip>{{ skill }}</UiChip>
                 </UiAnimate>
               </template>
             </div>

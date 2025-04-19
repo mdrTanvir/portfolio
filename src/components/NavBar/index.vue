@@ -16,13 +16,13 @@
             <li v-for="item in navigation" :key="item.name">
               <a :href="item.href" data-hover
                  class="text-base font-medium"
-                 :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-600 dark:text-white'"
+                 :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
               >
                 <span class="hoverMove">{{ item.name }}</span>
               </a>
             </li>
             <li>
-              <button @click="theme.toggleTheme()" data-hover class="a text-gray-600 dark:text-white">
+              <button @click="theme.toggleTheme()" data-hover class="a text-gray-700 dark:text-white">
                 <Icon v-if="theme.darkMode" name="lucide:sun" class="w-6 h-6"/>
                 <Icon v-else name="lucide:moon" class="w-6 h-6"/>
               </button>
@@ -72,7 +72,7 @@ const navigation = [
   {name: 'Skills', href: '#'},
   {name: 'Experience', href: '#'},
   {name: 'Portfolio', href: '#'},
-  {name: "Let's Talk", href: '#', focus: true},
+  {name: "Let's Talk", href: '#', focus: false},
 ]
 
 const theme = useThemeStore()
