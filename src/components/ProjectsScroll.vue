@@ -14,8 +14,8 @@
             alignment-baseline="middle"
             font-family="Arial"
             font-size="100"
-            fill="white"
-            stroke="white"
+            :fill="darkMode ? 'white' : 'black'"
+            :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
             stroke-width="2"
             class="absolute left-0 top-1/2"
@@ -89,6 +89,8 @@ import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import siteData from '~/config/data'
 
+const themeStore = useThemeStore()
+const {darkMode} = storeToRefs(themeStore)
 gsap.registerPlugin(ScrollTrigger)
 
 const container = ref(null)
@@ -164,11 +166,11 @@ const GSAP = () => {
       const progress = self.progress
       const worksTextElement = worksText.value
 
-      if (progress > 0.2) {
+      if (progress > 0) {
         // When scrolling past 30%, make the text fixed and apply styles
         gsap.to(worksTextElement, {
           fill: 'transparent',
-          stroke: 'white',
+          stroke: darkMode.value ? 'white' : 'black',
           duration: 0.2,
           position: 'absolute',
           top: '10vh', // Pin the text 10vh from the top
@@ -181,8 +183,8 @@ const GSAP = () => {
       } else {
         // Reset to original state before scrolling past 30%
         gsap.to(worksTextElement, {
-          fill: 'white',
-          stroke: 'white',
+          fill: darkMode.value ? 'white' : 'black',
+          stroke: darkMode.value ? 'white' : 'black',
           duration: 0.2,
           position: 'absolute',
           top: '50%', // Original center position
