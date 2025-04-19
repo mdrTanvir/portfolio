@@ -88,18 +88,6 @@ const imageAnimation = async () => {
               scrub: true,
               // markers: true,
             },
-            // onComplete: () => {
-            // Wave-like animation (X or Y axis or both)
-            // gsap.to(image, {
-            //   y: "+=10", // Move up and down
-            //   duration: 2,
-            //   ease: "sine.inOut",
-            //   repeat: -1,
-            //   yoyo: true,
-            // rotation: '-=2',
-            // transformOrigin: 'center center',
-            // })
-            // }
           })
     }, 1000);
   })
