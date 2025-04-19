@@ -7,8 +7,11 @@
 
 <script setup>
 import {gsap} from 'gsap'
+const {isDesktop} = useIsDesktop()
 
 onMounted(() => {
+  if (!isDesktop.value) return
+
   document.body.style.cursor = 'none'
   document.body.style.overflowX = 'hidden'
 
