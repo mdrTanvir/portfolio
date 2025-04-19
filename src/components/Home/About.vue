@@ -42,7 +42,7 @@ import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
 
-const transformOrigin = ref('top right')
+const transformOrigin = ref('top center')
 
 const imageAnimation = async () => {
   await nextTick(() => {

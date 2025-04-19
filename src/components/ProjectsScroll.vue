@@ -25,11 +25,11 @@
         </text>
       </svg>
     </div>
-    <div ref="scroller" class="h-full flex">
-      <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full"></div>
 
+    <div v-if="projects && projects.length" ref="scroller" class="h-full flex">
+      <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full"></div>
       <div
-          v-for="(project, index) in projects"
+          v-for="(project, index) in projects.splice(0, 3)"
           :key="index"
           class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
       >
@@ -45,30 +45,18 @@
           </div>
 
           <div class="flex gap-4 mt-3">
-            <a
-                v-if="project.projectLink"
-                :href="project.projectLink"
-                target="_blank"
-                class=""
-                data-hover
-            >Live</a>
-            <a
-                v-if="project.gitHub"
-                :href="project.gitHub"
-                target="_blank"
-                class=""
-                data-hover
-            >GitHub</a>
+            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="" data-hover>Live</a>
+            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="" data-hover>GitHub</a>
           </div>
         </div>
         <div class="image-wrapper" :ref="el => imageRefs[index] = el">
-          <img :src="project.image" :alt="project.title" loading="lazy" class="img"/>
+          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="img"/>
         </div>
       </div>
 
       <div class="relative flex flex-col items-center justify-center min-w-[80vw] h-full">
         <div>
-          <div class=" mb-6">
+          <div v-if="projects.length > 3" class=" mb-6">
             <UiPrimaryButton>
               <span class="hoverMove flex items-center justify-center">
                 View More Works <Icon name="lucide:download" class="w-5 h-5 ml-2"/>
