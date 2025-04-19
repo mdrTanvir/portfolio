@@ -13,8 +13,8 @@
             text-anchor="middle"
             alignment-baseline="middle"
             font-family="Arial"
-            font-size="100"
-            :fill="darkMode ? 'white' : 'black'"
+            font-size="20vw"
+            fill="transparent"
             :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
             stroke-width="2"
@@ -169,30 +169,30 @@ const GSAP = () => {
       if (progress > 0) {
         // When scrolling past 30%, make the text fixed and apply styles
         gsap.to(worksTextElement, {
-          fill: 'transparent',
+          fill: darkMode.value ? 'white' : 'black',
           stroke: darkMode.value ? 'white' : 'black',
           duration: 0.2,
           position: 'absolute',
           top: '10vh', // Pin the text 10vh from the top
           left: '0',
           // y: '-50%', // Center horizontally
-          fontSize: 220,
-          opacity: 0.6,
-          filter: 'blur(6px)'
+          fontSize: '16vw',
+          opacity: 0.1,
+          // filter: 'blur(6px)'
         })
       } else {
         // Reset to original state before scrolling past 30%
         gsap.to(worksTextElement, {
-          fill: darkMode.value ? 'white' : 'black',
+          fill: 'transparent',
           stroke: darkMode.value ? 'white' : 'black',
           duration: 0.2,
           position: 'absolute',
           top: '50%', // Original center position
           // left: '50%',
           // y: '50%', // Center horizontally
-          fontSize: 100,
+          fontSize: '20vw',
           opacity: 1,
-          filter: 'blur(0)'
+          // filter: 'blur(0)'
         })
       }
     }
