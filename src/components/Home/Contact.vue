@@ -15,10 +15,21 @@
                 <input type="text" id="name" class="form-control" placeholder="John Doe" required>
               </UiAnimate>
             </div>
-            <div>
+            <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="email" class="form-label">Your Email</label>
                 <input type="email" id="email" class="form-control" placeholder="johndoe@example.com" required>
+              </UiAnimate>
+            </div>
+            <div class="form-group">
+              <UiAnimate :distance="20">
+                <label for="message" class="form-label">Your message</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </UiAnimate>
+            </div>
+            <div class="form-group">
+              <UiAnimate :distance="20">
+                <UiPrimaryButton class="" inverted>Send Message</UiPrimaryButton>
               </UiAnimate>
             </div>
           </form>
@@ -43,6 +54,6 @@
 .form-control {
   @apply bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg
   focus:ring-blue-500 focus:border-blue-500 block w-full max-w-[500px] p-2.5
-   dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
 }
 </style>
