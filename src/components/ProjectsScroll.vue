@@ -1,7 +1,7 @@
 <template>
   <section ref="container" class="horizontal-wrapper relative h-screen">
     <div ref="scroller" class="h-full flex">
-      <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
+      <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="flex items-center justify-center">
           <text
               id="worksText"
@@ -60,8 +60,11 @@
         </div>
       </div>
 
-      <div class="relative flex gap-[60px] items-center justify-center min-w-[100vw] h-full">
-        <h1 class="h1">Lets Talk</h1>
+      <div class="relative flex flex-col items-center justify-center min-w-[100vw] h-full">
+        <div>
+          <h3 class="h4">Do you have an innovative idea?</h3>
+          <h1 class="h1">Let's work together</h1>
+        </div>
       </div>
     </div>
   </section>
@@ -147,7 +150,7 @@ const GSAP = () => {
       const progress = self.progress
       const worksTextElement = worksText.value
 
-      if (progress > 0.3) {
+      if (progress > 0.2) {
         // When scrolling past 30%, make the text fixed and apply styles
         gsap.to(worksTextElement, {
           fill: 'transparent',
@@ -155,9 +158,9 @@ const GSAP = () => {
           duration: 0.2,
           position: 'fixed',
           top: '10vh', // Pin the text 10vh from the top
-          left: '50%',
-          x: '-50%', // Center horizontally
-          fontSize: 160,
+          // left: '50%',
+          // x: '-50%', // Center horizontally
+          fontSize: 180,
         })
       } else {
         // Reset to original state before scrolling past 30%
@@ -167,12 +170,25 @@ const GSAP = () => {
           duration: 0.2,
           position: 'absolute',
           top: '50%', // Original center position
-          left: '50%',
-          x: '-50%', // Center horizontally
+          // left: '50%',
+          // x: '-50%', // Center horizontally
           fontSize: 80,
         })
       }
     },
+    onLeave: () => {
+      // When leaving the section, reset the text styles
+      gsap.to(worksText.value, {
+        fill: 'white',
+        stroke: 'white',
+        duration: 0.2,
+        position: 'fixed',
+        top: '50%',
+        // left: '50%',
+        // x: '-50%', // Center horizontally
+        fontSize: 180,
+      })
+    }
   })
 
   // ScrollTrigger.create({
@@ -216,7 +232,6 @@ const GSAP = () => {
   //     }
   //   },
   // });
-
 
   // Background color change on scroll
   ScrollTrigger.create({
