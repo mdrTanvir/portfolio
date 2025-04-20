@@ -91,9 +91,7 @@ const imageRefs = ref([])
 const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
 
-const PROJECTS = computed(() => {
-  return projects.slice(0, 3)
-})
+const PROJECTS = computed(() => projects.slice(0, 3))
 
 const projectHorizontal = (totalWidth: any) => {
   if (!container.value) return
