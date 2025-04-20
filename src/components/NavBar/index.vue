@@ -1,6 +1,6 @@
 <template>
   <header class="relative z-50">
-    <div class="bg-gray-100/40 dark:bg-gray-950/60 backdrop-blur-xl py-4 fixed w-full">
+    <div class="bg-gray-100/60 dark:bg-gray-950/60 backdrop-blur-xl py-4 fixed w-full">
       <div class="relative contain flex items-center justify-between" aria-label="Global">
         <NavBarLogo/>
         <div class="flex items-center">
