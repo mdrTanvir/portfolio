@@ -85,18 +85,17 @@ const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 
 const projects = siteData?.works || []
-const container = ref(null)
-const scroller = ref(null)
+const container = ref<HTMLElement | null>(null)
+const scroller = ref<HTMLElement | null>(null)
 const imageRefs = ref([])
-const worksText = ref(null) // Reference for the "WORKS" text element
+const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
 
 const PROJECTS = computed(() => {
-  const _projects = projects
-  return _projects.slice(0, 3)
+  return projects.slice(0, 3)
 })
 
-const projectHorizontal = (totalWidth) => {
+const projectHorizontal = (totalWidth: any) => {
   // Horizontal scroll animation
   gsap.to(scroller.value, {
     x: () => -(totalWidth - window.innerWidth),
@@ -113,7 +112,7 @@ const projectHorizontal = (totalWidth) => {
   })
 }
 
-const imageSkew = (totalWidth) => {
+const imageSkew = (totalWidth: any) => {
   // Skew effect based on scroll velocity
   let proxy = {skew: 0}
   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
@@ -141,7 +140,7 @@ const imageSkew = (totalWidth) => {
 }
 
 // Scroll-triggered animations for "WORKS" text
-const workTextAnimation = (totalWidth) => {
+const workTextAnimation = () => {
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -185,7 +184,7 @@ const workTextAnimation = (totalWidth) => {
   })
 }
 
-const bgColorChangeOnScroll = (totalWidth) => {
+const bgColorChangeOnScroll = (totalWidth: any) => {
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -206,21 +205,23 @@ const bgColorChangeOnScroll = (totalWidth) => {
   })
 }
 
-const GSAP = async () => {
-  const totalWidth = scroller.value.scrollWidth
-  await workTextAnimation(totalWidth)
-  await bgColorChangeOnScroll(totalWidth)
-  await projectHorizontal(totalWidth)
-  await imageSkew(totalWidth)
+const GSAP = () => {
+  if (scroller.value) {
+    const totalWidth = scroller.value?.scrollWidth
+    workTextAnimation()
+    bgColorChangeOnScroll(totalWidth)
+    projectHorizontal(totalWidth)
+    imageSkew(totalWidth)
+  }
 }
 
 onMounted(async () => {
   await nextTick()
-  await GSAP()
+  GSAP()
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .horizontal-wrapper {
   scroll-snap-type: x mandatory;
 }

@@ -48,7 +48,7 @@ const navigation = [
   {name: "Let's Talk", href: '#', focus: false},
 ]
 
-import {gsap, Power4} from 'gsap'
+import gsap from 'gsap'
 
 
 </script>
