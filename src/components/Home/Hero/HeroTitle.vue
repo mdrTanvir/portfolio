@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-24 sm:pt-28 md:pt-38 xl:pt-44">
+  <div class="pt-32 sm:pt-32 md:pt-38 xl:pt-44">
     <h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl">
       <div class="overflow-hidden">
         <UiAnimate :distance="60" :delay="0.4" :duration="0.4" scrollTriggerStart="center bottom" :scrub="false">
