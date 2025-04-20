@@ -26,10 +26,10 @@
           <ul class="menu text-lg space-y-6 py-8 w-[280px]" ref="menu">
             <li v-for="item in navigation" :key="item.name">
               <a
-                  class="text-3xl font-medium"
+                  class="text-3xl font-medium cursor-pointer"
                   :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
                   :data-text="item.name"
-                  @click.stop.prevent="scrollTo(item.href); closeMenu();"
+                  @click.stop.prevent="closeMenu(); scrollTo(item.href);"
               >
                 {{ item.name }}
               </a>
