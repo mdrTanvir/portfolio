@@ -32,6 +32,12 @@
                 {{ item.name }}
               </a>
             </li>
+            <li>
+              <button @click="themeStore.toggleTheme()" data-hover class="a text-gray-700 dark:text-white w-6 h-6">
+                <Icon v-if="themeStore.darkMode" name="lucide:sun" class="w-6 h-6"/>
+                <Icon v-else name="lucide:moon" class="w-6 h-6"/>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -43,6 +49,7 @@
 <script setup lang="ts">
 import gsap, {Power4} from 'gsap'
 import navigation from "~/config/navigation";
+const themeStore = useThemeStore()
 
 // Refs for triggers
 const menuOpen = ref(false)
@@ -232,19 +239,19 @@ const closeMenu = () => {
   &.first {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-100/90 dark:bg-gray-800/90;
+    @apply bg-gray-100 dark:bg-gray-800;
   }
 
   &.middle {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-300/90 dark:bg-gray-900/90;
+    @apply bg-gray-200 dark:bg-gray-900;
   }
 
   &.last {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-400/90 dark:bg-gray-950/90;
+    @apply bg-gray-300 dark:bg-gray-950;
   }
 }
 </style>
