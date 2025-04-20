@@ -96,6 +96,8 @@ const PROJECTS = computed(() => {
 })
 
 const projectHorizontal = (totalWidth: any) => {
+  if (!container.value) return
+
   // Horizontal scroll animation
   gsap.to(scroller.value, {
     x: () => -(totalWidth - window.innerWidth),
