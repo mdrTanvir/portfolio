@@ -226,31 +226,30 @@ const closeMenu = () => {
 }
 
 .menu-bg {
-  position: absolute;
   display: block;
   width: 400%;
-  left: 0;
-  top: 0;
   height: 34%;
 
   z-index: 10;
 
+  @apply backdrop-blur-xl absolute top-0 left-0;
+
   &.first {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-100/90 dark:bg-gray-800/90;
   }
 
   &.middle {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-300 dark:bg-gray-900;
+    @apply bg-gray-300/90 dark:bg-gray-900/90;
   }
 
   &.last {
     top: -35%;
     transform: translateY(0);
-    @apply bg-gray-400 dark:bg-gray-950;
+    @apply bg-gray-400/90 dark:bg-gray-950/90;
   }
 }
 </style>
