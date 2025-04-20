@@ -25,10 +25,11 @@
         <div class="h-full flex items-center justify-center relative z-50" ref="menuContainer">
           <ul class="menu text-lg space-y-6 py-8 w-[280px]" ref="menu">
             <li v-for="item in navigation" :key="item.name">
-              <a :href="item.href"
-                 class="text-3xl font-medium"
-                 :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
-                 :data-text="item.name"
+              <a
+                  class="text-3xl font-medium"
+                  :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+                  :data-text="item.name"
+                  @click.stop.prevent="scrollTo(item.href); closeMenu();"
               >
                 {{ item.name }}
               </a>
@@ -52,6 +53,7 @@ import gsap, {Power4} from 'gsap'
 import navigation from "~/config/navigation";
 
 const themeStore = useThemeStore()
+const {scrollTo} = useScrollTo()
 
 // Refs for triggers
 const menuOpen = ref(false)

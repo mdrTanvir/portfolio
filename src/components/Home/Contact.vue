@@ -1,5 +1,5 @@
 <template>
-  <section class="contain content-section">
+  <section id="CONTACT" class="contain content-section">
     <UiHeading>Contact</UiHeading>
 
     <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">

@@ -2,9 +2,11 @@
   <nav class="hidden md:block ">
     <ul class="hidden md:flex gap-x-8">
       <li v-for="item in navigation" :key="item.name" class="flex items-center">
-        <a :href="item.href" data-hover
-           class="text-base font-medium"
-           :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+        <a
+            data-hover
+            class="text-base font-medium"
+            :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+            @click.stop.prevent="scrollTo(item.href)"
         >
           <span class="hoverMove">{{ item.name }}</span>
         </a>
@@ -21,8 +23,10 @@
 
 <script setup lang="ts">
 import navigation from "~/config/navigation";
+import {gsap} from "gsap";
 
 const themeStore = useThemeStore()
+const {scrollTo} = useScrollTo()
 </script>
 
 <style scoped lang="scss">

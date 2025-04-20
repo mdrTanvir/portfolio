@@ -1,9 +1,9 @@
 const navigation = [
-    {name: 'About', href: '#about'},
-    {name: 'Skills', href: '#skills'},
-    {name: 'Experience', href: '#experience'},
-    {name: 'Portfolio', href: '#projects'},
-    {name: "Let's Talk", href: '#contact', focus: false},
+    {name: 'About', href: 'ABOUT'},
+    {name: 'Skills', href: 'SKILLS'},
+    {name: 'Experience', href: 'EXPERIENCE'},
+    {name: 'Portfolio', href: 'PROJECTS'},
+    {name: "Let's Talk", href: 'CONTACT', focus: false},
 ]
 
 export default navigation;

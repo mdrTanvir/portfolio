@@ -1,5 +1,5 @@
 <template>
-  <section class="contain content-section">
+  <section id="SKILLS" class="contain content-section">
     <UiHeading>Skills</UiHeading>
 
     <div class="mt-10">

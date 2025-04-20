@@ -1,5 +1,5 @@
 <template>
-  <section v-if="siteData.experiences && siteData.experiences?.length" class="contain content-section">
+  <section v-if="siteData.experiences && siteData.experiences?.length" id="EXPERIENCE" class="contain content-section">
     <UiHeading>Experience</UiHeading>
 
     <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">

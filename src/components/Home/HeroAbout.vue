@@ -25,7 +25,7 @@
   </section>
 
   <!-- About Section -->
-  <section class="contain content-section about relative">
+  <section id="ABOUT" class="contain content-section about relative">
     <UiHeading class="z-10">About</UiHeading>
 
     <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
