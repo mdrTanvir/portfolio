@@ -8,10 +8,10 @@ export default function useScrollTo() {
     //     }
     // }
 
-    const {$lenis} = useNuxtApp()
 
     const scrollTo = (id: string) => {
         const target = document.getElementById(id)
+        const {$lenis} = useNuxtApp()
         if (target && $lenis) {
             $lenis.scrollTo(target, {
                 offset: -40, // scroll offset (matches ScrollToPlugin offsetY)
