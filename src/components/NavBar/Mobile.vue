@@ -15,20 +15,20 @@
       </div>
     </div>
 
-    <div v-show="menuOpen" class="mobileNavContainer relative">
+    <div class="mobileNavContainer relative">
       <!-- Background Layers -->
       <div class="inner-container h-screen">
-        <i class="menu-bg top bg-black dark:bg-white" ref="menuTop"></i>
-        <i class="menu-bg middle bg-black dark:bg-white" ref="menuMiddle"></i>
-        <i class="menu-bg bottom bg-black dark:bg-white" ref="menuBottom"></i>
+        <i class="menu-bg first" ref="menuTop"></i>
+        <i class="menu-bg middle" ref="menuMiddle"></i>
+        <i class="menu-bg last" ref="menuBottom"></i>
 
         <!-- Navigation -->
         <!--        <div class="h-full flex items-center justify-center absolute left-1/2 z-50" ref="menuContainer">-->
         <div class="h-full flex items-center justify-center relative z-50" ref="menuContainer">
-          <ul class="menu text-lg space-y-4 py-8" ref="menu">
+          <ul class="menu text-lg space-y-6 py-8" ref="menu">
             <li v-for="item in navigation" :key="item.name">
               <a :href="item.href"
-                 class="text-base font-medium"
+                 class="text-3xl font-medium"
                  :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
               >
                 {{ item.name }}
@@ -72,44 +72,74 @@ onMounted(() => {
 
   // OPEN
   tlOpen
-      .add('preOpen')
-      .to(openTop.value, {x: 0, y: -0, duration: 0.4, delay: 0.1, ease: Power4.easeIn})
-      .to(openMiddle.value, {
-        x: 0, y: -0, duration: 0.4, ease: Power4.easeIn,
-        onComplete: () => closeTrigger.value.style.zIndex = 25
-      }, 'preOpen')
-      .to(openBottom.value, {x: 0, y: -0, duration: 0.4, delay: 0.2, ease: Power4.easeIn}, 'preOpen')
-      .add("open", "-=0.4")
-      .to(menuTop, {y: '13%', ease: 'power4.inOut'}, "open")
-      .to(menuMiddle, {scaleY: 1, ease: 'power4.inOut'}, "open")
-      .to(menuBottom, {y: '-114%', ease: 'power4.inOut'}, "open")
-      .fromTo(menu.value, {y: 30, opacity: 0, visibility: 'hidden'}, {y: 0, opacity: 1, visibility: 'visible', duration: 0.6, ease: Power4.easeOut}, '-=0.2')
-      .add('preClose', '-=0.8')
-      .to(closeLeft.value, {x: -0, y: 0, duration: 0.8, ease: Power4.easeOut}, 'preClose')
-      .to(closeRight.value, {x: 0, y: 0, duration: 0.8, delay: 0.2, ease: Power4.easeOut}, 'preClose')
+      .add('start')
+      .set([menuTop.value, menuMiddle.value, menuBottom.value], {
+        scaleY: 0.5,
+        opacity: 0,
+        top: '-35%',
+      })
+      .to(menuTop.value, {top: '0%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
+      .to(menuMiddle.value, {top: '34%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
+      .to(menuBottom.value, {top: '68%', scaleY: 1, opacity: 1, duration: 0.7, ease: Power4.easeOut}, 'start+=0.2')
 
-      .to(openTop.value, {x: 80, y: -80, duration: 1, delay: 0.2, ease: Power4.easeOut}, 'close')
-      .to(openMiddle.value, {x: 80, y: -80, duration: 1, ease: Power4.easeOut}, 'close')
-      .to(openBottom.value, {x: 80, y: -80, duration: 1, delay: 0.1, ease: Power4.easeOut}, 'close')
+      // Animate menu items
+      .fromTo(menu.value.children, {
+        y: 50,
+        opacity: 0,
+        stagger: 0.1
+      }, {
+        y: 0,
+        opacity: 1,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: Power4.easeOut
+      }, 'start+=0.4')
 
-//   // CLOSE
+      // Animate close icon lines
+      .to(closeLeft.value, {x: 0, y: 0, rotate: -45, duration: 0.5, ease: Power4.easeOut}, 'start+=0.6')
+      .to(closeRight.value, {x: 0, y: 0, rotate: 45, duration: 0.5, ease: Power4.easeOut}, 'start+=0.65')
+
+      // Animate trigger bars out
+      .to([openTop.value, openMiddle.value, openBottom.value], {
+        x: 80,
+        y: -80,
+        duration: 1,
+        ease: Power4.easeOut
+      }, 'start+=0.2')
+
+
+  // CLOSE
   tlClose
       .add('close')
-      .to([menuTop.value, menuMiddle.value, menuBottom.value], {
-        // backgroundColor: '#6295ca', duration: 0.2, ease: Power4.easeInOut
+      .to(menu.value.children, {
+        y: 30,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.05,
+        ease: Power4.easeIn
       }, 'close')
-      .to(menu.value, {
-        y: 20, opacity: 0, duration: 0.6, ease: Power4.easeOut,
-        onComplete: () => menu.value.style.visibility = 'hidden'
+
+      .to([menuBottom.value, menuMiddle.value, menuTop.value], {
+        scaleY: 0.7,
+        opacity: 0,
+        top: '-35%',
+        duration: 0.5,
+        ease: Power4.easeInOut,
+        stagger: 0.1
+      }, 'close+=0.3')
+
+      .to(closeLeft.value, {x: 100, y: -100, rotate: 0, duration: 0.3, ease: Power4.easeIn}, 'close')
+      .to(closeRight.value, {x: -100, y: -100, rotate: 0, duration: 0.3, delay: 0.1, ease: Power4.easeIn}, 'close')
+
+      .to([openTop.value, openMiddle.value, openBottom.value], {
+        x: 0,
+        y: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: Power4.easeOut
       }, 'close')
-      .to(closeLeft.value, {x: 100, y: -100, duration: 0.2, ease: Power4.easeIn}, 'close')
-      .to(closeRight.value, {x: -100, y: -100, duration: 0.2, delay: 0.1, ease: Power4.easeIn}, 'close')
-
-      .to(openTop.value, {x: 0, y: 0, duration: 1, delay: 0.2, ease: Power4.easeOut}, 'close')
-      .to(openMiddle.value, {x: 0, y: 0, duration: 1, ease: Power4.easeOut}, 'close')
-      .to(openBottom.value, {x: 0, y: 0, duration: 1, delay: 0.1, ease: Power4.easeOut}, 'close')
-
 })
+
 
 const openMenu = () => {
   menuOpen.value = true
@@ -118,19 +148,16 @@ const openMenu = () => {
 }
 
 const closeMenu = () => {
+  menuOpen.value = false
   console.log('tlClose', tlClose.progress())
   tlClose.progress() < 1 ? tlClose.play() : tlClose.restart()
-
-  setTimeout(() => {
-    menuOpen.value = false
-  }, 500)
 }
 </script>
 
 <style scoped lang="scss">
 // Mobile navigation ....
 .mobileNavContainer {
-  @apply bg-white/80 dark:bg-black/80 backdrop-blur-xl fixed top-0 left-0 right-0 bottom-0 z-10;
+  @apply fixed top-0 left-0 right-0 bottom-0 z-10;
   margin: 0 auto;
   -webkit-transform: scale(1);
   height: 100vh;
@@ -238,34 +265,28 @@ const closeMenu = () => {
   position: absolute;
   display: block;
   width: 400%;
-  left: -53%;
-  top: -25%;
-  height: 40%;
+  left: 0;
+  top: 0;
+  height: 34%;
 
   z-index: 10;
-  transform-origin: 0 0;
 
-  &.top {
-    top: 10%;
-    left: -100%;
-    transform: rotate(-45deg) translateY(75%);
-    background-color: rgba(104, 103, 103, 1);
+  &.first {
+    top: -35%;
+    transform: translateY(0);
+    @apply bg-gray-100 dark:bg-gray-800;
   }
 
   &.middle {
-    height: 50% !important;
-    top: 72%;
-    left: -60%;
-    transform: rotate(-45deg) scaleY(1.3);
-    background-color: rgba(64, 63, 63, 1);
-    z-index: 9 !important;
+    top: -35%;
+    transform: translateY(0);
+    @apply bg-gray-300 dark:bg-gray-900;
   }
 
-  &.bottom {
-    top: 105%;
-    left: 0;
-    transform: rotate(-45deg) translateY(10%);
-    background-color: rgba(33, 32, 32, 1);
+  &.last {
+    top: -35%;
+    transform: translateY(0);
+    @apply bg-gray-400 dark:bg-gray-950;
   }
 }
 </style>
