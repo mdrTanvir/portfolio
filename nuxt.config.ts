@@ -3,7 +3,6 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     srcDir: './src/',
-    target: 'static',
     ssr: false,
     typescript: {
         strict: true,
@@ -25,7 +24,6 @@ export default defineNuxtConfig({
         '@nuxt/icon',
         '@nuxt/image',
         '@nuxtjs/tailwindcss',
-        'nuxt-headlessui',
         '@pinia/nuxt',
         'pinia-plugin-persistedstate/nuxt',
         '@nuxtjs/device',

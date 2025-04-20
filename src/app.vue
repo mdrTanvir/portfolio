@@ -12,6 +12,6 @@
 </template>
 
 <script setup lang="ts">
-provideHeadlessUseId(() => useId())
+// provideHeadlessUseId(() => useId())
 const {isDesktop} = useIsDesktop()
 </script>
