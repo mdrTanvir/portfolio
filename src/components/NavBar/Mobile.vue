@@ -132,6 +132,9 @@ body {
   -moz-box-shadow: 0px 9px 13px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 9px 13px 0px rgba(0, 0, 0, 0.3);
   -webkit-transform: scale(1);
+
+
+  margin-top: 200px;
 }
 
 .menu-trigger, .close-trigger {

@@ -6,12 +6,14 @@
           <NavBarLogo/>
         </div>
         <div class="flex items-center">
-          <!--          <div class="-mr-2 flex items-center md:hidden">-->
-          <!--            <PopoverButton class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">-->
-          <!--              <span class="sr-only">Open main menu</span>-->
-          <!--              <Icon name="lucide:menu" class="h-6 w-6 text-white hover:text-gray-300"/>-->
-          <!--            </PopoverButton>-->
-          <!--          </div>-->
+          <div class="-mr-2 flex items-center md:hidden">
+            <!-- Open Trigger -->
+            <span class="menu-trigger absolute top-8 right-5 z-30 cursor-pointer" @click="openMenu">
+              <i class="menu-trigger-bar top" ref="openTop"></i>
+              <i class="menu-trigger-bar middle" ref="openMiddle"></i>
+              <i class="menu-trigger-bar bottom" ref="openBottom"></i>
+            </span>
+          </div>
           <ul class="hidden space-x-8 md:flex">
             <li v-for="item in navigation" :key="item.name">
               <a :href="item.href" data-hover
@@ -32,9 +34,12 @@
       </nav>
     </div>
   </header>
+
+  <NavBarMobile/>
 </template>
 
 <script setup lang="ts">
+const theme = useThemeStore()
 const navigation = [
   {name: 'About', href: '#'},
   {name: 'Skills', href: '#'},
@@ -43,7 +48,9 @@ const navigation = [
   {name: "Let's Talk", href: '#', focus: false},
 ]
 
-const theme = useThemeStore()
+import {gsap, Power4} from 'gsap'
+
+
 </script>
 
 
