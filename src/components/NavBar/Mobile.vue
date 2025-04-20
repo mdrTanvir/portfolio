@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="relative flex items-center md:hidden">
-
       <!-- Open Trigger -->
       <div v-show="!menuOpen" class="menu-trigger block cursor-pointer" @click="openMenu">
         <i class="menu-trigger-bar top" ref="openTop"></i>
@@ -23,7 +22,6 @@
         <i class="menu-bg last" ref="menuBottom"></i>
 
         <!-- Navigation -->
-        <!--        <div class="h-full flex items-center justify-center absolute left-1/2 z-50" ref="menuContainer">-->
         <div class="h-full flex items-center justify-center relative z-50" ref="menuContainer">
           <ul class="menu text-lg space-y-6 py-8" ref="menu">
             <li v-for="item in navigation" :key="item.name">
@@ -71,8 +69,7 @@ onMounted(() => {
   tlClose = gsap.timeline({paused: true})
 
   // OPEN
-  tlOpen
-      .add('start')
+  tlOpen.add('start')
       .set([menuTop.value, menuMiddle.value, menuBottom.value], {scaleY: 0.5, opacity: 0, top: '-35%',})
       .to(menuTop.value, {top: '0%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
       .to(menuMiddle.value, {top: '34%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
@@ -94,8 +91,7 @@ onMounted(() => {
 
 
   // CLOSE
-  tlClose
-      .add('close')
+  tlClose.add('close')
       .to(menu.value.children, {y: 30, opacity: 0, duration: 0.4, stagger: 0.05, ease: Power4.easeIn}, 'close')
 
       .to([menuBottom.value, menuMiddle.value, menuTop.value], {scaleY: 0.7, opacity: 0, top: '-35%', duration: 0.5, ease: Power4.easeInOut, stagger: 0.1}, 'close+=0.3')
@@ -119,7 +115,6 @@ const closeMenu = () => {
 </script>
 
 <style scoped lang="scss">
-// Mobile navigation ....
 .mobileNavContainer {
   @apply fixed top-0 left-0 right-0 bottom-0 z-10;
   margin: 0 auto;
