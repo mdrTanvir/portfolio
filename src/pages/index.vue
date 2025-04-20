@@ -3,7 +3,6 @@
     <!--    <NavBarMobile/>-->
     <HomeHeroAbout/>
     <UiParticlesHeroParticles :key="count"/>
-<!--    <HomeAbout/>-->
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>

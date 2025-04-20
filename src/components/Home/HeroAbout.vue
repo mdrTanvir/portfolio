@@ -1,4 +1,5 @@
 <template>
+  <!-- Hero Section -->
   <section class="heroSection pb-10 md:pb-14 lg:pb-20">
     <div class="contain relative h-[100lvh] min-h-[100lvh] z-10 max-h-[1300px] pt-10 sm:pt-16 md:pt-24 pb-6 md:pb-10">
       <div class="h-full flex flex-col justify-between relative z-[2]">
@@ -21,11 +22,9 @@
 
     <div class="beam beam-top-1"></div>
     <div class="beam beam-top-2"></div>
-
-    <!--    <template v-if="isDesktop">-->
-    <!--      <UiBlackHole/>-->
-    <!--    </template>-->
   </section>
+
+  <!-- About Section -->
   <section class="contain content-section about relative">
     <UiHeading class="z-10">About</UiHeading>
 
