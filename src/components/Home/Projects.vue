@@ -141,6 +141,9 @@ const imageSkew = (totalWidth: any) => {
 
 // Scroll-triggered animations for "WORKS" text
 const workTextAnimation = () => {
+  const worksTextElement = worksText.value
+  if (!container.value || !worksTextElement) return
+
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
@@ -149,7 +152,6 @@ const workTextAnimation = () => {
     // markers: true,
     onUpdate: (self) => {
       const progress = self.progress
-      const worksTextElement = worksText.value
 
       if (progress > 0) {
         // When scrolling past 30%, make the text fixed and apply styles
@@ -185,6 +187,7 @@ const workTextAnimation = () => {
 }
 
 const bgColorChangeOnScroll = (totalWidth: any) => {
+  if (!container.value) return
   ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
