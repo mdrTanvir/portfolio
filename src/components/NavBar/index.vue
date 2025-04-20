@@ -6,16 +6,10 @@
           <NavBarLogo/>
         </div>
         <div class="flex items-center">
-          <div class="-mr-2 flex items-center md:hidden">
-            <!-- Open Trigger -->
-            <span class="menu-trigger absolute top-8 right-5 z-30 cursor-pointer" @click="openMenu">
-              <i class="menu-trigger-bar top" ref="openTop"></i>
-              <i class="menu-trigger-bar middle" ref="openMiddle"></i>
-              <i class="menu-trigger-bar bottom" ref="openBottom"></i>
-            </span>
+          <div class="flex items-center md:hidden">
           </div>
           <ul class="hidden space-x-8 md:flex">
-            <li v-for="item in navigation" :key="item.name">
+            <li v-for="item in navigation" :key="item.name" class="flex items-center">
               <a :href="item.href" data-hover
                  class="text-base font-medium"
                  :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
@@ -23,8 +17,8 @@
                 <span class="hoverMove">{{ item.name }}</span>
               </a>
             </li>
-            <li>
-              <button @click="theme.toggleTheme()" data-hover class="a text-gray-700 dark:text-white">
+            <li class="flex items-center">
+              <button @click="theme.toggleTheme()" data-hover class="a text-gray-700 dark:text-white w-6 h-6">
                 <Icon v-if="theme.darkMode" name="lucide:sun" class="w-6 h-6"/>
                 <Icon v-else name="lucide:moon" class="w-6 h-6"/>
               </button>
@@ -35,7 +29,7 @@
     </div>
   </header>
 
-  <NavBarMobile/>
+<!--  <NavBarMobile/>-->
 </template>
 
 <script setup lang="ts">
