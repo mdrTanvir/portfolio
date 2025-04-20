@@ -1,9 +1,9 @@
 <template>
   <main>
     <!--    <NavBarMobile/>-->
-    <HomeHero/>
+    <HomeHeroAbout/>
     <UiParticlesHeroParticles :key="count"/>
-    <HomeAbout/>
+<!--    <HomeAbout/>-->
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>
