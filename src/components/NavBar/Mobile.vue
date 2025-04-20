@@ -23,11 +23,12 @@
 
         <!-- Navigation -->
         <div class="h-full flex items-center justify-center relative z-50" ref="menuContainer">
-          <ul class="menu text-lg space-y-6 py-8" ref="menu">
+          <ul class="menu text-lg space-y-6 py-8 w-[280px]" ref="menu">
             <li v-for="item in navigation" :key="item.name">
               <a :href="item.href"
                  class="text-3xl font-medium"
                  :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+                 :data-text="item.name"
               >
                 {{ item.name }}
               </a>
@@ -137,6 +138,61 @@ watchEffect(() => {
 </script>
 
 <style scoped lang="scss">
+//.menu {
+//  a {
+//    display: block;
+//    position: relative;
+//
+//    &::before {
+//      content: attr(data-text);
+//      @apply bg-gradient-to-r from-gray-300/60 to-slate-400/30 dark:from-gray-800/60 dark:to-gray-600/50;
+//      -webkit-background-clip: text;
+//      -webkit-text-fill-color: transparent;
+//
+//      font-size: 3rem;
+//      position: absolute;
+//      top: -1rem;
+//      z-index: -1;
+//      transform: translateY(10px);
+//      transition: all 0.3s ease;
+//    }
+//  }
+//}
+.menu {
+  a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: attr(data-text);
+      font-size: 3rem;
+      font-weight: bold;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      transform: translate(4px, 8px) scale(1.05);
+      opacity: 0.08;
+      letter-spacing: 1px;
+
+      @apply bg-gradient-to-br from-indigo-400/70 to-indigo-800/70 dark:from-white/30 dark:to-white/20;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      filter: blur(2px);
+      transition: all 0.5s ease;
+    }
+
+    &:hover::before {
+      transform: translate(0px, 0px) scale(1.1);
+      opacity: 0.2;
+      filter: blur(1px);
+    }
+  }
+}
+
 .mobileNavContainer {
   @apply fixed top-0 left-0 right-0 bottom-0 z-10;
   margin: 0 auto;
