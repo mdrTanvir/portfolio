@@ -14,27 +14,30 @@
       </div>
     </div>
 
-    <div class="container absolute overflow-hidden">
-      <!-- Background Layers -->
-      <div class="inner-container">
-        <i class="menu-bg top bg-black dark:bg-white" ref="menuTop"></i>
-        <i class="menu-bg middle bg-black dark:bg-white" ref="menuMiddle"></i>
-        <i class="menu-bg bottom bg-black dark:bg-white" ref="menuBottom"></i>
+    <div class="mobileNavContainer fixed top-0 left-0 right-0 bottom-0 z-50">
+      <div class="relative">
+        <!-- Background Layers -->
+        <div class="inner-container">
+          <i class="menu-bg top bg-black dark:bg-white" ref="menuTop"></i>
+          <i class="menu-bg middle bg-black dark:bg-white" ref="menuMiddle"></i>
+          <i class="menu-bg bottom bg-black dark:bg-white" ref="menuBottom"></i>
 
-        <!-- Navigation -->
-        <div class="menu-container" ref="menuContainer">
-          <ul class="menu text-lg space-y-4 py-8" ref="menu">
-            <li v-for="item in navigation" :key="item.name">
-              <a :href="item.href" data-hover
-                 class="text-base font-medium"
-                 :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
-              >
-              </a>
-            </li>
-          </ul>
+          <!-- Navigation -->
+          <div class="menu-container" ref="menuContainer">
+            <ul class="menu text-lg space-y-4 py-8" ref="menu">
+              <li v-for="item in navigation" :key="item.name">
+                <a :href="item.href" data-hover
+                   class="text-base font-medium"
+                   :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+                >
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -122,20 +125,13 @@ const closeMenu = () => {
 
 <style scoped lang="scss">
 // Mobile navigation ....
-//.container {
-//  margin: 0 auto;
-//  width: 100%;
-//  max-width: 320px;
-//  min-height: 568px;
-//  margin: 0 auto;
-//  border-radius: 8px;
-//  position: relative;
-//  overflow: hidden;
-//  -webkit-transform: scale(1);
-//
-//
-//  margin-top: 200px;
-//}
+.mobileNavContainer {
+  margin: 0 auto;
+  -webkit-transform: scale(1);
+  background: red;
+  height: 100vh;
+  width: 100vw;
+}
 
 .menu-trigger, .close-trigger {
   position: absolute;
