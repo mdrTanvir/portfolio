@@ -16,7 +16,7 @@ export default function useScrollTo() {
             $lenis.scrollTo(target, {
                 offset: -40, // scroll offset (matches ScrollToPlugin offsetY)
                 duration: 1,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             })
         } else {
             // gsap.to(window, {duration: 0, scrollTo: {y: target, offsetY: 100}});
