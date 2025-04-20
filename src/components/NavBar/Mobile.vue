@@ -16,7 +16,7 @@
 
     <div class="mobileNavContainer relative">
       <!-- Background Layers -->
-      <div class="inner-container h-screen">
+      <div v-show="showMenu" class="inner-container h-screen">
         <i class="menu-bg first" ref="menuTop"></i>
         <i class="menu-bg middle" ref="menuMiddle"></i>
         <i class="menu-bg last" ref="menuBottom"></i>
@@ -49,10 +49,12 @@
 <script setup lang="ts">
 import gsap, {Power4} from 'gsap'
 import navigation from "~/config/navigation";
+
 const themeStore = useThemeStore()
 
 // Refs for triggers
 const menuOpen = ref(false)
+const showMenu = ref(false)
 const openTop = ref()
 const openMiddle = ref()
 const openBottom = ref()
@@ -78,9 +80,13 @@ onMounted(() => {
   // OPEN
   tlOpen.add('start')
       .set([menuTop.value, menuMiddle.value, menuBottom.value], {scaleY: 0.5, opacity: 0, top: '-35%',})
-      .to(menuTop.value, {top: '0%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
-      .to(menuMiddle.value, {top: '34%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
-      .to(menuBottom.value, {top: '68%', scaleY: 1, opacity: 1, duration: 0.7, ease: Power4.easeOut}, 'start+=0.2')
+      // .to(menuTop.value, {top: '0%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
+      // .to(menuMiddle.value, {top: '34%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
+      // .to(menuBottom.value, {top: '68%', scaleY: 1, opacity: 1, duration: 0.7, ease: Power4.easeOut}, 'start+=0.2')
+
+      .to(menuTop.value, {top: '-38%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
+      .to(menuMiddle.value, {top: '8%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
+      .to(menuBottom.value, {top: '54%', scaleY: 1, opacity: 1, duration: 0.7, ease: Power4.easeOut}, 'start+=0.2')
 
       // Animate menu items
       .fromTo(menu.value.children,
@@ -112,13 +118,22 @@ onMounted(() => {
 
 const openMenu = () => {
   menuOpen.value = true
+  showMenu.value = true
   tlOpen.progress() < 1 ? tlOpen.play() : tlOpen.restart()
 }
 
 const closeMenu = () => {
   menuOpen.value = false
   tlClose.progress() < 1 ? tlClose.play() : tlClose.restart()
+
+  setTimeout(() => {
+    showMenu.value = false
+  }, 1000)
 }
+
+watchEffect(() => {
+  document.body.style.overflow = menuOpen.value ? 'hidden' : ''
+})
 </script>
 
 <style scoped lang="scss">
@@ -231,6 +246,8 @@ const closeMenu = () => {
   display: block;
   width: 400%;
   height: 34%;
+  transform-origin: 0 0;
+  transform: rotate(45deg) !important;
 
   z-index: 10;
 

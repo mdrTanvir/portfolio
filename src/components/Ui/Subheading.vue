@@ -1,7 +1,7 @@
 <template>
   <div
       :class="[
-      'text-center sm:text-left',
+      'text-left sm:text-left',
       // 'before:block before:w-16 before:h-1 before:mb-3 before:rounded-md before:mx-auto sm:before:mx-0 before:bg-primary'
       ]"
   >
