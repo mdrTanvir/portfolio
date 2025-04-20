@@ -238,19 +238,16 @@ const closeMenu = () => {
 
   &.first {
     top: -35%;
-    transform: translateY(0);
     @apply bg-gray-100 dark:bg-gray-800;
   }
 
   &.middle {
     top: -35%;
-    transform: translateY(0);
     @apply bg-gray-200 dark:bg-gray-900;
   }
 
   &.last {
     top: -35%;
-    transform: translateY(0);
     @apply bg-gray-300 dark:bg-gray-950;
   }
 }
