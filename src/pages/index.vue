@@ -2,7 +2,7 @@
   <main>
     <!--    <NavBarMobile/>-->
     <HomeHeroAbout/>
-    <UiParticlesHeroParticles :key="count"/>
+    <UiHeroParticles :key="count"/>
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>
