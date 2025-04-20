@@ -19,6 +19,7 @@
 // })
 
 
+// Firefox has a known issue with smooth scrolling But it can be fixed by triggering a resize event after the page load.
 import Lenis from '@studio-freight/lenis'
 
 export default defineNuxtPlugin((nuxtApp) => {
@@ -33,10 +34,19 @@ export default defineNuxtPlugin((nuxtApp) => {
         requestAnimationFrame(raf)
     }
 
-    // Start Lenis on page load to prevent scroll issues
+    // Trigger the resize event for Firefox to fix smooth scroll issue
+    function triggerResize() {
+        window.dispatchEvent(new Event('resize')); // Manually trigger resize event
+    }
+
+    // Start the Lenis smooth scrolling
+    requestAnimationFrame(raf)
+
+    // Trigger the resize event for Firefox after page load
     window.addEventListener('load', () => {
-        lenis.start()
-        requestAnimationFrame(raf)  // Re-start the RAF loop after the page load
+        if (navigator.userAgent.indexOf('Firefox') !== -1) {
+            triggerResize(); // Trigger resize event only for Firefox
+        }
     })
 
     // Provide Lenis to your app
