@@ -249,15 +249,15 @@ const closeMenu = () => {
     top: 10%;
     left: -100%;
     transform: rotate(-45deg) translateY(75%);
-    background-color: #686767;
+    background-color: rgba(104, 103, 103, 1);
   }
 
   &.middle {
     height: 50% !important;
     top: 72%;
     left: -60%;
-    transform: rotate(-45deg) scaleY(1.5);
-    background-color: #403f3f;
+    transform: rotate(-45deg) scaleY(1.3);
+    background-color: rgba(64, 63, 63, 1);
     z-index: 9 !important;
   }
 
@@ -265,7 +265,7 @@ const closeMenu = () => {
     top: 105%;
     left: 0;
     transform: rotate(-45deg) translateY(10%);
-    background-color: #212020;
+    background-color: rgba(33, 32, 32, 1);
   }
 }
 </style>
