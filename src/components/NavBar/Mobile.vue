@@ -73,83 +73,47 @@ onMounted(() => {
   // OPEN
   tlOpen
       .add('start')
-      .set([menuTop.value, menuMiddle.value, menuBottom.value], {
-        scaleY: 0.5,
-        opacity: 0,
-        top: '-35%',
-      })
+      .set([menuTop.value, menuMiddle.value, menuBottom.value], {scaleY: 0.5, opacity: 0, top: '-35%',})
       .to(menuTop.value, {top: '0%', scaleY: 1, opacity: 1, duration: 0.5, ease: Power4.easeOut}, 'start')
       .to(menuMiddle.value, {top: '34%', scaleY: 1, opacity: 1, duration: 0.6, ease: Power4.easeOut}, 'start+=0.1')
       .to(menuBottom.value, {top: '68%', scaleY: 1, opacity: 1, duration: 0.7, ease: Power4.easeOut}, 'start+=0.2')
 
       // Animate menu items
-      .fromTo(menu.value.children, {
-        y: 50,
-        opacity: 0,
-        stagger: 0.1
-      }, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: Power4.easeOut
-      }, 'start+=0.4')
+      .fromTo(menu.value.children,
+          {y: 50, opacity: 0, stagger: 0.1},
+          {y: 0, opacity: 1, stagger: 0.1, duration: 0.5, ease: Power4.easeOut},
+          'start+=0.4'
+      )
 
       // Animate close icon lines
       .to(closeLeft.value, {x: 0, y: 0, rotate: -45, duration: 0.5, ease: Power4.easeOut}, 'start+=0.6')
       .to(closeRight.value, {x: 0, y: 0, rotate: 45, duration: 0.5, ease: Power4.easeOut}, 'start+=0.65')
 
       // Animate trigger bars out
-      .to([openTop.value, openMiddle.value, openBottom.value], {
-        x: 80,
-        y: -80,
-        duration: 1,
-        ease: Power4.easeOut
-      }, 'start+=0.2')
+      .to([openTop.value, openMiddle.value, openBottom.value], {x: 80, y: -80, duration: 1, ease: Power4.easeOut}, 'start+=0.2')
 
 
   // CLOSE
   tlClose
       .add('close')
-      .to(menu.value.children, {
-        y: 30,
-        opacity: 0,
-        duration: 0.4,
-        stagger: 0.05,
-        ease: Power4.easeIn
-      }, 'close')
+      .to(menu.value.children, {y: 30, opacity: 0, duration: 0.4, stagger: 0.05, ease: Power4.easeIn}, 'close')
 
-      .to([menuBottom.value, menuMiddle.value, menuTop.value], {
-        scaleY: 0.7,
-        opacity: 0,
-        top: '-35%',
-        duration: 0.5,
-        ease: Power4.easeInOut,
-        stagger: 0.1
-      }, 'close+=0.3')
+      .to([menuBottom.value, menuMiddle.value, menuTop.value], {scaleY: 0.7, opacity: 0, top: '-35%', duration: 0.5, ease: Power4.easeInOut, stagger: 0.1}, 'close+=0.3')
 
       .to(closeLeft.value, {x: 100, y: -100, rotate: 0, duration: 0.3, ease: Power4.easeIn}, 'close')
       .to(closeRight.value, {x: -100, y: -100, rotate: 0, duration: 0.3, delay: 0.1, ease: Power4.easeIn}, 'close')
 
-      .to([openTop.value, openMiddle.value, openBottom.value], {
-        x: 0,
-        y: 0,
-        duration: 1,
-        delay: 0.2,
-        ease: Power4.easeOut
-      }, 'close')
+      .to([openTop.value, openMiddle.value, openBottom.value], {x: 0, y: 0, duration: 1, delay: 0.2, ease: Power4.easeOut}, 'close')
 })
 
 
 const openMenu = () => {
   menuOpen.value = true
-  console.log('tlOpen', tlOpen.progress())
   tlOpen.progress() < 1 ? tlOpen.play() : tlOpen.restart()
 }
 
 const closeMenu = () => {
   menuOpen.value = false
-  console.log('tlClose', tlClose.progress())
   tlClose.progress() < 1 ? tlClose.play() : tlClose.restart()
 }
 </script>
