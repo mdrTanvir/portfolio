@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="container relative max-w-screen min-h-screen overflow-hidden">
+    <div class="container absolute overflow-hidden">
       <!-- Background Layers -->
       <div class="inner-container">
         <i class="menu-bg top bg-black dark:bg-white" ref="menuTop"></i>

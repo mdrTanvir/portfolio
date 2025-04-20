@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <ul class="hidden space-x-8 md:flex">
+  <nav class="hidden md:block ">
+    <ul class="hidden md:flex gap-x-8">
       <li v-for="item in navigation" :key="item.name" class="flex items-center">
         <a :href="item.href" data-hover
            class="text-base font-medium"

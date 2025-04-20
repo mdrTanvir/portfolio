@@ -5,8 +5,10 @@
         <div class="">
           <NavBarLogo/>
         </div>
-        <div class="flex items-center min-h-6">
-          <NavBarMobile/>
+        <div class="flex items-center">
+          <div class="relative flex items-center md:hidden">
+            <NavBarMobile/>
+          </div>
           <NavBarLinks/>
         </div>
       </div>
@@ -16,3 +18,7 @@
 
 <script setup lang="ts">
 </script>
+
+
+<style scoped lang="scss">
+</style>
