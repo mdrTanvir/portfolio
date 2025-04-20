@@ -3,7 +3,8 @@ export default function useIsDesktop() {
     const windowWidth = ref()
 
     const updateScreenSize = () => {
-        isDesktop.value = window.innerWidth > 720
+        isDesktop.value = window.innerWidth > 768
+        // isDesktop.value = window.innerWidth > 720
         windowWidth.value = window.innerWidth
     }
 

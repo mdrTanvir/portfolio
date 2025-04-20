@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="mobileNavContainer fixed top-0 left-0 right-0 bottom-0 z-50">
+    <div class="mobileNavContainer">
       <div class="relative">
         <!-- Background Layers -->
         <div class="inner-container">
@@ -126,9 +126,10 @@ const closeMenu = () => {
 <style scoped lang="scss">
 // Mobile navigation ....
 .mobileNavContainer {
+  @apply fixed top-0 left-0 right-0 bottom-0 z-50;
   margin: 0 auto;
   -webkit-transform: scale(1);
-  background: red;
+  background: rgba(255, 255, 255, 0.45);
   height: 100vh;
   width: 100vw;
 }
