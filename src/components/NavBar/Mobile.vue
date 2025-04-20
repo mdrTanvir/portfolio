@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="mobileNavContainer relative">
+    <div v-show="menuOpen" class="mobileNavContainer relative">
       <!-- Background Layers -->
       <div class="inner-container h-screen">
         <i class="menu-bg top bg-black dark:bg-white" ref="menuTop"></i>
@@ -80,9 +80,9 @@ onMounted(() => {
       }, 'preOpen')
       .to(openBottom.value, {x: 0, y: -0, duration: 0.4, delay: 0.2, ease: Power4.easeIn}, 'preOpen')
       .add("open", "-=0.4")
-      .to(menuTop, { y: '13%', ease: 'power4.inOut' }, "open")
-      .to(menuMiddle, { scaleY: 1, ease: 'power4.inOut' }, "open")
-      .to(menuBottom, { y: '-114%', ease: 'power4.inOut' }, "open")
+      .to(menuTop, {y: '13%', ease: 'power4.inOut'}, "open")
+      .to(menuMiddle, {scaleY: 1, ease: 'power4.inOut'}, "open")
+      .to(menuBottom, {y: '-114%', ease: 'power4.inOut'}, "open")
       .fromTo(menu.value, {y: 30, opacity: 0, visibility: 'hidden'}, {y: 0, opacity: 1, visibility: 'visible', duration: 0.6, ease: Power4.easeOut}, '-=0.2')
       .add('preClose', '-=0.8')
       .to(closeLeft.value, {x: -0, y: 0, duration: 0.8, ease: Power4.easeOut}, 'preClose')
@@ -96,7 +96,7 @@ onMounted(() => {
   tlClose
       .add('close')
       .to([menuTop.value, menuMiddle.value, menuBottom.value], {
-        backgroundColor: '#6295ca', duration: 0.2, ease: Power4.easeInOut
+        // backgroundColor: '#6295ca', duration: 0.2, ease: Power4.easeInOut
       }, 'close')
       .to(menu.value, {
         y: 20, opacity: 0, duration: 0.6, ease: Power4.easeOut,
@@ -108,6 +108,7 @@ onMounted(() => {
       .to(openTop.value, {x: 0, y: 0, duration: 1, delay: 0.2, ease: Power4.easeOut}, 'close')
       .to(openMiddle.value, {x: 0, y: 0, duration: 1, ease: Power4.easeOut}, 'close')
       .to(openBottom.value, {x: 0, y: 0, duration: 1, delay: 0.1, ease: Power4.easeOut}, 'close')
+
 })
 
 const openMenu = () => {
@@ -117,9 +118,12 @@ const openMenu = () => {
 }
 
 const closeMenu = () => {
-  menuOpen.value = false
   console.log('tlClose', tlClose.progress())
   tlClose.progress() < 1 ? tlClose.play() : tlClose.restart()
+
+  setTimeout(() => {
+    menuOpen.value = false
+  }, 500)
 }
 </script>
 
@@ -242,20 +246,24 @@ const closeMenu = () => {
   transform-origin: 0 0;
 
   &.top {
+    top: 0;
+    left: -100%;
     transform: rotate(-45deg) translateY(75%);
     background-color: #e7a5a5;
   }
 
   &.middle {
     height: 50% !important;
-    top: 70%;
+    top: 72%;
     left: -60%;
-    transform: rotate(-45deg) scaleY(0);
+    transform: rotate(-45deg) scaleY(1.5);
     background-color: #5e2626;
     z-index: 9 !important;
   }
 
   &.bottom {
+    top: 105%;
+    left: 0;
     transform: rotate(-45deg) translateY(10%);
     background-color: #721414;
   }
