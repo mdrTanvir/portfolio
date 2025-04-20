@@ -3,8 +3,8 @@
   <section class="heroSection pb-10 md:pb-14 lg:pb-20">
     <div class="contain relative h-[100lvh] min-h-[100lvh] z-10 max-h-[1300px] pt-10 sm:pt-16 md:pt-24 pb-6 md:pb-10">
       <div class="h-full flex flex-col justify-between relative z-[2]">
-        <HeroTitle/>
-        <HeroStats/>
+        <HomeHeroTitle/>
+        <HomeHeroStats/>
       </div>
 
       <div>
