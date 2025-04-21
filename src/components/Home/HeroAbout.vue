@@ -12,11 +12,13 @@
         <div class="absolute bottom-[40px] right-0 hidden md:block">
           <SocialLinksVertical/>
         </div>
-        <img class="profileImage" src="/images/profile2.jpg" alt=""
-             ref="heroImageRef"
-             id="heroImageRef"
-             loading="lazy"
-        >
+        <NuxtImg
+            class="profileImage"
+            src="/images/profile2.jpg"
+            alt=""
+            ref="heroImageRef"
+            id="heroImageRef"
+        ></NuxtImg>
       </div>
     </div>
 
