@@ -1,5 +1,5 @@
 <template>
-  <main data-lenis>
+  <main data-lenis :class="darkMode ? 'dark' : 'light'">
     <NuxtRouteAnnouncer/>
     <NuxtLayout>
       <NuxtLoadingIndicator/>
@@ -14,4 +14,9 @@
 <script setup lang="ts">
 // provideHeadlessUseId(() => useId())
 const {isDesktop} = useIsDesktop()
+
+const themeStore = useThemeStore()
+const {darkMode} = storeToRefs(themeStore)
+
+themeStore.setTheme()
 </script>

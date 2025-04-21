@@ -7,22 +7,31 @@ export const useThemeStore = defineStore(
 
         function toggleTheme() {
             darkMode.value = !darkMode.value
-            applyTheme()
+            setTheme(darkMode.value)
         }
 
-        function applyTheme() {
-            const html = document.documentElement
-            darkMode.value ? html.classList.add('dark') : html.classList.remove('dark')
+        function setTheme(mode: null | boolean = null) {
+            if (mode === null) {
+                const theme = useCookie('theme')
+                if (theme) {
+                    darkMode.value = theme.value === 'dark'
+                } else {
+                    darkMode.value = false
+                }
+            } else {
+                const theme = useCookie('theme')
+                theme.value = mode ? 'dark' : 'light'
+            }
         }
 
         return {
             darkMode,
             toggleTheme,
-            applyTheme,
+            setTheme,
         }
     },
     {
-        persist: true,
+        // persist: true,
         // persist: {
         //     storage: persistedState.localStorage,
         // },
