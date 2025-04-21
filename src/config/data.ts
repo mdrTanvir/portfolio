@@ -1,7 +1,15 @@
+const fullName = 'Tanvir Rahman'
+
 const siteData = {
-    name: 'Tanvir Rahman',
+    name: fullName,
     logoName: 'Tanvir',
     profile: '/images/profile2.jpg',
+    meta: {
+        name: fullName,
+        description: `${fullName} is a Full Stack Web Developer specializing in Laravel and Vue.js. With over 4 years of experience, he creates dynamic and user-friendly web applications. Passionate about coding and always eager to learn new technologies.`,
+        image: '/images/profile2.jpg',
+        keywords: fullName,
+    },
     slogan: 'A Full-Stack Developer turning ideas into seamless digital experiences.',
     stats: [
         {title: '4 Years +', subtitle: 'Experience'},
@@ -19,7 +27,6 @@ const siteData = {
         '\n',
         '<div style="margin-bottom: 6px"></div> Let’s build something amazing together!',
     ],
-    meta_description: 'Tanvir Rahman is a Full Stack Web Developer specializing in Laravel and Vue.js. With over 4 years of experience, he creates dynamic and user-friendly web applications. Passionate about coding and always eager to learn new technologies.',
     educations: [
         {
             title: 'M.Sc in Information Technology',

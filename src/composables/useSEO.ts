@@ -1,9 +1,9 @@
 import siteData from "~/config/data";
 
 export default function useSEO(pageTitle = '', description = '', image = '/favicon.ico') {
-    if (!pageTitle) pageTitle = siteData.name;
-    if (!description) description = siteData.meta_description;
-    if (!image) image = siteData.profile;
+    if (!pageTitle) pageTitle = siteData.meta.name;
+    if (!description) description = siteData.meta.description;
+    if (!image) image = siteData.meta.image;
 
     useSeoMeta({
         title: pageTitle,
