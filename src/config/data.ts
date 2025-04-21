@@ -5,11 +5,11 @@ const siteData = {
     logoName: 'Tanvir',
     address: 'Dhaka, Bangladesh',
     email: 'taanvir@gmail.com',
-    profile: '/images/profile2.jpg',
+    profile: '/images/profile2.webp',
     meta: {
         name: fullName,
         description: `${fullName} is a Full Stack Web Developer specializing in Laravel and Vue.js. With over 4 years of experience, he creates dynamic and user-friendly web applications. Passionate about coding and always eager to learn new technologies.`,
-        image: '/images/profile2.jpg',
+        image: '/images/profile2.webp',
         keywords: fullName,
     },
     slogan: 'A Full-Stack Developer turning ideas into seamless digital experiences.',
