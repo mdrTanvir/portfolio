@@ -53,7 +53,7 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/tailwindcss',
         '@pinia/nuxt',
-        'pinia-plugin-persistedstate/nuxt',
+        // 'pinia-plugin-persistedstate/nuxt',
         '@nuxtjs/device',
         'nuxt-particles',
     ],
