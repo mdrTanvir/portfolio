@@ -2,32 +2,48 @@
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
+    ssr: false,
     srcDir: './src/',
     typescript: {
         strict: true,
         shim: false,
         // typeCheck: true,
     },
-    routeRules: {
-        '/': {
-            prerender: true,
-            headers: {
-                'Cache-Control': 'public, max-age=31536000, immutable'
-            }
-        },
-        '/projects': {
-            prerender: true,
-            headers: {
-                'Cache-Control': 'public, max-age=31536000, immutable'
-            }
-        }
-    },
+    // routeRules: {
+    //     '/': {
+    //         prerender: true,
+    //         headers: {
+    //             'Cache-Control': 'public, max-age=31536000, immutable'
+    //         }
+    //     },
+    //     '/projects': {
+    //         prerender: true,
+    //         headers: {
+    //             'Cache-Control': 'public, max-age=31536000, immutable'
+    //         }
+    //     }
+    // },
     app: {
         head: {
+        //     script: [
+        //         {
+        //             children: `
+        //   try {
+        //     const theme = JSON.parse(localStorage.getItem('theme') || '{}');
+        //     if (theme?.darkMode) {
+        //       document.documentElement.classList.add('dark');
+        //     } else {
+        //       document.documentElement.classList.remove('dark');
+        //     }
+        //   } catch(e) {}
+        // `,
+        //             tagPosition: 'head'
+        //         }
+        //     ],
             link: [
-                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap' },
+                {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+                {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
+                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
             ]
         }
     },
