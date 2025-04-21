@@ -165,13 +165,13 @@ watchEffect(() => {
     &::before {
       content: attr(data-text);
       font-size: 3rem;
-      font-weight: bold;
+      //font-weight: bold;
       position: absolute;
       top: 0;
       left: 0;
       z-index: -1;
 
-      transform: translate(4px, 8px) scale(1.05);
+      transform: translate(4px, 0px) scale(1.05);
       opacity: 0.08;
       letter-spacing: 1px;
 
