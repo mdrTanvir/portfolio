@@ -9,7 +9,7 @@
 
       <div>
         <!-- Social Links -->
-        <div class="absolute bottom-[40px] right-0 hidden md:block">
+        <div class="absolute bottom-[40px] right-2 hidden md:block">
           <SocialLinksVertical/>
         </div>
         <img
@@ -148,7 +148,7 @@ onMounted(async () => {
   position: absolute;
   z-index: 0;
   bottom: 0;
-  right: 40px;
+  right: 46px;
   width: auto;
   height: 80vh;
   max-height: 80vh;
