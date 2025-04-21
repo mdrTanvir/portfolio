@@ -5,7 +5,9 @@
         <NavBarLogo/>
         <div class="flex items-center">
           <div class="relative flex items-center md:hidden">
-            <NavBarMobile/>
+            <client-only>
+              <NavBarMobile/>
+            </client-only>
           </div>
           <NavBarLinks/>
         </div>

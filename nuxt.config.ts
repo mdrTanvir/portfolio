@@ -3,21 +3,33 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     srcDir: './src/',
-    ssr: false,
     typescript: {
         strict: true,
         shim: false,
         // typeCheck: true,
     },
     routeRules: {
-        '/': {prerender: true},
+        '/': {
+            prerender: true,
+            headers: {
+                'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        },
+        '/projects': {
+            prerender: true,
+            headers: {
+                'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        }
     },
     app: {
         head: {
             link: [
-                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap',},
-            ],
-        },
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+                { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap' },
+            ]
+        }
     },
     modules: [
         '@nuxt/fonts',
