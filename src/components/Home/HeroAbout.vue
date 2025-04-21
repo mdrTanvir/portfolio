@@ -19,6 +19,8 @@
             alt=""
             ref="heroImageRef"
             id="heroImageRef"
+            height="80vh"
+            width="auto"
         />
       </div>
     </div>
