@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="image-wrapper" :ref="el => imageRefs[index] = el">
-          <LazyNuxtImg :src="project.image" :alt="project.title" loading="lazy" class="img"/>
+          <img :src="project.image" :alt="project.title" loading="lazy" class="img"/>
         </div>
       </div>
 
