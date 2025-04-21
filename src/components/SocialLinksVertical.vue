@@ -19,6 +19,8 @@
               :href="social.link"
               target="_blank"
               data-hover
+              rel="noopener"
+              :aria-label="`Visit my ${social.name} profile`"
           >
             <Icon
                 v-if="social.icon"

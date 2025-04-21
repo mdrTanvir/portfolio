@@ -1,5 +1,10 @@
 <template>
-  <button @click="themeStore.toggleTheme()" data-hover class="a text-gray-700 dark:text-white w-6 h-6">
+  <button
+      class="a text-gray-700 dark:text-white w-6 h-6"
+      aria-label="Toggle Theme"
+      data-hover
+      @click="themeStore.toggleTheme()"
+  >
     <Icon v-if="darkMode" name="lucide:sun" class="w-6 h-6"/>
     <Icon v-else name="lucide:moon" class="w-6 h-6"/>
   </button>
