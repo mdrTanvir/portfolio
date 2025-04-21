@@ -12,10 +12,7 @@
         </a>
       </li>
       <li class="flex items-center">
-        <button @click="themeStore.toggleTheme()" data-hover class="a text-gray-700 dark:text-white w-6 h-6">
-          <Icon v-if="themeStore.darkMode" name="lucide:sun" class="w-6 h-6"/>
-          <Icon v-else name="lucide:moon" class="w-6 h-6"/>
-        </button>
+       <NavBarThemeToggleBtn/>
       </li>
     </ul>
   </nav>
@@ -23,9 +20,6 @@
 
 <script setup lang="ts">
 import navigation from "~/config/navigation";
-import {gsap} from "gsap";
-
-const themeStore = useThemeStore()
 const {scrollTo} = useScrollTo()
 </script>
 

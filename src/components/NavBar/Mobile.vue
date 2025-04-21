@@ -35,10 +35,7 @@
               </a>
             </li>
             <li>
-              <button @click="themeStore.toggleTheme()" data-hover class="a text-gray-700 dark:text-white w-6 h-6">
-                <Icon v-if="themeStore.darkMode" name="lucide:sun" class="w-6 h-6"/>
-                <Icon v-else name="lucide:moon" class="w-6 h-6"/>
-              </button>
+              <NavBarThemeToggleBtn/>
             </li>
           </ul>
         </div>
@@ -52,7 +49,6 @@
 import gsap, {Power4} from 'gsap'
 import navigation from "~/config/navigation";
 
-const themeStore = useThemeStore()
 const {scrollTo} = useScrollTo()
 
 // Refs for triggers
