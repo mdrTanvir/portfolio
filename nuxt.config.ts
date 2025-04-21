@@ -28,15 +28,15 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'en'
             },
-            // link: [
-            //     {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
-            //     {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
-            //     {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
-            // ]
+            link: [
+                {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+                {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
+                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
+            ]
         }
     },
     modules: [
-        // '@nuxt/fonts',
+        '@nuxt/fonts',
         '@nuxt/icon',
         // '@nuxt/image',
         '@nuxtjs/tailwindcss',
@@ -50,20 +50,19 @@ export default defineNuxtConfig({
         viewer: true,
     },
     css: [
-        '@/assets/css/fonts.css',
         '@/assets/scss/main.scss',
     ],
-    image: {
-        quality: 80,
-        format: ['avif', 'webp'],
-        screens: {
-            'xs': 320,
-            'sm': 640,
-            'md': 768,
-            'lg': 1024,
-            'xl': 1280,
-            'xxl': 1536,
-            '2xl': 1536
-        },
-    },
+    // image: {
+    //     quality: 80,
+    //     format: ['avif', 'webp'],
+    //     screens: {
+    //         'xs': 320,
+    //         'sm': 640,
+    //         'md': 768,
+    //         'lg': 1024,
+    //         'xl': 1280,
+    //         'xxl': 1536,
+    //         '2xl': 1536
+    //     },
+    // },
 })
