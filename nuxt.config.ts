@@ -28,15 +28,15 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'en'
             },
-            link: [
-                {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
-                {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
-                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
-            ]
+            // link: [
+            //     {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+            //     {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
+            //     {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
+            // ]
         }
     },
     modules: [
-        '@nuxt/fonts',
+        // '@nuxt/fonts',
         '@nuxt/icon',
         // '@nuxt/image',
         '@nuxtjs/tailwindcss',
@@ -50,6 +50,7 @@ export default defineNuxtConfig({
         viewer: true,
     },
     css: [
+        '@/assets/css/fonts.css',
         '@/assets/scss/main.scss',
     ],
     image: {
