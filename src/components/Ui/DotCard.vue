@@ -6,13 +6,13 @@
     <div class="block absolute w-6 h-6 md:w-10 md:h-10 rounded-full left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-[1]
                 bg-primary dark:bg-primary border-[7px] md:border-[10px] border-white dark:border-black"></div>
     <slot>
-      <h3
+      <h4
           v-if="title"
           class="font-semibold text-primary"
           :class="{'text-sm sm:text-lg': responsiveText, 'text-lg': !responsiveText}"
       >
         {{ title }}
-      </h3>
+      </h4>
       <p
           v-if="subtitle"
           class="text-gray-500 dark:text-gray-300 mix-blend-difference"

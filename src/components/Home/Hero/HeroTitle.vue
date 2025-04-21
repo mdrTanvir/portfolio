@@ -1,6 +1,6 @@
 <template>
-  <div class="pt-32 sm:pt-32 md:pt-38 xl:pt-44">
-    <h1 class="font-extrabold text-4xl sm:text-5xl lg:text-6xl">
+  <div class="pt-28 sm:pt-32 md:pt-38 xl:pt-44">
+    <h1 class="font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
       <div class="overflow-hidden">
         <UiAnimate :distance="60" :delay="0.4" :duration="0.4" scrollTriggerStart="center bottom" :scrub="false">
           <span class="fluid block text-gray-600 dark:text-white">I am {{ siteData.name }},</span>
