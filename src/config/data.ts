@@ -24,9 +24,11 @@ const siteData = {
         'and I enjoy building dynamic, responsive, and user-friendly web applications.' +
         ' My toolbox includes technologies like <b>JavaScript</b>, <b>Tailwind CSS</b>, <b>Bootstrap</b>, and <b>CSS</b>, which ' +
         'I use to craft elegant interfaces and seamless user experiences.',
+
         '<div style="margin-bottom: 6px"></div> I’m always eager to learn, grow, and take on exciting new challenges.' +
-        ' Whether it’s building complex APIs with Laravel or creating smooth, interactive UIs with Vue.js, I take pride in delivering clean, efficient, and scalable code.\n' +
-        '\n',
+        ' Whether it’s building complex APIs with Laravel or creating smooth, interactive UIs with Vue.js, ' +
+        'I take pride in delivering clean, efficient, and scalable code.\n',
+
         '<div style="margin-bottom: 6px"></div> Let’s build something amazing together!',
     ],
     educations: [
