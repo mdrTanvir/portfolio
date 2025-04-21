@@ -9,5 +9,5 @@
 </template>
 
 <script setup lang="ts">
-
+useSEO('Home')
 </script>

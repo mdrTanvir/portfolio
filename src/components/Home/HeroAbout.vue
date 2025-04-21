@@ -13,8 +13,9 @@
           <SocialLinksVertical/>
         </div>
         <img
+            v-if="siteData.profile"
             class="profileImage"
-            src="/images/profile2.jpg"
+            :src="siteData.profile"
             alt=""
             ref="heroImageRef"
             id="heroImageRef"
