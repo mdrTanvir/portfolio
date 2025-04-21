@@ -3,6 +3,8 @@ const fullName = 'Tanvir Rahman'
 const siteData = {
     name: fullName,
     logoName: 'Tanvir',
+    address: 'Dhaka, Bangladesh',
+    email: 'taanvir@gmail.com',
     profile: '/images/profile2.jpg',
     meta: {
         name: fullName,
@@ -42,8 +44,6 @@ const siteData = {
         },
     ],
     github: 'https://github.com/Tanvir',
-    address: 'Dhaka, Bangladesh',
-    email: 'taanvir@gmail.com',
     socials: [
         {name: 'Facebook', link: 'https://www.facebook.com/tanvir.rahman.7547', icon: 'fa:facebook-square'},
         {name: 'LinkedIn', link: 'https://www.linkedin.com/in/tanvirrahman7547/', icon: 'fa:linkedin'},
