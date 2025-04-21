@@ -20,7 +20,7 @@
                 >
                   <div class="relative flex flex-row items-center gap-4">
                 <span>
-                  <NuxtImg :src="skill.logo" :alt="skill.name" class="h-9" loading="lazy"/>
+                  <img :src="skill.logo" :alt="skill.name" loading="lazy" height="36px" width="36px"/>
                 </span>
                     <span>{{ skill.name }}</span>
                   </div>

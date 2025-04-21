@@ -14,9 +14,9 @@
       </div>
     </div>
 
-    <div class="mobileNavContainer relative">
+    <div v-show="showMenu" class="mobileNavContainer relative">
       <!-- Background Layers -->
-      <div v-show="showMenu" class="inner-container h-screen">
+      <div class="inner-container h-screen">
         <i class="menu-bg first" ref="menuTop"></i>
         <i class="menu-bg middle" ref="menuMiddle"></i>
         <i class="menu-bg last" ref="menuBottom"></i>
@@ -127,7 +127,7 @@ const closeMenu = () => {
 
   setTimeout(() => {
     showMenu.value = false
-  }, 1000)
+  }, 800)
 }
 
 watchEffect(() => {
