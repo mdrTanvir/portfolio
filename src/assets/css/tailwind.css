@@ -46,9 +46,9 @@
     }
 }
 
-.importClassesFromTailwind {
-    @apply pr-10 !pr-10;
-}
+/*.importClassesFromTailwind {*/
+/*    @apply pr-10 !pr-10;*/
+/*}*/
 
 /* Typography */
 .h1 {
