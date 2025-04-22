@@ -5403,7 +5403,7 @@ nuxt-particles@^0.3.0:
     defu "^6.1.4"
     tsparticles "^3.3.0"
 
-nuxt@^3.16.2:
+nuxt@^3.16.0:
   version "3.16.2"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-3.16.2.tgz#d25211e3026754993bb770a0c6f2af939ff4ecdf"
   integrity sha512-yjIC/C4HW8Pd+m0ACGliEF0HnimXYGYvUzjOsTiLQKkDDt2T+djyZ+pCl9BfhQBA8rYmnsym2jUI+ubjv1iClw==

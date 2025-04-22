@@ -16,6 +16,8 @@ export default {
         },
         build: {
             cssCodeSplit: true,
+            // Enable analyze in development only
+            analyze: process.env.NUXT_ENV !== 'production',
 
             terserOptions: {
                 compress: {
