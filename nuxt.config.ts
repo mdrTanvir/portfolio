@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
-    ssr: false,
+    ssr: true,
     srcDir: './src/',
     typescript: {
         strict: true,
@@ -10,18 +10,18 @@ export default defineNuxtConfig({
         // typeCheck: true,
     },
     routeRules: {
-        //     '/': {
-        //         prerender: true,
-        //         headers: {
-        //             'Cache-Control': 'public, max-age=31536000, immutable'
-        //         }
-        //     },
-        //     '/projects': {
-        //         prerender: true,
-        //         headers: {
-        //             'Cache-Control': 'public, max-age=31536000, immutable'
-        //         }
-        //     }
+        '/': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        },
+        '/projects': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        }
     },
     app: {
         head: {
