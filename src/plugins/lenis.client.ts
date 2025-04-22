@@ -44,9 +44,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
     // Trigger the resize event for Firefox after page load
     window.addEventListener('load', () => {
-        if (navigator.userAgent.indexOf('Firefox') !== -1) {
+        // if (navigator.userAgent.indexOf('Firefox') !== -1) {
             triggerResize(); // Trigger resize event only for Firefox
-        }
+        // }
     })
 
     // Provide Lenis to your app
