@@ -137,8 +137,10 @@ watch(() => totalExperience.value, async () => {
 })
 
 onMounted(async () => {
-  await nextTick() // wait until child is rendered
-  handleScrollTrigger() // Initial scroll trigger setup
+  await nextTick()
+  requestAnimationFrame(() => {
+    handleScrollTrigger() // Initial scroll trigger setup
+  })
 })
 
 const toggleExperienceView = () => {
