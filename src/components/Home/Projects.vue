@@ -46,7 +46,7 @@
 
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
-                <UiChip>{{ skill }}</UiChip>
+                <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
               </template>
             </div>
 
