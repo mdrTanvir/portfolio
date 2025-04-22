@@ -13,20 +13,20 @@ export default defineNuxtConfig({
         shim: false,
         // typeCheck: true,
     },
-    // routeRules: {
-    //     '/': {
-    //         prerender: true,
-    //         headers: {
-    //             // 'Cache-Control': 'public, max-age=31536000, immutable'
-    //         }
-    //     },
-    //     '/projects': {
-    //         prerender: true,
-    //         headers: {
-    //             // 'Cache-Control': 'public, max-age=31536000, immutable'
-    //         }
-    //     }
-    // },
+    routeRules: {
+        '/': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        },
+        '/projects': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        }
+    },
     alias: {
         cookie: resolve(__dirname, "node_modules/cookie")
     },
@@ -36,9 +36,9 @@ export default defineNuxtConfig({
                 lang: 'en'
             },
             link: [
-                {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
-                {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
-                {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
+                // {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+                // {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
+                // {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
             ]
         }
     },
