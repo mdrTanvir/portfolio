@@ -1,6 +1,6 @@
 <template>
   <div class="relative sm:ml-4 px-5 md:px-8 py-3 flex flex-col bg-gray-100 dark:bg-gray-900
-        border-2 border-indigo-400 rounded-xl md:rounded-2xl shadow-md max-w-[400px]">
+        border-2 border-primary rounded-xl md:rounded-2xl shadow-md max-w-[400px]">
     <!-- Dot -->
     <!--    <div class="timeline-dot"></div>-->
     <div class="block absolute w-6 h-6 md:w-10 md:h-10 rounded-full left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-[1]

@@ -27,12 +27,12 @@ defineProps({
 const classes = [
   'btn',
   'bg-gray-200 dark:bg-white text-black dark:text-black',
-  'hover:bg-indigo-500 dark:hover:bg-indigo-500 hover:text-white dark:hover:text-white',
+  'hover:bg-primary dark:hover:bg-primary hover:text-white dark:hover:text-white',
 ]
 
 const invertedClasses = [
   'btn',
-  'bg-indigo-500 dark:bg-indigo-500 text-white',
+  'bg-primary dark:bg-primary text-white',
   'hover:bg-gray-800 dark:hover:bg-white hover:text-white dark:hover:text-black',
 ]
 </script>
