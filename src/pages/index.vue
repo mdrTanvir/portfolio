@@ -1,8 +1,8 @@
 <template>
   <main>
-<!--    <ProjectShowcase/>-->
-    <HomeProjects/>
     <HomeHeroAbout/>
+    <HomeProjects/>
+<!--    <HomeProjects2/>-->
     <HomeSkills/>
     <HomeExperience/>
     <HomeContact/>
