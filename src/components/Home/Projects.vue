@@ -111,7 +111,7 @@ const projectHorizontal = (totalWidth: any) => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
-      scroller: scroller.value,
+      // scroller: scroller.value,
       invalidateOnRefresh: true,
     },
   })
@@ -215,7 +215,7 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
 
 const GSAP = () => {
   if (scroller.value) {
-    const totalWidth = scroller.value?.scrollWidth
+    const totalWidth = scroller.value?.scrollWidth || 0
     workTextAnimation()
     bgColorChangeOnScroll(totalWidth)
     projectHorizontal(totalWidth)
@@ -225,17 +225,18 @@ const GSAP = () => {
 
 onMounted(async () => {
   await nextTick()
-  // GSAP()
   requestAnimationFrame(() => {
-    const totalWidth = scroller.value?.scrollWidth || 0
-    projectHorizontal(totalWidth)
-    imageSkew(totalWidth)
-    workTextAnimation()
-    bgColorChangeOnScroll(totalWidth)
-
+    GSAP()
     // Force refresh after setup
-    ScrollTrigger.refresh()
+    //   ScrollTrigger.refresh()
   })
+  //   const totalWidth = scroller.value?.scrollWidth || 0
+  //   projectHorizontal(totalWidth)
+  //   imageSkew(totalWidth)
+  //   workTextAnimation()
+  //   bgColorChangeOnScroll(totalWidth)
+  //
+
 })
 </script>
 
