@@ -62,10 +62,14 @@ export default defineNuxtConfig({
     icon: {
         size: '24px',
     },
-    runtimeConfig: {
-        public: {
-            env: process.env.NUXT_ENV
-        }
+    vite: {
+        build: {
+            rollupOptions: {
+                output: {
+                    sanitizeFileName: true,
+                },
+            },
+        },
     },
-    ...viteBuild,
+    // ...viteBuild,
 })
