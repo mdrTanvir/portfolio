@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center justify-center h-full">
     <!-- Rotated Scroll Text -->
     <div
-        class="text-gray-800/50 dark:text-gray-400/50 text-center font-bold text-[14px] uppercase tracking-[0.4em] rotate-90 mb-[45px]"
+        class="text-gray-800/70 dark:text-gray-400/70 text-center font-bold text-[14px] uppercase tracking-[0.4em] rotate-90 mb-[45px]"
     >
       Scroll
     </div>
@@ -14,7 +14,7 @@
           y1="0"
           x2="1"
           y2="90"
-          class="stroke-gray-800/50 dark:stroke-gray-400/50"
+          class="stroke-gray-800/60 dark:stroke-gray-400/60"
           stroke-width="2"
       >
         <animate

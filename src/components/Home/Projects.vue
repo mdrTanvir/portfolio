@@ -26,9 +26,8 @@
       </svg>
     </div>
 
-<!--    v-show="horizontalScroll"-->
-    <div  class="absolute z-[1] bottom-4 left-10">
-      <ScrollDownArrow/>
+    <div v-show="horizontalScroll" class="absolute z-[1] bottom-10 left-14">
+      <ScrollDownLine/>
     </div>
 
     <div v-if="projects && projects.length" ref="scroller" class="h-full flex gap-x-6 sm:gap-x-10 md:gap-x-24 lg:gap-x-48">
@@ -66,7 +65,7 @@
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
             <NuxtLink to="/projects">
-              <UiPrimaryButton>
+              <UiPrimaryButton :inverted="!horizontalScroll" class="shadow-xl">
               <span class="hoverMove flex items-center justify-center">
                 View More Works <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
               </span>
@@ -216,7 +215,7 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeaveBack: () => {
-      horizontalScroll.value = false
+      horizontalScroll.value = true
       container.value.style.backgroundColor = 'transparent' // default
     },
   })
