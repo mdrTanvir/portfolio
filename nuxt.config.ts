@@ -6,27 +6,27 @@ import viteBuild from "./config/viteBuild";
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
-    ssr: true,
+    ssr: false,
     srcDir: './src/',
     typescript: {
         strict: true,
         shim: false,
         // typeCheck: true,
     },
-    // routeRules: {
-        // '/': {
-        //     prerender: true,
-        //     headers: {
-        //         // 'Cache-Control': 'public, max-age=31536000, immutable'
-        //     }
-        // },
-        // '/projects': {
-        //     prerender: true,
-        //     headers: {
-        //         // 'Cache-Control': 'public, max-age=31536000, immutable'
-        //     }
-        // }
-    // },
+    routeRules: {
+        '/': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        },
+        '/projects': {
+            prerender: true,
+            headers: {
+                // 'Cache-Control': 'public, max-age=31536000, immutable'
+            }
+        }
+    },
     alias: {
         cookie: resolve(__dirname, "node_modules/cookie")
     },

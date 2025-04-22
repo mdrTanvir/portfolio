@@ -1,11 +1,9 @@
 <template>
   <div class="relative overflow-hidden bg-white dark:bg-black text-black dark:text-white">
-    <client-only>
-      <UiParticles :key="count"/>
-      <NavBar/>
-      <NuxtPage/>
-      <TheFooder/>
-    </client-only>
+    <UiParticles :key="count"/>
+    <NavBar/>
+    <NuxtPage/>
+    <TheFooder/>
   </div>
 </template>
 
