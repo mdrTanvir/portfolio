@@ -253,10 +253,10 @@ onMounted(async () => {
 //}
 
 .image-wrapper .img {
-  //width: 100%;
-  //height: auto;
-  //max-width: 100%;
-  //max-height: 100%;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
   //display: block;
   //object-fit: cover;
   aspect-ratio: 16/9;

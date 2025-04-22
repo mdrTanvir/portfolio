@@ -95,6 +95,7 @@ a, .a {
     text-decoration: none !important;
     outline: none;
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 a:active,
