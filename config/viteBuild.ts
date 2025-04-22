@@ -15,6 +15,11 @@ export default {
             'process.env.DEBUG': false,
         },
         build: {
+            rollupOptions: {
+                output: {
+                    sanitizeFileName: true,
+                },
+            },
             cssCodeSplit: true,
             // Enable analyze in development only
             analyze: process.env.NUXT_ENV !== 'production',
@@ -33,16 +38,7 @@ export default {
                 },
             },
 
-            chunkSizeWarningLimit: 400, // reduce chunk size limit further
-            // rollupOptions: {
-            //     output: {
-            //         manualChunks(id) {
-            //             if (id.includes('node_modules')) {
-            //                 return id.toString().split('node_modules/')[1].split('/')[0]; // Break up large dependencies into smaller chunks
-            //             }
-            //         },
-            //     },
-            // },
+            chunkSizeWarningLimit: 400, // reduce the chunk size limit further
         },
         css: {
             preprocessorOptions: {

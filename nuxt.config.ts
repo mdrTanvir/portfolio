@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import {resolve} from "node:path"
+import viteBuild from "./config/viteBuild";
 
 // @ts-ignore
 export default defineNuxtConfig({
@@ -61,13 +62,5 @@ export default defineNuxtConfig({
     icon: {
         size: '24px',
     },
-    vite: {
-        build: {
-            rollupOptions: {
-                output: {
-                    sanitizeFileName: true,
-                },
-            },
-        },
-    },
+    ...viteBuild,
 })
