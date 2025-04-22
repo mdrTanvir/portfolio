@@ -14,18 +14,18 @@ export default defineNuxtConfig({
         // typeCheck: true,
     },
     routeRules: {
-        '/': {
-            prerender: true,
-            headers: {
-                // 'Cache-Control': 'public, max-age=31536000, immutable'
-            }
-        },
-        '/projects': {
-            prerender: true,
-            headers: {
-                // 'Cache-Control': 'public, max-age=31536000, immutable'
-            }
-        }
+        // '/': {
+        //     prerender: true,
+        //     headers: {
+        //         // 'Cache-Control': 'public, max-age=31536000, immutable'
+        //     }
+        // },
+        // '/projects': {
+        //     prerender: true,
+        //     headers: {
+        //         // 'Cache-Control': 'public, max-age=31536000, immutable'
+        //     }
+        // }
     },
     alias: {
         cookie: resolve(__dirname, "node_modules/cookie")
