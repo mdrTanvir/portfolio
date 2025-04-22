@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import {resolve} from "node:path"
-import viteBuild from "./config/viteBuild";
 
 // @ts-ignore
 export default defineNuxtConfig({
@@ -13,7 +12,7 @@ export default defineNuxtConfig({
         shim: false,
         // typeCheck: true,
     },
-    routeRules: {
+    // routeRules: {
         // '/': {
         //     prerender: true,
         //     headers: {
@@ -26,7 +25,7 @@ export default defineNuxtConfig({
         //         // 'Cache-Control': 'public, max-age=31536000, immutable'
         //     }
         // }
-    },
+    // },
     alias: {
         cookie: resolve(__dirname, "node_modules/cookie")
     },
@@ -71,5 +70,4 @@ export default defineNuxtConfig({
             },
         },
     },
-    // ...viteBuild,
 })
