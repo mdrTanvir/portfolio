@@ -18,27 +18,30 @@ const props = defineProps({
 const componentRef = ref(null)
 let animationContext
 
-onMounted(() => {
-  const fadeDirection = getFadeDirection(props.direction, props.distance)
+onMounted(async () => {
+  await nextTick()
+  requestAnimationFrame(() => {
+    const fadeDirection = getFadeDirection(props.direction, props.distance)
 
-  animationContext = gsap.context(() => {
-    gsap.from(componentRef.value, {
-      scrollTrigger: {
-        trigger: componentRef.value,
-        start: props.scrollTriggerStart,
-        end: props.scrollTriggerEnd,
-        // toggleActions: 'play none none reverse',
-        toggleActions: 'restart none none reverse',
-        scrub: props.scrub,
-        // scrub: false,
-        // scroller: window,
-        // markers: true,
-      },
-      duration: props.duration,
-      delay: props.delay,
-      opacity: 0,
-      ease: props.ease,
-      ...fadeDirection,
+    animationContext = gsap.context(() => {
+      gsap.from(componentRef.value, {
+        scrollTrigger: {
+          trigger: componentRef.value,
+          start: props.scrollTriggerStart,
+          end: props.scrollTriggerEnd,
+          // toggleActions: 'play none none reverse',
+          toggleActions: 'restart none none reverse',
+          scrub: props.scrub,
+          // scrub: false,
+          // scroller: window,
+          // markers: true,
+        },
+        duration: props.duration,
+        delay: props.delay,
+        opacity: 0,
+        ease: props.ease,
+        ...fadeDirection,
+      })
     })
   })
 })
