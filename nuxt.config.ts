@@ -1,4 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {resolve} from "node:path"
+import viteBuild from "./config/viteBuild";
+
+// @ts-ignore
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
@@ -23,6 +27,9 @@ export default defineNuxtConfig({
             }
         }
     },
+    alias: {
+        cookie: resolve(__dirname, "node_modules/cookie")
+    },
     app: {
         head: {
             htmlAttrs: {
@@ -35,6 +42,9 @@ export default defineNuxtConfig({
             ]
         }
     },
+    css: [
+        '@/assets/scss/main.scss',
+    ],
     modules: [
         '@nuxt/fonts',
         '@nuxt/icon',
@@ -49,9 +59,9 @@ export default defineNuxtConfig({
         exposeConfig: true,
         viewer: true,
     },
-    css: [
-        '@/assets/scss/main.scss',
-    ],
+    icon: {
+        size: '24px',
+    },
     // image: {
     //     quality: 80,
     //     format: ['avif', 'webp'],
@@ -70,4 +80,5 @@ export default defineNuxtConfig({
     //         env: process.env.NUXT_ENV
     //     }
     // }
+    ...viteBuild,
 })

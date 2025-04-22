@@ -60,10 +60,10 @@ export default defineNuxtPlugin((nuxtApp) => {
     const lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
         gestureOrientation: 'vertical',
-        normalizeWheel: true,
-        smoothTouch: true,
+        // smooth: true,
+        // normalizeWheel: true,
+        // smoothTouch: true,
     })
     // lenis.on('scroll', ScrollTrigger.update);
 
