@@ -65,6 +65,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         normalizeWheel: true,
         smoothTouch: true,
     })
+    // lenis.on('scroll', ScrollTrigger.update);
 
     function raf(time: number) {
         lenis.raf(time)

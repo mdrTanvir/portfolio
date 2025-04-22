@@ -1,13 +1,8 @@
-
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
-// import isProduction from "./src/config/env";
-
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     ssr: true,
-    // ssr: isProduction(),
     srcDir: './src/',
     typescript: {
         strict: true,
@@ -70,4 +65,9 @@ export default defineNuxtConfig({
     //         '2xl': 1536
     //     },
     // },
+    // runtimeConfig: {
+    //     public: {
+    //         env: process.env.NUXT_ENV
+    //     }
+    // }
 })

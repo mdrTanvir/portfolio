@@ -5,15 +5,13 @@
       <NuxtLoadingIndicator/>
       <NuxtPage lazy/>
     </NuxtLayout>
-    <template v-if="isDesktop && isProduction()">
+    <template v-if="isDesktop">
       <LazyUiCursor/>
     </template>
   </main>
 </template>
 
 <script setup lang="ts">
-import isProduction from "~/config/env";
-// provideHeadlessUseId(() => useId())
 const {isDesktop} = useIsDesktop()
 
 const themeStore = useThemeStore()
