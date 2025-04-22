@@ -269,7 +269,7 @@ onMounted(async () => {
 .image-wrapper .img {
   width: 100%;
   height: auto;
-  max-width: 100%;
+  max-width: 100vw;
   max-height: 100%;
   //display: block;
   //object-fit: cover;
