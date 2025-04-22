@@ -26,8 +26,9 @@
       </svg>
     </div>
 
-    <div v-show="horizontalScroll" class="absolute z-20 bottom-0">
-      <ScrollDownCircular/>
+<!--    v-show="horizontalScroll"-->
+    <div  class="absolute z-[1] bottom-4 left-10">
+      <ScrollDownArrow/>
     </div>
 
     <div v-if="projects && projects.length" ref="scroller" class="h-full flex gap-x-6 sm:gap-x-10 md:gap-x-24 lg:gap-x-48">
@@ -203,11 +204,10 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
     end: () => `+=${totalWidth - window.innerWidth}`,
     scrub: false,
     onEnter: () => {
-      // scrollAnimationColor.value = 'light'
+      horizontalScroll.value = true
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeave: () => {
-      // scrollAnimationColor.value = 'light'
       horizontalScroll.value = false
       container.value.style.backgroundColor = 'transparent' // default
     },
