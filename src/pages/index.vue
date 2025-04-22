@@ -1,9 +1,10 @@
 <template>
   <main>
+<!--    <ProjectShowcase/>-->
+    <HomeProjects/>
     <HomeHeroAbout/>
     <HomeSkills/>
     <HomeExperience/>
-    <HomeProjects/>
     <HomeContact/>
   </main>
 </template>

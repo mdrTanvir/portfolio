@@ -28,35 +28,38 @@
 
     <div v-if="projects && projects.length" ref="scroller" class="h-full flex">
       <div class="flex gap-[60px] items-center justify-center min-w-[100vw] h-full"></div>
+
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="relative flex gap-4 flex-col md:flex-row items-center justify-center min-w-[100vw] h-full"
+          class="relative my-8 w-full max-w-[100vw] h-full grid grid-cols-5 gap-6"
       >
-        <div class="">
-          <h2 class="h1">{{ project.title }}</h2>
-          <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
-          <p class="text-sm max-w-[500px]">{{ project.description }}</p>
+        <div class="col-span-5 md:col-span-2 flex items-center">
+          <div>
+            <h2 class="h1">{{ project.title }}</h2>
+            <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
+            <p class="text-sm max-w-[500px]">{{ project.description }}</p>
 
-          <div class="flex flex-wrap gap-2 mt-3">
-            <template v-for="(skill, i) in project.skills" :key="i">
-              <UiChip>{{ skill }}</UiChip>
-            </template>
-          </div>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <template v-for="(skill, i) in project.skills" :key="i">
+                <UiChip>{{ skill }}</UiChip>
+              </template>
+            </div>
 
-          <div class="flex gap-4 mt-3">
-            <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
-            <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
+            <div class="flex gap-4 mt-3">
+              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
+              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
+            </div>
           </div>
         </div>
-        <div class="image-wrapper" :ref="el => imageRefs[index] = el">
-          <img :src="project.image" :alt="project.title" loading="lazy" class="img"/>
+        <div class="image-wrapper col-span-5 md:col-span-3" :ref="el => imageRefs[index] = el">
+          <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
         </div>
       </div>
 
       <div class="relative flex flex-col items-center justify-center min-w-[80vw] h-full">
         <div>
-          <div v-if="projects.length > 3" class=" mb-6">
+          <div v-if="projects.length > perPage" class=" mb-6">
             <NuxtLink to="/projects">
               <UiPrimaryButton>
               <span class="hoverMove flex items-center justify-center">
@@ -90,8 +93,9 @@ const scroller = ref<HTMLElement | null>(null)
 const imageRefs = ref([])
 const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
+const perPage = 2
 
-const PROJECTS = computed(() => projects.slice(0, 3))
+const PROJECTS = computed(() => projects.slice(0, perPage))
 
 const projectHorizontal = (totalWidth: any) => {
   if (!container.value) return
@@ -238,24 +242,23 @@ onMounted(async () => {
   transition: background-color 0.5s ease;
 }
 
-.image-wrapper {
-  width: 800px;
-  max-width: 80%;
-  overflow: hidden;
-  border-radius: 2px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  will-change: transform;
-  transform-origin: center;
-}
+//.image-wrapper {
+//  width: 800px;
+//  max-width: 80%;
+//  overflow: hidden;
+//  border-radius: 2px;
+//  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+//  will-change: transform;
+//  transform-origin: center;
+//}
 
-.image-wrapper img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 20px;
+.image-wrapper .img {
+  //width: 100%;
+  //height: auto;
+  //max-width: 100%;
+  //max-height: 100%;
+  //display: block;
+  //object-fit: cover;
   aspect-ratio: 16/9;
 }
 
