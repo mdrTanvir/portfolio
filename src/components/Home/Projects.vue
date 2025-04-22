@@ -26,7 +26,7 @@
       </svg>
     </div>
 
-    <div v-show="horizontalScroll" class="absolute z-[1] bottom-10 left-14">
+    <div v-show="horizontalScroll" class="absolute z-[1] bottom-4 md:bottom-10 -left-4 md:left-14">
       <ScrollDownLine/>
     </div>
 
@@ -42,7 +42,7 @@
           <div>
             <h2 class="h1 text-white">{{ project.title }}</h2>
             <p class="text-sm font-medium text-gray-200 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
-            <p class="text-lg max-w-[500px] text-white">{{ project.description }}</p>
+            <p class="text-lg max-w-[300px] md:max-w-[500px] text-white">{{ project.description }}</p>
 
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
@@ -98,7 +98,7 @@ const horizontalScroll = ref(true)
 const imageRefs = ref([])
 const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
-const perPage = 2
+const perPage = 3
 
 const PROJECTS = computed(() => projects.slice(0, perPage))
 

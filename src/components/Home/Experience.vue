@@ -121,7 +121,7 @@ const handleScrollTrigger = () => {
     scrollTrigger: {
       trigger: experienceContainer.value,
       start: 'top 80%',
-      end: '70% 20%',
+      end: '80% 10%',
       scrub: true,
       // markers: true,
     },
