@@ -12,7 +12,7 @@
 
 <style scoped lang="scss">
 .scroll-arrow {
-  @apply block w-20 h-20 rotate-45 border-r-4 border-b-4 border-black dark:border-white opacity-0;
+  @apply block w-20 h-20 rotate-45 border-r-4 border-b-4 border-black/60 dark:border-white/60 opacity-0;
   margin: 0 0 3px 4px;
   animation-name: mouse-wave;
   animation-duration: 1s;
