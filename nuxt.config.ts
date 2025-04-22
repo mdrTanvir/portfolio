@@ -17,13 +17,13 @@ export default defineNuxtConfig({
         '/': {
             prerender: true,
             headers: {
-                // 'Cache-Control': 'public, max-age=31536000, immutable'
+                'Cache-Control': 'public, max-age=31536000, immutable'
             }
         },
         '/projects': {
             prerender: true,
             headers: {
-                // 'Cache-Control': 'public, max-age=31536000, immutable'
+                'Cache-Control': 'public, max-age=31536000, immutable'
             }
         }
     },
