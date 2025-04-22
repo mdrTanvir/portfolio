@@ -26,7 +26,7 @@
       </svg>
     </div>
 
-    <div v-show="showScrollAnimation" class="absolute z-20 bottom-0">
+    <div v-show="horizontalScroll" class="absolute z-20 bottom-0">
       <ScrollDownCircular/>
     </div>
 
@@ -51,8 +51,8 @@
             </div>
 
             <div class="flex gap-4 mt-3">
-              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold text-white" data-hover>Live</a>
-              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold text-white" data-hover>GitHub</a>
+              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>Live</a>
+              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>GitHub</a>
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@
               </UiPrimaryButton>
             </NuxtLink>
           </div>
-          <h3 class="h4">Do you have a innovative idea?</h3>
-          <h1 class="h1">Let's work together</h1>
+          <h3 class="h4" :class="{'text-white':horizontalScroll}">Do you have a innovative idea?</h3>
+          <h1 class="h1" :class="{'text-white':horizontalScroll}">Let's work together</h1>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@ const {darkMode} = storeToRefs(themeStore)
 const projects = siteData?.works || []
 const container = ref<HTMLElement | null>(null)
 const scroller = ref<HTMLElement | null>(null)
-const showScrollAnimation = ref(true)
+const horizontalScroll = ref(true)
 const imageRefs = ref([])
 const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
@@ -208,15 +208,15 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
     },
     onLeave: () => {
       // scrollAnimationColor.value = 'light'
-      showScrollAnimation.value = false
+      horizontalScroll.value = false
       container.value.style.backgroundColor = 'transparent' // default
     },
     onEnterBack: () => {
-      showScrollAnimation.value = true
+      horizontalScroll.value = true
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeaveBack: () => {
-      showScrollAnimation.value = false
+      horizontalScroll.value = false
       container.value.style.backgroundColor = 'transparent' // default
     },
   })
