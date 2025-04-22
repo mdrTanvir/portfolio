@@ -17,7 +17,7 @@
             fill="transparent"
             :stroke="darkMode ? 'white' : 'black'"
             font-weight="800"
-            stroke-width="2"
+            stroke-width="1px"
             class="absolute left-0 top-1/2"
         >
           WORK
@@ -26,8 +26,12 @@
       </svg>
     </div>
 
+    <div v-show="showScrollAnimation" class="absolute z-20 bottom-0">
+      <ScrollDownCircular/>
+    </div>
+
     <div v-if="projects && projects.length" ref="scroller" class="h-full flex gap-x-6 sm:gap-x-10 md:gap-x-24 lg:gap-x-48">
-      <div class="min-w-[100vw] h-full"></div>
+      <div class="min-w-[100vw] h-full relative"></div>
 
       <div
           v-for="(project, index) in PROJECTS"
@@ -36,19 +40,19 @@
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
-            <h2 class="h1">{{ project.title }}</h2>
-            <p class="text-sm text-gray-300 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
-            <p class="text-sm max-w-[500px]">{{ project.description }}</p>
+            <h2 class="h1 text-white">{{ project.title }}</h2>
+            <p class="text-sm font-medium text-gray-200 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
+            <p class="text-lg max-w-[500px] text-white">{{ project.description }}</p>
 
-            <div class="flex flex-wrap gap-2 mt-3">
+            <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
                 <UiChip>{{ skill }}</UiChip>
               </template>
             </div>
 
             <div class="flex gap-4 mt-3">
-              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
-              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
+              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold text-white" data-hover>Live</a>
+              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold text-white" data-hover>GitHub</a>
             </div>
           </div>
         </div>
@@ -90,6 +94,7 @@ const {darkMode} = storeToRefs(themeStore)
 const projects = siteData?.works || []
 const container = ref<HTMLElement | null>(null)
 const scroller = ref<HTMLElement | null>(null)
+const showScrollAnimation = ref(true)
 const imageRefs = ref([])
 const worksText = ref<HTMLElement | null>(null) // Reference for the "WORKS" text element
 
@@ -111,7 +116,6 @@ const projectHorizontal = (totalWidth: any) => {
       scrub: true,
       pin: true,
       anticipatePin: 1,
-      // scroller: scroller.value,
       invalidateOnRefresh: true,
     },
   })
@@ -199,15 +203,20 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
     end: () => `+=${totalWidth - window.innerWidth}`,
     scrub: false,
     onEnter: () => {
+      // scrollAnimationColor.value = 'light'
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeave: () => {
+      // scrollAnimationColor.value = 'light'
+      showScrollAnimation.value = false
       container.value.style.backgroundColor = 'transparent' // default
     },
     onEnterBack: () => {
+      showScrollAnimation.value = true
       container.value.style.backgroundColor = '#2d3aa8' // blue
     },
     onLeaveBack: () => {
+      showScrollAnimation.value = false
       container.value.style.backgroundColor = 'transparent' // default
     },
   })
@@ -230,13 +239,6 @@ onMounted(async () => {
     // Force refresh after setup
     //   ScrollTrigger.refresh()
   })
-  //   const totalWidth = scroller.value?.scrollWidth || 0
-  //   projectHorizontal(totalWidth)
-  //   imageSkew(totalWidth)
-  //   workTextAnimation()
-  //   bgColorChangeOnScroll(totalWidth)
-  //
-
 })
 </script>
 
