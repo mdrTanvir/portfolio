@@ -43,10 +43,6 @@
     }
 }
 
-/*.importClassesFromTailwind {*/
-/*    @apply pr-10 !pr-10;*/
-/*}*/
-
 /* Typography */
 .h1 {
     @apply text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight;
