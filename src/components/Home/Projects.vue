@@ -54,7 +54,6 @@
               <a :href="project.projectLink || project.gitHub" target="_blank" rel="noreferrer">
                 <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"
                      :data-hover-text="project.projectLink ? 'preview' : 'GitHub'"/>
-                />
               </a>
             </template>
             <template v-else>

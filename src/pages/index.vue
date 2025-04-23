@@ -1,9 +1,9 @@
 <template>
   <main>
     <HomeHeroAbout/>
+    <HomeProjects/>
     <HomeSkills/>
     <HomeExperience/>
-    <HomeProjects/>
     <HomeContact/>
   </main>
 </template>
