@@ -175,7 +175,7 @@ const handleScrollTrigger = () => {
       start: 'center 60%',
       end: 'bottom 40%',
       scrub: true,
-      markers: true, // Remove for production
+      // markers: true, // Remove for production
     },
   })
 }
