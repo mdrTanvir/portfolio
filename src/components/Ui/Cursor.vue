@@ -1,12 +1,19 @@
 <template>
   <div class="cursor shrinkCursor">
-    <div class="cursor-dot bg-gray-500 dark:bg-white"></div>
+    <div class="cursor-dot bg-gray-500 dark:bg-white">
+      <span class="cursor-text"></span>
+      <Icon
+          name="lucide:arrow-up-right"
+          class="absolute bottom-2 left-0 !text-black pointer-events-none mix-blend-normal"
+      />
+    </div>
     <div class="cursor-follower bg-violet-800/50"></div>
   </div>
 </template>
 
 <script setup>
 import {gsap} from 'gsap'
+
 const {isDesktop} = useIsDesktop()
 
 onMounted(() => {
@@ -72,6 +79,27 @@ onMounted(() => {
       cur.classList.remove('shrinkCursor')
     }
   }
+
+  const cursorText = document.querySelector('.cursor-text')
+  // cursor with text
+  document.querySelectorAll('[data-hover-text]').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      follower.classList.toggle('active-text', true)
+      const text = el.getAttribute('data-hover-text')
+      if (cursorText) {
+        cursorText.innerText = text
+        cursorText.style.opacity = '1'
+      }
+    })
+
+    el.addEventListener('mouseleave', () => {
+      follower.classList.toggle('active-text', false)
+      if (cursorText) {
+        cursorText.innerText = ''
+        cursorText.style.opacity = '0'
+      }
+    })
+  })
 
   const handleHover = (enter) => {
     cursor.classList.toggle('active', enter)
@@ -170,6 +198,15 @@ onMounted(() => {
     border-radius: 100%;
   }
 
+  &.active-text {
+    opacity: 1;
+    mix-blend-mode: normal !important;
+    @apply bg-white dark:bg-white shadow-lg;
+    transform: scale(2.4);
+    border-radius: 100%;
+    overflow: hidden;
+  }
+
   &.hovered {
     opacity: .4;
   }
@@ -195,5 +232,20 @@ onMounted(() => {
     width: 30px;
     height: 30px;
   }
+}
+
+.cursor-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) !important;
+  font-size: 14px !important;
+  font-weight: bold;
+  color: white;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  white-space: nowrap;
+  padding-bottom: 20px;
 }
 </style>
