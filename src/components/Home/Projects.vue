@@ -56,7 +56,7 @@
       </div>
 
 
-      <div class="relative flex flex-col items-center justify-center w-full h-screen">
+      <div class="relative flex flex-col items-center justify-center w-full max-h-screen">
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
             <UiAnimate :distance="40">
