@@ -3,11 +3,36 @@
     <UiHeading>Contact</UiHeading>
 
     <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 sm:col-span-3">
-        <UiSubheading>Let's Talk</UiSubheading>
+      <div class="col-span-12 sm:col-span-6">
+        <div class="flex flex-col gap-y-6">
+          <UiAnimate :distance="20" class="flex gap-4">
+            <Icon name="lucide:location-edit" class="mr-2"/>
+            <div>
+              <div class="mb-2">Address</div>
+              <div class="text-lg">{{ siteData.address }}</div>
+            </div>
+          </UiAnimate>
+          <UiAnimate :distance="20" class="flex gap-4">
+            <Icon name="lucide:phone" class="mr-2"/>
+            <div>
+              <div class="mb-2">Phone</div>
+              <div class="text-lg">{{ siteData.phone }}</div>
+            </div>
+          </UiAnimate>
+          <UiAnimate :distance="20" class="flex gap-4">
+            <Icon name="lucide:mail" class="mr-2"/>
+            <div>
+              <div class="mb-2">Email</div>
+              <div class="text-lg">{{ siteData.email }}</div>
+            </div>
+          </UiAnimate>
+        </div>
       </div>
-      <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
-        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
+
+
+      <div class="relative col-span-12 px-4 space-y-6 sm:col-span-6">
+        <UiSubheading>Let's Talk</UiSubheading>
+        <div class="col-span-12 space-y-12 relative sm:col-span-8 sm:space-y-8">
           <form action="/">
             <div class="form-group">
               <UiAnimate :distance="20">
@@ -38,34 +63,36 @@
     </div>
 
     <!--    <div class="relative w-full">-->
-    <svg
-        class="will-change-transform animateRotate"
-        viewBox="0 0 100 100"
-        overflow="visible"
-        fill="black"
-    >
-      <path
-          id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"
-          stroke-width="none"
-          fill="transparent"
-      >
-      </path>
-      <text>
-        <textPath
-            href="#curve-wnxkz4"
-            startOffset="0"
-            dominant-baseline="Hanging"
-            style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"
-            :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"
-        > OPEN TO WORK · OPEN TO WORK ·
-        </textPath>
-      </text>
-    </svg>
+    <!--    <svg-->
+    <!--        class="will-change-transform animateRotate"-->
+    <!--        viewBox="0 0 100 100"-->
+    <!--        overflow="visible"-->
+    <!--        fill="black"-->
+    <!--    >-->
+    <!--      <path-->
+    <!--          id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"-->
+    <!--          stroke-width="none"-->
+    <!--          fill="transparent"-->
+    <!--      >-->
+    <!--      </path>-->
+    <!--      <text>-->
+    <!--        <textPath-->
+    <!--            href="#curve-wnxkz4"-->
+    <!--            startOffset="0"-->
+    <!--            dominant-baseline="Hanging"-->
+    <!--            style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"-->
+    <!--            :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"-->
+    <!--        > OPEN TO WORK · OPEN TO WORK ·-->
+    <!--        </textPath>-->
+    <!--      </text>-->
+    <!--    </svg>-->
     <!--    </div>-->
   </section>
 </template>
 
 <script setup lang="ts">
+import siteData from "../../config/data";
+
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 </script>

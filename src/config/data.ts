@@ -4,6 +4,7 @@ const siteData = {
     name: fullName,
     logoName: 'Tanvir',
     address: 'Dhaka, Bangladesh',
+    phone: '+04 222 333 444',
     email: 'taanvir@gmail.com',
     profile: '/images/profile2.webp',
     meta: {
