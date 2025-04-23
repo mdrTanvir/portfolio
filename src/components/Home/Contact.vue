@@ -3,7 +3,7 @@
     <UiHeading>Contact</UiHeading>
 
     <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 sm:col-span-6">
+      <div class="col-span-12 sm:col-span-6 mb-8">
         <div class="flex flex-col gap-y-6">
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:location-edit" class="mr-2"/>
