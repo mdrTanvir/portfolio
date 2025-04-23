@@ -36,3 +36,10 @@ const invertedClasses = [
   'hover:bg-gray-800 dark:hover:bg-white hover:text-white dark:hover:text-black',
 ]
 </script>
+
+<style lang="scss" scoped>
+.btn:active {
+  transition: all 0.1s ease-in-out;
+  transform: scale(0.96);
+}
+</style>
