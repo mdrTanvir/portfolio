@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="relative flex flex-col items-center justify-center min-w-[80vw] h-full">
+      <div class="relative flex flex-col items-center justify-center min-w-[100vw] h-full">
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
             <NuxtLink to="/projects">
