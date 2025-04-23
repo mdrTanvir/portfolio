@@ -7,6 +7,7 @@ const siteData = {
     phone: '+04 222 333 444',
     email: 'taanvir@gmail.com',
     profile: '/images/profile2.webp',
+    cvLink: 'https://drive.google.com/file/d/1GfBCRYzrduXnudbbfsltAPABmMcDphUs/view?usp=sharing',
     meta: {
         name: fullName,
         description: `${fullName} is a Full Stack Web Developer specializing in Laravel and Vue.js. With over 4 years of experience, he creates dynamic and user-friendly web applications. Passionate about coding and always eager to learn new technologies.`,

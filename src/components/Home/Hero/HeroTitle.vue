@@ -26,15 +26,20 @@
     </div>
 
     <div class="mb-6 flex flex-wrap gap-4">
-      <UiAnimate :distance="10" :delay="1.2" :duration="0.6" scrollTriggerStart="center bottom" :scrub="false">
-        <UiPrimaryButton to="/">
+      <UiAnimate v-if="siteData.cvLink" :distance="10" :delay="1.2" :duration="0.6" scrollTriggerStart="center bottom" :scrub="false">
+        <a :href="siteData.cvLink" target='_blank' rel="noreferrer">
+          <UiPrimaryButton>
             <span class="hoverMove">
               <Icon name="lucide:download" class="w-4 h-4 mr-2"/> Download CV
             </span>
-        </UiPrimaryButton>
+          </UiPrimaryButton>
+        </a>
       </UiAnimate>
       <UiAnimate :distance="10" :delay="1.4" :duration="0.6" scrollTriggerStart="center bottom" :scrub="false">
-        <UiPrimaryButton to="/" inverted>
+        <UiPrimaryButton
+            inverted
+            @click="scrollTo('CONTACT')"
+        >
             <span class="hoverMove">
               <Icon name="lucide:message-circle" class="w-4 h-4 mr-2"/> Let's Talk
             </span>
@@ -46,4 +51,6 @@
 
 <script setup lang="ts">
 import siteData from "~/config/data";
+
+const {scrollTo} = useScrollTo()
 </script>
