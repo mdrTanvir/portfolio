@@ -1,7 +1,7 @@
 <template>
   <div class="cursor shrinkCursor">
     <div class="cursor-dot bg-gray-500 dark:bg-white">
-      <span class="cursor-text"></span>
+      <span class="cursor-text animate-pulse"></span>
       <Icon name="lucide:arrow-up-right" class="cursor-icon text-black/10 dark:text-black/20"/>
     </div>
     <div class="cursor-follower bg-violet-800/50"></div>
