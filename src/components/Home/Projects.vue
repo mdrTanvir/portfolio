@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="image-wrapper col-span-5 md:col-span-3 flex items-center" :ref="el => imageRefs[index] = el">
+        <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center" :ref="el => imageRefs[index] = el">
           <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
         </div>
       </div>
