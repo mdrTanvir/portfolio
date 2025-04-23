@@ -15,7 +15,7 @@ export default function useScrollTo() {
         if (target && $lenis) {
             $lenis.scrollTo(target, {
                 offset: -40, // scroll offset (matches ScrollToPlugin offsetY)
-                duration: 1,
+                duration: 2,
                 easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             })
         } else {
