@@ -21,6 +21,7 @@
               v-if="social.link"
               :href="social.link"
               target="_blank"
+              rel="noopener noreferrer"
               data-hover
           >
             <Icon
