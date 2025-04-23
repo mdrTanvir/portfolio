@@ -11,16 +11,16 @@
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
             <div class="overflow-hidden py-2">
-              <UiAnimate>
-                <h2 class="h1 text-white">{{ project.title }}</h2>
+              <UiAnimate :distance="30">
+                <h2 class="h2 text-white">{{ project.title }}</h2>
               </UiAnimate>
             </div>
-            <div class="overflow-hidden py-2">
+            <div class="overflow-hidden">
               <UiAnimate>
                 <p class="text-sm font-medium text-gray-200 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
               </UiAnimate>
             </div>
-            <div class="overflow-hidden py-2">
+            <div class="overflow-hidden">
               <UiAnimate>
                 <p class="text-lg max-w-[300px] md:max-w-[500px] text-white">{{ project.description }}</p>
               </UiAnimate>
@@ -28,20 +28,30 @@
 
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
-                <UiAnimate direction="up" :distance="20">
+                <UiAnimate :distance="20">
                   <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
                 </UiAnimate>
               </template>
             </div>
 
             <div class="flex gap-4 mt-3">
-              <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>Live</a>
-              <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>GitHub</a>
+              <div class="overflow-hidden">
+                <UiAnimate>
+                  <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>Live</a>
+                </UiAnimate>
+              </div>
+              <div class="overflow-hidden">
+                <UiAnimate>
+                  <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold text-white hover:text-indigo-300" data-hover>GitHub</a>
+                </UiAnimate>
+              </div>
             </div>
           </div>
         </div>
         <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center" :ref="el => imageRefs[index] = el">
-          <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
+          <UiAnimate direction="left" :distance="60">
+            <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
+          </UiAnimate>
         </div>
       </div>
 
