@@ -2,10 +2,7 @@
   <div class="cursor shrinkCursor">
     <div class="cursor-dot bg-gray-500 dark:bg-white">
       <span class="cursor-text"></span>
-      <Icon
-          name="lucide:arrow-up-right"
-          class="absolute bottom-2 left-0 !text-black pointer-events-none mix-blend-normal"
-      />
+      <Icon name="lucide:arrow-up-right" class="cursor-icon text-black/10 dark:text-black/20"/>
     </div>
     <div class="cursor-follower bg-violet-800/50"></div>
   </div>
@@ -81,6 +78,7 @@ onMounted(() => {
   }
 
   const cursorText = document.querySelector('.cursor-text')
+  const cursorIcon = document.querySelector('.cursor-icon')
   // cursor with text
   document.querySelectorAll('[data-hover-text]').forEach((el) => {
     el.addEventListener('mouseenter', () => {
@@ -89,6 +87,7 @@ onMounted(() => {
       if (cursorText) {
         cursorText.innerText = text
         cursorText.style.opacity = '1'
+        cursorIcon.style.opacity = '1'
       }
     })
 
@@ -97,6 +96,7 @@ onMounted(() => {
       if (cursorText) {
         cursorText.innerText = ''
         cursorText.style.opacity = '0'
+        cursorIcon.style.opacity = '0'
       }
     })
   })
@@ -247,5 +247,30 @@ onMounted(() => {
   opacity: 0;
   white-space: nowrap;
   padding-bottom: 20px;
+}
+
+.cursor-icon {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1) !important;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  white-space: nowrap;
+  padding-top: 20px;
+  filter: invert(1);
+  animation: moveCornerToCorner 1s infinite;
+}
+
+@keyframes moveCornerToCorner {
+  0% {
+    top: 400%;
+    left: -400%;
+  }
+  100% {
+    left: 400%;
+    top: -400%;
+  }
 }
 </style>
