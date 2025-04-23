@@ -56,7 +56,7 @@
       </div>
 
 
-      <div class="relative flex flex-col items-center justify-center w-full max-h-screen">
+      <div class="relative flex flex-col items-center justify-center w-full max-h-screen" style="height: 70dvh">
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
             <UiAnimate :distance="40">
@@ -172,10 +172,10 @@ const handleScrollTrigger = () => {
     ease: 'none',
     scrollTrigger: {
       trigger: pathRef.value,
-      start: 'center 60%',
-      end: 'bottom 40%',
+      start: 'center center',
+      end: 'bottom 30%',
       scrub: true,
-      // markers: true, // Remove for production
+      markers: true,
     },
   })
 }
