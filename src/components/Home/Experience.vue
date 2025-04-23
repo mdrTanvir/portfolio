@@ -130,9 +130,7 @@ const handleScrollTrigger = () => {
 
 watch(() => totalExperience.value, async () => {
   await nextTick() // Wait for DOM changes
-  if (scrollTriggerInstance) {
-    scrollTriggerInstance.kill()
-  }
+  if (scrollTriggerInstance) scrollTriggerInstance.kill()
   handleScrollTrigger()
 })
 

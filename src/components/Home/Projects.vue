@@ -36,7 +36,7 @@
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="relative my-8 w-full min-w-[1300px] h-full grid grid-cols-5 gap-6 mx-auto px-4"
+          class="relative my-8 w-full min-w-[100vw] h-full grid grid-cols-5 gap-6 mx-auto px-4"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
