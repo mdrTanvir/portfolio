@@ -28,7 +28,7 @@
 
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
-                <UiAnimate :distance="20">
+                <UiAnimate :distance="40">
                   <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
                 </UiAnimate>
               </template>
@@ -59,17 +59,22 @@
       <div class="relative flex flex-col items-center justify-center w-full h-screen">
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
-            <NuxtLink to="/projects">
-              <UiPrimaryButton class="shadow-xl">
+            <UiAnimate :distance="40">
+              <NuxtLink to="/projects">
+                <UiPrimaryButton class="shadow-xl">
               <span class="hoverMove flex items-center justify-center">
                 View More Works <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
               </span>
-              </UiPrimaryButton>
-            </NuxtLink>
+                </UiPrimaryButton>
+              </NuxtLink>
+            </UiAnimate>
           </div>
-          <h3 class="h4">Do you have a innovative idea?</h3>
-          <h1 class="h1">Let's work together</h1>
-
+          <UiAnimate :distance="40">
+            <h3 class="h4">Do you have a innovative idea?</h3>
+          </UiAnimate>
+          <UiAnimate :distance="40">
+            <h1 class="h1">Let's work together</h1>
+          </UiAnimate>
           <div class="flex items-center justify-center h-full max-h-96 relative">
             <div class="rotate-90">
               <svg
