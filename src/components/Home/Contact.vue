@@ -55,11 +55,16 @@
             <div class="form-group">
               <UiAnimate :distance="20">
                 <UiPrimaryButton
+                    :loading="loading"
                     inverted
+                    btnType="submit"
                     @click="submitForm"
                 >Send Message
                 </UiPrimaryButton>
               </UiAnimate>
+            </div>
+            <div v-if="result" :class="{'text-red-500':hasError , 'text-green-500':!hasError}" class="mt-4">
+              {{ result }}
             </div>
           </form>
         </div>
@@ -79,15 +84,33 @@ const form = ref({
   message: "",
 });
 
+const loading = ref(false);
+const hasError = ref(false);
 const result = ref("");
 const status = ref("");
 
 const submitForm = async () => {
+  const {name, email, message} = form.value;
+
+  if (!name.trim() || !email.trim() || !message.trim()) {
+    result.value = "All fields are required.";
+    hasError.value = true;
+    return;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    result.value = "Please enter a valid email address.";
+    hasError.value = true;
+    return;
+  }
+
+  loading.value = true;
   result.value = "Please wait...";
   try {
     const response = await $fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: form.value,
     });
 
@@ -103,6 +126,7 @@ const submitForm = async () => {
     }
   } catch (error) {
     console.log(error); // Log for debugging, can be removed
+    hasError.value = true;
     status.value = "error";
     result.value = "Something went wrong!";
   } finally {
@@ -111,8 +135,11 @@ const submitForm = async () => {
     form.value.email = "";
     form.value.message = "";
 
+    loading.value = false;
+
     // Clear result and status after 5 seconds
     setTimeout(() => {
+      hasError.value = false;
       result.value = "";
       status.value = "";
     }, 5000);
