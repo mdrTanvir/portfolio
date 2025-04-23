@@ -33,68 +33,91 @@
       <div class="relative col-span-12 px-4 space-y-6 sm:col-span-6">
         <UiSubheading>Let's Talk</UiSubheading>
         <div class="col-span-12 space-y-12 relative sm:col-span-8 sm:space-y-8">
-          <form action="/">
+          <form @submit.prevent="submitForm">
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                <input v-model="form.name" type="text" id="name" class="form-control" placeholder="John Doe" required>
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="email" class="form-label">Your Email</label>
-                <input type="email" id="email" class="form-control" placeholder="johndoe@example.com" required>
+                <input v-model="form.email" type="email" id="email" class="form-control" placeholder="johndoe@example.com" required>
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="message" class="form-label">Your message</label>
-                <textarea id="message" class="form-control" required></textarea>
+                <textarea v-model="form.message" id="message" class="form-control" required></textarea>
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
-                <UiPrimaryButton class="" inverted>Send Message</UiPrimaryButton>
+                <UiPrimaryButton
+                    inverted
+                    @click="submitForm"
+                >Send Message
+                </UiPrimaryButton>
               </UiAnimate>
             </div>
           </form>
         </div>
       </div>
     </div>
-
-    <!--    <div class="relative w-full">-->
-    <!--    <svg-->
-    <!--        class="will-change-transform animateRotate"-->
-    <!--        viewBox="0 0 100 100"-->
-    <!--        overflow="visible"-->
-    <!--        fill="black"-->
-    <!--    >-->
-    <!--      <path-->
-    <!--          id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"-->
-    <!--          stroke-width="none"-->
-    <!--          fill="transparent"-->
-    <!--      >-->
-    <!--      </path>-->
-    <!--      <text>-->
-    <!--        <textPath-->
-    <!--            href="#curve-wnxkz4"-->
-    <!--            startOffset="0"-->
-    <!--            dominant-baseline="Hanging"-->
-    <!--            style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"-->
-    <!--            :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"-->
-    <!--        > OPEN TO WORK · OPEN TO WORK ·-->
-    <!--        </textPath>-->
-    <!--      </text>-->
-    <!--    </svg>-->
-    <!--    </div>-->
   </section>
 </template>
 
 <script setup lang="ts">
 import siteData from "../../config/data";
 
-const themeStore = useThemeStore()
-const {darkMode} = storeToRefs(themeStore)
+const form = ref({
+  access_key: "35e3f34e-706c-4437-adf0-e3c478a17fc0",
+  subject: "New Message From Your Website | Web3Forms",
+  name: "",
+  email: "",
+  message: "",
+});
+
+const result = ref("");
+const status = ref("");
+
+const submitForm = async () => {
+  result.value = "Please wait...";
+  try {
+    const response = await $fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: form.value,
+    });
+
+    console.log(response); // You can remove this line if you don't need it
+
+    result.value = response.message;
+
+    if (response.status === 200) {
+      status.value = "success";
+    } else {
+      console.log(response); // Log for debugging, can be removed
+      status.value = "error";
+    }
+  } catch (error) {
+    console.log(error); // Log for debugging, can be removed
+    status.value = "error";
+    result.value = "Something went wrong!";
+  } finally {
+    // Reset form after submission
+    form.value.name = "";
+    form.value.email = "";
+    form.value.message = "";
+
+    // Clear result and status after 5 seconds
+    setTimeout(() => {
+      result.value = "";
+      status.value = "";
+    }, 5000);
+  }
+};
 </script>
 
 <style scoped lang="scss">
