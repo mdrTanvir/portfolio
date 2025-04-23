@@ -1,5 +1,5 @@
 <template>
-  <section id="CONTACT" class="contain content-section">
+  <section id="CONTACT" class="contain">
     <UiHeading>Contact</UiHeading>
 
     <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
@@ -36,10 +36,36 @@
         </div>
       </div>
     </div>
+
+    <div class="relative w-full">
+      <svg
+          class="will-change-transform animateRotate"
+          viewBox="0 0 100 100"
+          overflow="visible"
+          fill="black"
+      >
+        <path id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"
+              stroke-width="none" fill="transparent">
+
+        </path>
+        <text>
+          <textPath
+              href="#curve-wnxkz4"
+              startOffset="0"
+              dominant-baseline="Hanging"
+              style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"
+              :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"
+          > OPEN TO WORK · OPEN TO WORK ·
+          </textPath>
+        </text>
+      </svg>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+const themeStore = useThemeStore()
+const {darkMode} = storeToRefs(themeStore)
 </script>
 
 <style scoped lang="scss">
@@ -55,5 +81,32 @@
   @apply bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg
   focus:ring-blue-500 focus:border-blue-500 block w-full max-w-[500px] p-2.5
   dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+}
+
+.animateRotate {
+  transform: scale(2);
+  width: 200px;
+  height: 200px;
+  inset: 0;
+  transform-origin: center center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    opacity: 0.4;
+    transform: rotate(0deg) scale(2);
+  }
+  50% {
+    opacity: 0.1;
+    transform: rotate(-180deg) scale(2.2);
+  }
+  100% {
+    opacity: 0.4;
+    transform: rotate(-360deg) scale(2);
+  }
 }
 </style>
