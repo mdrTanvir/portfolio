@@ -1,5 +1,5 @@
 <template>
-  <section id="CONTACT" class="contain">
+  <section id="CONTACT" class="contain relative">
     <UiHeading>Contact</UiHeading>
 
     <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
@@ -37,29 +37,31 @@
       </div>
     </div>
 
-    <div class="relative w-full">
-      <svg
-          class="will-change-transform animateRotate"
-          viewBox="0 0 100 100"
-          overflow="visible"
-          fill="black"
+    <!--    <div class="relative w-full">-->
+    <svg
+        class="will-change-transform animateRotate"
+        viewBox="0 0 100 100"
+        overflow="visible"
+        fill="black"
+    >
+      <path
+          id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"
+          stroke-width="none"
+          fill="transparent"
       >
-        <path id="curve-wnxkz4" d="M 0 50 L 0 50 A 1 1 0 0 1 100 50 L 100 50 L 100 50 A 1 1 0 0 1 0 50 L 0 50"
-              stroke-width="none" fill="transparent">
-
-        </path>
-        <text>
-          <textPath
-              href="#curve-wnxkz4"
-              startOffset="0"
-              dominant-baseline="Hanging"
-              style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"
-              :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"
-          > OPEN TO WORK · OPEN TO WORK ·
-          </textPath>
-        </text>
-      </svg>
-    </div>
+      </path>
+      <text>
+        <textPath
+            href="#curve-wnxkz4"
+            startOffset="0"
+            dominant-baseline="Hanging"
+            style="font-size:12px;font-weight:600;word-spacing:5px;letter-spacing:1.8px;"
+            :fill="darkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(20, 20, 20, 0.6)'"
+        > OPEN TO WORK · OPEN TO WORK ·
+        </textPath>
+      </text>
+    </svg>
+    <!--    </div>-->
   </section>
 </template>
 
@@ -98,15 +100,14 @@ const {darkMode} = storeToRefs(themeStore)
 @keyframes rotate {
   0% {
     opacity: 0.4;
-    transform: rotate(0deg) scale(2);
+    transform: rotate(0deg) scale(1.5);
   }
   50% {
     opacity: 0.1;
-    transform: rotate(-180deg) scale(2.2);
   }
   100% {
     opacity: 0.4;
-    transform: rotate(-360deg) scale(2);
+    transform: rotate(-360deg) scale(1.5);
   }
 }
 </style>
