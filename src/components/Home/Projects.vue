@@ -49,17 +49,17 @@
           </div>
         </div>
         <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center" :ref="el => imageRefs[index] = el">
-          <UiAnimate direction="left" :distance="60">
-            <template v-if="project.projectLink || project.gitHub">
-              <a :href="project.projectLink || project.gitHub" target="_blank" rel="noreferrer">
-                <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"
-                     :data-hover-text="project.projectLink ? 'preview' : 'GitHub'"/>
-              </a>
-            </template>
-            <template v-else>
-              <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
-            </template>
-          </UiAnimate>
+          <!--          <UiAnimate direction="left" :distance="60">-->
+          <template v-if="project.projectLink || project.gitHub">
+            <a :href="project.projectLink || project.gitHub" target="_blank" rel="noreferrer">
+              <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"
+                   :data-hover-text="project.projectLink ? 'preview' : 'GitHub'"/>
+            </a>
+          </template>
+          <template v-else>
+            <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
+          </template>
+          <!--          </UiAnimate>-->
         </div>
       </div>
 
