@@ -1,36 +1,52 @@
 <template>
-  <section ref="container" id="PROJECTS" class="contain content-section relative">
-    <UiHeading>Projects</UiHeading>
+  <section ref="container" id="PROJECTS" class="horizontal-wrapper relative h-screen">
+    <div>
+      <svg
+          width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+          class="flex items-center justify-center absolute"
+      >
+        <text
+            id="worksText"
+            ref="worksText"
+            x="50%"
+            y="50%"
+            text-anchor="middle"
+            alignment-baseline="middle"
+            font-family="Pacifico, Arial"
+            font-size="20vw"
+            fill="transparent"
+            :stroke="darkMode ? 'white' : 'black'"
+            font-weight="800"
+            stroke-width="1px"
+            class="absolute left-0 top-1/2"
+        >
+          WORK
+          <!--          Projects-->
+        </text>
+      </svg>
+    </div>
 
-    <div v-if="projects && projects.length" ref="scroller">
+    <div v-show="horizontalScroll" class="absolute z-[1] bottom-4 md:bottom-10 -left-4 md:left-14">
+      <ScrollDownLine/>
+    </div>
+
+    <div v-if="projects && projects.length" ref="scroller" class="h-full flex gap-x-6 sm:gap-x-10 md:gap-x-24 lg:gap-x-48">
+      <div class="min-w-[100vw] h-full relative"></div>
+
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="relative w-full my-20 grid grid-cols-5 gap-6 mx-auto px-4"
+          class="relative my-8 w-full min-w-[100vw] h-full grid grid-cols-5 gap-6 mx-auto px-4"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
-            <div class="overflow-hidden py-2">
-              <UiAnimate>
-                <h2 class="h1 text-white">{{ project.title }}</h2>
-              </UiAnimate>
-            </div>
-            <div class="overflow-hidden py-2">
-              <UiAnimate>
-                <p class="text-sm font-medium text-gray-200 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
-              </UiAnimate>
-            </div>
-            <div class="overflow-hidden py-2">
-              <UiAnimate>
-                <p class="text-lg max-w-[300px] md:max-w-[500px] text-white">{{ project.description }}</p>
-              </UiAnimate>
-            </div>
+            <h2 class="h1 text-white">{{ project.title }}</h2>
+            <p class="text-sm font-medium text-gray-200 mt-2 mb-3">{{ project.tag }} — {{ project.date }}</p>
+            <p class="text-lg max-w-[300px] md:max-w-[500px] text-white">{{ project.description }}</p>
 
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills" :key="i">
-                <UiAnimate direction="up" :distance="20">
-                  <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
-                </UiAnimate>
+                <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
               </template>
             </div>
 
@@ -45,8 +61,7 @@
         </div>
       </div>
 
-
-      <div class="relative flex flex-col items-center justify-center w-full h-screen">
+      <div class="relative flex flex-col items-center justify-center min-w-[100vw] h-full">
         <div>
           <div v-if="projects.length > perPage" class=" mb-6">
             <NuxtLink to="/projects">
@@ -108,6 +123,25 @@ const pathRef = ref(null)
 const perPage = 3
 
 const PROJECTS = computed(() => projects.slice(0, perPage))
+
+const projectHorizontal = (totalWidth: any) => {
+  if (!container.value) return
+
+  // Horizontal scroll animation
+  gsap.to(scroller.value, {
+    x: () => -(totalWidth - window.innerWidth),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: container.value,
+      start: 'top top',
+      end: () => `+=${totalWidth - window.innerWidth}`,
+      scrub: true,
+      pin: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+    },
+  })
+}
 
 const imageSkew = (totalWidth: any) => {
   // Skew effect based on scroll velocity
@@ -209,12 +243,38 @@ const bgColorChangeOnScroll = (totalWidth: any) => {
   })
 }
 
+// const animatePath = () => {
+//   const path = pathRef.value
+//
+//   const length = path.getTotalLength()
+//
+//   // Prepare the path
+//   path.style.strokeDasharray = length
+//   path.style.strokeDashoffset = length
+//   path.style.fill = '#ffffff'
+//   path.style.strokeWidth = '1'
+//
+//   gsap.to(path, {
+//     strokeDashoffset: 0,
+//     scrollTrigger: {
+//       trigger: path,
+//       start: 'top 80%', // when 80% of viewport reaches top of path
+//       end: 'bottom 30%',
+//       scrub: true,
+//       markers: true,
+//     },
+//     ease: 'power1.out',
+//   })
+// }
+
 const GSAP = () => {
   if (scroller.value) {
     const totalWidth = scroller.value?.scrollWidth || 0
     workTextAnimation()
     bgColorChangeOnScroll(totalWidth)
+    projectHorizontal(totalWidth)
     imageSkew(totalWidth)
+    // animatePath()
   }
 }
 
@@ -238,7 +298,7 @@ onMounted(async () => {
 }
 
 .horizontal-wrapper {
-  //overflow: hidden;
+  overflow: hidden;
   transition: background-color 0.5s ease;
 }
 
