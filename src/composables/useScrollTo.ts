@@ -9,18 +9,25 @@ export default function useScrollTo() {
     // }
 
 
-    const scrollTo = (id: string) => {
-        const target = document.getElementById(id)
+    const scrollTo = async (id: string) => {
+        const route = useRoute()
+        const router = useRouter()
         const {$lenis} = useNuxtApp()
         const {isDesktop} = useIsDesktop()
-        if (target && $lenis) {
-            $lenis.scrollTo(target, {
-                offset: -40, // scroll offset (matches ScrollToPlugin offsetY)
-                duration: isDesktop ? 2 : 1,
-                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            })
+
+        if (route.path !== '/') {
+            // Navigate to home with hash and let scroll trigger there
+            await router.push({ path: '/', hash: `#${id}` })
         } else {
-            // gsap.to(window, {duration: 0, scrollTo: {y: target, offsetY: 100}});
+            // Already on home, scroll directly
+            const target = document.getElementById(id)
+            if (target && $lenis) {
+                $lenis.scrollTo(target, {
+                    offset: -40,
+                    duration: isDesktop ? 2 : 1,
+                    easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                })
+            }
         }
     }
 
