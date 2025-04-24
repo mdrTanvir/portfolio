@@ -1,5 +1,5 @@
 <template>
-  <div class="cursor shrinkCursor">
+  <div class="cursor">
     <div class="cursor-dot bg-gray-500 dark:bg-white">
       <span class="cursor-text animate-pulse capitalize !mix-blend-normal"></span>
       <Icon name="lucide:arrow-up-right" class="cursor-icon text-black/20 dark:text-black/20"/>
@@ -9,11 +9,13 @@
 </template>
 
 <script setup>
-import {gsap} from 'gsap'
+import { gsap } from 'gsap'
+const route = useRoute()
+const { isDesktop } = useIsDesktop()
 
+let cleanupFns = []
 
 const initCursor = () => {
-  const {isDesktop} = useIsDesktop()
   if (!isDesktop.value) return
 
   document.body.style.cursor = 'none'
@@ -22,11 +24,10 @@ const initCursor = () => {
   const cursor = document.querySelector('.cursor-dot')
   const follower = document.querySelector('.cursor-follower')
   const cur = document.querySelector('.cursor')
+  const cursorText = document.querySelector('.cursor-text')
+  const cursorIcon = document.querySelector('.cursor-icon')
 
-  let posX = 0,
-      posY = 0,
-      mouseX = 0,
-      mouseY = 0
+  let posX = 0, posY = 0, mouseX = 0, mouseY = 0
 
   let winsize = {
     width: window.innerWidth,
@@ -35,13 +36,14 @@ const initCursor = () => {
 
   const calcWinsize = () => {
     winsize = {
-      width: Math.max(window.innerWidth, document.documentElement.clientWidth, document.body.clientWidth),
-      height: Math.max(window.innerHeight, document.documentElement.clientHeight, document.body.clientHeight)
+      width: Math.max(window.innerWidth, document.documentElement.clientWidth),
+      height: Math.max(window.innerHeight, document.documentElement.clientHeight)
     }
   }
 
   calcWinsize()
   window.addEventListener('resize', calcWinsize)
+  cleanupFns.push(() => window.removeEventListener('resize', calcWinsize))
 
   const animationLoop = gsap.to({}, {
     repeat: -1,
@@ -49,27 +51,14 @@ const initCursor = () => {
     onRepeat: () => {
       posX += (mouseX - posX) / 5
       posY += (mouseY - posY) / 5
-
-      gsap.set(follower, {
-        css: {
-          left: posX - 18,
-          top: posY - 18
-        }
-      })
-
-      gsap.set(cursor, {
-        css: {
-          left: mouseX - 4,
-          top: mouseY - 4
-        }
-      })
+      gsap.set(follower, { css: { left: posX - 18, top: posY - 18 } })
+      gsap.set(cursor, { css: { left: mouseX - 4, top: mouseY - 4 } })
     }
   })
 
   const handleMouseMove = (e) => {
     mouseX = e.clientX
     mouseY = e.clientY
-
     if (mouseX <= 4 || mouseY <= 4 || mouseX >= winsize.width - 4 || mouseY >= winsize.height - 4) {
       cur.classList.add('shrinkCursor')
     } else {
@@ -77,84 +66,91 @@ const initCursor = () => {
     }
   }
 
-  const cursorText = document.querySelector('.cursor-text')
-  const cursorIcon = document.querySelector('.cursor-icon')
-  // cursor with text
-  document.querySelectorAll('[data-hover-text]').forEach((el) => {
-    el.addEventListener('mouseenter', () => {
-      follower.classList.toggle('active-text', true)
+  document.addEventListener('mousemove', handleMouseMove)
+  cleanupFns.push(() => {
+    animationLoop.kill()
+    document.removeEventListener('mousemove', handleMouseMove)
+  })
+
+  // Hover text
+  const hoverTextEls = document.querySelectorAll('[data-hover-text]')
+  hoverTextEls.forEach((el) => {
+    const enter = () => {
+      follower.classList.add('active-text')
       const text = el.getAttribute('data-hover-text')
-      if (cursorText) {
+      if (cursorText && text) {
         cursorText.innerText = text
         cursorText.style.opacity = '1'
         cursorIcon.style.opacity = '1'
       }
-    })
-
-    el.addEventListener('mouseleave', () => {
-      follower.classList.toggle('active-text', false)
-      if (cursorText) {
-        cursorText.innerText = ''
-        cursorText.style.opacity = '0'
-        cursorIcon.style.opacity = '0'
-      }
+    }
+    const leave = () => {
+      follower.classList.remove('active-text')
+      cursorText.innerText = ''
+      cursorText.style.opacity = '0'
+      cursorIcon.style.opacity = '0'
+    }
+    el.addEventListener('mouseenter', enter)
+    el.addEventListener('mouseleave', leave)
+    cleanupFns.push(() => {
+      el.removeEventListener('mouseenter', enter)
+      el.removeEventListener('mouseleave', leave)
     })
   })
 
-  const handleHover = (enter) => {
-    cursor.classList.toggle('active', enter)
-    follower.classList.toggle('active', enter)
+  // Hover animations
+  const hoverElements = document.querySelectorAll('[data-hover]')
+  const handleHoverEnter = () => {
+    cursor.classList.add('active')
+    follower.classList.add('active')
   }
-
+  const handleHoverLeave = () => {
+    cursor.classList.remove('active')
+    follower.classList.remove('active')
+  }
   const animateHoverMove = (e) => {
     const span = e.currentTarget.querySelector('.hoverMove')
-    if (span) {
-      const {offsetX: x, offsetY: y} = e
-      const {offsetWidth: width, offsetHeight: height} = e.currentTarget
-      const move = 12
-      const xMove = (x / width) * (move * 2) - move
-      const yMove = (y / height) * (move * 2) - move
-      span.style.transform = `translate(${xMove}px, ${yMove}px)`
-
-      if (e.type === 'mouseleave') span.style.transform = ''
-    }
+    if (!span) return
+    const { offsetX: x, offsetY: y } = e
+    const { offsetWidth: width, offsetHeight: height } = e.currentTarget
+    const move = 12
+    const xMove = (x / width) * (move * 2) - move
+    const yMove = (y / height) * (move * 2) - move
+    span.style.transform = e.type === 'mouseleave' ? '' : `translate(${xMove}px, ${yMove}px)`
   }
 
-  document.addEventListener('mousemove', handleMouseMove)
-
-  const hoverElements = document.querySelectorAll('[data-hover]')
   hoverElements.forEach((el) => {
-    el.addEventListener('mouseenter', () => handleHover(true))
-    el.addEventListener('mouseleave', () => handleHover(false))
+    el.addEventListener('mouseenter', handleHoverEnter)
+    el.addEventListener('mouseleave', handleHoverLeave)
     el.addEventListener('mousemove', animateHoverMove)
     el.addEventListener('mouseleave', animateHoverMove)
-  })
-
-  onBeforeUnmount(() => {
-    animationLoop.kill()
-    document.removeEventListener('mousemove', handleMouseMove)
-    hoverElements.forEach((el) => {
-      el.removeEventListener('mouseenter', handleHover)
-      el.removeEventListener('mouseleave', handleHover)
+    cleanupFns.push(() => {
+      el.removeEventListener('mouseenter', handleHoverEnter)
+      el.removeEventListener('mouseleave', handleHoverLeave)
       el.removeEventListener('mousemove', animateHoverMove)
       el.removeEventListener('mouseleave', animateHoverMove)
     })
   })
 }
-const route = useRoute()
+
+const destroyCursor = () => {
+  cleanupFns.forEach(fn => fn())
+  cleanupFns = []
+}
 
 watch(() => route.path, async () => {
   await nextTick()
-  const cursor = document.querySelector('.cursor-dot')
-  const follower = document.querySelector('.cursor-follower')
-  if (cursor) cursor.classList.remove('active')
-  if (follower) follower.classList.remove('active')
+  destroyCursor()
   initCursor()
 })
 
 onMounted(async () => {
   await nextTick()
   initCursor()
+})
+
+onBeforeUnmount(() => {
+  destroyCursor()
 })
 </script>
 
