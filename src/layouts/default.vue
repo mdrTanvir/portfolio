@@ -1,5 +1,6 @@
 <template>
   <div class="relative overflow-hidden bg-white dark:bg-black text-black dark:text-white">
+    <UiGradient/>
     <UiParticles :key="count"/>
     <NavBar/>
     <NuxtPage/>
