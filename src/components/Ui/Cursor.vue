@@ -11,9 +11,9 @@
 <script setup>
 import {gsap} from 'gsap'
 
-const {isDesktop} = useIsDesktop()
 
 const initCursor = () => {
+  const {isDesktop} = useIsDesktop()
   if (!isDesktop.value) return
 
   document.body.style.cursor = 'none'
@@ -143,9 +143,15 @@ const initCursor = () => {
 }
 const route = useRoute()
 
-watch(() => route.fullPath, () => {
+watch(() => route.path, async () => {
+  await nextTick()
+  const cursor = document.querySelector('.cursor-dot')
+  const follower = document.querySelector('.cursor-follower')
+  if (cursor) cursor.classList.remove('active')
+  if (follower) follower.classList.remove('active')
   initCursor()
 })
+
 onMounted(async () => {
   await nextTick()
   initCursor()
