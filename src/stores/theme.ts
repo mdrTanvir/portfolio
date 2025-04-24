@@ -4,28 +4,33 @@ export const useThemeStore = defineStore(
     'theme',
     () => {
         const darkMode = ref(true)
+        const theme = useCookie<'light' | 'dark'>('theme', {
+            maxAge: 60 * 60 * 24 * 30, // 30 days
+            sameSite: 'lax',
+            secure: false,
+            default: () => {
+                return darkMode.value ? 'dark' : 'light'
+            }
+        })
 
         function toggleTheme() {
             darkMode.value = !darkMode.value
             setTheme(darkMode.value)
         }
 
-        function setTheme(mode: null | boolean = null) {
-            if (mode === null) {
-                const theme = useCookie('theme')
-                if (theme) {
-                    darkMode.value = theme.value === 'dark'
-                } else {
-                    darkMode.value = false
-                }
+        function setTheme(dark_mode: null | boolean = null) {
+
+            if (dark_mode === null) {
+                darkMode.value = theme.value === 'dark'
             } else {
-                const theme = useCookie('theme')
-                theme.value = mode ? 'dark' : 'light'
+                darkMode.value = dark_mode
+                theme.value = dark_mode ? 'dark' : 'light'
             }
         }
 
         return {
             darkMode,
+            theme,
             toggleTheme,
             setTheme,
         }
