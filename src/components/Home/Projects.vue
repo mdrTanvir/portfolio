@@ -118,40 +118,40 @@ const perPage = 3
 
 const PROJECTS = computed(() => projects.slice(0, perPage))
 
-const imageSkew = () => {
-  // Skew effect based on scroll velocity
-  let proxy = {skew: 0}
-  const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
-  const clamp = gsap.utils.clamp(-20, 20)
-
-  ScrollTrigger.create({
-    trigger: container.value,
-    start: 'top top',
-    end: () => `+=${window.innerWidth}`,
-    scrub: true,
-    onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300)
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew
-        gsap.to(proxy, {
-          skew: 0,
-          duration: 0.8,
-          ease: 'power3',
-          overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
-        })
-      }
-    },
-  })
-}
+// const imageSkew = () => {
+//   // Skew effect based on scroll velocity
+//   let proxy = {skew: 0}
+//   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
+//   const clamp = gsap.utils.clamp(-20, 20)
+//
+//   ScrollTrigger.create({
+//     trigger: container.value,
+//     start: 'top top',
+//     end: () => `+=${window.innerWidth}`,
+//     scrub: true,
+//     onUpdate: (self) => {
+//       let skew = clamp(self.getVelocity() / -300)
+//       if (Math.abs(skew) > Math.abs(proxy.skew)) {
+//         proxy.skew = skew
+//         gsap.to(proxy, {
+//           skew: 0,
+//           duration: 0.8,
+//           ease: 'power3',
+//           overwrite: true,
+//           onUpdate: () => skewSetter(proxy.skew),
+//         })
+//       }
+//     },
+//   })
+// }
 
 onMounted(async () => {
-  await nextTick()
-  requestAnimationFrame(() => {
-    imageSkew()
-    // Force refresh after setup
-    //   ScrollTrigger.refresh()
-  })
+  // await nextTick()
+  // requestAnimationFrame(() => {
+  //   imageSkew()
+  //   // Force refresh after setup
+  //   //   ScrollTrigger.refresh()
+  // })
 })
 </script>
 
