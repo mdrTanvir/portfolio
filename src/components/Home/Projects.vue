@@ -32,9 +32,7 @@
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills || []" :key="i">
                 <UiAnimate :distance="40">
-                  <UiChip :image="skillMap[skill.toLowerCase()]">
-                    {{ skill }}
-                  </UiChip>
+                  <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
                 </UiAnimate>
               </template>
             </div>
