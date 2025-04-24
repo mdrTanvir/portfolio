@@ -2,7 +2,7 @@
   <main>
     <HomeHeroAbout/>
     <HomeSkills/>
-    <HomeExperience/>
+<!--    <HomeExperience/>-->
     <HomeProjects/>
     <HomeContact/>
   </main>

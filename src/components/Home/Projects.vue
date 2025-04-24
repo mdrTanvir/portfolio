@@ -2,7 +2,7 @@
   <section ref="container" id="PROJECTS" class="contain content-section relative">
     <UiHeading>Projects</UiHeading>
 
-    <div v-if="projects && projects.length">
+    <div v-if="PROJECTS.length">
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
@@ -27,7 +27,7 @@
             </div>
 
             <div class="flex flex-wrap gap-4 mt-3">
-              <template v-for="(skill, i) in project.skills" :key="i">
+              <template v-for="(skill, i) in project.skills || []" :key="i">
                 <UiAnimate :distance="40">
                   <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
                 </UiAnimate>
@@ -48,19 +48,21 @@
             </div>
           </div>
         </div>
-        <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center" :ref="el => imageRefs[index] = el">
-          <!--          <UiAnimate direction="left" :distance="60">-->
-          <template v-if="project.projectLink || project.gitHub">
-            <a :href="project.projectLink || project.gitHub" target="_blank" rel="noreferrer">
-              <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"
-                   :data-hover-text="project.projectLink ? 'preview' : 'GitHub'"/>
-            </a>
-          </template>
-          <template v-else>
-            <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>
-          </template>
-          <!--          </UiAnimate>-->
-        </div>
+        <!--        <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center"-->
+        <!--             :ref="el => imageRefs[index] = el"-->
+        <!--        >-->
+        <!--          &lt;!&ndash;          <UiAnimate direction="left" :distance="60">&ndash;&gt;-->
+        <!--          <template v-if="project.projectLink || project.gitHub">-->
+        <!--            <a :href="project.projectLink || project.gitHub" target="_blank" rel="noreferrer">-->
+        <!--              <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"-->
+        <!--                   :data-hover-text="project.projectLink ? 'preview' : 'GitHub'"/>-->
+        <!--            </a>-->
+        <!--          </template>-->
+        <!--          <template v-else>-->
+        <!--            <img :src="project.image" :alt="project.title" loading="lazy" class="img rounded" width="100%"/>-->
+        <!--          </template>-->
+        <!--          &lt;!&ndash;          </UiAnimate>&ndash;&gt;-->
+        <!--        </div>-->
       </div>
 
 
@@ -112,47 +114,48 @@ gsap.registerPlugin(ScrollTrigger)
 
 const projects = siteData?.works || []
 const container = ref<HTMLElement | null>(null)
-const imageRefs = ref([])
+const imageRefs = ref<HTMLElement[]>([])
 // const pathRef = ref<SVGPathElement | null>(null)
 
 const perPage = 3
 
 const PROJECTS = computed(() => projects.slice(0, perPage))
 
-// const imageSkew = () => {
-//   // Skew effect based on scroll velocity
-//   let proxy = {skew: 0}
-//   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
-//   const clamp = gsap.utils.clamp(-20, 20)
-//
-//   ScrollTrigger.create({
-//     trigger: container.value,
-//     start: 'top top',
-//     end: () => `+=${window.innerWidth}`,
-//     scrub: true,
-//     onUpdate: (self) => {
-//       let skew = clamp(self.getVelocity() / -300)
-//       if (Math.abs(skew) > Math.abs(proxy.skew)) {
-//         proxy.skew = skew
-//         gsap.to(proxy, {
-//           skew: 0,
-//           duration: 0.8,
-//           ease: 'power3',
-//           overwrite: true,
-//           onUpdate: () => skewSetter(proxy.skew),
-//         })
-//       }
-//     },
-//   })
-// }
+const imageSkew = () => {
+  // Skew effect based on scroll velocity
+  let proxy = {skew: 0}
+  const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
+  const clamp = gsap.utils.clamp(-20, 20)
+
+  ScrollTrigger.create({
+    trigger: container.value,
+    start: 'top top',
+    end: () => `+=${window.innerWidth}`,
+    scrub: true,
+    onUpdate: (self) => {
+      let skew = clamp(self.getVelocity() / -300)
+      if (Math.abs(skew) > Math.abs(proxy.skew)) {
+        proxy.skew = skew
+        gsap.to(proxy, {
+          skew: 0,
+          duration: 0.8,
+          ease: 'power3',
+          overwrite: true,
+          onUpdate: () => skewSetter(proxy.skew),
+        })
+      }
+    },
+  })
+}
 
 onMounted(async () => {
-  // await nextTick()
-  // requestAnimationFrame(() => {
-  //   imageSkew()
-  //   // Force refresh after setup
-  //   //   ScrollTrigger.refresh()
-  // })
+  imageRefs.value = []
+  await nextTick()
+  requestAnimationFrame(() => {
+    if (imageRefs.value.length) imageSkew()
+    // Force refresh after setup
+    ScrollTrigger.refresh()
+  })
 })
 </script>
 
