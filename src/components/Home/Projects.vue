@@ -125,7 +125,7 @@ const imageSkew = () => {
   // Skew effect based on scroll velocity
   let proxy = {skew: 0}
   const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
-  const clamp = gsap.utils.clamp(-20, 20)
+  const clamp = gsap.utils.clamp(-6, 6)
 
   ScrollTrigger.create({
     trigger: container.value,
@@ -153,8 +153,14 @@ onMounted(async () => {
   await nextTick()
   requestAnimationFrame(() => {
     if (imageRefs.value.length) imageSkew()
-    // Force refresh after setup
-    ScrollTrigger.refresh()
+
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]')
+    lazyImages.forEach((img) => {
+      img.addEventListener('load', () => {
+        const {updateScroll} = useScrollUpdate()
+        updateScroll()
+      })
+    })
   })
 })
 </script>
