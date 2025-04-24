@@ -1,8 +1,8 @@
 <template>
   <div class="cursor shrinkCursor">
     <div class="cursor-dot bg-gray-500 dark:bg-white">
-      <span class="cursor-text animate-pulse"></span>
-      <Icon name="lucide:arrow-up-right" class="cursor-icon text-black/10 dark:text-black/20"/>
+      <span class="cursor-text animate-pulse capitalize !mix-blend-normal"></span>
+      <Icon name="lucide:arrow-up-right" class="cursor-icon text-black/20 dark:text-black/20"/>
     </div>
     <div class="cursor-follower bg-violet-800/50"></div>
   </div>
@@ -201,7 +201,9 @@ onMounted(() => {
   &.active-text {
     opacity: 1;
     mix-blend-mode: normal !important;
-    @apply bg-white dark:bg-white shadow-lg;
+    @apply bg-white/10 dark:bg-white/10 shadow-lg backdrop-blur-sm;
+    //@apply  border-[1px] border-black dark:border-white;
+    border: 0.04rem solid black;
     transform: scale(2.4);
     border-radius: 100%;
     overflow: hidden;
