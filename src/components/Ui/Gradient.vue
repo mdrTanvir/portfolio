@@ -1,7 +1,7 @@
 <template>
   <div
       id="background-grad"
-      class="fixed top-[40px] sm:top-[30px] md:top-[20px] lg:top-0 xl:-top-[10px] left-0 w-full h-full z-0 pointer-events-none"
+      class="fixed top-[30px] md:top-[20px] lg:top-0 xl:-top-[10px] left-0 w-full h-full z-0 pointer-events-none"
   >
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 550" fill="none">
       <g filter="url(#filter0_f_144_3043)">
