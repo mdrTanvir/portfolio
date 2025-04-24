@@ -39,15 +39,25 @@
               </template>
             </div>
 
-            <div class="flex gap-4 mt-3">
+            <div class="flex gap-5 mt-3">
               <div class="overflow-hidden">
                 <UiAnimate>
-                  <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold hover:text-indigo-300" data-hover-text="Live">Live</a>
+                  <a v-if="project.projectLink" :href="project.projectLink"
+                     target="_blank"
+                     class="font-bold hover:text-indigo-300 flex items-center" data-hover-text="Live">
+                    <Icon name="lucide:external-link" class="w-4 h-4 mr-1"/>
+                    <span class="mt-1">Live</span>
+                  </a>
                 </UiAnimate>
               </div>
               <div class="overflow-hidden">
                 <UiAnimate>
-                  <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold hover:text-indigo-300" data-hover-text="Github">GitHub</a>
+                  <a v-if="project.gitHub" :href="project.gitHub"
+                     target="_blank"
+                     class="font-bold hover:text-indigo-300 flex items-center" data-hover-text="Github">
+                    <Icon name="lucide:github" class="w-4 h-4 mr-1"/>
+                    <span class="mt-1">GitHub</span>
+                  </a>
                 </UiAnimate>
               </div>
             </div>
