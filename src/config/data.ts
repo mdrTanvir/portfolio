@@ -55,8 +55,8 @@ const siteData = {
         {name: 'Twitter', link: 'https://twitter.com/tanvirrahman7547', icon: 'fa:twitter'},
         {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
+    // logos downloaded from https://devicon.dev/
     skills: {
-        // logos downloaded from https://devicon.dev/
         backend: [
             {name: 'PHP', logo: '/images/skills/php-original.svg'},
             {name: 'Laravel', logo: '/images/skills/laravel-original.svg'},
@@ -142,7 +142,7 @@ const siteData = {
             tag: 'personal',
             date: 'September 2023',
             description: 'A social media app design focusing on clean UI and user experience.',
-            skills: ['Figma', 'UX', 'UI'],
+            skills: ['Tailwind CSS', 'Sass', 'Laravel'],
             projectLink: 'https://dribbble.com',
             gitHub: 'https://github.com/june',
             image: '/images/projects/p2.png',
@@ -152,7 +152,7 @@ const siteData = {
             tag: 'client',
             date: 'October 2023',
             description: 'Custom CMS for blogging, built with Nuxt and Firebase.',
-            skills: ['Nuxt.js', 'Firebase', 'Tailwind'],
+            skills: ['Nuxt.js', 'MySQL', 'Tailwind CSS'],
             projectLink: 'https://blogcms.com',
             image: '/images/projects/p3.png',
         },

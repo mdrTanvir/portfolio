@@ -47,7 +47,7 @@
             <div v-if="experience.skills?.length" class="flex flex-wrap gap-2 mt-3">
               <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
                 <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
-                  <UiChip>{{ skill }}</UiChip>
+                  <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
                 </UiAnimate>
               </template>
             </div>
@@ -104,6 +104,14 @@ const experienceContainer = ref(null)
 const line = ref(null)
 
 let scrollTriggerInstance = null // Store ScrollTrigger instance
+
+const skillMap = computed(() => {
+  const map = {}
+  Object.values(siteData.skills).flat().forEach(skill => {
+    map[skill.name.toLowerCase()] = skill.logo
+  })
+  return map
+})
 
 // Function to initialize GSAP scroll trigger
 const handleScrollTrigger = () => {

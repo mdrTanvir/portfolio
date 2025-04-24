@@ -32,7 +32,9 @@
             <div class="flex flex-wrap gap-4 mt-3">
               <template v-for="(skill, i) in project.skills || []" :key="i">
                 <UiAnimate :distance="40">
-                  <UiChip class="bg-gray-800 text-white">{{ skill }}</UiChip>
+                  <UiChip :image="skillMap[skill.toLowerCase()]">
+                    {{ skill }}
+                  </UiChip>
                 </UiAnimate>
               </template>
             </div>
@@ -74,7 +76,7 @@
           <div v-if="!all && projects.length > perPage" class=" mb-6">
             <UiAnimate :distance="40">
               <NuxtLink to="/projects">
-                <UiPrimaryButton class="shadow-xl">
+                <UiPrimaryButton inverted class="shadow-xl">
               <span class="hoverMove flex items-center justify-center">
                 View More Works <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
               </span>
@@ -127,6 +129,14 @@ const imageRefs = ref<HTMLElement[]>([])
 // const pathRef = ref<SVGPathElement | null>(null)
 
 const perPage = 3
+
+const skillMap = computed(() => {
+  const map = {}
+  Object.values(siteData.skills).flat().forEach(skill => {
+    map[skill.name.toLowerCase()] = skill.logo
+  })
+  return map
+})
 
 const PROJECTS = computed(() => {
   if (props.all) return projects
