@@ -3,6 +3,7 @@
     <UiParticles :key="count"/>
     <NavBar/>
     <NuxtPage/>
+    <ContactDetails/>
     <TheFooder/>
   </div>
 </template>

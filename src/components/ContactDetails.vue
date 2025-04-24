@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import siteData from "../../config/data";
+import siteData from "../config/data";
 
 const form = ref({
   access_key: "35e3f34e-706c-4437-adf0-e3c478a17fc0",

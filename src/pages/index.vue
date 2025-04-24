@@ -4,7 +4,6 @@
     <HomeSkills/>
     <HomeExperience/>
     <HomeProjects/>
-    <HomeContact/>
   </main>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  Projects
+  <HomeProjects :all="true"/>
 </template>
 
 <script setup lang="ts">

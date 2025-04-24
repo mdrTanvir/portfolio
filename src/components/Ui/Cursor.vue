@@ -13,7 +13,7 @@ import {gsap} from 'gsap'
 
 const {isDesktop} = useIsDesktop()
 
-onMounted(() => {
+const initCursor = () => {
   if (!isDesktop.value) return
 
   document.body.style.cursor = 'none'
@@ -140,6 +140,15 @@ onMounted(() => {
       el.removeEventListener('mouseleave', animateHoverMove)
     })
   })
+}
+const route = useRoute()
+
+watch(() => route.fullPath, () => {
+  initCursor()
+})
+onMounted(async () => {
+  await nextTick()
+  initCursor()
 })
 </script>
 
