@@ -141,12 +141,18 @@ onMounted(async () => {
   })
 })
 
+const {$lenis} = useNuxtApp()
 const toggleExperienceView = () => {
   if (totalExperience.value === limit) {
     totalExperience.value = siteData.experiences.length
   } else {
     totalExperience.value = limit // Show only 3 experiences
   }
+
+  nextTick(() => {
+    $lenis.resize()
+    ScrollTrigger.refresh()
+  })
 }
 </script>
 
