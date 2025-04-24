@@ -9,7 +9,7 @@
           v-for="(project, index) in PROJECTS"
           :key="index"
           class="w-full my-20 grid grid-cols-5 gap-6 mx-auto px-4"
-          :class="{'mb-20 md:mb-36':all}"
+          :class="{'sm:mb-20 md:mb-36':all}"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
@@ -25,7 +25,7 @@
             </div>
             <div class="overflow-hidden">
               <UiAnimate>
-                <p class="text-lg max-w-[300px] md:max-w-[500px]">{{ project.description }}</p>
+                <p class="text-base sm:text-lg max-w-[300px] md:max-w-[500px]">{{ project.description }}</p>
               </UiAnimate>
             </div>
 
