@@ -141,6 +141,10 @@ const destroyCursor = () => {
 watch(() => route.path, async () => {
   await nextTick()
   destroyCursor()
+  const cursor = document.querySelector('.cursor-dot')
+  const follower = document.querySelector('.cursor-follower')
+  if (cursor) cursor.classList.remove('active')
+  if (follower) follower.classList.remove('active')
   initCursor()
 })
 
