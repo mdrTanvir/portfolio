@@ -1,6 +1,8 @@
 <template>
   <div class="relative overflow-hidden bg-white dark:bg-black text-black dark:text-white">
-    <UiGradient/>
+    <template v-if="isDesktop">
+      <LazyUiGradient/>
+    </template>
     <UiParticles :key="count"/>
     <NavBar/>
     <NuxtPage/>
@@ -10,6 +12,7 @@
 </template>
 
 <script setup lang="ts">
+const {isDesktop} = useIsDesktop()
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 const count = ref(0)

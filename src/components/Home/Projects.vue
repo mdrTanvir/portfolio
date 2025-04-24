@@ -9,7 +9,7 @@
           v-for="(project, index) in PROJECTS"
           :key="index"
           class="w-full my-20 grid grid-cols-5 gap-6 mx-auto px-4"
-          :class="{'my-20 md:my-36':all}"
+          :class="{'mb-20 md:mb-36':all}"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
