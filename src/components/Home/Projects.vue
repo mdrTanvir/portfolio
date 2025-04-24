@@ -6,7 +6,7 @@
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="relative w-full my-20 grid grid-cols-5 gap-6 mx-auto px-4"
+          class="w-full my-20 grid grid-cols-5 gap-6 mx-auto px-4"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
           <div>
@@ -96,6 +96,7 @@
 
         </div>
       </div>
+
     </div>
   </section>
 </template>
