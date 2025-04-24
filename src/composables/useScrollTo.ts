@@ -12,10 +12,11 @@ export default function useScrollTo() {
     const scrollTo = (id: string) => {
         const target = document.getElementById(id)
         const {$lenis} = useNuxtApp()
+        const {isDesktop} = useIsDesktop()
         if (target && $lenis) {
             $lenis.scrollTo(target, {
                 offset: -40, // scroll offset (matches ScrollToPlugin offsetY)
-                duration: 2,
+                duration: isDesktop ? 2 : 1,
                 easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             })
         } else {
