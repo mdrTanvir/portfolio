@@ -2,7 +2,7 @@
   <div class="relative flex flex-wrap items-start gap-x-10 mx-auto">
     <!-- Timeline items -->
     <div
-        v-for="(education, index) in siteData.educations"
+        v-for="(education, index) in educations"
         :key="index"
         class="relative py-2"
     >
@@ -22,5 +22,5 @@
 </template>
 
 <script setup>
-import siteData from "~/config/data";
+import {educations} from "~/config/data";
 </script>

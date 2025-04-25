@@ -122,7 +122,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 // import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
-import siteData from '~/config/data'
+import {works, skills} from '~/config/data'
 
 const props = defineProps({
   all: {type: Boolean, default: false},
@@ -131,7 +131,7 @@ const props = defineProps({
 gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
-const projects = siteData?.works || []
+const projects = works || []
 const container = ref<HTMLElement | null>(null)
 const imageRefs = ref<HTMLElement[]>([])
 // const pathRef = ref<SVGPathElement | null>(null)
@@ -140,7 +140,7 @@ const perPage = 3
 
 const skillMap = computed(() => {
   const map = {}
-  Object.values(siteData.skills).flat().forEach(skill => {
+  Object.values(skills).flat().forEach(skill => {
     map[skill.name.toLowerCase()] = skill.logo
   })
   return map

@@ -104,7 +104,7 @@
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
-import siteData from '~/config/data'
+import {works} from '~/config/data'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
@@ -112,7 +112,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 
-const projects = siteData?.works || []
+const projects = works || []
 const container = ref<HTMLElement | null>(null)
 const scroller = ref<HTMLElement | null>(null)
 const horizontalScroll = ref(true)

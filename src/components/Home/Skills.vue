@@ -3,7 +3,7 @@
     <UiHeading>Skills</UiHeading>
 
     <div class="mt-10">
-      <template v-for="(skillCategory, index) in siteData.skills" :key="index">
+      <template v-for="(skillCategory, index) in skills" :key="index">
         <div class="grid gap-4 mx-4 my-4 sm:grid-cols-12">
           <div class="col-span-12 sm:col-span-3">
             <UiSubheading>{{ index }}</UiSubheading>
@@ -35,5 +35,5 @@
 </template>
 
 <script setup lang="ts">
-import siteData from "~/config/data";
+import {skills} from "~/config/data";
 </script>

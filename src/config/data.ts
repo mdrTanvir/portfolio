@@ -33,20 +33,6 @@ const siteData = {
 
         '<div style="margin-bottom: 6px"></div> Let’s build something amazing together!',
     ],
-    educations: [
-        {
-            title: 'M.Sc in Information Technology',
-            institution: 'University of Tasmania (UTAS) Australia',
-            duration: '2023 - 2025',
-            description: ''
-        },
-        {
-            title: 'B.Sc Hons. in Computer Science',
-            institution: 'University of Greenwich (UoG) UK',
-            duration: '2016 - 2020',
-            description: ''
-        },
-    ],
     github: 'https://github.com/Tanvir',
     socials: [
         {name: 'Facebook', link: 'https://www.facebook.com/tanvir.rahman.7547', icon: 'fa:facebook-square'},
@@ -56,117 +42,136 @@ const siteData = {
         {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
     // logos downloaded from https://devicon.dev/
-    skills: {
-        backend: [
-            {name: 'PHP', logo: '/images/skills/php-original.svg'},
-            {name: 'Laravel', logo: '/images/skills/laravel-original.svg'},
-        ],
-        database: [
-            {name: 'MySQL', logo: '/images/skills/mysql-original.svg'},
-            {name: 'PostgreSQL', logo: '/images/skills/postgresql-original.svg'},
-        ],
-        frontend: [
-            {name: 'HTML', logo: '/images/skills/html5-original.svg'},
-            {name: 'CSS', logo: '/images/skills/css3-original.svg'},
-            {name: 'Sass', logo: '/images/skills/sass-original.svg'},
-            {name: 'JavaScript', logo: '/images/skills/javascript-plain.svg'},
-            {name: 'Vue.js', logo: '/images/skills/vuejs-original.svg'},
-            {name: 'Nuxt.js', logo: '/images/skills/nuxtjs-original.svg'},
-            {name: 'Tailwind CSS', logo: '/images/skills/tailwindcss-original.svg'},
-            {name: 'Bootstrap', logo: '/images/skills/bootstrap-original.svg'},
-        ],
-        tools: [
-            {name: 'Git', logo: '/images/skills/git-original.svg'},
-            {name: 'Github', logo: '/images/skills/github-original.svg'},
-            {name: 'Gitlab', logo: '/images/skills/gitlab-original.svg'},
-            {name: 'Docker', logo: '/images/skills/docker-original.svg'},
-            {name: 'Linux', logo: '/images/skills/linux-original.svg'},
-            {name: 'Nginx', logo: '/images/skills/nginx-original.svg'},
-            {name: 'Postman', logo: '/images/skills/postman-plain.svg'},
+
+}
+
+export const educations = [
+    {
+        title: 'M.Sc in Information Technology',
+        institution: 'University of Tasmania (UTAS) Australia',
+        duration: '2023 - 2025',
+        description: ''
+    },
+    {
+        title: 'B.Sc Hons. in Computer Science',
+        institution: 'University of Greenwich (UoG) UK',
+        duration: '2016 - 2020',
+        description: ''
+    },
+]
+
+export const works = [
+    {
+        title: 'E-commerce Platform',
+        tag: 'personal',
+        date: 'August 2023',
+        description: 'An e-commerce platform built with Laravel and Vue.js.',
+        skills: ['Laravel', 'Vue.js', 'MySQL'],
+        projectLink: 'https://ecommerce.com',
+        image: '/images/projects/p1.png',
+    },
+    {
+        title: 'Social App UI Design',
+        tag: 'personal',
+        date: 'September 2023',
+        description: 'A social media app design focusing on clean UI and user experience.',
+        skills: ['Tailwind CSS', 'Sass', 'Laravel'],
+        projectLink: 'https://dribbble.com',
+        gitHub: 'https://github.com/june',
+        image: '/images/projects/p2.png',
+    },
+    {
+        title: 'Blog CMS Platform',
+        tag: 'client',
+        date: 'October 2023',
+        description: 'Custom CMS for blogging, built with Nuxt and Firebase.',
+        skills: ['Nuxt.js', 'MySQL', 'Tailwind CSS'],
+        projectLink: 'https://blogcms.com',
+        image: '/images/projects/p3.png',
+    },
+    {
+        title: 'Portfolio Website',
+        tag: 'client',
+        date: 'June 2023',
+        description: 'A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. ',
+        skills: ['HTML', 'CSS', 'JavaScript'],
+        projectLink: 'https://myportfolio.com',
+        gitHub: 'https://github.com/june',
+        image: '/images/projects/p4.png',
+    },
+]
+
+export const experiences = [
+    {
+        title: 'Team Lead',
+        company: 'Softech Limited',
+        duration: 'Jan 2023 - Present',
+        description: 'Led the development of web applications using Laravel, Vue.js, and MySQL. Managed a small team, ensured code quality, and streamlined deployment processes across multiple projects.',
+        skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
+        projectLinks: [
+            {name: 'Project A', link: 'https://project-a.com'},
+            {name: 'Project B', link: 'https://project-b.com'}
         ]
     },
-    experiences: [
-        {
-            title: 'Team Lead',
-            company: 'Softech Limited',
-            duration: 'Jan 2023 - Present',
-            description: 'Led the development of web applications using Laravel, Vue.js, and MySQL. Managed a small team, ensured code quality, and streamlined deployment processes across multiple projects.',
-            skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
-            projectLinks: [
-                {name: 'Project A', link: 'https://project-a.com'},
-                {name: 'Project B', link: 'https://project-b.com'}
-            ]
-        },
-        {
-            title: 'Full-Stack Web Developer',
-            company: 'Tech Solutions',
-            duration: 'Jan 2022 - Dec 2022',
-            description: 'Built responsive websites using HTML, CSS, JavaScript, and PHP. Collaborated with designers and backend developers to deliver user-friendly interfaces and efficient backend logic.',
-            skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
-        },
-        {
-            title: 'Backend Developer',
-            company: 'Softech Limited',
-            duration: 'Jan 2021 - Dec 2021',
-            description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
-            skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
-            projectLinks: [
-                {name: 'Project A', link: 'https://project-a.com'},
-                {name: 'Project B', link: 'https://project-b.com'}
-            ]
-        },
-        {
-            title: 'Backend Developer 2',
-            company: 'Softech Limited',
-            duration: 'Jan 2021 - Dec 2021',
-            description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
-            skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
-            projectLinks: [
-                {name: 'Project A', link: 'https://project-a.com'},
-                {name: 'Project B', link: 'https://project-b.com'}
-            ]
-        },
+    {
+        title: 'Full-Stack Web Developer',
+        company: 'Tech Solutions',
+        duration: 'Jan 2022 - Dec 2022',
+        description: 'Built responsive websites using HTML, CSS, JavaScript, and PHP. Collaborated with designers and backend developers to deliver user-friendly interfaces and efficient backend logic.',
+        skills: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    },
+    {
+        title: 'Backend Developer',
+        company: 'Softech Limited',
+        duration: 'Jan 2021 - Dec 2021',
+        description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
+        skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
+        projectLinks: [
+            {name: 'Project A', link: 'https://project-a.com'},
+            {name: 'Project B', link: 'https://project-b.com'}
+        ]
+    },
+    {
+        title: 'Backend Developer 2',
+        company: 'Softech Limited',
+        duration: 'Jan 2021 - Dec 2021',
+        description: 'Maintained and developed backend systems using Laravel and MySQL. Integrated Vue.js for dynamic features and contributed to full project cycles from planning to deployment.',
+        skills: ['PHP', 'Laravel', 'Vue.js', 'MySQL'],
+        projectLinks: [
+            {name: 'Project A', link: 'https://project-a.com'},
+            {name: 'Project B', link: 'https://project-b.com'}
+        ]
+    },
+]
+
+export const skills = {
+    backend: [
+        {name: 'PHP', logo: '/images/skills/php-original.svg'},
+        {name: 'Laravel', logo: '/images/skills/laravel-original.svg'},
     ],
-    works: [
-        {
-            title: 'E-commerce Platform',
-            tag: 'personal',
-            date: 'August 2023',
-            description: 'An e-commerce platform built with Laravel and Vue.js.',
-            skills: ['Laravel', 'Vue.js', 'MySQL'],
-            projectLink: 'https://ecommerce.com',
-            image: '/images/projects/p1.png',
-        },
-        {
-            title: 'Social App UI Design',
-            tag: 'personal',
-            date: 'September 2023',
-            description: 'A social media app design focusing on clean UI and user experience.',
-            skills: ['Tailwind CSS', 'Sass', 'Laravel'],
-            projectLink: 'https://dribbble.com',
-            gitHub: 'https://github.com/june',
-            image: '/images/projects/p2.png',
-        },
-        {
-            title: 'Blog CMS Platform',
-            tag: 'client',
-            date: 'October 2023',
-            description: 'Custom CMS for blogging, built with Nuxt and Firebase.',
-            skills: ['Nuxt.js', 'MySQL', 'Tailwind CSS'],
-            projectLink: 'https://blogcms.com',
-            image: '/images/projects/p3.png',
-        },
-        {
-            title: 'Portfolio Website',
-            tag: 'client',
-            date: 'June 2023',
-            description: 'A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. A personal portfolio website to showcase my projects and skills. ',
-            skills: ['HTML', 'CSS', 'JavaScript'],
-            projectLink: 'https://myportfolio.com',
-            gitHub: 'https://github.com/june',
-            image: '/images/projects/p4.png',
-        },
+    database: [
+        {name: 'MySQL', logo: '/images/skills/mysql-original.svg'},
+        {name: 'PostgreSQL', logo: '/images/skills/postgresql-original.svg'},
     ],
+    frontend: [
+        {name: 'HTML', logo: '/images/skills/html5-original.svg'},
+        {name: 'CSS', logo: '/images/skills/css3-original.svg'},
+        {name: 'Sass', logo: '/images/skills/sass-original.svg'},
+        {name: 'JavaScript', logo: '/images/skills/javascript-plain.svg'},
+        {name: 'Vue.js', logo: '/images/skills/vuejs-original.svg'},
+        {name: 'Nuxt.js', logo: '/images/skills/nuxtjs-original.svg'},
+        {name: 'Tailwind CSS', logo: '/images/skills/tailwindcss-original.svg'},
+        {name: 'Bootstrap', logo: '/images/skills/bootstrap-original.svg'},
+    ],
+    tools: [
+        {name: 'Git', logo: '/images/skills/git-original.svg'},
+        {name: 'Github', logo: '/images/skills/github-original.svg'},
+        {name: 'Gitlab', logo: '/images/skills/gitlab-original.svg'},
+        {name: 'Docker', logo: '/images/skills/docker-original.svg'},
+        {name: 'Linux', logo: '/images/skills/linux-original.svg'},
+        {name: 'Nginx', logo: '/images/skills/nginx-original.svg'},
+        {name: 'Postman', logo: '/images/skills/postman-plain.svg'},
+    ]
 }
 
 export default siteData;

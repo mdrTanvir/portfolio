@@ -1,5 +1,5 @@
 <template>
-  <section v-if="siteData.experiences && siteData.experiences?.length" id="EXPERIENCE" class="contain content-section">
+  <section v-if="experiences && experiences?.length" id="EXPERIENCE" class="contain content-section">
     <UiHeading>Experience</UiHeading>
 
     <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
@@ -21,7 +21,7 @@
         <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
           <!-- Loop through the experiences, limited by totalExperience -->
           <div
-              v-for="(experience, index) in siteData.experiences.slice(0, totalExperience)"
+              v-for="(experience, index) in experiences.slice(0, totalExperience)"
               :key="index"
               class="flex flex-col relative"
           >
@@ -68,7 +68,7 @@
           </div>
 
           <!-- View More or Less -->
-          <div v-if="siteData.experiences.length > 3" class="flex flex-col relative">
+          <div v-if="experiences.length > 3" class="flex flex-col relative">
             <UiAnimate direction="up" :distance="30">
               <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
                 bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
@@ -80,7 +80,7 @@
                     data-hover
                     @click="toggleExperienceView()"
                 >
-                  {{ totalExperience === siteData.experiences.length ? 'Show Less' : 'Show All' }}
+                  {{ totalExperience === experiences.length ? 'Show Less' : 'Show All' }}
                 </h3>
               </UiAnimate>
             </div>
@@ -94,7 +94,7 @@
 <script setup lang="ts">
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import siteData from "~/config/data"
+import {experiences, skills} from "~/config/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -107,7 +107,7 @@ let scrollTriggerInstance = null // Store ScrollTrigger instance
 
 const skillMap = computed(() => {
   const map = {}
-  Object.values(siteData.skills).flat().forEach(skill => {
+  Object.values(skills).flat().forEach(skill => {
     map[skill.name.toLowerCase()] = skill.logo
   })
   return map
@@ -151,7 +151,7 @@ onMounted(async () => {
 
 const toggleExperienceView = () => {
   if (totalExperience.value === limit) {
-    totalExperience.value = siteData.experiences.length
+    totalExperience.value = experiences.length
   } else {
     totalExperience.value = limit // Show only 3 experiences
   }

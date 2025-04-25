@@ -31,9 +31,9 @@
 </template>
 
 <script setup lang="ts">
-import siteData from '~/config/data'
+import {works} from '~/config/data'
 
-const projects = siteData?.works || []
+const projects = works || []
 const perPage = 3
 const PROJECTS = computed(() => projects.slice(0, perPage))
 </script>
