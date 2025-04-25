@@ -41,7 +41,6 @@ const siteData = {
         {name: 'Twitter', link: 'https://twitter.com/tanvirrahman7547', icon: 'fa:twitter'},
         {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
-
 }
 
 export const educations = [
