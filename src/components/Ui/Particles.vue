@@ -33,7 +33,7 @@ const particlesOptions = {
       type: 'circle'
     },
     opacity: {
-      value: darkMode.value ? 0.4 : 0.6,
+      value: darkMode.value ? 0.5 : 0.8,
       random: false,
       animation: {
         enable: false,
@@ -43,7 +43,7 @@ const particlesOptions = {
       }
     },
     size: {
-      value: 2,
+      value: 1,
       random: true,
       animation: {
         enable: false,
