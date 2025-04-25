@@ -81,7 +81,7 @@
 
       <div class="relative flex flex-col items-center justify-center w-full max-h-screen pt-10">
         <div>
-          <div v-if="!all && projects.length > perPage" class=" my-6">
+          <div v-if="!all && projects.length > perPage" class=" my-8">
             <UiAnimate :distance="40">
               <NuxtLink to="/projects">
                 <UiPrimaryButton inverted class="shadow-xl">
