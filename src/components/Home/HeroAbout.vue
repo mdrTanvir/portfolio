@@ -14,7 +14,7 @@
         </div>
         <img
             v-if="siteData.profile"
-            class="profileImage"
+            class="profileImage rounded-lg"
             :src="siteData.profile"
             alt=""
             ref="heroImageRef"
@@ -152,7 +152,7 @@ const heroImageRef = ref(null)
   height: 70vh;
   max-height: 70vh;
   max-width: 100%;
-  filter: grayscale(1);
+  //filter: grayscale(1);
   mix-blend-mode: lighten !important;
   transition: transform 0.3s ease;
   will-change: transform;
