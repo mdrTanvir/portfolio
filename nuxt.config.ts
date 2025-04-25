@@ -5,7 +5,7 @@ import viteBuild from "./config/viteBuild";
 // @ts-ignore
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
-    devtools: {enabled: true},
+    devtools: {enabled: false},
     ssr: false,
     srcDir: './src/',
     typescript: {

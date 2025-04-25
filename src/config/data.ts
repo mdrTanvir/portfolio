@@ -41,7 +41,6 @@ const siteData = {
         {name: 'Twitter', link: 'https://twitter.com/tanvirrahman7547', icon: 'fa:twitter'},
         {name: 'Github', link: 'https://github.com', icon: 'fa:github-square'},
     ],
-    // logos downloaded from https://devicon.dev/
 
 }
 
@@ -144,6 +143,7 @@ export const experiences = [
     },
 ]
 
+// logos downloaded from https://devicon.dev/
 export const skills = {
     backend: [
         {name: 'PHP', logo: '/images/skills/php-original.svg'},
