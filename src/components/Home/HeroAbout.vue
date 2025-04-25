@@ -19,7 +19,7 @@
             alt=""
             ref="heroImageRef"
             id="heroImageRef"
-            height="80vh"
+            height="70vh"
             width="auto"
         />
       </div>
@@ -33,9 +33,9 @@
   <section id="ABOUT" class="contain content-section about relative">
     <UiHeading class="z-10">About</UiHeading>
 
-    <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 md:col-span-6 z-10">
-        <div class="mb-10">
+    <div>
+      <div>
+        <div class="my-10">
           <template v-for="(description, n) in siteData.descriptions" :key="n">
             <UiAnimate
                 direction="up"
@@ -49,16 +49,12 @@
             </UiAnimate>
           </template>
         </div>
-        <div>
-          <div class="my-4">
-            <UiSubheading>Education</UiSubheading>
-          </div>
-          <EducationTimeline/>
-        </div>
       </div>
-      <div class="col-span-12 md:col-span-6 z-10">
-        <div ref="imagePlaceTarget" id="imagePlaceTarget" class="relative h-full md:min-h-[340px]"></div>
-        <!-- Slide the image here -->
+      <div>
+        <div class="my-4">
+          <UiSubheading>Education</UiSubheading>
+        </div>
+        <EducationTimeline/>
       </div>
     </div>
   </section>
@@ -70,71 +66,71 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import siteData from "~/config/data";
 
 gsap.registerPlugin(ScrollTrigger)
-const {isDesktop, windowWidth} = useIsDesktop()
-const transformOrigin = ref('top center')
-const imagePlaceTarget = ref(null)
+// const {isDesktop, windowWidth} = useIsDesktop()
+// const transformOrigin = ref('top center')
+// const imagePlaceTarget = ref(null)
 const heroImageRef = ref(null)
 
-const imageAnimation = async () => {
-  await nextTick(() => {
-    setTimeout(() => {
-      // const image = document.getElementById('heroImageRef')
-      const image = heroImageRef.value
-      // const targetSection = document.getElementById('imagePlaceTarget')
-      const targetSection = imagePlaceTarget.value
+// const imageAnimation = async () => {
+//   await nextTick(() => {
+//     setTimeout(() => {
+//       // const image = document.getElementById('heroImageRef')
+//       const image = heroImageRef.value
+//       // const targetSection = document.getElementById('imagePlaceTarget')
+//       const targetSection = imagePlaceTarget.value
+//
+//       if (!image || !targetSection) {
+//         console.log(image)
+//         console.log(targetSection)
+//         return
+//       }
+//
+//       const targetBox = targetSection.getBoundingClientRect()
+//       const imageBox = image.getBoundingClientRect()
+//
+//       const xOffset = targetBox.left - imageBox.left
+//       const yOffset = targetBox.top - imageBox.top
+//
+//       gsap.fromTo(image, {
+//             x: 0,
+//             y: 0,
+//             scale: 1,
+//             filter: 'grayscale(1)',
+//             transformOrigin: transformOrigin.value,
+//           },
+//           {
+//             x: xOffset,
+//             y: yOffset,
+//             scale: 0.8,
+//             ease: 'power2.out',
+//             opacity: 1,
+//             filter: 'grayscale(0)',
+//             transformOrigin: transformOrigin.value,
+//             right: 20,
+//             zIndex: 1,
+//             rotation: '+=2',
+//             yoyo: true,
+//             scrollTrigger: {
+//               trigger: targetSection,
+//               start: 'top bottom',
+//               end: 'top 30%',
+//               scrub: true,
+//               // markers: true,
+//             },
+//           })
+//     }, 1000);
+//   })
+// }
 
-      if (!image || !targetSection) {
-        console.log(image)
-        console.log(targetSection)
-        return
-      }
-
-      const targetBox = targetSection.getBoundingClientRect()
-      const imageBox = image.getBoundingClientRect()
-
-      const xOffset = targetBox.left - imageBox.left
-      const yOffset = targetBox.top - imageBox.top
-
-      gsap.fromTo(image, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            filter: 'grayscale(1)',
-            transformOrigin: transformOrigin.value,
-          },
-          {
-            x: xOffset,
-            y: yOffset,
-            scale: 0.8,
-            ease: 'power2.out',
-            opacity: 1,
-            filter: 'grayscale(0)',
-            transformOrigin: transformOrigin.value,
-            right: 20,
-            zIndex: 1,
-            rotation: '+=2',
-            yoyo: true,
-            scrollTrigger: {
-              trigger: targetSection,
-              start: 'top bottom',
-              end: 'top 30%',
-              scrub: true,
-              // markers: true,
-            },
-          })
-    }, 1000);
-  })
-}
-
-onMounted(async () => {
-  await nextTick() // wait until child is rendered
-  if (windowWidth.value < 1000) {
-    transformOrigin.value = 'top left'
-  }
-  if (isDesktop.value) {
-    await imageAnimation()
-  }
-})
+// onMounted(async () => {
+//   await nextTick() // wait until child is rendered
+//   if (windowWidth.value < 1000) {
+//     transformOrigin.value = 'top left'
+//   }
+//   if (isDesktop.value) {
+//     await imageAnimation()
+//   }
+// })
 </script>
 
 
@@ -153,8 +149,8 @@ onMounted(async () => {
   bottom: 0;
   right: 46px;
   width: auto;
-  height: 80vh;
-  max-height: 80vh;
+  height: 70vh;
+  max-height: 70vh;
   max-width: 100%;
   filter: grayscale(1);
   mix-blend-mode: lighten !important;
