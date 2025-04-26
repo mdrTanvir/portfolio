@@ -6,7 +6,8 @@ const siteData = {
     address: 'Dhaka, Bangladesh',
     phone: '+04 222 333 444',
     email: 'taanvir@gmail.com',
-    profile: '/images/profile3.jpg',
+    // profile: '/images/profile3.jpg',
+    profile: '',
     cvLink: 'https://drive.google.com/file/d/1GfBCRYzrduXnudbbfsltAPABmMcDphUs/view?usp=sharing',
     meta: {
         name: fullName,

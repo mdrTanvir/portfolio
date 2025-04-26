@@ -43,7 +43,7 @@ const particlesOptions = {
       }
     },
     size: {
-      value: 1,
+      value: 1.6,
       random: true,
       animation: {
         enable: false,
