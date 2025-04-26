@@ -56,7 +56,7 @@
             <div v-if="experience.projectLinks?.length" class="mt-3">
               <UiAnimate :distance="20" :delay="0.4">
                 <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
-                <ul class="list-disc ml-4 space-y-1 text-sm text-blue-600 dark:text-blue-400">
+                <ul class="list-disc ml-4 space-y-1 text-sm text-primary">
                   <li v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex" class="mb-2">
                     <a :href="project.link" target="_blank" class="hover:!underline" data-hover-text="Live">
                       {{ project.name }}
