@@ -59,7 +59,8 @@ const particlesOptions = {
       enable: true,
       speed: 1,
       direction: 'top-right',
-      random: false,
+      // random: false,
+      random: true,
       straight: false,
       outModes: {
         default: 'out'
