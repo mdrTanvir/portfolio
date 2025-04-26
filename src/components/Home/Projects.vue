@@ -42,7 +42,7 @@
                 <UiAnimate :distance="20">
                   <a v-if="project.projectLink" :href="project.projectLink"
                      target="_blank"
-                     class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Live">
+                     class="font-bold  text-primary text-primary-hover flex items-center" data-hover-text="Live">
                     <Icon name="lucide:external-link" class="w-4 h-4 mr-2"/>
                     <span class="mt-0">Live</span>
                   </a>
@@ -52,7 +52,7 @@
                 <UiAnimate :distance="20">
                   <a v-if="project.gitHub" :href="project.gitHub"
                      target="_blank"
-                     class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Github">
+                     class="font-bold  text-primary text-primary-hover flex items-center" data-hover-text="Github">
                     <Icon name="lucide:github" class="w-4 h-4 mr-2"/>
                     <span class="mt-0">GitHub</span>
                   </a>

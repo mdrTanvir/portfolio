@@ -15,7 +15,7 @@
             class="absolute top-3 sm:top-5 bottom-0 left-0 sm:left-1 z-1"
             width="2" height="100%" viewBox="0 0 2 1000" preserveAspectRatio="none"
         >
-          <line ref="line" x1="1" y1="0" x2="1" y2="1000" stroke="#4F46E5" stroke-width="2"/>
+          <line ref="line" x1="1" y1="0" x2="1" y2="1000" class="stroke-primary" stroke-width="2"/>
         </svg>
 
         <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">

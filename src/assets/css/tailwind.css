@@ -38,8 +38,16 @@
         @apply text-indigo-500 dark:text-indigo-400;
     }
 
+    .text-primary-hover:hover {
+        @apply text-indigo-700 dark:text-indigo-300;
+    }
+
     .border-primary {
         @apply border-indigo-500 dark:border-indigo-400;
+    }
+
+    .stroke-primary {
+        @apply stroke-indigo-500 dark:stroke-indigo-400;
     }
 }
 
