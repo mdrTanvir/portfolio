@@ -8,7 +8,7 @@
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="w-full my-10 md:my-20 grid grid-cols-5 gap-6 mx-auto px-4"
+          class="w-full my-16 md:my-20 grid grid-cols-5 gap-6 mx-auto px-4"
           :class="{'sm:mb-20 md:mb-36':all}"
       >
         <div class="col-span-5 md:col-span-2 flex items-center">
@@ -39,7 +39,7 @@
 
             <div class="flex gap-5 mt-3">
               <div class="overflow-hidden">
-                <UiAnimate>
+                <UiAnimate :distance="20">
                   <a v-if="project.projectLink" :href="project.projectLink"
                      target="_blank"
                      class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Live">
@@ -49,7 +49,7 @@
                 </UiAnimate>
               </div>
               <div class="overflow-hidden">
-                <UiAnimate>
+                <UiAnimate :distance="20">
                   <a v-if="project.gitHub" :href="project.gitHub"
                      target="_blank"
                      class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Github">
