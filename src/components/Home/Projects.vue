@@ -44,7 +44,7 @@
                      target="_blank"
                      class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Live">
                     <Icon name="lucide:external-link" class="w-4 h-4 mr-2"/>
-                    <span class="mt-1">Live</span>
+                    <span class="mt-0">Live</span>
                   </a>
                 </UiAnimate>
               </div>
@@ -54,7 +54,7 @@
                      target="_blank"
                      class="font-bold  text-primary hover:text-indigo-300 flex items-center" data-hover-text="Github">
                     <Icon name="lucide:github" class="w-4 h-4 mr-2"/>
-                    <span class="mt-1">GitHub</span>
+                    <span class="mt-0">GitHub</span>
                   </a>
                 </UiAnimate>
               </div>
