@@ -1,7 +1,7 @@
 <template>
   <!-- Hero Section -->
   <section id="HERO" class="heroSection pb-0 md:pb-14 lg:pb-20">
-    <div class="contain relative h-full min-h-[90lvh]  md:h-[100lvh] md:min-h-[100lvh] z-10 max-h-[1300px] pt-10 sm:pt-16 md:pt-24 pb-0 md:pb-10">
+    <div class="contain relative h-full min-h-[80lvh]  md:h-[100lvh] md:min-h-[100lvh] z-10 max-h-[1300px] pt-16 sm:pt-20 md:pt-24 pb-0 md:pb-10">
       <div class="h-full flex flex-col justify-center md:justify-between gap-y-20 md:gap-y-2 relative z-[2]">
         <HomeHeroTitle/>
         <HomeHeroStats/>
