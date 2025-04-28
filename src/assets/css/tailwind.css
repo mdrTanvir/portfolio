@@ -6,18 +6,6 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @layer components {
-    /*.timeline-card {*/
-    /*    @apply ;*/
-    /*}*/
-    /*.timeline-dot::before {*/
-    /*    content: '';*/
-    /*    @apply absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-primary z-10;*/
-    /*    border-width: 10px;*/
-    /*    border-color: white;*/
-    /*}*/
-    /*.dark .timeline-dot::before {*/
-    /*    border-color: black;*/
-    /*}*/
 }
 
 @layer base {
@@ -31,24 +19,38 @@
 
 @layer utilities {
     .bg-primary {
-        @apply bg-indigo-500 dark:bg-indigo-400;
+        @apply bg-sky-500 dark:bg-sky-400;
     }
 
     .text-primary {
-        @apply text-indigo-500 dark:text-indigo-400;
+        @apply text-sky-500 dark:text-sky-400;
     }
 
     .text-primary-hover:hover {
-        @apply text-indigo-700 dark:text-indigo-300;
+        @apply text-sky-700 dark:text-sky-300;
     }
 
     .border-primary {
-        @apply border-indigo-500 dark:border-indigo-400;
+        @apply border-sky-500 dark:border-sky-400;
     }
 
     .stroke-primary {
-        @apply stroke-indigo-500 dark:stroke-indigo-400;
+        @apply stroke-sky-500 dark:stroke-sky-400;
     }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    margin-block: 100px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-white dark:bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary dark:bg-primary;
 }
 
 /* Typography */
