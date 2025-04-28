@@ -19,13 +19,14 @@ export const useThemeStore = defineStore(
         }
 
         function setTheme(dark_mode: null | boolean = null) {
-
+            if (process.client) document.documentElement.classList.remove(theme.value);
             if (dark_mode === null) {
                 darkMode.value = theme.value === 'dark'
             } else {
                 darkMode.value = dark_mode
                 theme.value = dark_mode ? 'dark' : 'light'
             }
+            if (process.client) document.documentElement.classList.add(theme.value)
         }
 
         return {
