@@ -53,7 +53,7 @@ const classes = [
 ]
 
 const invertedClasses = [
-  'bg-primary dark:bg-primary text-white',
+  'bg-primary dark:bg-primary text-black',
   'hover:bg-gray-800 dark:hover:bg-white hover:text-white dark:hover:text-black',
 ]
 </script>
