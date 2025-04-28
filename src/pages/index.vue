@@ -10,6 +10,8 @@
 <script setup lang="ts">
 useSEO('Home')
 
+useScrollUpdate()
+
 onMounted(async () => {
   await nextTick()
   const hash = window.location.hash?.substring(1)

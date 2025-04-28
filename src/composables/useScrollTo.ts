@@ -17,16 +17,28 @@ export default function useScrollTo() {
 
         if (route.path !== '/') {
             // Navigate to home with hash and let scroll trigger there
-            await router.push({ path: '/', hash: `#${id}` })
+            await router.push({path: '/', hash: `#${id}`})
         } else {
             // Already on home, scroll directly
             const target = document.getElementById(id)
             if (target && $lenis) {
-                $lenis.scrollTo(target, {
+                $lenis?.scrollTo(target, {
                     offset: -40,
                     duration: isDesktop ? 2 : 1,
                     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 })
+
+                // add hash to the URL
+                // if (history.state) {
+                //     history.pushState({...history.state, scrollY: window.scrollY}, '', `#${id}`)
+                // } else {
+                //     history.pushState({scrollY: window.scrollY}, '', `#${id}`)
+                // }
+
+                // remove hash from url
+                if (window.history && window.history.pushState) {
+                    window.history.pushState({}, document.title, window.location.pathname)
+                }
             }
         }
     }
