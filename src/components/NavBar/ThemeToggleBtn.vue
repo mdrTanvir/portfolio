@@ -5,8 +5,10 @@
       data-hover
       @click="themeStore.toggleTheme()"
   >
-    <Icon v-if="darkMode" name="lucide:sun" class="w-6 h-6"/>
-    <Icon v-else name="lucide:moon" class="w-6 h-6"/>
+    <IconSun v-if="darkMode"/>
+    <IconMoon v-else/>
+    <!--    <Icon v-if="darkMode" name="lucide:sun" class="w-6 h-6"/>-->
+    <!--    <Icon v-else name="lucide:moon" class="w-6 h-6"/>-->
   </button>
 </template>
 
