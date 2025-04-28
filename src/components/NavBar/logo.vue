@@ -6,7 +6,7 @@
         :delay="0.4"
         :scrub="false"
     >
-      <h3 class="text-2xl sm:text-3xl tracking-tight text-black dark:text-white cursive">
+      <h3 class="text-2xl sm:text-3xl pr-2 tracking-tight text-black dark:text-white cursive">
         <NuxtLink to="/" data-hover>
           {{ siteData.logoName }}
         </NuxtLink>

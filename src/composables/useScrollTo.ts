@@ -13,7 +13,6 @@ export default function useScrollTo() {
         const route = useRoute()
         const router = useRouter()
         const {$lenis} = useNuxtApp()
-        const {isDesktop} = useIsDesktop()
 
         if (route.path !== '/') {
             // Navigate to home with hash and let scroll trigger there
@@ -24,7 +23,7 @@ export default function useScrollTo() {
             if (target && $lenis) {
                 $lenis?.scrollTo(target, {
                     offset: -40,
-                    duration: isDesktop ? 2 : 1,
+                    duration: 2,
                     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 })
 
