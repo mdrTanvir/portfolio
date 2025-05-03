@@ -1,10 +1,10 @@
 <template>
-  <div class="relative flex flex-col items-start max-w-4xl mx-auto">
+  <div class="relative flex flex-wrap items-start gap-x-10">
     <!-- Timeline items -->
     <div
         v-for="(education, index) in educations"
         :key="index"
-        class="relative w-full py-2"
+        class="relative py-2"
     >
       <!--        class="relative flex items-center w-full py-2"-->
       <UiAnimate

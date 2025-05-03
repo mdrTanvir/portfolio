@@ -2,15 +2,9 @@ export const projects = [
     {
         id: 1,
         name: 'E-commerce Platform',
-        image: '/images/projects/p1.png',
-        description: 'I\'ve worked on a lot of LMS web and mobile applications while I worked at Nextive Solution. ' +
-            'Some important Features of the applications are ' +
-            'Purchasing Course and Books, Online and manual Payment system,' +
-            ' Online exam, Bulk and individual SMS, and many more. ' +
-            ' Built with Laravel 8/9 and Nuxt.js 2.' +
-            ' Some of the projects i have worked on are:',
+        photo: '/images/projects/p1.png',
+        description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         links: [
-            {name: 'Admission Assistant', url: 'https://admissionassistant.com.bd/'},
             {name: 'March Forward', url: 'https://marchforwardbd.com/'},
             {name: 'Coursecab', url: 'https://www.coursecab.com/'},
         ],
@@ -34,9 +28,7 @@ export const projects = [
         id: 3,
         name: 'Krishok Vhai',
         photo: '/images/projects/p2.png',
-        description: 'An e-commerce platform for rural farmers selling their goods and acquire agricultural inputs. ' +
-            ' Additionally, they will be able to pick up new farming techniques and receive regular weather information.' +
-            ' Built with Laravel 7 and Vue.js 2.',
+        description: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using.',
         // link: 'https://krishok-vhai.com/',
         repository: 'https://github.com',
         for: 'Final year project',
@@ -47,9 +39,7 @@ export const projects = [
         id: 4,
         name: 'Medocare',
         photo: '/images/projects/p4.png',
-        description: 'An Online medical service where patients can search for doctors and book appointment to get consultation online at their finger tips. ' +
-            ' Patients will also receive their prescription form doctors and get other medical advices through the blogs.' +
-            ' Built with Laravel 6.',
+        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don`t look even slightly believable.',
         // link: 'https://medocare.com/',
         repository: 'https://github.com',
         for: '3rd year project',
