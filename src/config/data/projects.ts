@@ -11,7 +11,7 @@ export const projects = [
         repository: '',
         for: 'Softech Limited',
         date: 'Jul 2021 - Feb 2023',
-        skills: ['Laravel', 'Nuxt.Js', 'Vue.Js', 'Vuetify', 'Ionic'],
+        skills: ['Laravel', 'Nuxt.Js', 'Vue.Js'],
     },
     {
         id: 2,
