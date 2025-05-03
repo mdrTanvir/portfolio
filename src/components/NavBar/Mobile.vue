@@ -175,7 +175,7 @@ watchEffect(() => {
       opacity: 0.08;
       letter-spacing: 1px;
 
-      @apply bg-gradient-to-br from-indigo-400/70 to-indigo-800/70 dark:from-white/30 dark:to-white/20;
+      @apply bg-gradient-to-br from-teal-400/70 to-teal-800/70 dark:from-white/30 dark:to-white/20;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 

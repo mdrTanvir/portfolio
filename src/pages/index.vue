@@ -3,7 +3,10 @@
     <HomeHeroAbout/>
     <HomeSkills/>
     <HomeExperience/>
+    <!--<HomeProjectsOld/>-->
     <HomeProjects/>
+    <HomeOtherProjects/>
+    <WorkTogather/>
   </main>
 </template>
 

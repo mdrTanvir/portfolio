@@ -23,7 +23,7 @@ export default function useScrollTo() {
             if (target && $lenis) {
                 $lenis?.scrollTo(target, {
                     offset: -40,
-                    duration: 2,
+                    duration: 1,
                     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 })
 

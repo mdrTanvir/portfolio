@@ -10,22 +10,23 @@
           </div>
           <div class="relative col-span-12 px-4 space-y-6 sm:col-span-9">
             <div class="flex flex-wrap gap-10 md:gap-x-16 mb-10 max-w-3xl">
-              <div
+              <template
                   v-for="(skill, skillIndex) in skillCategory"
-                  :key="skillIndex"
-              >
-                <UiAnimate
-                    :distance="60"
-                    :delay="0.2 + skillIndex * 0.1"
-                >
-                  <div class="relative flex flex-row items-center gap-4">
+                  :key="skillIndex">
+                <div v-if="skill.featured">
+                  <UiAnimate
+                      :distance="60"
+                      :delay="0.2 + skillIndex * 0.1"
+                  >
+                    <div class="relative flex flex-row items-center gap-4">
                 <span>
-                  <img :src="skill.logo" :alt="skill.name" loading="lazy" height="36px" width="36px"/>
+                 <img :src="skill.logo" :alt="skill.name" loading="lazy" height="36px" width="36px"/>
                 </span>
-                    <span>{{ skill.name }}</span>
-                  </div>
-                </UiAnimate>
-              </div>
+                      <span>{{ skill.name }}</span>
+                    </div>
+                  </UiAnimate>
+                </div>
+              </template>
             </div>
           </div>
         </div>
@@ -35,5 +36,5 @@
 </template>
 
 <script setup lang="ts">
-import {skills} from "~/config/data";
+import {skills} from "~/config/data/data";
 </script>

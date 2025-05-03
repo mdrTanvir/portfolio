@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import {works} from '~/config/data'
+import {works} from '~/config/data/data'
 
 const projects = works || []
 const perPage = 3

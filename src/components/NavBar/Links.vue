@@ -40,7 +40,7 @@ nav {
 nav ul li {
   animation: fadeInNavItem 400ms linear;
   animation-fill-mode: forwards;
-  animation-delay: 600ms;
+  animation-delay: 200ms;
   @for $i from 1 through 6 {
     &:nth-child(#{$i}) {
       animation-delay: $i * 200ms;

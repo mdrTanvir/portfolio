@@ -35,9 +35,11 @@
               </UiAnimate>
             </div>
             <UiAnimate :distance="20">
-              <span class="text-sm text-gray-600 dark:text-gray-400">{{ experience.company }}</span>
+              <a :href="experience.link" target="_blank" :data-hover-text="experience.company">
+                <span class="text-sm font-medium text-primary">{{ experience.company }}</span>
+              </a>
               <br>
-              <time class="text-xs tracking-wide uppercase dark:text-gray-400">{{ experience.duration }}</time>
+              <time class="text-xs tracking-wide font-medium dark:text-gray-300">{{ experience.startDate }} - {{ experience.endDate }} ( {{ experience.xp }} )</time>
             </UiAnimate>
             <UiAnimate :distance="20">
               <p class="mt-3" v-html="experience.description"></p>
@@ -56,13 +58,24 @@
             <div v-if="experience.projectLinks?.length" class="mt-3">
               <UiAnimate :distance="20" :delay="0.4">
                 <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
-                <ul class="list-disc ml-4 space-y-1 text-sm text-primary">
-                  <li v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex" class="mb-2">
-                    <a :href="project.link" target="_blank" class="hover:!underline" data-hover-text="Live">
-                      {{ project.name }}
-                    </a>
-                  </li>
-                </ul>
+                <div class="text-sm flex flex-wrap items-center gap-2">
+                  <span v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex">
+                    <template v-if="project.url && project.name">
+                      <a
+                          :href="project.url"
+                          target="_blank"
+                          class="text-primary font-medium hover:!underline"
+                          data-hover-text="Go Live"
+                      >
+                        {{ project.name }}
+                      </a>
+                    </template>
+                    <template v-else-if="project.name">
+                      <span class="font-medium">{{ project.name }}</span>
+                    </template>
+                    <span v-if="projectIndex < experience.projectLinks.length - 1">, </span>
+                  </span>
+                </div>
               </UiAnimate>
             </div>
           </div>
@@ -94,7 +107,7 @@
 <script setup lang="ts">
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import {experiences, skills} from "~/config/data"
+import {experiences, skills} from "~/config/data/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -128,7 +141,7 @@ const handleScrollTrigger = () => {
     ease: 'none',
     scrollTrigger: {
       trigger: experienceContainer.value,
-      start: 'top 80%',
+      start: 'top 70%',
       end: '80% 10%',
       scrub: true,
       // markers: true,

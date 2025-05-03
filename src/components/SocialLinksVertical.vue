@@ -35,5 +35,5 @@
 </template>
 
 <script setup lang="ts">
-import siteData from "~/config/data";
+import siteData from "~/config/data/data";
 </script>

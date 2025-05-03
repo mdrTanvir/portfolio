@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
-import siteData from "~/config/data";
+import siteData from "~/config/data/data";
 
 gsap.registerPlugin(ScrollTrigger)
 // const {isDesktop, windowWidth} = useIsDesktop()

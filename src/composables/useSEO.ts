@@ -1,4 +1,4 @@
-import siteData from "~/config/data";
+import siteData from "~/config/data/data";
 
 export default function useSEO(pageTitle = '', description = '', image = '/favicon.ico') {
     if (!pageTitle) pageTitle = siteData.meta.name;
