@@ -46,7 +46,7 @@
           <!--          <span class="block text-[10px]">UI elements</span>-->
         </div>
         <div class="item">
-          <span class="block text-sm">Type</span>
+<!--          <span class="block text-sm">Type</span>-->
           <span class="block text-[12px]">{{ project.type }}</span>
         </div>
         <div class="item">
