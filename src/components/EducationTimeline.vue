@@ -1,24 +1,22 @@
 <template>
-  <div class="relative flex flex-wrap items-start gap-x-10">
-    <!-- Timeline items -->
+  <div class="relative py-2 flex flex-wrap items-stretch gap-x-10 gap-y-4">
     <div
         v-for="(education, index) in educations"
         :key="index"
-        class="relative py-2"
+        class="flex"
     >
-      <!--        class="relative flex items-center w-full py-2"-->
       <UiAnimate
           :distance="60"
           :delay="0.2 + index * 0.2"
+          class="flex-1 flex"
       >
         <UiDotCard
-            class="w-full"
+            class="w-full h-full flex flex-col"
             :title="education.title"
             :subtitle="education.institution"
             :duration="education.duration"
             :description="education.description"
-        >
-        </UiDotCard>
+        />
       </UiAnimate>
     </div>
   </div>
