@@ -35,9 +35,10 @@
               </UiAnimate>
             </div>
             <UiAnimate :distance="20">
-              <a :href="experience.link" target="_blank" :data-hover-text="experience.company">
+              <a v-if="experience.link" :href="experience.link" target="_blank" :data-hover-text="experience.company">
                 <span class="text-sm font-medium text-primary">{{ experience.company }}</span>
               </a>
+              <span v-else class="text-sm font-medium text-primary">{{ experience.company }}</span>
               <br>
               <time class="text-xs tracking-wide font-medium dark:text-gray-300">{{ experience.startDate }} - {{ experience.endDate }} ( {{ experience.xp }} )</time>
             </UiAnimate>

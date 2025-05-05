@@ -2,73 +2,38 @@ import {calculateXP} from "~/config/helper";
 
 const experiences = [
     {
-        title: 'Team Lead',
-        company: 'Softech Limited',
+        title: 'Intern',
+        company: 'Active Laboratory, UTAS',
         logo: '',
-        link: 'https://google.com/',
-        type: 'Software Company',
-        startDate: 'March 2024',
+        link: '',
+        type: 'Research Laboratory',
+        startDate: '2025',
         endDate: 'Present',
-        xp: calculateXP('March 2024', null),
-        description: 'I am working at Encoder IT, as a Backend Web Developer. ' +
-            'I am engaged in maintaining and developing new features for existing projects working directly with clients.',
-        skills: ['Laravel', 'Nest.js', 'Javascript', 'jQuery', 'MySQL', 'MongoDB'],
+        xp: calculateXP('2025', null),
+        description: 'Working on the Exertime project to enhance the website’s structure and user experience, focusing on implementing user state management and improving code quality through thorough reviews and refactoring.',
+        skills: ['UX Design', 'State Management', 'Code Refactoring', 'Vue.js', 'JavaScript', 'User Experience'],
         projectLinks: [
-            {name: 'Project A', url: 'https://project-a.com'},
-            {name: 'Project B', url: 'https://project-b.com'}
+            {name: 'Exertime', url: 'https://exertime.com'}
         ],
     },
     {
-        title: 'Full-Stack Web Developer',
-        company: 'Tech Solutions',
+        title: 'Software Developer',
+        company: 'Business Automation Ltd, Bangladesh',
         logo: '',
-        link: 'https://google.com/',
+        link: 'https://ba-systems.com/',
         type: 'Software Company',
-        startDate: 'April 2023',
-        endDate: 'September 2023',
-        // xp: calculateXP('April 2023', new Date()),
-        xp: calculateXP('April 2023', 'September 2023'),
-        description: 'I worked at Softic, as a Backend Web Developer. ' +
-            'I mainly build admin panels and apis for the frontend web and mobile apps. ' +
-            'The main technologies I work with are:',
-        skills: ['Laravel', 'WebSocket', 'Pusher', 'MySQL', 'React.js']
-    },
-    {
-        title: 'Backend Developer',
-        company: 'Softech Limited',
-        logo: '',
-        link: 'https://google.com/',
-        type: 'Edu-tech',
-        startDate: 'July 2021',
-        endDate: 'February 2023',
-        xp: calculateXP('July 2021', 'February 2023'),
-        description: 'I worked at Nextive Solution, as a Full-Stack Web Developer. ' +
-            'It is an ed-tech company. ' +
-            'Besides the web for some time i also had to work on a Hybrid mobile application using Ionic framework and Vue.js.\n ' +
-            'The main technologies I worked with are: ',
-        skills: ['Laravel', 'MySQL', 'Nuxt.js', 'Vue.js', 'Ionic', 'Vuetify', 'Sass'],
+        startDate: '2020',
+        endDate: '2022',
+        xp: calculateXP('2020', '2022'),
+        description: 'Worked on multiple high-profile projects including the Mortgage System, A21 Dashboard, BSCIC, and BHTPA, ensuring timely delivery and alignment with client requirements. Focused on developing scalable web applications with technologies such as Laravel, Python, and Vue.js, while optimizing performance through efficient data management in MySQL and MongoDB.',
+        skills: ['Laravel', 'PHP', 'Python', 'Vue.js', 'Vuex', 'Bootstrap', 'MySQL', 'MongoDB', 'OOP', 'RESTful APIs', 'Git/GitHub'],
         projectLinks: [
-            {name: 'Project A', url: ''},
-        ]
+            {name: 'A2I Dashboard', url: 'https://a2i.gov.bd/'},
+            {name: 'BSCIC', url: 'https://bscic.gov.bd/'},
+        ],
     },
-    {
-        title: 'Backend Developer 2',
-        company: 'Softech Limited',
-        logo: '',
-        link: 'https://google.com/',
-        type: 'Edu-tech',
-        startDate: 'July 2021',
-        endDate: 'February 2023',
-        xp: calculateXP('July 2021', 'February 2023'),
-        description: 'I worked at Nextive Solution, as a Full-Stack Web Developer. ' +
-            'It is an ed-tech company. ' +
-            'Besides the web for some time i also had to work on a Hybrid mobile application using Ionic framework and Vue.js.\n ' +
-            'The main technologies I worked with are: ',
-        skills: ['Laravel', 'MySQL', 'Nuxt.js', 'Vue.js', 'Ionic', 'Vuetify', 'Sass'],
-        projectLinks: [
-            {name: 'Project A', url: ''},
-        ]
-    },
+    
+
 ]
 
 export default experiences

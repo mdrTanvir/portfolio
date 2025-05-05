@@ -11,10 +11,8 @@ const skills = {
     frontend: [
         {name: 'Nuxt.js', featured: true, logo: '/images/skills/nuxtjs-original.svg'},
         {name: 'Vue.js', featured: true, logo: '/images/skills/vuejs-original.svg'},
-        // {name: 'Vuetify', featured: true, logo: '/images/skills/vuetify-original.svg'},
-        // {name: 'React.js', logo: '/images/skills/react-original.svg'},
+        {name: 'Vuetify', featured: true, logo: '/images/skills/vuetify-original.svg'},
         {name: 'Tailwind CSS', featured: true, logo: '/images/skills/tailwindcss-original.svg'},
-        // {name: 'Ionic', logo: '/images/skills/ionic-original.svg'},
         {name: 'Bootstrap', featured: true, logo: '/images/skills/bootstrap-original.svg'},
         {name: 'Sass', featured: true, logo: '/images/skills/sass-original.svg'},
         {name: 'Javascript', featured: true, logo: '/images/skills/javascript-plain.svg'},

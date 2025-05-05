@@ -21,8 +21,14 @@
         {{ subtitle }}
       </p>
       <p
-          v-if="description"
+          v-if="duration"
           class="text-xs text-gray-400 mt-1 mix-blend-difference"
+      >
+        {{ duration }}
+      </p>
+      <p
+          v-if="description"
+          class="text-xs text-gray-400 mt-1 mix-blend-difference text-justify"
       >
         {{ description }}
       </p>
@@ -34,6 +40,7 @@
 defineProps({
   title: {type: String, default: '',},
   subtitle: {type: String, default: '',},
+  duration: {type: String, default: '',},
   description: {type: String, default: '',},
   responsiveText: {type: Boolean, default: false,},
 });

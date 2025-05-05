@@ -15,7 +15,8 @@
             class="w-full"
             :title="education.title"
             :subtitle="education.institution"
-            :description="education.duration"
+            :duration="education.duration"
+            :description="education.description"
         >
         </UiDotCard>
       </UiAnimate>

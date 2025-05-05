@@ -1,5 +1,5 @@
 <template>
-  <section class="contain content-section">
+  <section v-if="PROJECTS.length" class="contain content-section">
     <UiHeading>Other Projects</UiHeading>
 
     <div class="flex flex-wrap gap-6 justify-center items-start md:justify-start">
