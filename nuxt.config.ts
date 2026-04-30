@@ -68,6 +68,7 @@ export default defineNuxtConfig({
         // 'pinia-plugin-persistedstate/nuxt',
         '@nuxtjs/device',
         'nuxt-particles',
+        '@vercel/speed-insights/nuxt',
     ],
     tailwindcss: {
         exposeConfig: true,
