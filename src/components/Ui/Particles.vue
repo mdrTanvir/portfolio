@@ -1,15 +1,14 @@
 <template>
-  <NuxtParticles
-      id="tsparticles"
-      :options="particlesOptions"
-      @load="onLoad"
-      class="fixed inset-0 z-[1] pointer-events-none h-screen w-screen"
-  ></NuxtParticles>
+  <ClientOnly>
+    <NuxtParticles
+        id="tsparticles"
+        :options="particlesOptions"
+        class="particles-backdrop fixed inset-0 z-[1] pointer-events-none h-screen w-screen"
+    ></NuxtParticles>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
-import type {Container} from '@tsparticles/engine'
-
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 
@@ -18,10 +17,10 @@ const particlesOptions = {
   background: {color: {value: 'transparent'}},
   particles: {
     number: {
-      value: 190,
+      value: 340,
       density: {
         enable: true,
-        area: 800
+        area: 720
       }
     },
     color: {
@@ -43,7 +42,7 @@ const particlesOptions = {
       }
     },
     size: {
-      value: 1.6,
+      value: 1.2,
       random: true,
       animation: {
         enable: false,
@@ -113,9 +112,28 @@ const particlesOptions = {
   },
   detectRetina: true
 }
-
-const onLoad = (container: Container) => {
-  container.pause()
-  setTimeout(() => container.play(), 2000)
-}
 </script>
+
+<style scoped>
+.particles-backdrop {
+  filter: saturate(1.18);
+  animation: particlesIntroSettle 0.72s cubic-bezier(0.18, 0.9, 0.24, 1.2) both;
+  transform-origin: center;
+  will-change: transform, filter;
+}
+
+@keyframes particlesIntroSettle {
+  0% {
+    transform: scale(0.965);
+    filter: saturate(1.05) blur(2px);
+  }
+  70% {
+    transform: scale(1.01);
+    filter: saturate(1.24) blur(0);
+  }
+  100% {
+    transform: scale(1);
+    filter: saturate(1.18) blur(0);
+  }
+}
+</style>

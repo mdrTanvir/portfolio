@@ -39,7 +39,7 @@
             <span
                 v-for="(tag, index) in siteData.hero.headlineTags"
                 :key="tag"
-                class="hero-tag inline-flex items-center rounded-full border border-gray-300/80 bg-white/70 px-4 py-2 text-[0.42em] font-medium uppercase leading-none tracking-[0.08em] text-gray-600 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/50 dark:text-gray-200 sm:text-[0.4em] md:text-[0.38em] lg:text-[0.37em]"
+                class="hero-tag inline-flex items-center rounded-full border border-gray-300/80 bg-white/70 px-4 py-2 text-[0.42em] font-serif italic font-medium leading-none tracking-[0.02em] text-gray-700 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/50 dark:text-gray-100 sm:text-[0.4em] md:text-[0.38em] lg:text-[0.37em]"
                 :style="{'--tag-delay': `${1.55 + index * 0.14}s`}"
             >
               {{ tag }}

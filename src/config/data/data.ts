@@ -13,9 +13,10 @@ export {
 }
 
 const fullName = 'Tanvir Rahman'
+const siteBrand = 'Tanvir'
 
 const siteData = {
-    name: fullName,
+    name: siteBrand,
     logoName: 'Tanvir',
     address: 'Hobart, Tasmania, Australia',
     phone: '+61 450469323',
@@ -24,7 +25,7 @@ const siteData = {
     // profile: '/images/profile2.webp',
     cvLink: '/Md-Tanvir-Rahman-Resume.pdf',
     meta: {
-        name: fullName,
+        name: siteBrand,
         description: 'IT graduate based in Hobart with hands-on experience across software, data, systems, and security. I enjoy building reliable digital solutions, improving user experiences, and contributing thoughtfully within collaborative teams.',
         image: '/images/projects/p2.png',
         keywords: `${fullName}, IT Graduate, Software Developer, Cybersecurity, Data, Systems`,
@@ -32,7 +33,7 @@ const siteData = {
     hero: {
         greeting: `I'm ${fullName},`,
         headline: 'Emerging IT Professional',
-        headlineTags: ['AI', 'Cybersecurity', 'Systems'],
+        headlineTags: ['Ai', 'Cybersecurity', 'Data'],
         subheadline: 'With practical experience across software, data, systems, and security, I enjoy creating dependable solutions, improving digital experiences, and solving real problems through thoughtful, collaborative work.',
     },
     about: [

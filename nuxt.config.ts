@@ -32,14 +32,29 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
+            title: 'tanvir',
             htmlAttrs: {
                 lang: 'en'
             },
+            meta: [
+                {name: 'application-name', content: 'tanvir'},
+                {name: 'apple-mobile-web-app-title', content: 'tanvir'},
+            ],
             link: [
+                {
+                    rel: 'icon',
+                    type: 'image/png',
+                    href: '/brand/tanvir-logo-gradient.png'
+                },
                 // {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
                 // {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},
                 // {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Pacifico&display=swap'}
             ]
+        }
+    },
+    runtimeConfig: {
+        public: {
+            web3formsAccessKey: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
         }
     },
     css: [

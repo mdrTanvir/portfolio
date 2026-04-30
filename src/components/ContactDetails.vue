@@ -40,6 +40,7 @@
           <UiSubheading>Let's Connect</UiSubheading>
         <div class="relative mt-6">
           <form @submit.prevent="submitForm">
+            <input v-model="form.botcheck" type="checkbox" class="hidden" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="name" class="form-label">Your Name</label>
@@ -83,12 +84,17 @@
 <script setup lang="ts">
 import siteData from "../config/data/data";
 
+const runtimeConfig = useRuntimeConfig()
+const web3formsAccessKey = runtimeConfig.public.web3formsAccessKey
+
 const form = ref({
-  access_key: "35e3f34e-706c-4437-adf0-e3c478a17fc0",
-  subject: "New Message From Your Website | Web3Forms",
+  access_key: web3formsAccessKey,
+  subject: "New message from tanvir-rahman-portfolio",
+  from_name: "Tanvir Rahman Portfolio",
   name: "",
   email: "",
   message: "",
+  botcheck: false,
 });
 
 const loading = ref(false);
@@ -98,6 +104,12 @@ const status = ref("");
 
 const submitForm = async () => {
   const {name, email, message} = form.value;
+
+  if (!form.value.access_key) {
+    result.value = "Contact form is not configured yet.";
+    hasError.value = true;
+    return;
+  }
 
   if (!name.trim() || !email.trim() || !message.trim()) {
     result.value = "All fields are required.";
@@ -141,6 +153,7 @@ const submitForm = async () => {
     form.value.name = "";
     form.value.email = "";
     form.value.message = "";
+    form.value.botcheck = false;
 
     loading.value = false;
 
