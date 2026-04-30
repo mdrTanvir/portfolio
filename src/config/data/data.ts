@@ -33,7 +33,7 @@ const siteData = {
     hero: {
         greeting: `I'm ${fullName},`,
         headline: 'Emerging IT Professional',
-        headlineTags: ['Ai', 'Cybersecurity', 'Data'],
+        headlineTags: ['AI', 'Cybersecurity', 'Data'],
         subheadline: 'With practical experience across software, data, systems, and security, I enjoy creating dependable solutions, improving digital experiences, and solving real problems through thoughtful, collaborative work.',
     },
     about: [
