@@ -1,38 +1,44 @@
 <template>
-  <section id="CONTACT" class="contain content-section">
+  <section id="CONTACT" class="contain content-section !pt-4 md:!pt-6 lg:!pt-8">
     <UiHeading>Contact</UiHeading>
 
-    <div class="grid gap-4 mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 sm:col-span-6 mb-8">
-        <div class="flex flex-col gap-y-6">
+    <div class="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
+      <div class="lg:col-span-4">
+        <div class="rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 md:p-7">
+          <div class="mb-6">
+            <UiSubheading>Contact Details</UiSubheading>
+          </div>
+          <div class="flex flex-col gap-y-6">
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:location-edit" class="mr-2"/>
             <div>
-              <div class="mb-2">Address</div>
-              <div class="text-lg">{{ siteData.address }}</div>
+              <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Location</div>
+              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.address }}</div>
             </div>
           </UiAnimate>
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:phone" class="mr-2"/>
             <div>
-              <div class="mb-2">Phone</div>
-              <div class="text-lg">{{ siteData.phone }}</div>
+              <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Phone</div>
+              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.phone }}</div>
             </div>
           </UiAnimate>
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:mail" class="mr-2"/>
             <div>
-              <div class="mb-2">Email</div>
-              <div class="text-lg">{{ siteData.email }}</div>
+              <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Email</div>
+              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.email }}</div>
             </div>
           </UiAnimate>
         </div>
       </div>
+      </div>
 
 
-      <div class="relative col-span-12 px-4 space-y-6 sm:col-span-6">
-        <UiSubheading>Let's Talk</UiSubheading>
-        <div class="col-span-12 space-y-12 relative sm:col-span-8 sm:space-y-8">
+      <div class="relative lg:col-span-8">
+        <div class="rounded-2xl border border-gray-200 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 md:p-7">
+          <UiSubheading>Let's Connect</UiSubheading>
+        <div class="relative mt-6">
           <form @submit.prevent="submitForm">
             <div class="form-group">
               <UiAnimate :distance="20">
@@ -67,6 +73,7 @@
               {{ result }}
             </div>
           </form>
+        </div>
         </div>
       </div>
     </div>
@@ -153,13 +160,12 @@ const submitForm = async () => {
 }
 
 .form-label {
-  @apply block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300;
+  @apply block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300;
 }
 
 .form-control {
-  @apply bg-transparent border border-gray-300 text-gray-900 text-sm rounded-lg
-  focus:ring-blue-500 focus:border-blue-500 block w-full max-w-[500px] p-2.5
-  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+  @apply block w-full rounded-xl border border-gray-300 bg-white/80 px-4 py-3 text-base text-gray-900
+  focus:border-sky-500 focus:ring-sky-500 dark:border-gray-700 dark:bg-gray-950/50 dark:placeholder-gray-400 dark:text-white;
 }
 
 .animateRotate {

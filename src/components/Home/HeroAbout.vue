@@ -1,15 +1,14 @@
 <template>
   <!-- Hero Section -->
-  <section id="HERO" class="heroSection pb-0 md:pb-14 lg:pb-20">
-    <div class="contain relative h-full min-h-[80lvh]  md:h-[100lvh] md:min-h-[100lvh] z-10 max-h-[1300px] pt-16 sm:pt-20 md:pt-24 pb-0 md:pb-10">
-      <div class="h-full flex flex-col justify-center md:justify-between gap-y-20 md:gap-y-2 relative z-[2]">
+  <section id="HERO" class="heroSection pb-0 md:pb-4 lg:pb-6">
+    <div class="contain relative h-full min-h-[66lvh] md:h-[78lvh] md:min-h-[78lvh] z-10 max-h-[1300px] pt-16 sm:pt-20 md:pt-24 pb-2 md:pb-4">
+      <div class="h-full flex flex-col justify-center relative z-[2]">
         <HomeHeroTitle/>
-        <HomeHeroStats/>
       </div>
 
       <div>
         <!-- Social Links -->
-        <div class="absolute bottom-[40px] right-2 hidden md:block">
+        <div class="absolute bottom-[180px] right-2 hidden md:block">
           <SocialLinksVertical/>
         </div>
         <img
@@ -30,31 +29,43 @@
   </section>
 
   <!-- About Section -->
-  <section id="ABOUT" class="contain content-section about relative">
+  <section id="ABOUT" class="contain content-section !pb-4 md:!pb-6 lg:!pb-8 about relative">
     <UiHeading class="z-10">About</UiHeading>
 
-    <div>
-      <div>
-        <div class="my-10">
-          <template v-for="(description, n) in siteData.descriptions" :key="n">
-            <UiAnimate
-                direction="up"
-                :distance="10"
-                :duration="0.6"
-                :delay="0.2"
-                scrollTriggerStart="top 86%"
-                scrollTriggerEnd="top 70%"
-            >
-              <p v-html="description" class="text-base text-gray-600 dark:text-gray-300"></p>
-            </UiAnimate>
-          </template>
+    <div class="mt-12 space-y-16">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div class="lg:col-span-3 lg:pt-1">
+          <UiSubheading>Profile</UiSubheading>
+        </div>
+        <div class="lg:col-span-9">
+          <div class="rounded-3xl border border-gray-200 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 sm:p-7 lg:p-8">
+            <div class="space-y-[1.0625rem]">
+              <template v-for="(description, n) in siteData.about" :key="n">
+                <UiAnimate
+                    direction="up"
+                    :distance="16"
+                    :duration="0.55"
+                    :delay="0.08 + n * 0.12"
+                    scrollTriggerStart="top 82%"
+                    scrollTriggerEnd="top 68%"
+                    :scrub="false"
+                >
+                  <p class="text-left text-[14.5px] leading-7 tracking-[-0.01em] text-gray-600 dark:text-gray-300 sm:text-[0.98rem] sm:leading-8 md:text-justify">
+                    {{ description }}
+                  </p>
+                </UiAnimate>
+              </template>
+            </div>
+          </div>
         </div>
       </div>
-      <div>
-        <div class="my-4">
+      <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
+        <div class="lg:col-span-3 lg:pt-1">
           <UiSubheading>Education</UiSubheading>
         </div>
-        <EducationTimeline/>
+        <div class="lg:col-span-9">
+          <EducationTimeline/>
+        </div>
       </div>
     </div>
   </section>

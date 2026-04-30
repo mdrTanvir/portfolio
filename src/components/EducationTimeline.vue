@@ -1,5 +1,5 @@
 <template>
-  <div class="relative py-2 flex flex-wrap items-stretch gap-x-10 gap-y-4">
+  <div class="grid w-full gap-6">
     <div
         v-for="(education, index) in educations"
         :key="index"

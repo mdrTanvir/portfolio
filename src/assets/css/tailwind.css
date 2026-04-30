@@ -13,7 +13,7 @@
     }
 
     .contain {
-        @apply max-w-[1300px] w-full mx-auto px-4 sm:px-6 lg:px-8;
+        @apply max-w-[1180px] w-full mx-auto px-4 sm:px-6 lg:px-8;
     }
 }
 
@@ -55,43 +55,43 @@
 
 /* Typography */
 .h1 {
-    @apply text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight;
+    @apply text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight tracking-[-0.045em];
 }
 
 .h2 {
-    @apply text-3xl sm:text-4xl xl:text-5xl font-bold tracking-tight;
+    @apply text-[1.75rem] sm:text-3xl lg:text-4xl font-semibold leading-tight tracking-[-0.035em];
 }
 
 .h3 {
-    @apply text-2xl sm:text-3xl xl:text-4xl font-semibold tracking-tight;
+    @apply text-xl sm:text-2xl lg:text-[1.75rem] font-semibold leading-snug tracking-[-0.02em];
 }
 
 .h4 {
-    @apply text-xl sm:text-2xl xl:text-3xl font-medium tracking-tight;
+    @apply text-lg sm:text-xl lg:text-2xl font-medium leading-snug tracking-[-0.02em];
 }
 
 .h5 {
-    @apply text-lg sm:text-xl xl:text-2xl font-medium tracking-tight;
+    @apply text-base sm:text-lg lg:text-xl font-medium leading-snug tracking-[-0.01em];
 }
 
 .h6 {
-    @apply text-base sm:text-lg xl:text-xl font-medium tracking-tight;
+    @apply text-base sm:text-base lg:text-lg font-medium leading-snug tracking-normal;
 }
 
 p, .p {
-    @apply text-base tracking-tight leading-7;
+    @apply text-base sm:text-[1.05rem] tracking-normal leading-8;
 }
 
 .del {
-    @apply text-base tracking-tight leading-7 line-through;
+    @apply text-[15px] sm:text-base tracking-normal leading-7 line-through;
 }
 
 .small {
-    @apply text-sm tracking-tight leading-7;
+    @apply text-[15px] tracking-normal leading-7;
 }
 
 .strong {
-    @apply text-base tracking-tight leading-7 font-semibold;
+    @apply text-base sm:text-[1.05rem] tracking-normal leading-8 font-semibold;
 }
 
 a, .a {
@@ -115,13 +115,8 @@ a:active,
 
 
 .btn {
-    @apply px-4 py-3 sm:px-5 sm:py-3 rounded-lg font-medium
+    @apply px-4 py-3 sm:px-5 sm:py-3 rounded-lg text-sm sm:text-base font-medium
         /*focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2*/
     transition duration-300 ease-in-out;
 }
-
-
-
-
-
 

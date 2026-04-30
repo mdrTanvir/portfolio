@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" id="PROJECTS" class="contain pt-10 md:pt-14 lg:pt-20 relative"
+  <section ref="container" id="PROJECTS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8 relative"
            :class="{'mt-28':all}"
   >
     <UiHeading>Projects</UiHeading>
@@ -8,39 +8,39 @@
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="w-full my-10 md:my-20 grid grid-cols-5 gap-6 mx-auto px-4"
+          class="mx-auto grid w-full items-start gap-10 border-b border-gray-200/80 py-14 last:border-b-0 lg:grid-cols-12 lg:gap-14"
           :class="{'sm:mb-20 md:mb-36':all}"
       >
-        <div class="col-span-5 md:col-span-2 flex items-center">
-          <div>
-            <div class="overflow-hidden py-2">
+        <div class="flex items-center lg:col-span-5">
+          <div class="flex h-full flex-col">
+            <div class="overflow-hidden">
               <UiAnimate :distance="30">
-                <h2 class="h2">{{ project.name }}</h2>
+                <h2 class="text-[1.9rem] font-semibold tracking-[-0.04em] text-gray-900 dark:text-white md:text-[2.35rem]">{{ project.name }}</h2>
               </UiAnimate>
             </div>
             <div class="overflow-hidden">
               <UiAnimate :distance="40">
-                <p class="text-sm font-medium mt-2 mb-3">{{ project.for }} — {{ project.date }}</p>
+                <p class="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">{{ project.for }} — {{ project.date }}</p>
               </UiAnimate>
             </div>
             <div class="overflow-hidden">
               <UiAnimate :distance="40">
-                <p class="text-base sm:text-lg max-w-[300px] md:max-w-[500px]">{{ project.description }}</p>
+                <p class="mt-5 max-w-2xl text-justify text-[15px] leading-8 text-gray-600 dark:text-gray-300 sm:text-[1.02rem]">{{ project.description }}</p>
               </UiAnimate>
             </div>
-            <div v-if="project.links" class="overflow-hidden">
-              <UiAnimate class="flex flex-wrap gap-2">
+            <div v-if="project.links" class="mt-5 overflow-hidden">
+              <UiAnimate class="flex flex-wrap gap-3">
                 <template v-for="link in project.links">
                   <a :href="link.url"
                      target="_blank"
-                     class="font-bold text-primary text-primary-hover flex items-center" :data-hover-text="link.name">
-                    <Icon name="lucide:external-link" class="w-4 h-4 mr-2"/>
-                    <span class="mt-1">{{ link.name }}</span>
+                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" :data-hover-text="link.name">
+                    <Icon name="lucide:external-link" class="w-4 h-4"/>
+                    <span>{{ link.name }}</span>
                   </a>
                 </template>
               </UiAnimate>
             </div>
-            <div class="flex flex-wrap gap-4 mt-3">
+            <div class="mt-6 flex flex-wrap gap-2.5">
               <template v-for="(skill, i) in project.skills || []" :key="i">
                 <UiAnimate :distance="40">
                   <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
@@ -48,14 +48,14 @@
               </template>
             </div>
 
-            <div class="flex gap-5 mt-3">
+            <div class="mt-6 flex flex-wrap gap-6">
               <div v-if="project.url" class="overflow-hidden">
                 <UiAnimate>
                   <a :href="project.url"
                      target="_blank"
-                     class="font-bold text-primary text-primary-hover flex items-center" data-hover-text="Live">
-                    <Icon name="lucide:external-link" class="w-4 h-4 mr-2"/>
-                    <span class="mt-1">Live</span>
+                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Live">
+                    <Icon name="lucide:external-link" class="w-4 h-4"/>
+                    <span>Live</span>
                   </a>
                 </UiAnimate>
               </div>
@@ -63,16 +63,16 @@
                 <UiAnimate>
                   <a :href="project.repository"
                      target="_blank"
-                     class="font-bold text-primary text-primary-hover flex items-center" data-hover-text="Github">
-                    <Icon name="lucide:github" class="w-4 h-4 mr-2"/>
-                    <span class="mt-1">GitHub</span>
+                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Github">
+                    <Icon name="lucide:github" class="w-4 h-4"/>
+                    <span>GitHub</span>
                   </a>
                 </UiAnimate>
               </div>
             </div>
           </div>
         </div>
-        <div class="image-wrapper col-span-5 md:col-span-3 flex items-start md:items-center"
+        <div class="image-wrapper flex items-start md:items-center lg:col-span-7"
              :ref="el => imageRefs[index] = el"
         >
           <!--          <UiAnimate direction="left" :distance="60">-->
@@ -82,14 +82,14 @@
                   :src="project.photo"
                   :alt="project.name"
                   loading="lazy"
-                  class="lazyImage img rounded"
+                  class="lazyImage img rounded-[1.4rem] border border-gray-200 bg-white shadow-sm dark:border-gray-800"
                   width="100%"
                   :data-hover-text="project.url ? 'preview' : 'GitHub'"
               />
             </a>
           </template>
           <template v-else>
-            <img :src="project.photo" :alt="project.name" loading="lazy" class="lazyImage img rounded" width="100%"/>
+            <img :src="project.photo" :alt="project.name" loading="lazy" class="lazyImage img rounded-[1.4rem] border border-gray-200 bg-white shadow-sm dark:border-gray-800" width="100%"/>
           </template>
           <!--          </UiAnimate>-->
         </div>
@@ -115,6 +115,7 @@ gsap.registerPlugin(ScrollTrigger)
 const projects = works || []
 const container = ref<HTMLElement | null>(null)
 const imageRefs = ref<HTMLElement[]>([])
+let skewTrigger: ScrollTrigger | null = null
 // const pathRef = ref<SVGPathElement | null>(null)
 
 const perPage = 3
@@ -133,12 +134,17 @@ const skillMap = computed(() => {
 })
 
 const imageSkew = () => {
+  const validImages = imageRefs.value.filter(Boolean)
+  if (!container.value || !validImages.length) return
+
+  skewTrigger?.kill()
+
   // Skew effect based on scroll velocity
   let proxy = {skew: 0}
-  const skewSetter = gsap.quickSetter(imageRefs.value, 'skewX', 'deg')
+  const skewSetter = gsap.quickSetter(validImages, 'skewX', 'deg')
   const clamp = gsap.utils.clamp(-6, 6)
 
-  ScrollTrigger.create({
+  skewTrigger = ScrollTrigger.create({
     trigger: container.value,
     start: 'top top',
     end: () => `+=${window.innerWidth}`,
@@ -163,8 +169,12 @@ onMounted(async () => {
   imageRefs.value = []
   await nextTick()
   requestAnimationFrame(() => {
-    if (imageRefs.value.length) imageSkew()
+    if (container.value && imageRefs.value.length) imageSkew()
   })
+})
+
+onBeforeUnmount(() => {
+  skewTrigger?.kill()
 })
 </script>
 

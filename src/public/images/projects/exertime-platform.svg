@@ -1,0 +1,50 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="36" fill="#071018"/>
+  <rect x="54" y="48" width="1172" height="624" rx="30" fill="#F5FAFC"/>
+  <rect x="54" y="48" width="1172" height="68" rx="30" fill="#E8F0F4"/>
+  <circle cx="98" cy="82" r="10" fill="#FF6B6B"/>
+  <circle cx="130" cy="82" r="10" fill="#F4B942"/>
+  <circle cx="162" cy="82" r="10" fill="#4FD1C5"/>
+  <rect x="210" y="64" width="294" height="36" rx="18" fill="#FFFFFF"/>
+  <text x="240" y="87" fill="#36515D" font-family="Arial, sans-serif" font-size="18" font-weight="700">www.exertime.com</text>
+
+  <rect x="86" y="140" width="1108" height="502" rx="24" fill="url(#pageGradient)"/>
+  <rect x="86" y="140" width="1108" height="86" rx="24" fill="#071723" fill-opacity="0.72"/>
+  <text x="130" y="192" fill="#E7F7FA" font-family="Arial, sans-serif" font-size="32" font-weight="700">Exertime</text>
+  <text x="900" y="190" fill="#D2E8EE" font-family="Arial, sans-serif" font-size="22">About</text>
+  <text x="998" y="190" fill="#D2E8EE" font-family="Arial, sans-serif" font-size="22">Updates</text>
+  <text x="1102" y="190" fill="#D2E8EE" font-family="Arial, sans-serif" font-size="22">Login</text>
+
+  <rect x="130" y="264" width="518" height="246" rx="30" fill="#071A28" fill-opacity="0.74"/>
+  <text x="174" y="330" fill="#63D7D2" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="2">DESK-BASED WELLBEING</text>
+  <text x="174" y="388" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="54" font-weight="700">Be Active with</text>
+  <text x="174" y="448" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="54" font-weight="700">Exertime in the Workplace</text>
+  <text x="174" y="494" fill="#C5D9E0" font-family="Arial, sans-serif" font-size="24">Supports healthier workdays with short</text>
+  <text x="174" y="528" fill="#C5D9E0" font-family="Arial, sans-serif" font-size="24">movement breaks for desk-based teams.</text>
+
+  <rect x="174" y="556" width="176" height="52" rx="26" fill="#52D3C8"/>
+  <text x="218" y="589" fill="#06202B" font-family="Arial, sans-serif" font-size="22" font-weight="700">Watch Video</text>
+  <rect x="370" y="556" width="184" height="52" rx="26" fill="#12384A"/>
+  <text x="420" y="589" fill="#D7F5F2" font-family="Arial, sans-serif" font-size="22" font-weight="700">Learn More</text>
+
+  <rect x="694" y="264" width="454" height="246" rx="30" fill="#E8F7F5"/>
+  <circle cx="921" cy="358" r="108" fill="#D6F6F3"/>
+  <circle cx="921" cy="358" r="72" fill="#53CFC7"/>
+  <path d="M921 314C947.51 314 969 335.49 969 362C969 388.51 947.51 410 921 410C894.49 410 873 388.51 873 362C873 335.49 894.49 314 921 314Z" fill="#0E3040"/>
+  <path d="M913 338H929V360H951V376H929V398H913V376H891V360H913V338Z" fill="#53CFC7"/>
+  <text x="756" y="564" fill="#0F2C38" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1.5">10+ YEARS EXPERTISE</text>
+  <text x="756" y="600" fill="#45616C" font-family="Arial, sans-serif" font-size="22">An e-health program that encourages</text>
+  <text x="756" y="632" fill="#45616C" font-family="Arial, sans-serif" font-size="22">movement breaks during the workday.</text>
+
+  <rect x="130" y="542" width="464" height="70" rx="22" fill="#0A2130" fill-opacity="0.68"/>
+  <circle cx="176" cy="577" r="12" fill="#52D3C8"/>
+  <text x="204" y="584" fill="#D8F1F2" font-family="Arial, sans-serif" font-size="20" font-weight="700">UTAS placement work: usability, navigation, accessibility</text>
+
+  <defs>
+    <linearGradient id="pageGradient" x1="86" y1="140" x2="1194" y2="642" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B2530"/>
+      <stop offset="0.56" stop-color="#113745"/>
+      <stop offset="1" stop-color="#1A5162"/>
+    </linearGradient>
+  </defs>
+</svg>

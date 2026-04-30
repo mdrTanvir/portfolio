@@ -1,96 +1,101 @@
 <template>
-  <section v-if="experiences && experiences?.length" id="EXPERIENCE" class="contain content-section">
+  <section v-if="experiences && experiences?.length" id="EXPERIENCE" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8">
     <UiHeading>Experience</UiHeading>
 
-    <div class="grid gap-4 md:mx-4 my-10 sm:grid-cols-12">
-      <div class="col-span-12 md:col-span-3">
+    <div class="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
+      <div class="lg:col-span-3 lg:pt-2">
         <UiSubheading>Work Experience</UiSubheading>
       </div>
       <div
           ref="experienceContainer"
-          class="relative col-span-12 px-0 sm:px-4 space-y-2 md:col-span-9"
+          class="relative lg:col-span-9"
       >
         <svg
             ref="svg"
-            class="absolute top-3 sm:top-5 bottom-0 left-0 sm:left-1 z-1"
+            class="absolute bottom-0 left-[10px] top-3 z-1"
             width="2" height="100%" viewBox="0 0 2 1000" preserveAspectRatio="none"
         >
           <line ref="line" x1="1" y1="0" x2="1" y2="1000" class="stroke-primary" stroke-width="2"/>
         </svg>
 
-        <div class="col-span-12 space-y-12 relative px-4 sm:col-span-8 sm:space-y-8">
-          <!-- Loop through the experiences, limited by totalExperience -->
+        <div class="relative max-w-4xl space-y-10 pl-8 md:pl-10">
           <div
               v-for="(experience, index) in experiences.slice(0, totalExperience)"
               :key="index"
-              class="flex flex-col relative"
+              class="relative"
           >
             <UiAnimate direction="up" :distance="30">
-              <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
-                bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
+              <div class="block absolute left-[-28px] top-7 z-[1] h-5 w-5 -translate-x-1/2 rounded-full border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
             </UiAnimate>
-            <div class="overflow-hidden">
-              <UiAnimate :distance="20">
-                <h3 class="text-xl font-semibold tracking-wide">{{ experience.title }}</h3>
-              </UiAnimate>
-            </div>
-            <UiAnimate :distance="20">
-              <a v-if="experience.link" :href="experience.link" target="_blank" :data-hover-text="experience.company">
-                <span class="text-sm font-medium text-primary">{{ experience.company }}</span>
-              </a>
-              <span v-else class="text-sm font-medium text-primary">{{ experience.company }}</span>
-              <br>
-              <time class="text-xs tracking-wide font-medium dark:text-gray-300">{{ experience.startDate }} - {{ experience.endDate }} ( {{ experience.xp }} )</time>
-            </UiAnimate>
-            <UiAnimate :distance="20">
-              <p class="mt-3" v-html="experience.description"></p>
-            </UiAnimate>
-
-            <!-- Skills -->
-            <div v-if="experience.skills?.length" class="flex flex-wrap gap-2 mt-3">
-              <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
-                <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
-                  <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
+            <div class="flex h-full flex-col rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 md:p-6">
+              <div class="overflow-hidden">
+                <UiAnimate :distance="20">
+                  <h3 class="text-xl font-semibold tracking-[-0.02em] text-gray-900 dark:text-white md:text-[1.35rem]">{{ experience.title }}</h3>
                 </UiAnimate>
-              </template>
-            </div>
-
-            <!-- Project Links -->
-            <div v-if="experience.projectLinks?.length" class="mt-3">
-              <UiAnimate :distance="20" :delay="0.4">
-                <p class="text-sm font-semibold mb-1 text-gray-700 dark:text-gray-300">Projects:</p>
-                <div class="text-sm flex flex-wrap items-center gap-2">
-                  <span v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex">
-                    <template v-if="project.url && project.name">
-                      <a
-                          :href="project.url"
-                          target="_blank"
-                          class="text-primary font-medium hover:!underline"
-                          data-hover-text="Go Live"
-                      >
-                        {{ project.name }}
-                      </a>
-                    </template>
-                    <template v-else-if="project.name">
-                      <span class="font-medium">{{ project.name }}</span>
-                    </template>
-                    <span v-if="projectIndex < experience.projectLinks.length - 1">, </span>
-                  </span>
+              </div>
+              <UiAnimate :distance="20">
+                <div class="mt-2">
+                  <a v-if="experience.link" :href="experience.link" target="_blank" :data-hover-text="experience.company">
+                    <span class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
+                  </a>
+                  <span v-else class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
                 </div>
+                <time class="mt-2 block text-sm text-gray-500 dark:text-gray-400">{{ experience.startDate }} - {{ experience.endDate }} ({{ experience.xp }})</time>
               </UiAnimate>
+              <UiAnimate :distance="20">
+                <p class="mt-4 max-w-3xl text-justify text-[15px] leading-7 text-gray-600 dark:text-gray-300 sm:leading-8">{{ experience.description }}</p>
+              </UiAnimate>
+
+              <UiAnimate v-if="experience.highlights?.length" :distance="20">
+                <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-7 text-gray-600 dark:text-gray-300 sm:leading-8">
+                  <li v-for="(highlight, highlightIndex) in experience.highlights" :key="highlightIndex">
+                    {{ highlight }}
+                  </li>
+                </ul>
+              </UiAnimate>
+
+              <div v-if="experience.skills?.length" class="mt-5 flex flex-wrap gap-2">
+                <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
+                  <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
+                    <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
+                  </UiAnimate>
+                </template>
+              </div>
+
+              <div v-if="experience.projectLinks?.length" class="mt-5">
+                <UiAnimate :distance="20" :delay="0.4">
+                  <p class="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Projects</p>
+                  <div class="flex flex-wrap items-center gap-2 text-sm">
+                    <span v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex">
+                      <template v-if="project.url && project.name">
+                        <a
+                            :href="project.url"
+                            target="_blank"
+                            class="text-primary font-medium hover:!underline"
+                            data-hover-text="Go Live"
+                        >
+                          {{ project.name }}
+                        </a>
+                      </template>
+                      <template v-else-if="project.name">
+                        <span class="font-medium">{{ project.name }}</span>
+                      </template>
+                      <span v-if="projectIndex < experience.projectLinks.length - 1">, </span>
+                    </span>
+                  </div>
+                </UiAnimate>
+              </div>
             </div>
           </div>
 
-          <!-- View More or Less -->
-          <div v-if="experiences.length > 3" class="flex flex-col relative">
+          <div v-if="experiences.length > 3" class="relative">
             <UiAnimate direction="up" :distance="30">
-              <div class="block absolute w-6 h-6 sm:w-10 sm:h-10 rounded-full top-[14px] sm:top-[12px] left-[-15px] sm:left-[-26px] z-[1] transform translate-x-[-50%] translate-y-[-50%]
-                bg-primary dark:bg-primary border-[6px] sm:border-[10px] border-white dark:border-black"></div>
+              <div class="block absolute left-[-28px] top-3 z-[1] h-5 w-5 -translate-x-1/2 rounded-full border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
             </UiAnimate>
             <div class="overflow-hidden flex">
               <UiAnimate :distance="20">
                 <h3
-                    class="text-base font-semibold tracking-wide underline text-primary hover:text-black dark:hover:text-white"
+                    class="text-sm font-semibold uppercase tracking-[0.16em] text-primary underline underline-offset-4 hover:text-black dark:hover:text-white"
                     data-hover
                     @click="toggleExperienceView()"
                 >
@@ -127,8 +132,9 @@ const skillMap = computed(() => {
   return map
 })
 
-// Function to initialize GSAP scroll trigger
 const handleScrollTrigger = () => {
+  if (!line.value || !experienceContainer.value) return
+
   const length = line.value.getTotalLength()
 
   gsap.set(line.value, {
@@ -163,15 +169,18 @@ onMounted(async () => {
   })
 })
 
+onBeforeUnmount(() => {
+  if (scrollTriggerInstance) scrollTriggerInstance.kill()
+})
+
 const toggleExperienceView = () => {
   if (totalExperience.value === limit) {
     totalExperience.value = experiences.length
   } else {
-    totalExperience.value = limit // Show only 3 experiences
+    totalExperience.value = limit
   }
 
   const {updateScroll} = useScrollUpdate()
   updateScroll()
 }
 </script>
-

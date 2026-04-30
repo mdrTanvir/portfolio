@@ -3,7 +3,7 @@
       id="tsparticles"
       :options="particlesOptions"
       @load="onLoad"
-      class="fixed inset-0 z-[2] pointer-events-none h-screen w-screen"
+      class="fixed inset-0 z-[1] pointer-events-none h-screen w-screen"
   ></NuxtParticles>
 </template>
 
@@ -18,7 +18,7 @@ const particlesOptions = {
   background: {color: {value: 'transparent'}},
   particles: {
     number: {
-      value: 100,
+      value: 190,
       density: {
         enable: true,
         area: 800
@@ -33,7 +33,7 @@ const particlesOptions = {
       type: 'circle'
     },
     opacity: {
-      value: darkMode.value ? 0.5 : 0.8,
+      value: darkMode.value ? 0.42 : 0.58,
       random: false,
       animation: {
         enable: false,
@@ -73,11 +73,11 @@ const particlesOptions = {
     }
   },
   interactivity: {
-    detectsOn: 'canvas',
+    detectsOn: 'window',
     events: {
       onHover: {
-        enable: false,
-        mode: 'bubble'
+        enable: true,
+        mode: ['bubble', 'repulse']
       },
       onClick: {
         enable: false,
@@ -93,15 +93,15 @@ const particlesOptions = {
         }
       },
       bubble: {
-        distance: 400,
-        size: 40,
-        duration: 2,
-        opacity: 8,
-        speed: 3
+        distance: 120,
+        size: 8,
+        duration: 0.22,
+        opacity: 0,
+        speed: 6
       },
       repulse: {
-        distance: 200,
-        duration: 0.4
+        distance: 95,
+        duration: 0.22
       },
       push: {
         quantity: 4

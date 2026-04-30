@@ -46,7 +46,6 @@ export default defineNuxtConfig({
         '@/assets/scss/main.scss',
     ],
     modules: [
-        '@nuxt/fonts',
         '@nuxt/icon',
         // '@nuxt/image',
         '@nuxtjs/tailwindcss',

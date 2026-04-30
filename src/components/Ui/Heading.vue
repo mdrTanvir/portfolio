@@ -1,15 +1,14 @@
 <template>
-  <div class="overflow-hidden mb-6">
+  <div class="overflow-hidden mb-8 md:mb-10">
     <UiAnimate
         :distance="60"
         :delay="0.2"
     >
 <!--        ease="back.out(3)"-->
       <h1
-          class="text-primary text-4xl sm:text-5xl xl:text-6xl font-extrabold tracking-tight uppercase"
+          class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-gray-900 dark:text-white"
       >
         <slot></slot>
-        <span class="text-2xl text-gray-500 dark:text-gray-400">.</span>
       </h1>
     </UiAnimate>
   </div>

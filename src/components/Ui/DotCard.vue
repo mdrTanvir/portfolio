@@ -1,34 +1,32 @@
 <template>
-  <div class="relative sm:ml-4 px-5 md:px-8 py-3 flex flex-col bg-gray-100 dark:bg-gray-900
-        border-2 border-primary rounded-xl md:rounded-2xl shadow-md max-w-[400px] h-full">
+  <div class="relative flex h-full w-full flex-col rounded-2xl border border-gray-200 bg-white/70 px-6 py-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40">
     <!-- Dot -->
     <!--    <div class="timeline-dot"></div>-->
-    <div class="block absolute w-6 h-6 md:w-10 md:h-10 rounded-full left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-[1]
-                bg-primary dark:bg-primary border-[7px] md:border-[10px] border-white dark:border-black"></div>
+    <div class="block absolute h-5 w-5 rounded-full left-0 top-7 z-[1] -translate-x-1/2 border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
     <slot>
       <h4
           v-if="title"
-          class="font-semibold text-primary"
-          :class="{'text-sm sm:text-lg': responsiveText, 'text-lg': !responsiveText}"
+          class="font-semibold tracking-[-0.02em] text-gray-900 dark:text-white"
+          :class="{'text-lg sm:text-xl': responsiveText, 'text-xl': !responsiveText}"
       >
         {{ title }}
       </h4>
       <p
           v-if="subtitle"
-          class="text-gray-500 dark:text-gray-300 mix-blend-difference"
-          :class="{'text-xs sm:text-sm': responsiveText, 'text-sm': !responsiveText}"
+          class="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300"
+          :class="{'sm:text-base': responsiveText, 'text-base': !responsiveText}"
       >
         {{ subtitle }}
       </p>
       <p
           v-if="duration"
-          class="text-xs text-gray-400 mt-1 mix-blend-difference"
+          class="mt-2 text-sm font-medium uppercase tracking-[0.14em] text-gray-500 dark:text-gray-400"
       >
         {{ duration }}
       </p>
       <p
           v-if="description"
-          class="text-xs text-gray-400 mt-1 mix-blend-difference text-justify"
+          class="mt-3 text-justify text-[15px] leading-7 text-gray-600 dark:text-gray-300 sm:text-base sm:leading-8"
       >
         {{ description }}
       </p>

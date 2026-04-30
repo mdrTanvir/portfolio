@@ -17,16 +17,20 @@ const props = defineProps({
 
 const componentRef = ref(null)
 let animationContext
+let frameId
 
 onMounted(async () => {
   await nextTick()
-  requestAnimationFrame(() => {
+  frameId = requestAnimationFrame(() => {
+    const element = componentRef.value
+    if (!element || !element.isConnected) return
+
     const fadeDirection = getFadeDirection(props.direction, props.distance)
 
     animationContext = gsap.context(() => {
-      gsap.from(componentRef.value, {
+      gsap.from(element, {
         scrollTrigger: {
-          trigger: componentRef.value,
+          trigger: element,
           start: props.scrollTriggerStart,
           end: props.scrollTriggerEnd,
           // toggleActions: 'play none none reverse',
@@ -47,6 +51,7 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  if (frameId) cancelAnimationFrame(frameId)
   if (animationContext) animationContext.revert()
 })
 

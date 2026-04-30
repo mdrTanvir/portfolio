@@ -2,10 +2,12 @@
   <div class="relative overflow-hidden bg-white dark:bg-black text-black dark:text-white">
     <LazyUiGradient/>
     <UiParticles :key="count"/>
-    <NavBar/>
-    <NuxtPage/>
-    <ContactDetails/>
-    <TheFooder/>
+    <div class="relative z-10">
+      <NavBar/>
+      <NuxtPage/>
+      <ContactDetails/>
+      <TheFooder/>
+    </div>
   </div>
 </template>
 

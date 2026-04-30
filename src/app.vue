@@ -3,7 +3,7 @@
     <NuxtRouteAnnouncer/>
     <NuxtLayout>
       <NuxtLoadingIndicator/>
-      <NuxtPage lazy/>
+      <NuxtPage/>
     </NuxtLayout>
     <template v-if="isDesktop">
       <LazyUiCursor/>

@@ -1,15 +1,15 @@
 const educations = [
     {
-        title: 'M.Sc in Information Technology',
-        institution: 'University of Tasmania (UTAS) Australia',
+        title: 'Master of Information Technology and Systems',
+        institution: 'University of Tasmania',
         duration: '2023 - 2025',
-        description: 'Specialized in Artificial Intelligence and Cybersecurity, focusing on secure system design, intelligent algorithms, and data-driven solutions.'
+        description: 'Completed with recognition on the Roll of Excellence in 2025. The program strengthened my skills in cybersecurity, artificial intelligence, data analysis, and practical systems work, with hands-on experience across IoT, APIs, backend data handling, and real-world project delivery.'
     },
     {
-        title: 'B.Sc Hons. in Computer Science',
-        institution: 'University of Greenwich (UoG) UK',
-        duration: '2016 - 2020',
-        description: 'Completed with strong emphasis on software development, databases, and computational theory.'
+        title: 'Bachelor of Business Information Technology',
+        institution: 'University of Greenwich',
+        duration: '2015 - 2019',
+        description: 'Built a strong foundation in systems analysis, database management, process improvement, and the role of technology in business operations. This degree shaped the way I think about technology not only as code, but as a tool for improving workflows, decisions, and everyday organisational efficiency.'
     },
 ]
 
