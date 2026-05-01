@@ -1,6 +1,6 @@
 <template>
   <section id="CONTACT" class="contain content-section !pt-4 md:!pt-6 lg:!pt-8">
-    <UiHeading>Contact</UiHeading>
+    <UiHeading>Let's Talk</UiHeading>
 
     <div class="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-12">
       <div class="lg:col-span-4">
@@ -13,21 +13,21 @@
             <Icon name="lucide:location-edit" class="mr-2"/>
             <div>
               <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Location</div>
-              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.address }}</div>
+              <div class="text-base leading-7 text-primary">{{ siteData.address }}</div>
             </div>
           </UiAnimate>
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:phone" class="mr-2"/>
             <div>
               <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Phone</div>
-              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.phone }}</div>
+              <div class="text-base leading-7 text-primary">{{ siteData.phone }}</div>
             </div>
           </UiAnimate>
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:mail" class="mr-2"/>
             <div>
               <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Email</div>
-              <div class="text-base leading-7 text-gray-700 dark:text-gray-200">{{ siteData.email }}</div>
+              <div class="text-base leading-7 text-primary">{{ siteData.email }}</div>
             </div>
           </UiAnimate>
         </div>

@@ -26,7 +26,7 @@
               class="social-link"
               :class="{
                 'social-link--animated': true,
-                'social-link--accent': ['LinkedIn', 'GitHub'].includes(social.name)
+                'social-link--accent': true
               }"
               :style="socialLinkStyle(n)"
           >
@@ -40,7 +40,7 @@
             <Icon
                 v-if="social.icon"
                 :name="social.icon"
-                class="social-icon h-7 w-7 text-gray-800 dark:text-gray-200"
+                class="social-icon h-7 w-7 text-gray-900 dark:text-white"
             />
           </a>
         </UiAnimate>
@@ -57,9 +57,9 @@ const {darkMode} = storeToRefs(themeStore)
 
 const socialLinkStyle = (index: number) => ({
   'animation-delay': `${index * 0.18}s`,
-  '--bubble-fill': darkMode.value ? 'rgba(255, 255, 255, 1)' : 'rgba(15, 23, 42, 0.98)',
-  '--bubble-ring': darkMode.value ? 'rgba(255, 255, 255, 0.78)' : 'rgba(15, 23, 42, 0.7)',
-  '--bubble-glow': darkMode.value ? 'rgba(255, 255, 255, 0.62)' : 'rgba(15, 23, 42, 0.26)',
+  '--bubble-fill': darkMode.value ? 'rgba(56, 189, 248, 1)' : 'rgba(14, 165, 233, 0.98)',
+  '--bubble-ring': darkMode.value ? 'rgba(125, 211, 252, 0.78)' : 'rgba(14, 165, 233, 0.7)',
+  '--bubble-glow': darkMode.value ? 'rgba(56, 189, 248, 0.62)' : 'rgba(14, 165, 233, 0.28)',
 })
 </script>
 
@@ -80,17 +80,17 @@ const socialLinkStyle = (index: number) => ({
   inset: 0.45rem;
   z-index: 1;
   border-radius: 9999px;
-  border: 1px solid rgba(229, 231, 235, 0.9);
-  background: rgba(255, 255, 255, 0.74);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+  border: 1px solid rgba(14, 165, 233, 0.28);
+  background: rgba(240, 249, 255, 0.78);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.11);
   backdrop-filter: blur(10px);
   transition: border-color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
 }
 
 .dark .social-core {
-  border-color: rgba(55, 65, 81, 0.95);
-  background: rgba(3, 7, 18, 0.58);
-  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.32);
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(8, 47, 73, 0.42);
+  box-shadow: 0 12px 26px rgba(56, 189, 248, 0.14);
 }
 
 .social-core::before {

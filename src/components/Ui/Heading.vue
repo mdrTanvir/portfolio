@@ -6,7 +6,7 @@
     >
 <!--        ease="back.out(3)"-->
       <h1
-          class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-gray-900 dark:text-white"
+          class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] !text-primary"
       >
         <slot></slot>
       </h1>

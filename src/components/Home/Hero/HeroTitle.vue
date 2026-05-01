@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-4xl pt-4 sm:pt-8 md:pt-10 xl:pt-12">
-    <h1 class="max-w-[18ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.05em] text-gray-900 dark:text-white sm:text-[4.15rem] md:text-[3.55rem] lg:text-[3.7rem]">
+  <div class="max-w-4xl">
+    <h1 class="max-w-[18ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.05em] text-primary sm:text-[4.15rem] md:text-[3.55rem] lg:text-[3.7rem]">
       <div class="overflow-hidden">
         <UiAnimate :distance="30" :delay="0.05" :duration="0.35" scrollTriggerStart="center bottom" :scrub="false">
           <span :aria-label="siteData.hero.greeting" class="hero-line block text-gray-700 dark:text-white">
@@ -35,15 +35,21 @@
       </div>
       <div v-if="siteData.hero.headlineTags?.length" class="mt-4 overflow-hidden sm:mt-5">
         <UiAnimate :distance="10" :delay="0.9" :duration="0.3" scrollTriggerStart="center bottom" :scrub="false">
-          <div class="flex flex-wrap items-center gap-3">
-            <span
-                v-for="(tag, index) in siteData.hero.headlineTags"
-                :key="tag"
-                class="hero-tag inline-flex items-center rounded-full border border-gray-300/80 bg-white/70 px-4 py-2 text-[0.42em] font-serif italic font-medium leading-none tracking-[0.02em] text-gray-700 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/50 dark:text-gray-100 sm:text-[0.4em] md:text-[0.38em] lg:text-[0.37em]"
-                :style="{'--tag-delay': `${1.55 + index * 0.14}s`}"
-            >
-              {{ tag }}
-            </span>
+          <div class="flex flex-wrap items-center gap-y-2 sm:gap-y-0 sm:gap-x-3">
+            <template v-for="(tag, index) in siteData.hero.headlineTags" :key="tag">
+              <span
+                  class="hero-tag inline-flex w-full items-center justify-center rounded-full bg-white/70 px-4 py-2 text-[0.42em] font-medium leading-none text-primary shadow-sm backdrop-blur-sm dark:bg-gray-900/50 sm:w-auto sm:text-[0.4em] md:text-[0.38em] lg:text-[0.37em]"
+                  :style="{'--tag-delay': `${1.55 + index * 0.14}s`}"
+              >
+                {{ tag }}
+              </span>
+              <span
+                  v-if="index < siteData.hero.headlineTags.length - 1"
+                  class="hidden text-[0.38em] font-normal text-gray-500 dark:text-gray-400 sm:inline-flex"
+              >
+                |
+              </span>
+            </template>
           </div>
         </UiAnimate>
       </div>
@@ -162,6 +168,8 @@ onBeforeUnmount(() => {
 }
 
 .hero-tag {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.18em;
   opacity: 0;
   transform: translateY(18px) scale(0.58);
   filter: blur(8px);
@@ -251,6 +259,12 @@ onBeforeUnmount(() => {
   }
   49%, 100% {
     opacity: 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-tag {
+    letter-spacing: 0.12em;
   }
 }
 </style>

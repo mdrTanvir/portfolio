@@ -10,7 +10,7 @@
           :distance="30"
           :delay="0.2"
       >
-        <h3 class="text-base sm:text-lg lg:text-[1.2rem] font-semibold uppercase tracking-[0.12em] text-gray-600 dark:text-gray-300">
+        <h3 class="text-base sm:text-lg lg:text-[1.2rem] font-semibold uppercase tracking-[0.12em] text-white">
           <slot></slot>
         </h3>
         <!--      <span class="text-sm font-bold tracking-wider uppercase dark:text-gray-600"></span>-->

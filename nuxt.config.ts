@@ -44,7 +44,11 @@ export default defineNuxtConfig({
                 {
                     rel: 'icon',
                     type: 'image/png',
-                    href: '/brand/tanvir-logo-gradient.png'
+                    href: '/brand/tanvir-logo-tab.png'
+                },
+                {
+                    rel: 'apple-touch-icon',
+                    href: '/brand/tanvir-logo-tab.png'
                 },
                 // {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
                 // {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''},

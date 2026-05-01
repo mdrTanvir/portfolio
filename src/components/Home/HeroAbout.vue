@@ -1,14 +1,14 @@
 <template>
   <!-- Hero Section -->
   <section id="HERO" class="heroSection pb-0 md:pb-4 lg:pb-6">
-    <div class="contain relative h-full min-h-[66lvh] md:h-[78lvh] md:min-h-[78lvh] z-10 max-h-[1300px] pt-16 sm:pt-20 md:pt-24 pb-2 md:pb-4">
-      <div class="h-full flex flex-col justify-center relative z-[2]">
+    <div class="contain relative min-h-[100svh] z-10 max-h-[1300px] pt-24 sm:pt-24 md:pt-28 pb-24 md:pb-10">
+      <div class="relative z-[2] flex min-h-[calc(100svh-12rem)] flex-col justify-center md:min-h-[calc(100svh-9.5rem)]">
         <HomeHeroTitle/>
       </div>
 
       <div>
         <!-- Social Links -->
-        <div class="absolute bottom-[180px] right-2 hidden md:block">
+        <div class="absolute top-72 right-2 hidden md:block md:top-[22rem] lg:top-[26rem]">
           <SocialLinksVertical/>
         </div>
         <img
@@ -29,7 +29,7 @@
   </section>
 
   <!-- About Section -->
-  <section id="ABOUT" class="contain content-section !pb-4 md:!pb-6 lg:!pb-8 about relative">
+  <section id="ABOUT" class="contain content-section !pt-0 md:!pt-0 lg:!pt-0 !pb-4 md:!pb-6 lg:!pb-8 about relative">
     <UiHeading class="z-10">About</UiHeading>
 
     <div class="mt-12 space-y-16">
@@ -38,10 +38,11 @@
           <UiSubheading>Profile</UiSubheading>
         </div>
         <div class="lg:col-span-9">
-          <div class="rounded-3xl border border-gray-200 bg-white/70 p-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 sm:p-7 lg:p-8">
-            <div class="space-y-[1.0625rem]">
+          <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white/70 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 sm:p-7 lg:p-8">
+            <div class="min-w-0 space-y-[1.0625rem]">
               <template v-for="(description, n) in siteData.about" :key="n">
                 <UiAnimate
+                    class="block w-full"
                     direction="up"
                     :distance="16"
                     :duration="0.55"
@@ -50,7 +51,7 @@
                     scrollTriggerEnd="top 68%"
                     :scrub="false"
                 >
-                  <p class="text-left text-[14.5px] leading-7 tracking-[-0.01em] text-gray-600 dark:text-gray-300 sm:text-[0.98rem] sm:leading-8 md:text-justify">
+                  <p class="max-w-none break-words text-justify text-[14.5px] leading-7 tracking-[-0.01em] text-gray-600 [hyphens:auto] dark:text-gray-300 sm:text-[0.98rem] sm:leading-8">
                     {{ description }}
                   </p>
                 </UiAnimate>

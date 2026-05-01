@@ -2,7 +2,6 @@
   <div class="relative flex h-full w-full flex-col rounded-2xl border border-gray-200 bg-white/70 px-6 py-6 shadow-sm dark:border-gray-800 dark:bg-gray-950/40">
     <!-- Dot -->
     <!--    <div class="timeline-dot"></div>-->
-    <div class="block absolute h-5 w-5 rounded-full left-0 top-7 z-[1] -translate-x-1/2 border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
     <slot>
       <h4
           v-if="title"
@@ -13,7 +12,7 @@
       </h4>
       <p
           v-if="subtitle"
-          class="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300"
+          class="mt-2 text-sm font-semibold uppercase leading-7 tracking-[0.14em] text-primary"
           :class="{'sm:text-base': responsiveText, 'text-base': !responsiveText}"
       >
         {{ subtitle }}

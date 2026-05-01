@@ -2,7 +2,7 @@
   <section ref="container" id="PROJECTS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8 relative"
            :class="{'mt-28':all}"
   >
-    <UiHeading>Projects</UiHeading>
+    <UiHeading>Portfolio</UiHeading>
 
     <div v-if="PROJECTS.length">
       <div
@@ -20,7 +20,7 @@
             </div>
             <div class="overflow-hidden">
               <UiAnimate :distance="40">
-                <p class="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">{{ project.for }} — {{ project.date }}</p>
+                <p class="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{{ project.for }} — {{ project.date }}</p>
               </UiAnimate>
             </div>
             <div class="overflow-hidden">
@@ -76,15 +76,15 @@
              :ref="el => imageRefs[index] = el"
         >
           <!--          <UiAnimate direction="left" :distance="60">-->
-          <template v-if="project.url || project.repository">
-            <a :href="project.url || project.repository" target="_blank" rel="noreferrer">
+          <template v-if="projectImageLink(project)">
+            <a :href="projectImageLink(project)" target="_blank" rel="noreferrer">
               <img
                   :src="project.photo"
                   :alt="project.name"
                   loading="lazy"
                   class="lazyImage img rounded-[1.4rem] border border-gray-200 bg-white shadow-sm dark:border-gray-800"
                   width="100%"
-                  :data-hover-text="project.url ? 'preview' : 'GitHub'"
+                  :data-hover-text="project.url ? 'preview' : project.repository ? 'GitHub' : 'Open'"
               />
             </a>
           </template>
@@ -124,6 +124,10 @@ const PROJECTS = computed(() => {
   if (props.all) return projects
   return projects.slice(0, perPage)
 })
+
+const projectImageLink = (project) => {
+  return project.url || project.repository || project.links?.[0]?.url || ''
+}
 
 const skillMap = computed(() => {
   const map = {}

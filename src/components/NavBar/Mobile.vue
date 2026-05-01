@@ -26,7 +26,7 @@
           <ul class="menu text-lg space-y-6 py-8 w-[280px]" ref="menu">
             <li v-for="item in navigation" :key="item.name">
               <a
-                  class="text-3xl font-medium cursor-pointer"
+                  class="mobile-nav-link cursor-pointer"
                   :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
                   :data-text="item.name"
                   @click.stop.prevent="closeMenu(); scrollTo(item.href);"
@@ -131,11 +131,19 @@ const closeMenu = () => {
 }
 
 watchEffect(() => {
+  if (!import.meta.client || !document.body) return
   document.body.style.overflow = menuOpen.value ? 'hidden' : ''
 })
 </script>
 
 <style scoped lang="scss">
+.mobile-nav-link {
+  font-family: 'Allura', cursive;
+  font-size: 3.35rem;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+}
+
 //.menu {
 //  a {
 //    display: block;

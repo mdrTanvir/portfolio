@@ -1,10 +1,10 @@
 <template>
   <nav class="hidden md:block ">
-    <ul class="hidden md:flex gap-x-8">
+    <ul class="hidden md:flex gap-x-4">
       <li v-for="item in navigation" :key="item.name" class="flex items-center">
         <a
             data-hover
-            class="text-base font-medium"
+            class="nav-link font-medium"
             :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
             @click.stop.prevent="scrollTo(item.href)"
         >
@@ -24,6 +24,13 @@ const {scrollTo} = useScrollTo()
 </script>
 
 <style scoped lang="scss">
+.nav-link {
+  font-family: 'Allura', cursive;
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 nav {
   ul {
     flex-wrap: wrap;
@@ -56,6 +63,12 @@ nav ul li {
   to {
     opacity: 1;
     transform: translateY(0) rotate(0deg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .nav-link {
+    font-size: 1.45rem;
   }
 }
 </style>
