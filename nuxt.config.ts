@@ -73,6 +73,7 @@ export default defineNuxtConfig({
         '@nuxtjs/device',
         'nuxt-particles',
         '@vercel/analytics',
+        '@vercel/speed-insights',
     ],
     tailwindcss: {
         exposeConfig: true,
