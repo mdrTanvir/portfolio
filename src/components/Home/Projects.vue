@@ -33,6 +33,7 @@
                 <template v-for="link in project.links">
                   <a :href="link.url"
                      target="_blank"
+                     rel="noopener noreferrer"
                      class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" :data-hover-text="link.name">
                     <Icon name="lucide:external-link" class="w-4 h-4"/>
                     <span>{{ link.name }}</span>
@@ -53,6 +54,7 @@
                 <UiAnimate>
                   <a :href="project.url"
                      target="_blank"
+                     rel="noopener noreferrer"
                      class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Live">
                     <Icon name="lucide:external-link" class="w-4 h-4"/>
                     <span>Live</span>
@@ -63,6 +65,7 @@
                 <UiAnimate>
                   <a :href="project.repository"
                      target="_blank"
+                     rel="noopener noreferrer"
                      class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Github">
                     <Icon name="lucide:github" class="w-4 h-4"/>
                     <span>GitHub</span>
@@ -77,7 +80,7 @@
         >
           <!--          <UiAnimate direction="left" :distance="60">-->
           <template v-if="projectImageLink(project)">
-            <a :href="projectImageLink(project)" target="_blank" rel="noreferrer">
+            <a :href="projectImageLink(project)" target="_blank" rel="noopener noreferrer">
               <img
                   :src="project.photo"
                   :alt="project.name"

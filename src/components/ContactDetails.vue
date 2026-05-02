@@ -40,23 +40,23 @@
           <UiSubheading>Let's Connect</UiSubheading>
         <div class="relative mt-6">
           <form @submit.prevent="submitForm">
-            <input v-model="form.botcheck" type="checkbox" class="hidden" tabindex="-1" autocomplete="off">
+            <input v-model="form.botcheck" type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="name" class="form-label">Your Name</label>
-                <input v-model="form.name" type="text" id="name" class="form-control" placeholder="John Doe" required>
+                <input v-model="form.name" type="text" id="name" class="form-control" placeholder="John Doe" required minlength="2" maxlength="80" autocomplete="name">
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="email" class="form-label">Your Email</label>
-                <input v-model="form.email" type="email" id="email" class="form-control" placeholder="johndoe@example.com" required>
+                <input v-model="form.email" type="email" id="email" class="form-control" placeholder="johndoe@example.com" required maxlength="120" autocomplete="email">
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="message" class="form-label">Your message</label>
-                <textarea v-model="form.message" id="message" class="form-control" required></textarea>
+                <textarea v-model="form.message" id="message" class="form-control" required minlength="10" maxlength="2000"></textarea>
               </UiAnimate>
             </div>
             <div class="form-group">
@@ -65,7 +65,6 @@
                     :loading="loading"
                     inverted
                     btnType="submit"
-                    @click="submitForm"
                 >Send Message
                 </UiPrimaryButton>
               </UiAnimate>
@@ -103,7 +102,12 @@ const result = ref("");
 const status = ref("");
 
 const submitForm = async () => {
+  if (loading.value) return;
+
   const {name, email, message} = form.value;
+  const trimmedName = name.trim();
+  const trimmedEmail = email.trim();
+  const trimmedMessage = message.trim();
 
   if (!form.value.access_key) {
     result.value = "Contact form is not configured yet.";
@@ -111,14 +115,24 @@ const submitForm = async () => {
     return;
   }
 
-  if (!name.trim() || !email.trim() || !message.trim()) {
+  if (form.value.botcheck) {
+    return;
+  }
+
+  if (!trimmedName || !trimmedEmail || !trimmedMessage) {
     result.value = "All fields are required.";
     hasError.value = true;
     return;
   }
 
+  if (trimmedName.length < 2 || trimmedName.length > 80 || trimmedMessage.length < 10 || trimmedMessage.length > 2000) {
+    result.value = "Please check your name and message length.";
+    hasError.value = true;
+    return;
+  }
+
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailPattern.test(email)) {
+  if (!emailPattern.test(trimmedEmail) || trimmedEmail.length > 120) {
     result.value = "Please enter a valid email address.";
     hasError.value = true;
     return;
@@ -127,27 +141,29 @@ const submitForm = async () => {
   loading.value = true;
   result.value = "Please wait...";
   try {
-    const response = await $fetch('https://api.web3forms.com/submit', {
+    const response = await $fetch<{ status: number; message: string }>('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: form.value,
+      body: {
+        ...form.value,
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage,
+      },
     });
-
-    console.log(response); // You can remove this line if you don't need it
 
     result.value = response.message;
 
     if (response.status === 200) {
       status.value = "success";
     } else {
-      console.log(response); // Log for debugging, can be removed
+      hasError.value = true;
       status.value = "error";
     }
-  } catch (error) {
-    console.log(error); // Log for debugging, can be removed
+  } catch (error: any) {
     hasError.value = true;
     status.value = "error";
-    result.value = "Something went wrong!";
+    result.value = error?.data?.statusMessage || error?.statusMessage || "Something went wrong!";
   } finally {
     // Reset form after submission
     form.value.name = "";

@@ -75,7 +75,7 @@
 
     <div class="hero-actions flex flex-wrap gap-3 sm:gap-4">
       <UiAnimate v-if="siteData.cvLink" :distance="18" :delay="0.96" :duration="0.55" scrollTriggerStart="center bottom" :scrub="false">
-        <a :href="siteData.cvLink" target='_blank' rel="noreferrer">
+        <a :href="siteData.cvLink" target="_blank" rel="noopener noreferrer">
           <UiPrimaryButton>
             <span class="hoverMove">
               <Icon name="lucide:download" class="w-4 h-4 mr-2"/> Download CV

@@ -18,8 +18,8 @@
          </div>
 
          <div class="flex gap-4 mt-3">
-           <a v-if="project.projectLink" :href="project.projectLink" target="_blank" class="font-bold" data-hover>Live</a>
-           <a v-if="project.gitHub" :href="project.gitHub" target="_blank" class="font-bold" data-hover>GitHub</a>
+           <a v-if="project.projectLink" :href="project.projectLink" target="_blank" rel="noopener noreferrer" class="font-bold" data-hover>Live</a>
+           <a v-if="project.gitHub" :href="project.gitHub" target="_blank" rel="noopener noreferrer" class="font-bold" data-hover>GitHub</a>
          </div>
        </div>
       </div>

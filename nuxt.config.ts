@@ -2,6 +2,31 @@
 import {resolve} from "node:path"
 import viteBuild from "./config/viteBuild";
 
+const securityHeaders = {
+    'Content-Security-Policy-Report-Only': [
+        "default-src 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+        "frame-ancestors 'none'",
+        "form-action 'self' https://api.web3forms.com",
+        "img-src 'self' data: blob: https:",
+        "font-src 'self' data:",
+        "style-src 'self' 'unsafe-inline'",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+        "connect-src 'self' https://api.web3forms.com https://vitals.vercel-insights.com https://*.vercel-insights.com",
+        "upgrade-insecure-requests",
+    ].join('; '),
+    'Cross-Origin-Opener-Policy': 'same-origin',
+    'Cross-Origin-Resource-Policy': 'same-origin',
+    'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+    'X-Content-Type-Options': 'nosniff',
+    'X-DNS-Prefetch-Control': 'off',
+    'X-Frame-Options': 'DENY',
+    'X-Permitted-Cross-Domain-Policies': 'none',
+}
+
 // @ts-ignore
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
@@ -14,15 +39,20 @@ export default defineNuxtConfig({
         // typeCheck: true,
     },
     routeRules: {
+        '/**': {
+            headers: securityHeaders,
+        },
         '/': {
             prerender: true,
             headers: {
+                ...securityHeaders,
                 'Cache-Control': 'public, max-age=31536000, immutable'
             }
         },
         '/projects': {
             prerender: true,
             headers: {
+                ...securityHeaders,
                 'Cache-Control': 'public, max-age=31536000, immutable'
             }
         }
@@ -58,7 +88,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            web3formsAccessKey: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY || '',
+            web3formsAccessKey: process.env.NUXT_PUBLIC_WEB3FORMS_ACCESS_KEY || process.env.WEB3FORMS_ACCESS_KEY || '',
         }
     },
     css: [

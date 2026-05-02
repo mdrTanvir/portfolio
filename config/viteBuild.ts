@@ -9,10 +9,16 @@ export default {
     },
     experimental: {
         payloadExtraction: false,
+        viteEnvironmentApi: true,
     },
     vite: {
         define: {
             'process.env.DEBUG': false,
+        },
+        resolve: {
+            alias: process.env.NODE_ENV === 'development'
+                ? {'#app-manifest': 'mocked-exports/empty'}
+                : {},
         },
         build: {
             rollupOptions: {

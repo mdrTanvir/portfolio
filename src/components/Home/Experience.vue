@@ -35,7 +35,7 @@
               </div>
               <UiAnimate :distance="20">
                 <div class="mt-2">
-                  <a v-if="experience.link" :href="experience.link" target="_blank" :data-hover-text="experience.company">
+                  <a v-if="experience.link" :href="experience.link" target="_blank" rel="noopener noreferrer" :data-hover-text="experience.company">
                     <span class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
                   </a>
                   <span v-else class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
@@ -71,6 +71,7 @@
                         <a
                             :href="project.url"
                             target="_blank"
+                            rel="noopener noreferrer"
                             class="text-primary font-medium hover:!underline"
                             data-hover-text="Go Live"
                         >

@@ -1,0 +1,10 @@
+title = "tanvir-rahman-portfolio gitleaks config"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public Nuxt environment variable names only"
+regexes = [
+  '''NUXT_PUBLIC_[A-Z0-9_]+''',
+]
