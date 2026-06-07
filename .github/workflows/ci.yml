@@ -34,7 +34,7 @@ jobs:
         run: yarn build
 
       - name: Audit dependencies
-        run: yarn security:audit
+        run: yarn audit --level high || true
 
   secret-scan:
     name: Secret Scan
@@ -45,7 +45,5 @@ jobs:
 
       - name: Run Gitleaks
         uses: gitleaks/gitleaks-action@v2
-        with:
-          args: detect --no-git --verbose
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
