@@ -142,7 +142,7 @@ const submitForm = async () => {
   loading.value = true;
   result.value = "Please wait...";
   try {
-    const response = await $fetch<{ status: number; message: string }>('https://api.web3forms.com/submit', {
+    const response = await $fetch<{ success: boolean; message: string }>('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: {
@@ -155,7 +155,7 @@ const submitForm = async () => {
 
     result.value = response.message;
 
-    if (response.status === 200) {
+    if (response.success) {
       status.value = "success";
     } else {
       hasError.value = true;
