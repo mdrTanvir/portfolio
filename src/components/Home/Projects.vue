@@ -189,7 +189,7 @@ onBeforeUnmount(() => {
 .image-wrapper .img {
   width: 100%;
   height: auto;
-  max-width: 520px;
+  max-width: 100%;
   max-height: 100%;
   //display: block;
   //object-fit: cover;
@@ -199,6 +199,13 @@ onBeforeUnmount(() => {
 .project-image-link {
   display: block;
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .image-wrapper .img,
+  .project-image-link {
+    max-width: 520px;
+  }
 }
 </style>
