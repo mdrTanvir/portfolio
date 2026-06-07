@@ -138,6 +138,7 @@ const submitForm = async () => {
     return;
   }
 
+  hasError.value = false;
   loading.value = true;
   result.value = "Please wait...";
   try {

@@ -25,7 +25,7 @@
       />
     </div>
     <div class="bottom-section">
-      <div class="block h-10">{{ project.name }}</div>
+      <div class="block min-h-[3.5rem] leading-snug">{{ project.name }}</div>
       <div class="flex flex-wrap gap-x-2 mt-3">
         <div v-for="skill in project.skills">
           <div class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ skill }},</div>
