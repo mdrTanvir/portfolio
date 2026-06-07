@@ -23,7 +23,7 @@ const siteData = {
     email: 'md.tanvir.rahman.au@gmail.com',
     profile: '',
     // profile: '/images/profile2.webp',
-    cvLink: '/resume.html',
+    cvLink: '/Md-Tanvir-Rahman-Resume.pdf',
     meta: {
         name: siteBrand,
         description: 'IT graduate based in Hobart with hands-on experience across software, data, systems, and security. I enjoy building reliable digital solutions, improving user experiences, and contributing thoughtfully within collaborative teams.',

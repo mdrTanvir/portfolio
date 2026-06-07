@@ -2,16 +2,16 @@
   <section ref="container" id="PROJECTS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8 relative"
            :class="{'mt-28':all}"
   >
-    <UiHeading>Portfolio</UiHeading>
+    <UiHeading>Projects</UiHeading>
 
     <div v-if="PROJECTS.length">
       <div
           v-for="(project, index) in PROJECTS"
           :key="index"
-          class="mx-auto grid w-full items-start gap-10 border-b border-gray-200/80 py-14 last:border-b-0 lg:grid-cols-12 lg:gap-14"
+          class="mx-auto grid w-full items-start gap-10 border-b border-gray-200/80 py-14 last:border-b-0 lg:grid-cols-12 lg:gap-10"
           :class="{'sm:mb-20 md:mb-36':all}"
       >
-        <div class="flex items-center lg:col-span-5">
+        <div class="flex items-center lg:col-span-8">
           <div class="flex h-full flex-col">
             <div class="overflow-hidden">
               <UiAnimate :distance="30">
@@ -25,7 +25,7 @@
             </div>
             <div class="overflow-hidden">
               <UiAnimate :distance="40">
-                <p class="mt-5 max-w-2xl text-justify text-[15px] leading-8 text-gray-600 dark:text-gray-300 sm:text-[1.02rem]">{{ project.description }}</p>
+                <p class="mt-5 max-w-4xl text-justify text-[15px] leading-8 text-gray-600 dark:text-gray-300 sm:text-[1.02rem]">{{ project.description }}</p>
               </UiAnimate>
             </div>
             <div v-if="project.links" class="mt-5 overflow-hidden">
@@ -75,12 +75,12 @@
             </div>
           </div>
         </div>
-        <div class="image-wrapper flex items-start md:items-center lg:col-span-7"
+        <div class="image-wrapper flex items-start md:items-center lg:col-span-4 lg:justify-end"
              :ref="el => imageRefs[index] = el"
         >
           <!--          <UiAnimate direction="left" :distance="60">-->
           <template v-if="projectImageLink(project)">
-            <a :href="projectImageLink(project)" target="_blank" rel="noopener noreferrer">
+            <a :href="projectImageLink(project)" target="_blank" rel="noopener noreferrer" class="project-image-link">
               <img
                   :src="project.photo"
                   :alt="project.name"
@@ -189,10 +189,16 @@ onBeforeUnmount(() => {
 .image-wrapper .img {
   width: 100%;
   height: auto;
-  max-width: 100vw;
+  max-width: 520px;
   max-height: 100%;
   //display: block;
   //object-fit: cover;
   aspect-ratio: 16/9;
+}
+
+.project-image-link {
+  display: block;
+  width: 100%;
+  max-width: 520px;
 }
 </style>
