@@ -1,0 +1,39 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="36" fill="#07111A"/>
+  <rect x="54" y="48" width="1172" height="624" rx="30" fill="#F7FAFC"/>
+  <rect x="54" y="48" width="1172" height="70" rx="30" fill="#E7EEF4"/>
+  <circle cx="98" cy="83" r="10" fill="#FF6B6B"/>
+  <circle cx="130" cy="83" r="10" fill="#F4B942"/>
+  <circle cx="162" cy="83" r="10" fill="#4FD1C5"/>
+  <rect x="210" y="64" width="380" height="38" rx="19" fill="#FFFFFF"/>
+  <text x="238" y="88" fill="#40566B" font-family="Arial, sans-serif" font-size="18" font-weight="700">weather prediction dashboard</text>
+  <rect x="86" y="144" width="1108" height="498" rx="26" fill="#FFFFFF"/>
+  <rect x="118" y="178" width="510" height="430" rx="24" fill="#0E2433"/>
+  <text x="158" y="232" fill="#E6F6FF" font-family="Arial, sans-serif" font-size="34" font-weight="700">Tasmania Weather AI</text>
+  <text x="158" y="270" fill="#9BD8F2" font-family="Arial, sans-serif" font-size="20">Live sensor stream and forecast comparison</text>
+  <path d="M158 438C208 383 254 409 301 358C354 301 410 337 456 286C505 232 557 262 588 224" stroke="#59C3FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M158 500C212 482 250 519 302 488C356 456 399 492 458 438C507 393 550 412 588 376" stroke="#7AE582" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#F7FAFC">
+    <circle cx="158" cy="438" r="8"/>
+    <circle cx="301" cy="358" r="8"/>
+    <circle cx="456" cy="286" r="8"/>
+    <circle cx="588" cy="224" r="8"/>
+  </g>
+  <rect x="158" y="540" width="170" height="46" rx="23" fill="#59C3FF"/>
+  <text x="196" y="570" fill="#062133" font-family="Arial, sans-serif" font-size="20" font-weight="700">R2 0.84</text>
+  <rect x="348" y="540" width="216" height="46" rx="23" fill="#14384E"/>
+  <text x="382" y="570" fill="#D8F2FF" font-family="Arial, sans-serif" font-size="20" font-weight="700">5 Tasmanian Sites</text>
+  <rect x="668" y="178" width="484" height="196" rx="24" fill="#EEF7FB"/>
+  <text x="704" y="224" fill="#14435C" font-family="Arial, sans-serif" font-size="20" font-weight="700">IOT SENSOR NODE</text>
+  <circle cx="756" cy="292" r="42" fill="#59C3FF"/>
+  <path d="M756 252V216M756 368V332M716 292H680M832 292H796" stroke="#14435C" stroke-width="10" stroke-linecap="round"/>
+  <text x="836" y="285" fill="#102A43" font-family="Arial, sans-serif" font-size="30" font-weight="700">Real-time data</text>
+  <text x="836" y="322" fill="#486581" font-family="Arial, sans-serif" font-size="22">temperature, humidity, pressure</text>
+  <rect x="668" y="412" width="484" height="196" rx="24" fill="#F4F7EC"/>
+  <text x="704" y="458" fill="#52641E" font-family="Arial, sans-serif" font-size="20" font-weight="700">FORECAST MODEL</text>
+  <rect x="704" y="492" width="86" height="72" rx="16" fill="#D9F99D"/>
+  <rect x="816" y="470" width="86" height="94" rx="16" fill="#BEF264"/>
+  <rect x="928" y="518" width="86" height="46" rx="16" fill="#A3E635"/>
+  <text x="1038" y="530" fill="#102A43" font-family="Arial, sans-serif" font-size="28" font-weight="700">10+ years</text>
+  <text x="1038" y="562" fill="#52641E" font-family="Arial, sans-serif" font-size="20">Bureau of Meteorology data</text>
+</svg>
