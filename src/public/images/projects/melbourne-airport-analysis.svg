@@ -1,0 +1,32 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" rx="36" fill="#0B1118"/>
+  <rect x="54" y="48" width="1172" height="624" rx="30" fill="#F8FAFC"/>
+  <rect x="54" y="48" width="1172" height="70" rx="30" fill="#E9EEF5"/>
+  <circle cx="98" cy="83" r="10" fill="#FF6B6B"/>
+  <circle cx="130" cy="83" r="10" fill="#F4B942"/>
+  <circle cx="162" cy="83" r="10" fill="#4FD1C5"/>
+  <rect x="210" y="64" width="398" height="38" rx="19" fill="#FFFFFF"/>
+  <text x="238" y="88" fill="#40566B" font-family="Arial, sans-serif" font-size="18" font-weight="700">melbourne airport analysis</text>
+  <rect x="86" y="144" width="1108" height="498" rx="26" fill="#FFFFFF"/>
+  <rect x="118" y="178" width="1012" height="86" rx="24" fill="#111827"/>
+  <text x="158" y="232" fill="#F8FAFC" font-family="Arial, sans-serif" font-size="34" font-weight="700">Operational Efficiency Analysis</text>
+  <text x="846" y="230" fill="#CBD5E1" font-family="Arial, sans-serif" font-size="22">730 days · 4 terminals</text>
+  <rect x="142" y="318" width="190" height="248" rx="22" fill="#EEF2FF"/>
+  <rect x="378" y="286" width="190" height="280" rx="22" fill="#ECFDF5"/>
+  <rect x="614" y="348" width="190" height="218" rx="22" fill="#FFF7ED"/>
+  <rect x="850" y="304" width="190" height="262" rx="22" fill="#FDF2F8"/>
+  <text x="198" y="370" fill="#3730A3" font-family="Arial, sans-serif" font-size="32" font-weight="700">T1</text>
+  <text x="434" y="338" fill="#047857" font-family="Arial, sans-serif" font-size="32" font-weight="700">T2</text>
+  <text x="670" y="400" fill="#C2410C" font-family="Arial, sans-serif" font-size="32" font-weight="700">T3</text>
+  <text x="906" y="356" fill="#BE185D" font-family="Arial, sans-serif" font-size="32" font-weight="700">T4</text>
+  <path d="M190 502C242 460 284 484 332 432C390 370 450 410 510 380C574 348 632 462 704 418C772 376 832 428 910 368C956 332 1000 336 1052 306" stroke="#2563EB" stroke-width="8" stroke-linecap="round"/>
+  <rect x="158" y="590" width="238" height="34" rx="17" fill="#DBEAFE"/>
+  <text x="184" y="613" fill="#1D4ED8" font-family="Arial, sans-serif" font-size="18" font-weight="700">Kruskal-Wallis</text>
+  <rect x="418" y="590" width="202" height="34" rx="17" fill="#DCFCE7"/>
+  <text x="448" y="613" fill="#166534" font-family="Arial, sans-serif" font-size="18" font-weight="700">ANOVA</text>
+  <rect x="642" y="590" width="230" height="34" rx="17" fill="#FFEDD5"/>
+  <text x="672" y="613" fill="#C2410C" font-family="Arial, sans-serif" font-size="18" font-weight="700">Paired t-tests</text>
+  <rect x="894" y="590" width="236" height="34" rx="17" fill="#FCE7F3"/>
+  <text x="924" y="613" fill="#BE185D" font-family="Arial, sans-serif" font-size="18" font-weight="700">Dunn post-hoc</text>
+  <text x="158" y="292" fill="#475569" font-family="Arial, sans-serif" font-size="22">Statistical testing turned luggage-handling data into operational recommendations.</text>
+</svg>

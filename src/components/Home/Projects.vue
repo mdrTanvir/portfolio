@@ -121,7 +121,7 @@ const imageRefs = ref<HTMLElement[]>([])
 let skewTrigger: ScrollTrigger | null = null
 // const pathRef = ref<SVGPathElement | null>(null)
 
-const perPage = 3
+const perPage = 6
 
 const PROJECTS = computed(() => {
   if (props.all) return projects
