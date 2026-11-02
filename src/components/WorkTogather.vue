@@ -1,17 +1,6 @@
 <template>
   <div class="relative flex w-full flex-col items-center justify-center py-4 md:py-6">
     <div>
-      <div v-if="!all && projects.length > perPage" class="my-6 flex justify-center md:justify-start">
-        <UiAnimate :distance="40">
-          <NuxtLink to="/projects">
-            <UiPrimaryButton inverted class="shadow-xl">
-              <span class="hoverMove flex items-center justify-center">
-                View All Projects <Icon name="lucide:arrow-up-right" class="w-6 h-6 ml-2 -mb-2"/>
-              </span>
-            </UiPrimaryButton>
-          </NuxtLink>
-        </UiAnimate>
-      </div>
       <UiAnimate :distance="40">
         <h3 class="h4">Have a role, project, or idea in mind?</h3>
       </UiAnimate>
@@ -36,12 +25,4 @@
 </template>
 
 <script setup lang="ts">
-import {works} from "~/config/data/data";
-
-defineProps({
-  all: {type: Boolean, default: false},
-})
-
-const perPage = 3
-const projects = works || []
 </script>
