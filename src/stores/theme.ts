@@ -4,7 +4,8 @@ export const useThemeStore = defineStore(
     'theme',
     () => {
         const darkMode = ref(false)
-        const theme = useCookie<'light' | 'dark'>('theme', {
+        // A new preference key resets the former dark-mode default for returning visitors.
+        const theme = useCookie<'light' | 'dark'>('portfolio-theme', {
             maxAge: 60 * 60 * 24 * 30, // 30 days
             sameSite: 'lax',
             secure: false,
@@ -19,7 +20,7 @@ export const useThemeStore = defineStore(
         }
 
         function setTheme(dark_mode: null | boolean = null) {
-            if (process.client) document.documentElement.classList.remove(theme.value);
+            if (process.client) document.documentElement.classList.remove('light', 'dark');
             if (dark_mode === null) {
                 darkMode.value = theme.value === 'dark'
             } else {

@@ -8,7 +8,7 @@ export const projects = [
         repository: 'https://github.com/mdrTanvir/Weather-Prediction-Dashboard',
         for: 'Academic Project',
         date: '2025',
-        skills: ['Python', 'Machine Learning', 'Data Analysis', 'REST APIs'],
+        skills: ['Python', 'Machine Learning', 'Data Analytics', 'REST API Development', 'Cloud Deployment'],
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const projects = [
         repository: 'https://github.com/mdrTanvir/SDG-Health-Analytics',
         for: 'Data Analytics Project',
         date: '2025',
-        skills: ['Python', 'Machine Learning', 'Data Analysis'],
+        skills: ['Python', 'Machine Learning', 'Data Analytics', 'Statistical Analysis'],
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ export const projects = [
         repository: 'https://github.com/mdrTanvir/Melbourne-airport-efficiency-analysis',
         for: 'Data Analytics Project',
         date: '2025',
-        skills: ['Python', 'Data Analysis', 'Problem Solving'],
+        skills: ['Python', 'Data Analytics', 'Statistical Analysis'],
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ export const projects = [
         repository: '',
         for: 'UTAS Placement',
         date: '2025',
-        skills: ['Vue.js', 'JavaScript', 'Accessibility', 'Agile'],
+        skills: ['JavaScript & Vue.js', 'Accessibility & UX', 'Agile Delivery'],
     },
 ]
 

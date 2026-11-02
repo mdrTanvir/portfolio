@@ -71,7 +71,7 @@ export default defineNuxtConfig({
             meta: [
                 {name: 'application-name', content: 'tanvir'},
                 {name: 'apple-mobile-web-app-title', content: 'tanvir'},
-                {name: 'theme-color', content: '#050505'},
+                {name: 'theme-color', content: '#f8fafc'},
                 {name: 'description', content: 'Tanvir Rahman is a Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
                 {name: 'keywords', content: 'Tanvir Rahman, Aurora Energy, Customer Service Representative, Technical Support, IT Graduate, Launceston'},
                 {property: 'og:type', content: 'website'},

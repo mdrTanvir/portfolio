@@ -21,7 +21,7 @@
                   >
                     <div class="flex h-full min-h-[78px] items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 px-4 py-4 shadow-sm dark:border-gray-800 dark:bg-gray-950/50">
                       <span v-if="skill.logo" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900">
-                        <img :src="skill.logo" :alt="skill.name" loading="lazy" height="26" width="26" :class="{'h-[26px] w-[26px]': true, 'skill-github-logo': skill.name === 'GitHub'}"/>
+                        <img :src="skill.logo" :alt="skill.name" loading="lazy" height="26" width="26" :class="{'h-[26px] w-[26px]': true, 'skill-github-logo': skill.logo.includes('github') }"/>
                       </span>
                       <span v-else-if="skill.icon" class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-primary dark:bg-sky-950/50">
                         <Icon :name="skill.icon" :aria-label="skill.name" class="h-5 w-5"/>

@@ -35,7 +35,9 @@
                      target="_blank"
                      rel="noopener noreferrer"
                      class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" :data-hover-text="link.name">
-                    <Icon name="lucide:external-link" class="w-4 h-4"/>
+                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/80 dark:bg-white/10">
+                      <img src="/images/skills/cloud-deployment.svg" alt="" aria-hidden="true" class="h-5 w-5"/>
+                    </span>
                     <span>{{ link.name }}</span>
                   </a>
                 </template>
@@ -55,8 +57,8 @@
                   <a :href="project.url"
                      target="_blank"
                      rel="noopener noreferrer"
-                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Live">
-                    <Icon name="lucide:external-link" class="w-4 h-4"/>
+                     class="inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-50 px-4 py-2 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-sky-500 hover:bg-sky-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 dark:bg-sky-950/40 dark:hover:bg-sky-900/60 dark:focus-visible:ring-offset-gray-950" data-hover-text="Live">
+                    <img src="/images/skills/cloud-deployment.svg" alt="" aria-hidden="true" class="h-4 w-4"/>
                     <span>Live</span>
                   </a>
                 </UiAnimate>
@@ -66,8 +68,10 @@
                   <a :href="project.repository"
                      target="_blank"
                      rel="noopener noreferrer"
-                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" data-hover-text="Github">
-                    <Icon name="lucide:github" class="w-4 h-4"/>
+                     class="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-800 transition duration-200 hover:-translate-y-0.5 hover:border-gray-500 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:border-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950" data-hover-text="GitHub">
+                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-white/10">
+                      <img src="/brand/github.svg" alt="" aria-hidden="true" class="h-5 w-5 dark:brightness-0 dark:invert"/>
+                    </span>
                     <span>GitHub</span>
                   </a>
                 </UiAnimate>

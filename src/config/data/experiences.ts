@@ -14,7 +14,7 @@ const experiences = [
             'Follow relevant legislation, policies, and procedures when handling customer enquiries and account information.',
             'Manage concurrent calls and document interactions accurately to support follow-up and consistent service delivery.',
         ],
-        skills: ['Incident Investigation', 'Data Validation', 'Communication'],
+        skills: ['Customer Service', 'Data Validation', 'Operational Systems'],
     },
     {
         title: 'Fresh Produce Team Member',
@@ -31,7 +31,7 @@ const experiences = [
             'Troubleshot handheld scanners and operational-system issues to keep daily workflows moving.',
             'Used SAP operational reports, gap scans, and stock checks to investigate inventory and price discrepancies.',
         ],
-        skills: ['SAP Reporting', 'Data Validation', 'User Training', 'Communication'],
+        skills: ['SAP Reporting', 'Data Validation', 'Operational Systems', 'User Training & Documentation'],
     },
     {
         title: 'Software Developer',
@@ -48,7 +48,7 @@ const experiences = [
             'Optimised database queries and system architecture for responsiveness and reliability under high-volume load.',
             'Partnered with QA through structured testing cycles to strengthen platform resilience and reduce defects.',
         ],
-        skills: ['Laravel', 'PHP', 'Python', 'Vue.js', 'MySQL', 'MongoDB', 'REST APIs', 'Git'],
+        skills: ['PHP & Laravel', 'JavaScript & Vue.js', 'SQL & Query Optimisation', 'REST API Development', 'Git & GitHub', 'Software Testing & QA'],
         projectLinks: [
             {name: 'a2i Dashboard', url: 'https://a2i.gov.bd/'},
             {name: 'BSCIC', url: 'https://bscic.gov.bd/'},
@@ -69,7 +69,7 @@ const experiences = [
             'Resolved accessibility gaps using user-centred design thinking on a live research platform.',
             'Contributed to sprint planning, code reviews, iterative delivery, and component restructuring to reduce maintenance effort.',
         ],
-        skills: ['Vue.js', 'JavaScript', 'Accessibility', 'Agile', 'Code Refactoring', 'User Experience'],
+        skills: ['JavaScript & Vue.js', 'Accessibility & UX', 'Agile Delivery', 'Software Testing & QA'],
         projectLinks: [
             {name: 'ExerTime Platform', url: 'https://www.exertime.com'}
         ],

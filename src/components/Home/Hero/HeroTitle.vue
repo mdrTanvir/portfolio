@@ -1,5 +1,5 @@
 <template>
-  <div class="grid max-w-6xl items-end gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
+  <div class="max-w-4xl">
     <div>
       <h1 class="max-w-[18ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.05em] text-primary sm:text-[4.15rem] md:text-[3.55rem] lg:text-[3.7rem]">
         <span class="block text-gray-700 dark:text-white">{{ siteData.hero.greeting }}</span>
@@ -25,16 +25,6 @@
         <UiPrimaryButton inverted @click="scrollTo('CONTACT')"><Icon name="lucide:message-circle" class="mr-2 h-4 w-4"/>Let's Talk</UiPrimaryButton>
       </div>
     </div>
-
-    <aside class="hidden rounded-2xl border border-sky-400/20 bg-slate-950/60 p-6 shadow-2xl backdrop-blur lg:block" aria-label="Selected impact">
-      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">Selected impact</p>
-      <dl class="mt-5 space-y-5">
-        <div v-for="impact in siteData.hero.impacts" :key="impact.label">
-          <dt class="text-3xl font-semibold tracking-[-0.04em] text-gray-900 dark:text-white">{{ impact.value }}</dt>
-          <dd class="mt-1 text-sm leading-6 text-gray-600 dark:text-gray-300">{{ impact.label }}</dd>
-        </div>
-      </dl>
-    </aside>
   </div>
 </template>
 

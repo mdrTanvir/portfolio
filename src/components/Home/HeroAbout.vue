@@ -8,7 +8,7 @@
 
       <div>
         <!-- Social Links -->
-        <div class="absolute top-72 right-2 hidden md:block md:top-[22rem] lg:top-[26rem]">
+        <div class="absolute right-2 top-1/2 z-20 hidden -translate-y-1/2 md:block">
           <SocialLinksVertical/>
         </div>
         <img
