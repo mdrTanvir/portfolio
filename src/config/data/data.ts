@@ -39,7 +39,7 @@ const siteData = {
         impacts: [
             {value: '20%', label: 'faster navigation on the ExerTime health platform'},
             {value: '0.84', label: 'R² achieved in an IoT weather dashboard'},
-            {value: '190+', label: 'countries analysed in global health research'},
+            {value: '207', label: 'countries analysed in global health research'},
         ],
     },
     about: [
