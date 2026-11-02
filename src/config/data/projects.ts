@@ -13,7 +13,7 @@ export const projects = [
     {
         id: 2,
         name: 'Global Health Analytics',
-        photo: '/images/projects/sdg-health-analytics.svg',
+        photo: '/images/projects/global-health-analytics-site.jpg',
         description: 'A public-facing global health research project that translates data from 207 countries into clear evidence on maternal mortality and life expectancy. It compares country outcome patterns, tests forecasting approaches with time-aware validation, and links to the reproducible analysis behind the findings.',
         url: 'https://health.tanvirrahman.dev/',
         repository: 'https://github.com/mdrTanvir/SDG-Health-Analytics',
