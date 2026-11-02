@@ -6,6 +6,7 @@
             data-hover
             class="nav-link font-medium"
             :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
+            :href="`#${item.href}`"
             @click.stop.prevent="scrollTo(item.href)"
         >
           <span class="hoverMove">{{ item.name }}</span>
@@ -25,10 +26,10 @@ const {scrollTo} = useScrollTo()
 
 <style scoped lang="scss">
 .nav-link {
-  font-family: 'Allura', cursive;
-  font-size: 1.3rem;
+  font-family: inherit;
+  font-size: 0.94rem;
   line-height: 1;
-  letter-spacing: 0;
+  letter-spacing: 0.02em;
 }
 
 nav {
@@ -68,7 +69,7 @@ nav ul li {
 
 @media (min-width: 1280px) {
   .nav-link {
-    font-size: 1.45rem;
+    font-size: 1rem;
   }
 }
 </style>

@@ -3,7 +3,7 @@ import {defineStore} from 'pinia'
 export const useThemeStore = defineStore(
     'theme',
     () => {
-        const darkMode = ref(true)
+        const darkMode = ref(false)
         const theme = useCookie<'light' | 'dark'>('theme', {
             maxAge: 60 * 60 * 24 * 30, // 30 days
             sameSite: 'lax',

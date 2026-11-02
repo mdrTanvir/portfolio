@@ -3,7 +3,7 @@ import {resolve} from "node:path"
 import viteBuild from "./config/viteBuild";
 
 const securityHeaders = {
-    'Content-Security-Policy-Report-Only': [
+    'Content-Security-Policy': [
         "default-src 'self'",
         "base-uri 'self'",
         "object-src 'none'",
@@ -12,7 +12,9 @@ const securityHeaders = {
         "img-src 'self' data: blob: https:",
         "font-src 'self' data:",
         "style-src 'self' 'unsafe-inline'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+        // Nuxt emits a small inline bootstrap payload in the static build.
+        // Keep that allowance, but block eval-based script execution.
+        "script-src 'self' 'unsafe-inline'",
         "connect-src 'self' https://api.web3forms.com https://vitals.vercel-insights.com https://*.vercel-insights.com",
         "upgrade-insecure-requests",
     ].join('; '),
@@ -62,15 +64,29 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: 'tanvir',
+            title: 'Tanvir Rahman | Software, Data & Cybersecurity',
             htmlAttrs: {
                 lang: 'en'
             },
             meta: [
                 {name: 'application-name', content: 'tanvir'},
                 {name: 'apple-mobile-web-app-title', content: 'tanvir'},
+                {name: 'theme-color', content: '#050505'},
+                {name: 'description', content: 'Tanvir Rahman is a Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
+                {name: 'keywords', content: 'Tanvir Rahman, Aurora Energy, Customer Service Representative, Technical Support, IT Graduate, Launceston'},
+                {property: 'og:type', content: 'website'},
+                {property: 'og:site_name', content: 'Tanvir Rahman'},
+                {property: 'og:title', content: 'Tanvir Rahman | Software, Data & Cybersecurity'},
+                {property: 'og:description', content: 'Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
+                {property: 'og:url', content: 'https://mdr-tanvir.dev/'},
+                {property: 'og:image', content: 'https://mdr-tanvir.dev/og.png'},
+                {name: 'twitter:card', content: 'summary_large_image'},
+                {name: 'twitter:title', content: 'Tanvir Rahman | Software, Data & Cybersecurity'},
+                {name: 'twitter:description', content: 'Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
+                {name: 'twitter:image', content: 'https://mdr-tanvir.dev/og.png'},
             ],
             link: [
+                {rel: 'canonical', href: 'https://mdr-tanvir.dev/'},
                 {
                     rel: 'icon',
                     type: 'image/png',

@@ -2,16 +2,16 @@
   <div>
     <div class="relative flex items-center md:hidden">
       <!-- Open Trigger -->
-      <div v-show="!menuOpen" class="menu-trigger block cursor-pointer" @click="openMenu">
+      <button v-show="!menuOpen" type="button" class="menu-trigger block cursor-pointer" aria-label="Open navigation menu" :aria-expanded="menuOpen" @click="openMenu">
         <i class="menu-trigger-bar top" ref="openTop"></i>
         <i class="menu-trigger-bar middle" ref="openMiddle"></i>
         <i class="menu-trigger-bar bottom" ref="openBottom"></i>
-      </div>
+      </button>
       <!-- Close Trigger -->
-      <div v-show="menuOpen" class="close-trigger block cursor-pointer" ref="closeTrigger" @click="closeMenu">
+      <button v-show="menuOpen" type="button" class="close-trigger block cursor-pointer" ref="closeTrigger" aria-label="Close navigation menu" @click="closeMenu">
         <i class="close-trigger-bar left" ref="closeLeft"></i>
         <i class="close-trigger-bar right" ref="closeRight"></i>
-      </div>
+      </button>
     </div>
 
     <div v-show="showMenu" class="mobileNavContainer relative">
@@ -29,6 +29,7 @@
                   class="mobile-nav-link cursor-pointer"
                   :class="item.focus ? 'text-primary dark:text-primary' : 'text-gray-700 dark:text-white'"
                   :data-text="item.name"
+                  :href="`#${item.href}`"
                   @click.stop.prevent="closeMenu(); scrollTo(item.href);"
               >
                 {{ item.name }}
@@ -138,10 +139,11 @@ watchEffect(() => {
 
 <style scoped lang="scss">
 .mobile-nav-link {
-  font-family: 'Allura', cursive;
-  font-size: 3.35rem;
-  line-height: 0.95;
-  letter-spacing: 0.01em;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
 //.menu {

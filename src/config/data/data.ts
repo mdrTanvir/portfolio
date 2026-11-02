@@ -18,39 +18,45 @@ const siteBrand = 'Tanvir'
 const siteData = {
     name: siteBrand,
     logoName: 'Tanvir',
-    address: 'Hobart, Tasmania, Australia',
+    address: 'Launceston, Tasmania, Australia',
     phone: '+61 450469323',
-    email: 'md.tanvir.rahman.au@gmail.com',
+    email: 'tanvirrahman.au@gmail.com',
     profile: '',
     // profile: '/images/profile2.webp',
     cvLink: '/Md-Tanvir-Rahman-Resume.pdf',
     meta: {
         name: siteBrand,
-        description: 'IT graduate based in Hobart with hands-on experience across software, data, systems, and security. I enjoy building reliable digital solutions, improving user experiences, and contributing thoughtfully within collaborative teams.',
-        image: '/images/projects/p2.png',
+        siteUrl: 'https://mdr-tanvir.dev',
+        description: 'IT graduate in Launceston with experience in technical support, SQL, operational reporting, and customer service across utilities, software development, and retail.',
+        image: '/og.png',
         keywords: `${fullName}, IT Graduate, Software Developer, Cybersecurity, Data, Systems`,
     },
     hero: {
         greeting: `I'm ${fullName},`,
-        headline: 'Emerging IT Professional',
-        headlineTags: ['AI', 'Cybersecurity', 'Data'],
-        subheadline: 'With practical experience across software, data, systems, and security, I enjoy creating dependable solutions, improving digital experiences, and solving real problems through thoughtful, collaborative work.',
+        headline: 'IT Graduate',
+        headlineTags: ['Technical Support', 'Data & Reporting', 'Systems'],
+        subheadline: 'I combine technical problem-solving with practical experience in customer support, operational reporting, and clear communication across utilities, software, and retail.',
+        impacts: [
+            {value: '20%', label: 'faster navigation on the ExerTime health platform'},
+            {value: '0.84', label: 'R² achieved in an IoT weather dashboard'},
+            {value: '190+', label: 'countries analysed in global health research'},
+        ],
     },
     about: [
-        "I'm Tanvir, an IT graduate based in Hobart who enjoys making technology more useful, approachable, and dependable. I recently completed a Master of Information Technology and Systems at the University of Tasmania, where I was recognised on the Roll of Excellence in 2025 for strong academic performance and practical engagement.",
+        "I'm Tanvir, an IT graduate based in Launceston and a Customer Service Officer at Aurora Energy. I combine technical problem-solving with practical customer support, data, and systems experience.",
 
-        "My background brings together software development, data handling, systems thinking, and security awareness. I am most engaged when I can understand a problem clearly, improve the experience for real users, and contribute work that is both technically sound and genuinely helpful.",
+        "My background spans utilities, software development, and retail. I am comfortable investigating account and data discrepancies, working with operational systems, and explaining outcomes clearly to people with different levels of technical knowledge.",
 
-        "During my University of Tasmania placement, I helped improve the usability of the ExerTime platform by contributing front-end refinements, accessibility improvements, and cleaner user flows. That work supported a measurable reduction in navigation time of around 20 percent and strengthened my confidence in research-driven product work.",
+        "During my University of Tasmania placement, I improved the ExerTime digital health platform through targeted interface, accessibility, and system enhancements. The work reduced user navigation time by around 20 percent for researchers and academic stakeholders.",
 
-        "Earlier, at Business Automation Ltd, I worked on enterprise and government systems where I contributed to feature delivery, debugging, database optimisation, and production support. That experience taught me how to work carefully within live environments, collaborate across teams, and focus on reliability as much as implementation.",
+        "Earlier, at Business Automation Ltd, I delivered features for enterprise and government applications in live production environments. I developed a careful approach to performance, reliability, testing, and collaboration across technical teams.",
 
-        "What I bring is curiosity, reliability, and a calm, steady approach to problem-solving. I am open to graduate opportunities across software, IT support, systems, and wider technology teams, and I am eager to keep growing while contributing meaningfully from day one."
+        "What I bring is curiosity, reliability, strong communication, and a calm approach to problem-solving. I hold full Australian working rights and an Australian driver's licence, and am available for regular travel across Tasmania."
     ],
-    github: 'https://github.com/mdr11UTAS',
+    github: 'https://github.com/mdrTanvir',
     socials: [
-        {name: 'LinkedIn', link: 'https://www.linkedin.com/in/md-tanvir-rahman-88a239148/', icon: 'fa:linkedin'},
-        {name: 'GitHub', link: 'https://github.com/mdr11UTAS', icon: 'fa:github-square'},
+        {name: 'LinkedIn', link: 'https://www.linkedin.com/in/md-tanvir-rahman-88a239148/', icon: '/brand/linkedin.svg'},
+        {name: 'GitHub', link: 'https://github.com/mdrTanvir', icon: '/brand/github.svg'},
     ],
 }
 

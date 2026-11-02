@@ -44,19 +44,19 @@
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="name" class="form-label">Your Name</label>
-                <input v-model="form.name" type="text" id="name" class="form-control" placeholder="John Doe" required minlength="2" maxlength="80" autocomplete="name">
+                <input v-model="form.name" type="text" id="name" name="name" class="form-control" placeholder="John Doe" required minlength="2" maxlength="80" autocomplete="name">
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="email" class="form-label">Your Email</label>
-                <input v-model="form.email" type="email" id="email" class="form-control" placeholder="johndoe@example.com" required maxlength="120" autocomplete="email">
+                <input v-model="form.email" type="email" id="email" name="email" class="form-control" placeholder="johndoe@example.com" required maxlength="120" autocomplete="email">
               </UiAnimate>
             </div>
             <div class="form-group">
               <UiAnimate :distance="20">
                 <label for="message" class="form-label">Your message</label>
-                <textarea v-model="form.message" id="message" class="form-control" required minlength="10" maxlength="2000"></textarea>
+                <textarea v-model="form.message" id="message" name="message" class="form-control" required minlength="10" maxlength="2000"></textarea>
               </UiAnimate>
             </div>
             <div class="form-group">
@@ -69,7 +69,7 @@
                 </UiPrimaryButton>
               </UiAnimate>
             </div>
-            <div v-if="result" :class="{'text-red-500':hasError , 'text-green-500':!hasError}" class="mt-4">
+            <div v-if="result" :class="{'text-red-500':hasError , 'text-green-500':!hasError}" class="mt-4" role="status" aria-live="polite">
               {{ result }}
             </div>
           </form>
@@ -166,11 +166,12 @@ const submitForm = async () => {
     status.value = "error";
     result.value = error?.data?.statusMessage || error?.statusMessage || "Something went wrong!";
   } finally {
-    // Reset form after submission
-    form.value.name = "";
-    form.value.email = "";
-    form.value.message = "";
-    form.value.botcheck = false;
+    if (status.value === "success") {
+      form.value.name = "";
+      form.value.email = "";
+      form.value.message = "";
+      form.value.botcheck = false;
+    }
 
     loading.value = false;
 

@@ -1,17 +1,17 @@
 <template>
   <main>
     <HomeHeroAbout/>
-    <HomeSkills/>
     <HomeExperience/>
     <!--<HomeProjectsOld/>-->
     <HomeProjects/>
+    <HomeSkills/>
     <HomeOtherProjects/>
     <WorkTogather/>
   </main>
 </template>
 
 <script setup lang="ts">
-useSEO('Home')
+useSEO('Tanvir Rahman | Software, Data & Cybersecurity')
 
 useScrollUpdate()
 

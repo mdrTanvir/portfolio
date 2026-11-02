@@ -20,7 +20,7 @@
 
         <div class="relative max-w-4xl space-y-10 pl-8 md:pl-10">
           <div
-              v-for="(experience, index) in experiences.slice(0, totalExperience)"
+              v-for="(experience, index) in experiences"
               :key="index"
               class="relative"
           >
@@ -89,22 +89,6 @@
             </div>
           </div>
 
-          <div v-if="experiences.length > 3" class="relative">
-            <UiAnimate direction="up" :distance="30">
-              <div class="block absolute left-[-28px] top-3 z-[1] h-5 w-5 -translate-x-1/2 rounded-full border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
-            </UiAnimate>
-            <div class="overflow-hidden flex">
-              <UiAnimate :distance="20">
-                <h3
-                    class="text-sm font-semibold uppercase tracking-[0.16em] text-primary underline underline-offset-4 hover:text-black dark:hover:text-white"
-                    data-hover
-                    @click="toggleExperienceView()"
-                >
-                  {{ totalExperience === experiences.length ? 'Show Less' : 'Show All' }}
-                </h3>
-              </UiAnimate>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -118,8 +102,6 @@ import {experiences, skills} from "~/config/data/data"
 
 gsap.registerPlugin(ScrollTrigger)
 
-const limit = 3 // Initially show 2 items
-const totalExperience = ref(limit)
 const experienceContainer = ref(null)
 const line = ref(null)
 
@@ -157,12 +139,6 @@ const handleScrollTrigger = () => {
   })
 }
 
-watch(() => totalExperience.value, async () => {
-  await nextTick() // Wait for DOM changes
-  if (scrollTriggerInstance) scrollTriggerInstance.kill()
-  handleScrollTrigger()
-})
-
 onMounted(async () => {
   await nextTick()
   requestAnimationFrame(() => {
@@ -174,14 +150,4 @@ onBeforeUnmount(() => {
   if (scrollTriggerInstance) scrollTriggerInstance.kill()
 })
 
-const toggleExperienceView = () => {
-  if (totalExperience.value === limit) {
-    totalExperience.value = experiences.length
-  } else {
-    totalExperience.value = limit
-  }
-
-  const {updateScroll} = useScrollUpdate()
-  updateScroll()
-}
 </script>
