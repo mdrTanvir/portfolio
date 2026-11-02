@@ -2,6 +2,10 @@
 const skills = {
     'Software Development': [
         {name: 'Python', featured: true, logo: '/images/skills/python-custom.svg'},
+        {name: 'PHP', featured: true, logo: '/images/skills/php-original.svg'},
+        {name: 'PHP-ML', featured: true, logo: '/images/skills/phpml-custom.svg'},
+        {name: 'Raspberry Pi / Sense HAT', featured: true, logo: '/images/skills/raspberry-pi-sense-hat.svg'},
+        {name: 'IoT', featured: true, logo: '/images/skills/iot-custom.svg'},
         {name: 'PHP & Laravel', featured: true, logo: '/images/skills/laravel-original.svg'},
         {name: 'JavaScript & Vue.js', featured: true, logo: '/images/skills/vuejs-original.svg'},
         {name: 'REST API Development', featured: true, logo: '/images/skills/rest-api-custom.svg'},
@@ -28,6 +32,8 @@ const skills = {
         {name: 'Accessibility & UX', featured: true, logo: '/images/skills/accessibility-custom.svg'},
         {name: 'Agile Delivery', featured: true, logo: '/images/skills/agile-custom.svg'},
         {name: 'Cloud Deployment', featured: true, logo: '/images/skills/cloud-deployment.svg'},
+        {name: 'Docker', featured: true, logo: '/images/skills/docker-original.svg'},
+        {name: 'Vercel', featured: true, logo: '/images/skills/vercel-original.svg'},
     ],
 }
 
