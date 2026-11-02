@@ -4,7 +4,7 @@ export const projects = [
         name: 'IoT Weather Prediction Dashboard',
         photo: '/images/projects/weather-prediction-dashboard.png',
         description: 'Built a full-stack IoT weather dashboard that combines a Raspberry Pi Sense HAT, PHP-ML forecasting service, and live weather observations across five Tasmanian sites. It uses interpretable seasonal regression to estimate daily temperature and humidity ranges, then presents historical patterns and expected conditions in a clear dashboard.',
-        url: 'https://weather-prediction-dashboard-production.up.railway.app/',
+        url: 'https://weather.tanvirrahman.dev/',
         repository: 'https://github.com/mdrTanvir/Weather-Prediction-Dashboard',
         for: 'Academic Project',
         date: '2025',
