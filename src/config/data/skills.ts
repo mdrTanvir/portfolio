@@ -2,6 +2,11 @@
 const skills = {
     'Software Development': [
         {name: 'Python', featured: true, logo: '/images/skills/python-custom.svg'},
+        {name: 'Pandas', featured: true, logo: '/images/skills/pandas-custom.svg'},
+        {name: 'Scikit-learn', featured: true, logo: '/images/skills/scikit-learn-custom.svg'},
+        {name: 'Clustering', featured: true, logo: '/images/skills/clustering-custom.svg'},
+        {name: 'Time Series Forecasting', featured: true, logo: '/images/skills/time-series-custom.svg'},
+        {name: 'Jupyter', featured: true, logo: '/images/skills/jupyter-custom.svg'},
         {name: 'PHP', featured: true, logo: '/images/skills/php-original.svg'},
         {name: 'PHP-ML', featured: true, logo: '/images/skills/phpml-custom.svg'},
         {name: 'Raspberry Pi / Sense HAT', featured: true, logo: '/images/skills/raspberry-pi-sense-hat.svg'},
