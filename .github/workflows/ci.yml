@@ -33,6 +33,9 @@ jobs:
       - name: Check CV matches website content
         run: yarn cv:check
 
+      - name: Check colour contrast
+        run: yarn contrast:check
+
       - name: Build
         run: yarn build
 

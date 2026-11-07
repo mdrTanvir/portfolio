@@ -149,7 +149,7 @@ h3 {font-size:1.2rem;font-weight:600;letter-spacing:-.025em}.form-intro {color:v
 form {margin-top:24px}.field-row {display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-group {margin-bottom:20px;min-width:0}
 label {display:block;font-size:.78rem;font-weight:600;margin-bottom:8px}
 input:not([type=checkbox]),textarea {display:block;width:100%;border:1px solid var(--control-border);border-radius:8px;background:var(--page);color:var(--ink);padding:12px 14px;font-size:16px;line-height:1.5;transition:border-color .18s;min-height:48px}
-textarea {resize:vertical;min-height:140px}input::placeholder,textarea::placeholder {color:var(--muted);opacity:.8;font-size:.85rem}
+textarea {resize:vertical;min-height:140px}input::placeholder,textarea::placeholder {color:var(--muted);opacity:1;font-size:.85rem}
 input:focus,textarea:focus {border-color:var(--accent)}
 .message-help {display:flex;justify-content:space-between;font-size:.65rem;color:var(--muted);margin-top:8px}
 .send-button {width:100%;justify-content:center}

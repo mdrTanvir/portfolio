@@ -9,7 +9,8 @@
     "security:audit": "yarn audit --level moderate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "cv:check": "node scripts/check-cv.mjs"
+    "cv:check": "node scripts/check-cv.mjs",
+    "contrast:check": "node scripts/check-contrast.mjs"
   },
   "dependencies": {
     "@nuxt/fonts": "0.11.1",

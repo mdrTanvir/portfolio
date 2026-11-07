@@ -1,6 +1,7 @@
 <template>
   <section id="ABOUT" tabindex="-1" class="contain content-section">
     <div class="section-intro"><div><p class="eyebrow">03 / About</p><h2>The person behind the work.</h2></div></div>
+    <HomeProfileExplorer/>
     <div class="profile-grid"><div class="profile-note"><span class="profile-monogram" aria-hidden="true">TR<span>↗</span></span><p>Based in Tasmania.<br/>Building with purpose.</p><a :href="siteData.socials[0].link" class="text-link" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div><div class="profile-body"><p v-for="(description,index) in siteData.about" :key="index">{{ description }}</p></div></div>
     <div class="education-block"><p class="eyebrow">Education &amp; academic recognition</p><EducationTimeline/></div>
   </section>

@@ -265,3 +265,9 @@ python3 scripts/generate-cv.py < /tmp/portfolio-cv-content.json
 ```
 
 The resulting PDF is `src/public/Md-Tanvir-Rahman-Resume.pdf`. Website builds serve this committed file; they do not need Python. Run `yarn cv:check` to check that its content fingerprint matches the website source. CI runs this check and fails if website content has changed without regenerating the CV.
+
+## Colour contrast and interactive profile
+
+`yarn contrast:check` checks the text, link and control-border palette against the page, card and soft surfaces in both themes. CI runs the check. It does not constitute a complete WCAG audit or measure image text and composited gradients. Form placeholders use the full secondary-text colour.
+
+The About section includes a keyboard-operable Software/Data/Support evidence explorer. Its cards read existing roles and projects from `src/config/data`; they introduce no separate employment or project claims. Update the evidence mapping in `ProfileExplorer.vue` if the source roles are renamed or project IDs change.
