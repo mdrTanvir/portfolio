@@ -24,9 +24,9 @@ export const projects = [
     {
         id: 3,
         name: 'Melbourne Airport Operational Efficiency Analysis',
-        photo: '/images/projects/melbourne-airport-analysis.svg',
+        photo: '/images/projects/melbourne-luggage-live.jpg',
         description: 'Investigated luggage-handling performance across four Melbourne Airport terminals using Python. Applied Kruskal-Wallis, Dunn post-hoc, paired t-tests and ANOVA to compare performance across terminals and time periods. Presented the analysis and operational recommendations in a repository that makes the methods available for review.',
-        url: '',
+        url: 'https://luggage.tanvirrahman.dev/',
         repository: 'https://github.com/mdrTanvir/Melbourne-airport-luggage-efficiency-analysis',
         for: 'Data Analytics Project',
         date: '2025',
