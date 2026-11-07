@@ -252,3 +252,16 @@ Deployment checklist:
 - Keep dependencies current through Dependabot PRs.
 - Review CSP reports before changing `Content-Security-Policy-Report-Only` to enforced `Content-Security-Policy`.
 - Rotate the Web3Forms access key if it is abused or if domain restrictions are changed.
+
+## Keep the CV consistent with the website
+
+The public PDF is generated from the same `src/config/data` files used by the website. Update those files first, then regenerate and visually review the PDF before committing it. The CV uses the site's role order, dates, descriptions, highlights, skill groups, education and all four projects. Its profile includes the first and final About paragraphs.
+
+Requires Python 3 and `reportlab`:
+
+```bash
+node scripts/export-cv-content.mjs > /tmp/portfolio-cv-content.json
+python3 scripts/generate-cv.py < /tmp/portfolio-cv-content.json
+```
+
+The resulting PDF is `src/public/Md-Tanvir-Rahman-Resume.pdf`. Website builds serve this committed file; they do not need Python. Run `yarn cv:check` to check that its content fingerprint matches the website source. CI runs this check and fails if website content has changed without regenerating the CV.

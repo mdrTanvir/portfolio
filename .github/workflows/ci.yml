@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Check CV matches website content
+        run: yarn cv:check
+
       - name: Build
         run: yarn build
 

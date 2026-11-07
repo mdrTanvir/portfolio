@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "security:audit": "yarn audit --level moderate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "cv:check": "node scripts/check-cv.mjs"
   },
   "dependencies": {
     "@nuxt/fonts": "0.11.1",
