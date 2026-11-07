@@ -26,6 +26,7 @@ const menuOpen = ref(false), scrolled = ref(false), progress = ref(0), active = 
 const header = ref<HTMLElement | null>(null), menuButton = ref<HTMLButtonElement | null>(null)
 const route = useRoute()
 let frame = 0
+let sizeObserver: ResizeObserver | undefined
 function update() {
   if (window.innerWidth >= 768) menuOpen.value = false
   scrolled.value = window.scrollY > 12
@@ -46,8 +47,8 @@ function onOutside(e: PointerEvent) { if (menuOpen.value && !header.value?.conta
 function onFocusOut(e: FocusEvent) { if (menuOpen.value && !header.value?.contains(e.relatedTarget as Node)) close() }
 async function navigate(id: string) { close(); await scrollTo(id) }
 watch(() => route.fullPath, () => { close(); nextTick(update) })
-onMounted(() => { update(); window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); document.addEventListener('keydown',onKey); document.addEventListener('pointerdown',onOutside); header.value?.addEventListener('focusout',onFocusOut) })
-onBeforeUnmount(() => { cancelAnimationFrame(frame); window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); document.removeEventListener('keydown',onKey); document.removeEventListener('pointerdown',onOutside); header.value?.removeEventListener('focusout',onFocusOut) })
+onMounted(() => { sizeObserver = new ResizeObserver(onScroll); sizeObserver.observe(document.body); update(); window.addEventListener('scroll',onScroll,{passive:true}); window.addEventListener('resize',onScroll); document.addEventListener('keydown',onKey); document.addEventListener('pointerdown',onOutside); header.value?.addEventListener('focusout',onFocusOut) })
+onBeforeUnmount(() => { sizeObserver?.disconnect(); cancelAnimationFrame(frame); window.removeEventListener('scroll',onScroll); window.removeEventListener('resize',onScroll); document.removeEventListener('keydown',onKey); document.removeEventListener('pointerdown',onOutside); header.value?.removeEventListener('focusout',onFocusOut) })
 </script>
 <style scoped>
 .site-header { position: fixed; inset: 0 0 auto; z-index: 50; background: var(--nav); backdrop-filter: blur(18px); border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; }

@@ -29,6 +29,7 @@ const visibleProjects = computed(() => works.filter(project => filters.find(filt
 const skillMap = Object.fromEntries(Object.values(skills).flat().map(skill => [skill.name.toLowerCase(),skill.logo]))
 </script>
 <style scoped>
+.projects-section { overflow-anchor:none; }
 .projects-page { padding-top:140px; }
 .projects-title { margin-top:8px; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-.045em; font-weight:600; }
 .project-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
