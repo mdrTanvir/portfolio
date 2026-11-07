@@ -1,153 +1,35 @@
 <template>
-  <section v-if="experiences && experiences?.length" id="EXPERIENCE" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8">
-    <UiHeading>Experience</UiHeading>
-
-    <div class="mt-12 grid gap-6 lg:grid-cols-12 lg:gap-10">
-      <div class="lg:col-span-3 lg:pt-2">
-        <UiSubheading>Work Experience</UiSubheading>
-      </div>
-      <div
-          ref="experienceContainer"
-          class="relative lg:col-span-9"
-      >
-        <svg
-            ref="svg"
-            class="absolute bottom-0 left-[10px] top-3 z-1"
-            width="2" height="100%" viewBox="0 0 2 1000" preserveAspectRatio="none"
-        >
-          <line ref="line" x1="1" y1="0" x2="1" y2="1000" class="stroke-primary" stroke-width="2"/>
-        </svg>
-
-        <div class="relative max-w-4xl space-y-10 pl-8 md:pl-10">
-          <div
-              v-for="(experience, index) in experiences"
-              :key="index"
-              class="relative"
-          >
-            <UiAnimate direction="up" :distance="30">
-              <div class="block absolute left-[-28px] top-7 z-[1] h-5 w-5 -translate-x-1/2 rounded-full border-[5px] border-white bg-primary dark:border-black md:h-6 md:w-6"></div>
-            </UiAnimate>
-            <div class="flex h-full flex-col rounded-2xl border border-gray-200 bg-white/70 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 md:p-6">
-              <div class="overflow-hidden">
-                <UiAnimate :distance="20">
-                  <h3 class="text-xl font-semibold tracking-[-0.02em] text-gray-900 dark:text-white md:text-[1.35rem]">{{ experience.title }}</h3>
-                </UiAnimate>
-              </div>
-              <UiAnimate :distance="20">
-                <div class="mt-2">
-                  <a v-if="experience.link" :href="experience.link" target="_blank" rel="noopener noreferrer" :data-hover-text="experience.company">
-                    <span class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
-                  </a>
-                  <span v-else class="text-sm font-semibold uppercase tracking-[0.14em] text-primary">{{ experience.company }}</span>
-                </div>
-                <time class="mt-2 block text-sm text-gray-500 dark:text-gray-400">{{ experience.startDate }} - {{ experience.endDate }} ({{ experience.xp }})</time>
-              </UiAnimate>
-              <UiAnimate :distance="20">
-                <p class="mt-4 max-w-3xl text-justify text-[15px] leading-7 text-gray-600 dark:text-gray-300 sm:leading-8">{{ experience.description }}</p>
-              </UiAnimate>
-
-              <UiAnimate v-if="experience.highlights?.length" :distance="20">
-                <ul class="mt-4 list-disc space-y-2 pl-5 text-[15px] leading-7 text-gray-600 dark:text-gray-300 sm:leading-8">
-                  <li v-for="(highlight, highlightIndex) in experience.highlights" :key="highlightIndex">
-                    {{ highlight }}
-                  </li>
-                </ul>
-              </UiAnimate>
-
-              <div v-if="experience.skills?.length" class="mt-5 flex flex-wrap gap-2">
-                <template v-for="(skill, skillIndex) in experience.skills" :key="skillIndex">
-                  <UiAnimate :distance="20" :delay="0.2 + skillIndex * 0.1">
-                    <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
-                  </UiAnimate>
-                </template>
-              </div>
-
-              <div v-if="experience.projectLinks?.length" class="mt-5">
-                <UiAnimate :distance="20" :delay="0.4">
-                  <p class="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Projects</p>
-                  <div class="flex flex-wrap items-center gap-2 text-sm">
-                    <span v-for="(project, projectIndex) in experience.projectLinks" :key="projectIndex">
-                      <template v-if="project.url && project.name">
-                        <a
-                            :href="project.url"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-primary font-medium hover:!underline"
-                            data-hover-text="Go Live"
-                        >
-                          {{ project.name }}
-                        </a>
-                      </template>
-                      <template v-else-if="project.name">
-                        <span class="font-medium">{{ project.name }}</span>
-                      </template>
-                      <span v-if="projectIndex < experience.projectLinks.length - 1">, </span>
-                    </span>
-                  </div>
-                </UiAnimate>
-              </div>
-            </div>
-          </div>
-
+  <section id="EXPERIENCE" tabindex="-1" class="contain content-section experience-section">
+    <div class="section-intro"><div><p class="eyebrow">02 / Experience</p><h2>Where I’ve contributed.</h2></div><p>Software delivery, research and the everyday systems people depend on.</p></div>
+    <div class="experience-list">
+      <article v-for="(experience,index) in experiences" :key="experience.company" class="experience-row">
+        <div class="experience-meta"><span class="eyebrow">{{ experience.type }}</span><p>{{ experience.startDate }} — {{ experience.endDate }}</p><span v-if="index === 0" class="current-role">Current role</span></div>
+        <div class="experience-content"><h3>{{ experience.title }}</h3><a v-if="experience.link" :href="experience.link" target="_blank" rel="noopener noreferrer" class="experience-company">{{ experience.company }} <span aria-hidden="true">↗</span></a><p v-else class="experience-company">{{ experience.company }}</p><p class="experience-description">{{ experience.description }}</p>
+          <details :open="index === 1 || index === 2"><summary>Responsibilities &amp; tools <span aria-hidden="true">+</span></summary><div class="experience-details"><ul><li v-for="highlight in experience.highlights" :key="highlight">{{ highlight }}</li></ul><div class="experience-skills"><span v-for="skill in experience.skills" :key="skill">{{ skill }}</span></div><div v-if="experience.projectLinks?.length" class="experience-projects"><a v-for="project in experience.projectLinks" :key="project.name" :href="project.url" class="text-link" target="_blank" rel="noopener noreferrer">{{ project.name }} <span aria-hidden="true">↗</span></a></div></div></details>
         </div>
-      </div>
+      </article>
     </div>
   </section>
 </template>
-
 <script setup lang="ts">
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import {experiences, skills} from "~/config/data/data"
-
-if (import.meta.client) gsap.registerPlugin(ScrollTrigger)
-
-const experienceContainer = ref(null)
-const line = ref(null)
-
-let scrollTriggerInstance = null // Store ScrollTrigger instance
-
-const skillMap = computed(() => {
-  const map = {}
-  Object.values(skills).flat().forEach(skill => {
-    map[skill.name.toLowerCase()] = skill.logo
-  })
-  return map
-})
-
-const handleScrollTrigger = () => {
-  if (!line.value || !experienceContainer.value) return
-
-  const length = line.value.getTotalLength()
-
-  gsap.set(line.value, {
-    strokeDasharray: length,
-    strokeDashoffset: length,
-  })
-
-  // Initialize GSAP ScrollTrigger animation for the line element
-  scrollTriggerInstance = gsap.to(line.value, {
-    strokeDashoffset: 0,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: experienceContainer.value,
-      start: 'top 70%',
-      end: '80% 10%',
-      scrub: true,
-      // markers: true,
-    },
-  })
-}
-
-onMounted(async () => {
-  await nextTick()
-  requestAnimationFrame(() => {
-    handleScrollTrigger() // Initial scroll trigger setup
-  })
-})
-
-onBeforeUnmount(() => {
-  if (scrollTriggerInstance) scrollTriggerInstance.kill()
-})
-
+import {experiences} from '~/config/data/data'
 </script>
+<style scoped>
+.experience-list { border-top:1px solid var(--line); }
+.experience-row { display:grid; grid-template-columns:240px 1fr; gap:48px; padding:36px 0; border-bottom:1px solid var(--line); }
+.experience-meta p { margin-top:10px; color:var(--muted); font-size:.82rem; line-height:1.7; }
+.current-role { display:inline-flex; align-items:center; gap:7px; color:var(--accent); background:var(--soft); margin-top:14px; border-radius:5px; padding:5px 9px; font-size:.68rem; font-weight:600; }
+.current-role::before { content:''; width:5px; height:5px; border-radius:50%; background:currentColor; }
+h3 { font-size:1.4rem; line-height:1.3; letter-spacing:-.035em; font-weight:600; }
+.experience-company { display:block; margin-top:6px; font-size:.9rem; line-height:1.6; color:var(--accent); }
+.experience-description { margin-top:16px; font-size:.94rem; line-height:1.8; color:var(--muted); max-width:72ch; }
+details { margin-top:16px; }
+summary { min-height:48px; display:flex; align-items:center; justify-content:space-between; gap:20px; list-style:none; padding:12px 0; border-top:1px solid var(--line); font-size:.78rem; font-weight:600; cursor:pointer; }
+summary::-webkit-details-marker { display:none; } summary > span {font-size:1.3rem; font-weight:400;} details[open] summary>span { transform:rotate(45deg); }
+.experience-details ul { list-style:disc; padding-left:18px; color:var(--muted); font-size:.86rem; line-height:1.85; }
+.experience-details li+li { margin-top:6px; }
+.experience-skills { display:flex; gap:7px; flex-wrap:wrap; margin-top:18px; }
+.experience-skills span { font-size:.67rem; color:var(--muted); background:var(--soft); border-radius:4px; padding:5px 8px; }
+.experience-projects { display:flex; gap:20px; margin-top:8px; }
+@media(max-width:767px) { .experience-row { grid-template-columns:1fr; gap:16px; padding:28px 0; } .experience-meta { display:flex; flex-wrap:wrap; align-items:center; gap:10px 16px; } .experience-meta p,.current-role {margin:0} .experience-meta .eyebrow {font-size:.65rem} h3{font-size:1.3rem} }
+</style>

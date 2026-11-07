@@ -1,5 +1,7 @@
 export default {
     scrollBehavior(to, from, savedPosition) {
-        return { top: 0 }
+        if (savedPosition) return savedPosition
+        if (to.hash) return false
+        return {top: 0}
     }
 }

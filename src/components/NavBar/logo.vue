@@ -29,6 +29,7 @@ const brandLogoSrc = computed(() =>
 <style scoped>
 .brand-mark {
   position: relative;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   padding: 0;
@@ -39,7 +40,7 @@ const brandLogoSrc = computed(() =>
 
 .brand-image {
   display: block;
-  height: 2.65rem;
+  height: 2.25rem;
   width: auto;
   max-width: min(42vw, 16rem);
 }
@@ -50,7 +51,7 @@ const brandLogoSrc = computed(() =>
 
 @media (min-width: 640px) {
   .brand-image {
-    height: 3rem;
+    height: 2.5rem;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 # Tanvir Rahman Portfolio
 
-A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a Nuxt application with server-rendered, prerendered public routes, animated UI sections, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-focused deployment defaults.
+A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a Nuxt application with server-rendered, prerendered public routes, responsive project filters and accessible controls, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-focused deployment defaults.
 
 ## About Tanvir
 
@@ -35,7 +35,7 @@ The weather demonstration includes synthetic data. In-sample model fit is not a 
 - Personal landing page with hero, skills, experience, project, and contact sections.
 - Dedicated `/projects` route for extended project listings.
 - Data-driven content from `src/config/data`.
-- Smooth scrolling via Lenis and scroll-triggered animations via GSAP.
+- Native scrolling, URL-linked section navigation, keyboard focus management and reduced-motion support.
 - Responsive UI with Tailwind CSS, SCSS, Nuxt Icon, and device-aware rendering.
 - Contact form powered by Web3Forms with client validation and honeypot spam protection.
 - Vercel Analytics and Speed Insights enabled through Nuxt modules.
@@ -47,7 +47,7 @@ The weather demonstration includes synthetic data. In-sample model fit is not a 
 | --- | --- |
 | Framework | Nuxt 3, Vue 3 |
 | Styling | Tailwind CSS, SCSS |
-| Animation | GSAP, Lenis, tsparticles via `nuxt-particles` |
+| Interaction | Native scrolling, CSS transitions, accessible project filters and mobile navigation |
 | State | Pinia |
 | Icons | Nuxt Icon |
 | Forms | Web3Forms |
@@ -64,7 +64,7 @@ flowchart LR
   Pages --> HomeSections[Home Components]
   HomeSections --> Data[Content Data: src/config/data]
   HomeSections --> Assets[Public Assets: images, logos, resume]
-  Nuxt --> Plugins[Client Plugins: Lenis]
+  Nuxt --> Plugins[Client enhancements]
   Nuxt --> Modules[Nuxt Modules]
   Modules --> Analytics[Vercel Analytics]
   Modules --> Speed[Vercel Speed Insights]

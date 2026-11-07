@@ -1,216 +1,61 @@
 <template>
-  <section ref="container" id="PROJECTS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8 relative"
-           :class="{'mt-28':all}"
-  >
-    <h1 v-if="all" class="mb-10 text-4xl font-semibold text-primary">Projects</h1>
-    <UiHeading v-else>Projects</UiHeading>
-
-    <div v-if="PROJECTS.length">
-      <div
-          v-for="(project, index) in PROJECTS"
-          :key="index"
-          class="mx-auto grid w-full items-start gap-10 border-b border-gray-200/80 py-14 last:border-b-0 lg:grid-cols-12 lg:gap-10"
-          :class="{'sm:mb-20 md:mb-36':all}"
-      >
-        <div class="flex items-center lg:col-span-8">
-          <div class="flex h-full flex-col">
-            <div class="overflow-hidden">
-              <UiAnimate :distance="30">
-                <h2 class="text-[1.9rem] font-semibold tracking-[-0.04em] text-gray-900 dark:text-white md:text-[2.35rem]">{{ project.name }}</h2>
-              </UiAnimate>
-            </div>
-            <div class="overflow-hidden">
-              <UiAnimate :distance="40">
-                <p class="mt-3 text-xs font-semibold uppercase tracking-[0.16em] text-primary">{{ project.for }} — {{ project.date }}</p>
-              </UiAnimate>
-            </div>
-            <div class="overflow-hidden">
-              <UiAnimate :distance="40">
-                <p class="mt-5 max-w-4xl text-justify text-[15px] leading-8 text-gray-600 dark:text-gray-300 sm:text-[1.02rem]">{{ project.description }}</p>
-              </UiAnimate>
-            </div>
-            <div v-if="project.links" class="mt-5 overflow-hidden">
-              <UiAnimate class="flex flex-wrap gap-3">
-                <template v-for="link in project.links">
-                  <a :href="link.url"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="flex items-center gap-2 text-sm font-semibold text-primary text-primary-hover" :data-hover-text="link.name">
-                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/80 dark:bg-white/10">
-                      <img src="/images/skills/cloud-deployment.svg" alt="" aria-hidden="true" class="h-5 w-5"/>
-                    </span>
-                    <span>{{ link.name }}</span>
-                  </a>
-                </template>
-              </UiAnimate>
-            </div>
-            <div class="mt-6 flex flex-wrap gap-2.5">
-              <template v-for="(skill, i) in project.skills || []" :key="i">
-                <UiAnimate :distance="40">
-                  <UiChip :image="skillMap[skill.toLowerCase()]">{{ skill }}</UiChip>
-                </UiAnimate>
-              </template>
-            </div>
-
-            <div class="mt-6 flex flex-wrap gap-6">
-              <div v-if="project.url" class="overflow-hidden">
-                <UiAnimate>
-                  <a :href="project.url"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="inline-flex items-center gap-2 rounded-full border border-sky-400/40 bg-sky-50 px-4 py-2 text-sm font-semibold text-primary transition duration-200 hover:-translate-y-0.5 hover:border-sky-500 hover:bg-sky-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 dark:bg-sky-950/40 dark:hover:bg-sky-900/60 dark:focus-visible:ring-offset-gray-950" data-hover-text="Live">
-                    <img src="/images/skills/cloud-deployment.svg" alt="" aria-hidden="true" class="h-4 w-4"/>
-                    <span>Live</span>
-                  </a>
-                </UiAnimate>
-              </div>
-              <div v-if="project.repository" class="overflow-hidden">
-                <UiAnimate>
-                  <a :href="project.repository"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     class="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-800 transition duration-200 hover:-translate-y-0.5 hover:border-gray-500 hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:hover:border-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-offset-gray-950" data-hover-text="GitHub">
-                    <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gray-100 dark:bg-white/10">
-                      <img src="/brand/github.svg" alt="" aria-hidden="true" class="h-5 w-5 dark:brightness-0 dark:invert"/>
-                    </span>
-                    <span>GitHub</span>
-                  </a>
-                </UiAnimate>
-              </div>
-            </div>
-          </div>
+  <section id="PROJECTS" tabindex="-1" class="contain content-section projects-section" :class="{'projects-page': all}">
+    <div class="section-intro"><div><p class="eyebrow">01 / Selected work</p><component :is="all ? 'h1' : 'h2'" class="projects-title">Ideas, put into practice.</component></div><p>Explore the applications, analysis and research behind my skills.</p></div>
+    <div class="project-toolbar"><div class="project-filters" role="group" aria-label="Filter projects by discipline"><button v-for="filter in filters" :key="filter.name" type="button" :aria-pressed="selected === filter.name" @click="selected = filter.name">{{ filter.name }}</button></div><p class="project-count" role="status" aria-live="polite">{{ visibleProjects.length }} {{ visibleProjects.length === 1 ? 'project' : 'projects' }}</p></div>
+    <div class="project-grid">
+      <article v-for="project in visibleProjects" :key="project.id" class="project-card">
+        <a :href="project.url || project.repository" class="project-visual" target="_blank" rel="noopener noreferrer" :aria-label="`Explore ${project.name} (opens in a new tab)`">
+          <div class="browser-bar" aria-hidden="true"><span class="browser-dots"><i></i><i></i><i></i></span><span>{{ projectHost(project) }}</span><span>↗</span></div>
+          <div class="project-image"><img :src="project.photo" :alt="`${project.name} preview`" loading="lazy" width="800" height="500"/></div>
+        </a>
+        <div class="project-body">
+          <p class="eyebrow">{{ project.for }} <span class="project-year">{{ project.date }}</span></p>
+          <h3>{{ project.name }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <ul class="project-tools" aria-label="Technologies used"><li v-for="skill in project.skills" :key="skill"><img v-if="skillMap[skill.toLowerCase()]" :src="skillMap[skill.toLowerCase()]" alt="" width="16" height="16" loading="lazy"/>{{ skill }}</li></ul>
+          <div class="project-links"><a v-if="project.url" :href="project.url" class="text-link" target="_blank" rel="noopener noreferrer">{{ project.id === 4 ? 'Platform website' : 'Live project' }} <span aria-hidden="true">↗</span></a><a v-if="project.repository" :href="project.repository" class="text-link" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div>
         </div>
-        <div class="image-wrapper flex items-start md:items-center lg:col-span-4 lg:justify-end"
-             :ref="el => imageRefs[index] = el"
-        >
-          <!--          <UiAnimate direction="left" :distance="60">-->
-          <template v-if="projectImageLink(project)">
-            <a :href="projectImageLink(project)" target="_blank" rel="noopener noreferrer" class="project-image-link">
-              <img
-                  :src="project.photo"
-                  :alt="project.name"
-                  loading="lazy"
-                  class="lazyImage img rounded-[1.4rem] border border-gray-200 bg-white shadow-sm dark:border-gray-800"
-                  width="100%"
-                  :data-hover-text="project.url ? 'preview' : project.repository ? 'GitHub' : 'Open'"
-              />
-            </a>
-          </template>
-          <template v-else>
-            <img :src="project.photo" :alt="project.name" loading="lazy" class="lazyImage img rounded-[1.4rem] border border-gray-200 bg-white shadow-sm dark:border-gray-800" width="100%"/>
-          </template>
-          <!--          </UiAnimate>-->
-        </div>
-      </div>
-
+      </article>
     </div>
   </section>
 </template>
-
 <script setup lang="ts">
-import {gsap} from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-// import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 import {works, skills} from '~/config/data/data'
-
-const props = defineProps({
-  all: {type: Boolean, default: false},
-})
-
-if (import.meta.client) gsap.registerPlugin(ScrollTrigger)
-// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
-
-const projects = works || []
-const container = ref<HTMLElement | null>(null)
-const imageRefs = ref<HTMLElement[]>([])
-let skewTrigger: ScrollTrigger | null = null
-// const pathRef = ref<SVGPathElement | null>(null)
-
-const perPage = 6
-
-const PROJECTS = computed(() => {
-  if (props.all) return projects
-  return projects.slice(0, perPage)
-})
-
-const projectImageLink = (project) => {
-  return project.url || project.repository || project.links?.[0]?.url || ''
-}
-
-const skillMap = computed(() => {
-  const map = {}
-  Object.values(skills).flat().forEach(skill => {
-    map[skill.name.toLowerCase()] = skill.logo
-  })
-  return map
-})
-
-const imageSkew = () => {
-  const validImages = imageRefs.value.filter(Boolean)
-  if (!container.value || !validImages.length) return
-
-  skewTrigger?.kill()
-
-  // Skew effect based on scroll velocity
-  let proxy = {skew: 0}
-  const skewSetter = gsap.quickSetter(validImages, 'skewX', 'deg')
-  const clamp = gsap.utils.clamp(-6, 6)
-
-  skewTrigger = ScrollTrigger.create({
-    trigger: container.value,
-    start: 'top top',
-    end: () => `+=${window.innerWidth}`,
-    scrub: true,
-    onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300)
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew
-        gsap.to(proxy, {
-          skew: 0,
-          duration: 0.8,
-          ease: 'power3',
-          overwrite: true,
-          onUpdate: () => skewSetter(proxy.skew),
-        })
-      }
-    },
-  })
-}
-
-onMounted(async () => {
-  imageRefs.value = []
-  await nextTick()
-  requestAnimationFrame(() => {
-    if (container.value && imageRefs.value.length) imageSkew()
-  })
-})
-
-onBeforeUnmount(() => {
-  skewTrigger?.kill()
-})
+defineProps({all: {type: Boolean, default: false}})
+const filters = [{name:'All work', ids:[1,2,3,4]}, {name:'Software',ids:[4]}, {name:'Data',ids:[2,3]}, {name:'IoT',ids:[1]}]
+const projectHost = (project: {url: string}) => project.url ? new URL(project.url).hostname : 'github.com / analysis'
+const selected = ref('All work')
+const visibleProjects = computed(() => works.filter(project => filters.find(filter => filter.name === selected.value)!.ids.includes(project.id)))
+const skillMap = Object.fromEntries(Object.values(skills).flat().map(skill => [skill.name.toLowerCase(),skill.logo]))
 </script>
-
-<style scoped lang="scss">
-.image-wrapper .img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
-  //display: block;
-  //object-fit: cover;
-  aspect-ratio: 16/9;
-}
-
-.project-image-link {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .image-wrapper .img,
-  .project-image-link {
-    max-width: 520px;
-  }
-}
+<style scoped>
+.projects-page { padding-top:140px; }
+.projects-title { margin-top:8px; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-.045em; font-weight:600; }
+.project-toolbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+.project-filters { display:flex; flex-wrap:wrap; gap:6px; padding:5px; border:1px solid var(--line); background:var(--surface); border-radius:12px; }
+.project-filters button { border:0; border-radius:8px; background:transparent; color:var(--muted); font-size:.78rem; font-weight:600; min-height:44px; padding:8px 16px; transition:background .18s,color .18s; }
+.project-filters button[aria-pressed=true] { background:var(--ink); color:var(--page); }
+.project-filters button:hover:not([aria-pressed=true]) { background:var(--soft); color:var(--ink); }
+.project-count { font-size:.75rem; color:var(--muted); }
+.project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; align-items:stretch; }
+.project-card { min-width:0; display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); overflow:hidden; transition:border-color .2s,box-shadow .2s; }
+.project-visual { display:block; margin:14px 14px 0; border:1px solid var(--line); border-radius:10px; overflow:hidden; color:var(--muted); background:var(--soft); }
+.browser-bar { display:flex; align-items:center; justify-content:space-between; gap:10px; height:34px; padding:0 12px; font-size:.62rem; border-bottom:1px solid var(--line); }
+.browser-dots { display:flex; gap:4px; } .browser-dots i { width:5px; height:5px; border:1px solid #a2b0b8; border-radius:50%; }
+.project-image { aspect-ratio:1.77778; overflow:hidden; }
+.project-image img { width:100%; height:100%; object-fit:contain; object-position:top; transition:transform .35s; }
+.project-body { padding:26px; display:flex; flex-direction:column; flex:1; }
+.project-body > .eyebrow { display:flex; justify-content:space-between; gap:12px; font-size:.64rem; }
+.project-year { letter-spacing:0; flex-shrink:0; }
+h3 { margin-top:12px; font-size:1.45rem; letter-spacing:-.035em; line-height:1.25; font-weight:600; }
+.project-description { margin-top:16px; font-size:.875rem; line-height:1.8; color:var(--muted); }
+.project-tools { display:flex; flex-wrap:wrap; gap:6px; margin-top:20px; padding:0; list-style:none; }
+.project-tools li { display:flex; align-items:center; gap:6px; font-size:.66rem; padding:5px 7px; border:1px solid var(--line); border-radius:5px; line-height:1.3; color:var(--muted); }
+.project-tools img { width:14px; height:14px; object-fit:contain; }
+.project-links { display:flex; gap:24px; border-top:1px solid var(--line); padding-top:12px; margin-top:auto; }
+.project-tools { padding-bottom:20px; }
+@media(hover:hover) { .project-card:hover { border-color:#91b2c1; box-shadow:var(--shadow); } .project-visual:hover img { transform:scale(1.025); } }
+@media(max-width:767px) { .project-grid { grid-template-columns:1fr; gap:24px; } .project-body { padding:22px; } .project-toolbar { align-items:end; } .project-filters { gap:2px; } .project-filters button { padding:8px 11px; } .project-count { font-size:.66rem; white-space:nowrap; } h3 {font-size:1.35rem;} }
+@media(max-width:479px) { .project-toolbar { flex-direction:column; align-items:stretch; gap:10px; } .project-filters { justify-content:space-between; flex-wrap:nowrap; } .project-count { align-self:flex-end; } }
+@media(prefers-reduced-motion:reduce) { .project-visual:hover img { transform:none; } }
 </style>

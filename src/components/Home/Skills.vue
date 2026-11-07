@@ -1,65 +1,20 @@
 <template>
-  <section id="SKILLS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8">
-    <UiHeading>Skills</UiHeading>
-
-    <div class="mt-12 space-y-12">
-      <template v-for="(skillCategory, index) in visibleSkills" :key="index">
-        <div class="grid gap-6 lg:grid-cols-12 lg:gap-10">
-          <div class="lg:col-span-3 lg:pt-2">
-            <UiSubheading>{{ index }}</UiSubheading>
-          </div>
-          <div class="lg:col-span-9">
-            <div class="grid max-w-4xl gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              <template
-                  v-for="(skill, skillIndex) in skillCategory"
-                  :key="skillIndex">
-                <div v-if="skill.featured" class="h-full">
-                  <UiAnimate
-                      :distance="60"
-                      :delay="0.2 + skillIndex * 0.1"
-                      class="h-full"
-                  >
-                    <div class="flex h-full min-h-[78px] items-center gap-4 rounded-2xl border border-gray-200 bg-white/70 px-4 py-4 shadow-sm dark:border-gray-800 dark:bg-gray-950/50">
-                      <span v-if="skill.logo" class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 dark:bg-gray-900">
-                        <img :src="skill.logo" :alt="skill.name" loading="lazy" height="26" width="26" :class="{'h-[26px] w-[26px]': true, 'skill-github-logo': skill.logo.includes('github') }"/>
-                      </span>
-                      <span v-else-if="skill.icon" class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-primary dark:bg-sky-950/50">
-                        <Icon :name="skill.icon" :aria-label="skill.name" class="h-5 w-5"/>
-                      </span>
-                      <span v-else class="flex h-10 w-10 items-center justify-center rounded-full bg-sky-50 text-sm font-semibold text-primary dark:bg-sky-950/50">
-                        {{ skill.name.charAt(0) }}
-                      </span>
-                      <span class="text-base font-medium leading-6 text-gray-800 dark:text-gray-100">{{ skill.name }}</span>
-                    </div>
-                  </UiAnimate>
-                </div>
-              </template>
-            </div>
-          </div>
-        </div>
-      </template>
-    </div>
+  <section id="SKILLS" tabindex="-1" class="contain content-section">
+    <div class="section-intro"><div><p class="eyebrow">04 / Skills</p><h2>My working toolkit.</h2></div><p>Tools and practices used across my experience and projects.</p></div>
+    <div class="skills-grid"><article v-for="(category,name,index) in skills" :key="name"><div class="skill-heading"><span class="eyebrow">0{{ index+1 }}</span><h3>{{ name }}</h3></div><ul><li v-for="skill in category.filter(item => item.featured)" :key="skill.name"><img v-if="skill.logo" :src="skill.logo" alt="" width="20" height="20" loading="lazy" :class="{'github-logo':skill.logo.includes('github')}"/><span>{{ skill.name }}</span></li></ul></article></div>
   </section>
 </template>
-
 <script setup lang="ts">
-import {skills} from "~/config/data/data";
-
-const visibleSkills = computed(() =>
-  Object.fromEntries(
-    Object.entries(skills).filter(([, skillCategory]) =>
-      skillCategory.some((skill) => skill.featured)
-    )
-  )
-);
+import {skills} from '~/config/data/data'
 </script>
-
 <style scoped>
-.skill-github-logo {
-  filter: brightness(0.3);
-}
-
-.dark .skill-github-logo {
-  filter: brightness(2.5) invert(1);
-}
+.skills-grid {display:grid;grid-template-columns:1fr 1fr;gap:24px}
+article {padding:28px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.skill-heading {display:flex;gap:14px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--line)}
+h3 {font-size:1.05rem;font-weight:600;line-height:1.4;letter-spacing:-.025em}
+ul {display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:20px 0 0}
+li {display:flex;align-items:center;gap:8px;background:var(--soft);padding:8px 10px;border-radius:6px;font-size:.75rem;color:var(--muted);line-height:1.4}
+li img {width:18px;height:18px;object-fit:contain}
+:global(.dark .github-logo) {filter:invert(1)}
+@media(max-width:767px){.skills-grid{grid-template-columns:1fr}article{padding:22px}}
 </style>

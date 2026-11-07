@@ -1,48 +1,21 @@
 <template>
-  <!-- About Section -->
-  <section id="ABOUT" class="contain content-section !pt-0 md:!pt-0 lg:!pt-0 !pb-4 md:!pb-6 lg:!pb-8 about relative">
-    <UiHeading class="z-10">About</UiHeading>
-
-    <div class="mt-12 space-y-16">
-      <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <div class="lg:col-span-3 lg:pt-1">
-          <UiSubheading>Profile</UiSubheading>
-        </div>
-        <div class="lg:col-span-9">
-          <div class="overflow-hidden rounded-3xl border border-gray-200 bg-white/70 p-5 shadow-sm dark:border-gray-800 dark:bg-gray-950/40 sm:p-7 lg:p-8">
-            <div class="min-w-0 space-y-[1.0625rem]">
-              <template v-for="(description, n) in siteData.about" :key="n">
-                <UiAnimate
-                    class="block w-full"
-                    direction="up"
-                    :distance="16"
-                    :duration="0.55"
-                    :delay="0.08 + n * 0.12"
-                    scrollTriggerStart="top 82%"
-                    scrollTriggerEnd="top 68%"
-                    :scrub="false"
-                >
-                  <p class="max-w-none break-words text-justify text-[14.5px] leading-7 tracking-[-0.01em] text-gray-600 [hyphens:auto] dark:text-gray-300 sm:text-[0.98rem] sm:leading-8">
-                    {{ description }}
-                  </p>
-                </UiAnimate>
-              </template>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="grid gap-8 lg:grid-cols-12 lg:gap-12">
-        <div class="lg:col-span-3 lg:pt-1">
-          <UiSubheading>Education</UiSubheading>
-        </div>
-        <div class="lg:col-span-9">
-          <EducationTimeline/>
-        </div>
-      </div>
-    </div>
+  <section id="ABOUT" tabindex="-1" class="contain content-section">
+    <div class="section-intro"><div><p class="eyebrow">03 / About</p><h2>The person behind the work.</h2></div></div>
+    <div class="profile-grid"><div class="profile-note"><span class="profile-monogram" aria-hidden="true">TR<span>↗</span></span><p>Based in Tasmania.<br/>Building with purpose.</p><a :href="siteData.socials[0].link" class="text-link" target="_blank" rel="noopener noreferrer">Connect on LinkedIn <span aria-hidden="true">↗</span></a></div><div class="profile-body"><p v-for="(description,index) in siteData.about" :key="index">{{ description }}</p></div></div>
+    <div class="education-block"><p class="eyebrow">Education &amp; academic recognition</p><EducationTimeline/></div>
   </section>
-
 </template>
-<script setup>
-import siteData from "~/config/data/data";
+<script setup lang="ts">
+import siteData from '~/config/data/data'
 </script>
+<style scoped>
+.profile-grid { display:grid; grid-template-columns:240px 1fr; gap:48px; }
+.profile-note p { margin-top:20px; font-size:1rem; line-height:1.7; color:var(--muted); letter-spacing:-.02em; }
+.profile-monogram { position:relative; display:inline-flex; align-items:center; justify-content:center; height:90px; width:90px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(140deg,var(--soft),var(--surface)); font-size:2rem; font-weight:500; letter-spacing:-.07em; }
+.profile-monogram span { position:absolute; top:8px; right:10px; font-size:1rem; color:var(--accent); }
+.profile-body p { font-size:.98rem; line-height:1.85; color:var(--muted); max-width:72ch; }
+.profile-body p:first-child { font-size:1.15rem; line-height:1.75; color:var(--ink); letter-spacing:-.015em; }
+.profile-body p+p {margin-top:18px}
+.education-block { margin-top:48px; padding-top:32px; border-top:1px solid var(--line); }
+@media(max-width:767px) { .profile-grid {grid-template-columns:1fr;gap:24px} .profile-note {display:none} .profile-body p {font-size:.92rem} .profile-body p:first-child {font-size:1.08rem} }
+</style>

@@ -32,7 +32,6 @@ export const useThemeStore = defineStore(
 
         return {
             darkMode,
-            theme,
             toggleTheme,
             setTheme,
         }

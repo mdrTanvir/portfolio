@@ -13,7 +13,7 @@
     }
 
     .contain {
-        @apply max-w-[1180px] w-full mx-auto px-4 sm:px-6 lg:px-8;
+        @apply max-w-[1240px] w-full mx-auto px-4 sm:px-6 lg:px-8;
     }
 }
 
@@ -94,25 +94,7 @@ p, .p {
     @apply text-base sm:text-[1.05rem] tracking-normal leading-8 font-semibold;
 }
 
-a, .a {
-    text-decoration: none !important;
-    outline: none;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-a:active,
-.a:active {
-    @apply text-primary dark:text-primary;
-}
-
-@media (hover: hover) and (pointer: fine) {
-    a:hover,
-    .a:hover {
-        @apply text-primary dark:text-primary;
-    }
-}
-
+a, .a { text-decoration: none; cursor: pointer; }
 
 .btn {
     @apply px-4 py-3 sm:px-5 sm:py-3 rounded-lg text-sm sm:text-base font-medium
