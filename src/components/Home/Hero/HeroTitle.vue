@@ -1,7 +1,7 @@
 <template>
   <div class="max-w-5xl">
     <p class="mb-4 text-sm font-semibold tracking-wide text-gray-600 dark:text-gray-300">Launceston, Tasmania · University of Tasmania graduate</p>
-    <h1 class="text-4xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-6xl">Tanvir Rahman<span class="mt-3 block text-2xl text-primary sm:text-4xl">Software. Data. Practical IT support.</span></h1>
+    <h1 class="text-4xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-6xl">Tanvir Rahman<span class="mt-3 block text-2xl text-primary sm:text-4xl">Software, data and support.<br class="hidden sm:block"/> Built around people.</span></h1>
     <p class="mt-5 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">{{ siteData.hero.subheadline }}</p>
     <div class="mt-5 flex flex-wrap gap-2">
       <span v-for="tag in siteData.hero.headlineTags" :key="tag" class="rounded-full border border-sky-300 bg-sky-50 px-3 py-1.5 text-sm font-medium text-sky-900 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200">{{ tag }}</span>

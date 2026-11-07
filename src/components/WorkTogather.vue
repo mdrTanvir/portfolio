@@ -2,10 +2,10 @@
   <div class="relative flex w-full flex-col items-center justify-center py-4 md:py-6">
     <div>
       <UiAnimate :distance="40">
-        <h3 class="h4">Have a role, project, or idea in mind?</h3>
+        <h3 class="h4">Hiring in software, data or IT support?</h3>
       </UiAnimate>
       <UiAnimate :distance="40">
-        <h2 class="h1">Let's connect</h2>
+        <h2 class="h1">Let’s talk about your team</h2>
       </UiAnimate>
       <UiAnimate :distance="40">
         <div class="relative flex h-[110px] items-center justify-center">

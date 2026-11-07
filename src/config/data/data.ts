@@ -20,14 +20,14 @@ const siteData = {
     logoName: 'Tanvir',
     address: 'Launceston, Tasmania, Australia',
     phone: '+61 450469323',
-    email: 'md.tanvir.rahman.au@gmail.com',
+    email: 'tanvirrahman.au@gmail.com',
     profile: '',
     // profile: '/images/profile2.webp',
     cvLink: '/Md-Tanvir-Rahman-Resume.pdf',
     meta: {
         name: siteBrand,
         siteUrl: 'https://www.tanvirrahman.dev',
-        description: 'IT graduate in Launceston with experience in technical support, SQL, operational reporting, and customer service across utilities, software development, and retail.',
+        description: 'Tanvir Rahman: software development, Python analytics and practical IT support in Launceston, Tasmania. Explore professional experience, reproducible projects and CV.',
         image: '/og.png',
         keywords: `${fullName}, IT Graduate, Software Developer, Cybersecurity, Data, Systems`,
     },
@@ -35,7 +35,7 @@ const siteData = {
         greeting: `I'm ${fullName},`,
         headline: 'IT Graduate',
         headlineTags: ['PHP / Vue.js / SQL', 'Python / Data Analytics', 'IT & User Support'],
-        subheadline: 'Software development experience, reproducible data projects and practical user support. Based in Launceston, Tasmania, with a UTAS master’s degree specialising in Artificial Intelligence and Cybersecurity.',
+        subheadline: 'I build applications, turn data into clear findings and help people work confidently with technology. My experience spans PHP and Vue.js development, Python analytics and operational systems support, backed by a UTAS master’s degree in IT and Systems.',
         impacts: [
             {value: '2020–2022', label: 'Software Developer · Business Automation Ltd'},
             {value: '6.75 / 7', label: 'UTAS GPA · Roll of Excellence 2025'},
@@ -43,15 +43,11 @@ const siteData = {
         ],
     },
     about: [
-        "I'm Tanvir, an IT graduate based in Launceston and a Customer Service Officer at Aurora Energy. I combine technical problem-solving with practical customer support, data, and systems experience.",
-
-        "My background spans utilities, software development, and retail. I am comfortable investigating account and data discrepancies, working with operational systems, and explaining outcomes clearly to people with different levels of technical knowledge.",
-
-        "During my University of Tasmania placement, I improved the ExerTime digital health platform through targeted interface, accessibility, and system enhancements. I worked on clearer navigation and maintainable front-end components for researchers and academic stakeholders.",
-
-        "Earlier, at Business Automation Ltd, I delivered features for enterprise and government applications in live production environments. I developed a careful approach to performance, reliability, testing, and collaboration across technical teams.",
-
-        "I want to help Tasmanian communities build digital confidence through practical technology, clear explanations and patient support. I bring experience working with technical teams, customers and research stakeholders."
+        "I’m Tanvir Rahman, an IT graduate based in Launceston, Tasmania. I bring software development experience, applied data analysis and the communication skills to connect technical work with the people who use it.",
+        "At Business Automation Ltd, I developed features for enterprise and government applications, optimised SQL queries and worked with QA colleagues through testing and delivery. At the University of Tasmania’s Active Work Laboratory, I contributed Vue.js interface, navigation and accessibility improvements to the ExerTime digital health platform.",
+        "My projects make my approach visible: executable Python notebooks for global health analysis, statistical comparisons of airport operations, and an IoT weather dashboard with documented data and model limitations. I explain how a result was reached so others can inspect and build on the work.",
+        "Customer-facing work at Aurora Energy and operational experience at Coles have strengthened my ability to investigate discrepancies, guide users through systems and explain practical next steps. I value accurate records, clear communication and dependable follow-through.",
+        "I want to contribute to Tasmania through useful software, better-informed decisions and patient technology support. My aim is to help people build digital confidence while continuing to develop my skills in software, data and systems."
     ],
     github: 'https://github.com/mdrTanvir',
     socials: [
