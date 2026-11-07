@@ -20,7 +20,7 @@ export default function useScrollTo() {
         } else {
             // Already on home, scroll directly
             const target = document.getElementById(id)
-            if (target && $lenis) {
+            if (target && $lenis && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 $lenis?.scrollTo(target, {
                     offset: -40,
                     duration: 1,
@@ -38,6 +38,8 @@ export default function useScrollTo() {
                 if (window.history && window.history.pushState) {
                     window.history.pushState({}, document.title, window.location.pathname)
                 }
+            } else if (target) {
+                target.scrollIntoView({block: "start"})
             }
         }
     }

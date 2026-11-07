@@ -41,7 +41,7 @@ const experiences = [
         type: 'Software Company',
         startDate: 'Jan 2020',
         endDate: 'Dec 2022',
-        xp: '2 years',
+        xp: '3 years',
         description: 'Delivered software features for enterprise and government client applications in production, with a focus on performance, reliability, testing, and cross-functional delivery.',
         highlights: [
             'Delivered production features for enterprise and government client applications.',
@@ -65,7 +65,7 @@ const experiences = [
         xp: '5 months',
         description: 'Improved the ExerTime digital health platform for real-world research use through targeted interface, accessibility, and system enhancements for health researchers and academic stakeholders.',
         highlights: [
-            'Reduced user navigation time by around 20% through targeted interface and system enhancements.',
+            'Improved navigation and interface components on the ExerTime digital health platform.',
             'Resolved accessibility gaps using user-centred design thinking on a live research platform.',
             'Contributed to sprint planning, code reviews, iterative delivery, and component restructuring to reduce maintenance effort.',
         ],
@@ -76,4 +76,5 @@ const experiences = [
     },
 ]
 
-export default experiences
+const orderedExperiences = [experiences[0], experiences[3], experiences[2], experiences[1]]
+export default orderedExperiences

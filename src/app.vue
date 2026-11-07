@@ -1,5 +1,6 @@
 <template>
-  <main data-lenis :class="darkMode ? 'dark' : 'light'">
+  <div data-lenis :class="darkMode ? 'dark' : 'light'">
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <NuxtRouteAnnouncer/>
     <NuxtLayout>
       <NuxtLoadingIndicator/>
@@ -8,7 +9,7 @@
     <template v-if="isDesktop">
       <LazyUiCursor/>
     </template>
-  </main>
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -1,9 +1,9 @@
 <template>
-  <main>
+  <main id="main-content" tabindex="-1">
     <HomeHeroAbout/>
-    <HomeExperience/>
-    <!--<HomeProjectsOld/>-->
     <HomeProjects/>
+    <HomeExperience/>
+    <HomeProfile/>
     <HomeSkills/>
     <HomeOtherProjects/>
     <WorkTogather/>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-useSEO('Tanvir Rahman | Software, Data & Cybersecurity')
+useSEO('Tanvir Rahman | Software Development, Data & IT Support')
 
 useScrollUpdate()
 

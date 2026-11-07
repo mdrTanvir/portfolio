@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 import {works} from '~/config/data'

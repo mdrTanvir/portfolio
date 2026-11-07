@@ -5,7 +5,7 @@
         <h3 class="h4">Have a role, project, or idea in mind?</h3>
       </UiAnimate>
       <UiAnimate :distance="40">
-        <h1 class="h1">Let's connect</h1>
+        <h2 class="h1">Let's connect</h2>
       </UiAnimate>
       <UiAnimate :distance="40">
         <div class="relative flex h-[110px] items-center justify-center">

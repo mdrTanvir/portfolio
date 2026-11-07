@@ -100,7 +100,7 @@ import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {experiences, skills} from "~/config/data/data"
 
-gsap.registerPlugin(ScrollTrigger)
+if (import.meta.client) gsap.registerPlugin(ScrollTrigger)
 
 const experienceContainer = ref(null)
 const line = ref(null)

@@ -1,6 +1,20 @@
 # Tanvir Rahman Portfolio
 
-A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a client-rendered Nuxt application with prerendered public routes, animated UI sections, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-focused deployment defaults.
+A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a Nuxt application with server-rendered, prerendered public routes, animated UI sections, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-focused deployment defaults.
+
+## About Tanvir
+
+IT graduate based in Launceston, Tasmania, with experience in PHP/Laravel and Vue.js development, Python analytics projects and practical systems and customer support. Master of Information Technology and Systems, University of Tasmania, specialising in Artificial Intelligence and Cybersecurity. GPA 6.75/7; University Roll of Excellence, 2025.
+
+**[Portfolio](https://www.tanvirrahman.dev/) · [CV](https://www.tanvirrahman.dev/Md-Tanvir-Rahman-Resume.pdf) · [LinkedIn](https://www.linkedin.com/in/md-tanvir-rahman-88a239148/)**
+
+| Project | Evidence |
+| --- | --- |
+| Global Health Analytics | [Notebooks, clustering and temporal evaluation](https://github.com/mdrTanvir/SDG-Health-Analytics) · [Dashboard](https://health.tanvirrahman.dev/) |
+| IoT Weather Dashboard | [PHP, Sense HAT workflow and methodology](https://github.com/mdrTanvir/Weather-prediction-IOT) · [Dashboard](https://weather.tanvirrahman.dev/) |
+| Airport Efficiency Analysis | [Python statistical analysis](https://github.com/mdrTanvir/Melbourne-airport-luggage-efficiency-analysis) |
+
+The weather demonstration includes synthetic data. In-sample model fit is not a forecast accuracy guarantee. Project analysis is separate from professional employment.
 
 ## Table Of Contents
 

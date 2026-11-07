@@ -2,7 +2,8 @@
   <section ref="container" id="PROJECTS" class="contain content-section !pt-4 !pb-4 md:!pt-6 md:!pb-6 lg:!pt-8 lg:!pb-8 relative"
            :class="{'mt-28':all}"
   >
-    <UiHeading>Projects</UiHeading>
+    <h1 v-if="all" class="mb-10 text-4xl font-semibold text-primary">Projects</h1>
+    <UiHeading v-else>Projects</UiHeading>
 
     <div v-if="PROJECTS.length">
       <div
@@ -107,7 +108,7 @@
 </template>
 
 <script setup lang="ts">
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 // import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 import {works, skills} from '~/config/data/data'
@@ -116,7 +117,7 @@ const props = defineProps({
   all: {type: Boolean, default: false},
 })
 
-gsap.registerPlugin(ScrollTrigger)
+if (import.meta.client) gsap.registerPlugin(ScrollTrigger)
 // gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const projects = works || []

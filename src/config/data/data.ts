@@ -20,13 +20,13 @@ const siteData = {
     logoName: 'Tanvir',
     address: 'Launceston, Tasmania, Australia',
     phone: '+61 450469323',
-    email: 'tanvirrahman.au@gmail.com',
+    email: 'md.tanvir.rahman.au@gmail.com',
     profile: '',
     // profile: '/images/profile2.webp',
     cvLink: '/Md-Tanvir-Rahman-Resume.pdf',
     meta: {
         name: siteBrand,
-        siteUrl: 'https://mdr-tanvir.dev',
+        siteUrl: 'https://www.tanvirrahman.dev',
         description: 'IT graduate in Launceston with experience in technical support, SQL, operational reporting, and customer service across utilities, software development, and retail.',
         image: '/og.png',
         keywords: `${fullName}, IT Graduate, Software Developer, Cybersecurity, Data, Systems`,
@@ -34,12 +34,12 @@ const siteData = {
     hero: {
         greeting: `I'm ${fullName},`,
         headline: 'IT Graduate',
-        headlineTags: ['Technical Support', 'Data & Reporting', 'Systems'],
-        subheadline: 'I combine technical problem-solving with practical experience in customer support, operational reporting, and clear communication across utilities, software, and retail.',
+        headlineTags: ['PHP / Vue.js / SQL', 'Python / Data Analytics', 'IT & User Support'],
+        subheadline: 'Software development experience, reproducible data projects and practical user support. Based in Launceston, Tasmania, with a UTAS master’s degree specialising in Artificial Intelligence and Cybersecurity.',
         impacts: [
-            {value: '20%', label: 'faster navigation on the ExerTime health platform'},
-            {value: '0.84', label: 'R² achieved in an IoT weather dashboard'},
-            {value: '207', label: 'countries analysed in global health research'},
+            {value: '2020–2022', label: 'Software Developer · Business Automation Ltd'},
+            {value: '6.75 / 7', label: 'UTAS GPA · Roll of Excellence 2025'},
+            {value: '207 countries', label: 'Reproducible global health analysis'},
         ],
     },
     about: [
@@ -47,11 +47,11 @@ const siteData = {
 
         "My background spans utilities, software development, and retail. I am comfortable investigating account and data discrepancies, working with operational systems, and explaining outcomes clearly to people with different levels of technical knowledge.",
 
-        "During my University of Tasmania placement, I improved the ExerTime digital health platform through targeted interface, accessibility, and system enhancements. The work reduced user navigation time by around 20 percent for researchers and academic stakeholders.",
+        "During my University of Tasmania placement, I improved the ExerTime digital health platform through targeted interface, accessibility, and system enhancements. I worked on clearer navigation and maintainable front-end components for researchers and academic stakeholders.",
 
         "Earlier, at Business Automation Ltd, I delivered features for enterprise and government applications in live production environments. I developed a careful approach to performance, reliability, testing, and collaboration across technical teams.",
 
-        "What I bring is curiosity, reliability, strong communication, and a calm approach to problem-solving. I hold full Australian working rights and an Australian driver's licence, and am available for regular travel across Tasmania."
+        "I want to help Tasmanian communities build digital confidence through practical technology, clear explanations and patient support. I bring experience working with technical teams, customers and research stakeholders."
     ],
     github: 'https://github.com/mdrTanvir',
     socials: [

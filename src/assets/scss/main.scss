@@ -14,3 +14,8 @@
   }
 }
 
+
+.skip-link { position: fixed; left: 1rem; top: -6rem; z-index: 1000; padding: .8rem 1.2rem; background: #075985; color: white; border-radius: .5rem; }
+.skip-link:focus { top: 1rem; }
+section[id] { scroll-margin-top: 6rem; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }

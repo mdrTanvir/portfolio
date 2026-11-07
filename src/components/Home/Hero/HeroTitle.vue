@@ -1,35 +1,32 @@
 <template>
-  <div class="max-w-4xl">
-    <div>
-      <h1 class="max-w-[18ch] text-[2.5rem] font-semibold leading-[0.96] tracking-[-0.05em] text-primary sm:text-[4.15rem] md:text-[3.55rem] lg:text-[3.7rem]">
-        <span class="block text-gray-700 dark:text-white">{{ siteData.hero.greeting }}</span>
-        <span class="mt-2 block text-[0.8em] leading-[1.08] tracking-[-0.02em] text-primary sm:text-[0.76em] md:text-[0.72em] lg:text-[0.7em]">{{ siteData.hero.headline }}</span>
-      </h1>
-
-      <div v-if="siteData.hero.headlineTags?.length" class="mt-5 flex flex-wrap gap-2">
-        <span v-for="tag in siteData.hero.headlineTags" :key="tag" class="rounded-full border border-sky-300 bg-sky-100 px-3 py-1.5 text-sm font-semibold tracking-[0.08em] text-sky-900 dark:border-sky-400/20 dark:bg-sky-950/40 dark:text-sky-300">
-          {{ tag }}
-        </span>
-      </div>
-
-      <p v-if="siteData.hero.subheadline" class="mt-8 max-w-3xl text-[1.05rem] leading-8 text-gray-600 dark:text-gray-300 sm:text-[1.18rem] sm:leading-9 lg:text-[1.28rem]">
-        {{ siteData.hero.subheadline }}
-      </p>
-
-      <div class="mt-8 block md:hidden"><SocialLinksHorizontal/></div>
-
-      <div class="mt-8 flex flex-wrap gap-3 sm:gap-4">
-        <a v-if="siteData.cvLink" :href="siteData.cvLink" target="_blank" rel="noopener noreferrer">
-          <UiPrimaryButton><Icon name="lucide:download" class="mr-2 h-4 w-4"/>Download CV</UiPrimaryButton>
-        </a>
-        <UiPrimaryButton inverted @click="scrollTo('CONTACT')"><Icon name="lucide:message-circle" class="mr-2 h-4 w-4"/>Let's Talk</UiPrimaryButton>
-      </div>
+  <div class="max-w-5xl">
+    <p class="mb-4 text-sm font-semibold tracking-wide text-gray-600 dark:text-gray-300">Launceston, Tasmania · University of Tasmania graduate</p>
+    <h1 class="text-4xl font-semibold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-6xl">Tanvir Rahman<span class="mt-3 block text-2xl text-primary sm:text-4xl">Software. Data. Practical IT support.</span></h1>
+    <p class="mt-5 max-w-3xl text-base leading-7 text-gray-600 dark:text-gray-300 sm:text-lg">{{ siteData.hero.subheadline }}</p>
+    <div class="mt-5 flex flex-wrap gap-2">
+      <span v-for="tag in siteData.hero.headlineTags" :key="tag" class="rounded-full border border-sky-300 bg-sky-50 px-3 py-1.5 text-sm font-medium text-sky-900 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200">{{ tag }}</span>
     </div>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a href="#PROJECTS" @click.prevent="scrollTo('PROJECTS')" class="hero-action hero-action-primary">Explore my work <span aria-hidden="true">↗</span></a>
+      <a :href="siteData.cvLink" class="hero-action" target="_blank" rel="noopener noreferrer">Download CV <span aria-hidden="true">↓</span></a>
+      <a :href="`mailto:${siteData.email}`" class="hero-action">Email me</a>
+      <a :href="siteData.github" class="hero-action" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+    <dl class="mt-8 grid gap-5 border-t border-gray-300/70 pt-5 dark:border-gray-700 sm:grid-cols-3">
+      <div v-for="item in siteData.hero.impacts" :key="item.label">
+        <dt class="text-lg font-semibold text-gray-900 dark:text-white">{{ item.value }}</dt>
+        <dd class="mt-1 max-w-[28ch] text-sm leading-6 text-gray-600 dark:text-gray-300">{{ item.label }}</dd>
+      </div>
+    </dl>
   </div>
 </template>
-
 <script setup lang="ts">
-import siteData from "~/config/data/data";
-
+import siteData from '~/config/data/data'
 const {scrollTo} = useScrollTo()
 </script>
+<style scoped>
+.hero-action { display:inline-flex; align-items:center; gap:.7rem; border:1px solid #64748b; border-radius:999px; padding:.7rem 1.15rem; font-size:.9rem; font-weight:600; transition:transform .2s; }
+.hero-action:hover { transform:translateY(-2px); }
+.hero-action:focus-visible { outline:3px solid #0284c7; outline-offset:4px; }
+.hero-action-primary { background:#0369a1; color:white; border-color:#0369a1; }
+</style>

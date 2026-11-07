@@ -47,7 +47,7 @@
 </template>
 
 <script setup lang="ts">
-import gsap, {Power4} from 'gsap'
+import {gsap, Power4} from 'gsap'
 import navigation from "~/config/navigation";
 
 const {scrollTo} = useScrollTo()

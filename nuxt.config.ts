@@ -33,7 +33,7 @@ const securityHeaders = {
 export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: false},
-    ssr: false,
+    ssr: true,
     srcDir: './src/',
     typescript: {
         strict: true,
@@ -48,14 +48,14 @@ export default defineNuxtConfig({
             prerender: true,
             headers: {
                 ...securityHeaders,
-                'Cache-Control': 'public, max-age=31536000, immutable'
+                'Cache-Control': 'public, max-age=0, must-revalidate'
             }
         },
         '/projects': {
             prerender: true,
             headers: {
                 ...securityHeaders,
-                'Cache-Control': 'public, max-age=31536000, immutable'
+                'Cache-Control': 'public, max-age=0, must-revalidate'
             }
         }
     },
@@ -64,7 +64,7 @@ export default defineNuxtConfig({
     },
     app: {
         head: {
-            title: 'Tanvir Rahman | Software, Data & Cybersecurity',
+            title: 'Tanvir Rahman | Software Development, Data & IT Support',
             htmlAttrs: {
                 lang: 'en'
             },
@@ -72,21 +72,21 @@ export default defineNuxtConfig({
                 {name: 'application-name', content: 'tanvir'},
                 {name: 'apple-mobile-web-app-title', content: 'tanvir'},
                 {name: 'theme-color', content: '#f8fafc'},
-                {name: 'description', content: 'Tanvir Rahman is a Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
+                {name: 'description', content: 'Launceston IT graduate and software developer. Explore PHP, Vue.js, SQL, Python analytics and practical systems support, with project code and a downloadable CV.'},
                 {name: 'keywords', content: 'Tanvir Rahman, Aurora Energy, Customer Service Representative, Technical Support, IT Graduate, Launceston'},
                 {property: 'og:type', content: 'website'},
                 {property: 'og:site_name', content: 'Tanvir Rahman'},
-                {property: 'og:title', content: 'Tanvir Rahman | Software, Data & Cybersecurity'},
-                {property: 'og:description', content: 'Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
-                {property: 'og:url', content: 'https://mdr-tanvir.dev/'},
-                {property: 'og:image', content: 'https://mdr-tanvir.dev/og.png'},
+                {property: 'og:title', content: 'Tanvir Rahman | Software Development, Data & IT Support'},
+                {property: 'og:description', content: 'Launceston IT graduate with software development experience, Python analytics projects and practical systems support. View projects, experience and CV.'},
+                {property: 'og:url', content: 'https://www.tanvirrahman.dev/'},
+                {property: 'og:image', content: 'https://www.tanvirrahman.dev/og.png'},
                 {name: 'twitter:card', content: 'summary_large_image'},
-                {name: 'twitter:title', content: 'Tanvir Rahman | Software, Data & Cybersecurity'},
-                {name: 'twitter:description', content: 'Launceston-based Customer Service Representative and IT graduate with experience in technical support, data, and operational systems.'},
-                {name: 'twitter:image', content: 'https://mdr-tanvir.dev/og.png'},
+                {name: 'twitter:title', content: 'Tanvir Rahman | Software Development, Data & IT Support'},
+                {name: 'twitter:description', content: 'Launceston IT graduate with software development experience, Python analytics projects and practical systems support. View projects, experience and CV.'},
+                {name: 'twitter:image', content: 'https://www.tanvirrahman.dev/og.png'},
             ],
             link: [
-                {rel: 'canonical', href: 'https://mdr-tanvir.dev/'},
+                {rel: 'canonical', href: 'https://www.tanvirrahman.dev/'},
                 {
                     rel: 'icon',
                     type: 'image/png',

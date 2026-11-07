@@ -23,6 +23,13 @@ export default function useSEO(pageTitle = '', description = '', image = '') {
     });
 
     useHead({
+        script: [{type: 'application/ld+json', innerHTML: JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'Person',
+            name: 'Tanvir Rahman', url: siteData.meta.siteUrl,
+            sameAs: siteData.socials.map(item => item.link),
+            alumniOf: [{'@type': 'CollegeOrUniversity', name: 'University of Tasmania'}, {'@type': 'CollegeOrUniversity', name: 'University of Greenwich'}],
+            address: {'@type': 'PostalAddress', addressLocality: 'Launceston', addressRegion: 'Tasmania', addressCountry: 'AU'},
+        })}],
         link: [
             {rel: 'canonical', href: canonicalUrl},
         ],

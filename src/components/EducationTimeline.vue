@@ -40,7 +40,7 @@ import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import {educations} from "~/config/data/data";
 
-gsap.registerPlugin(ScrollTrigger)
+if (import.meta.client) gsap.registerPlugin(ScrollTrigger)
 
 const educationContainer = ref(null)
 const linePath = ref(null)

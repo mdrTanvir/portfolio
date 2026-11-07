@@ -5,11 +5,11 @@
         :delay="0.2"
     >
 <!--        ease="back.out(3)"-->
-      <h1
+      <h2
           class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] !text-primary"
       >
         <slot></slot>
-      </h1>
+      </h2>
     </UiAnimate>
   </div>
 </template>

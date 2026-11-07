@@ -20,14 +20,14 @@
             <Icon name="lucide:phone" class="mr-2"/>
             <div>
               <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Phone</div>
-              <div class="text-base leading-7 text-primary">{{ siteData.phone }}</div>
+              <a :href="`tel:${siteData.phone.replace(/ /g, '')}`" class="text-base leading-7 text-primary">{{ siteData.phone }}</a>
             </div>
           </UiAnimate>
           <UiAnimate :distance="20" class="flex gap-4">
             <Icon name="lucide:mail" class="mr-2"/>
             <div>
               <div class="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">Email</div>
-              <div class="text-base leading-7 text-primary">{{ siteData.email }}</div>
+              <a :href="`mailto:${siteData.email}`" class="break-all text-base leading-7 text-primary">{{ siteData.email }}</a>
             </div>
           </UiAnimate>
         </div>
