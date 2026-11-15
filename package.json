@@ -9,6 +9,7 @@
     "security:audit": "yarn audit --level moderate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test:evidence": "node --test tests/role-evidence.test.mjs",
     "cv:check": "node scripts/check-cv.mjs",
     "contrast:check": "node scripts/check-contrast.mjs"
   },

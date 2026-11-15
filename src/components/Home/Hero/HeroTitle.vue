@@ -2,13 +2,14 @@
   <div>
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="hero-name">Tanvir Rahman <span aria-hidden="true">/</span> Portfolio</p>
+        <div class="hero-identity"><p class="hero-name">Tanvir Rahman <span aria-hidden="true">/</span> Portfolio</p><UiAppearancePicker/></div>
         <p class="eyebrow hero-location"><span aria-hidden="true"></span> Launceston, Tasmania · IT graduate</p>
         <h1>Software, data<br/>and support.<br/><em>Built around people.</em></h1>
         <p class="hero-description">{{ siteData.hero.subheadline }}</p>
         <div class="hero-tags"><span v-for="tag in siteData.hero.headlineTags" :key="tag">{{ tag }}</span></div>
         <div class="hero-actions">
-          <a href="/#PROJECTS" @click.prevent="scrollTo('PROJECTS')" class="action action-primary">Explore my work <span aria-hidden="true">↗</span></a>
+          <a href="/#ROLE-EXPLORER" class="action action-primary" @click.prevent="scrollTo('ROLE-EXPLORER')">Try the role explorer <span aria-hidden="true">↗</span></a>
+          <a href="/#PROJECTS" @click.prevent="scrollTo('PROJECTS')" class="action">Explore my work <span aria-hidden="true">↗</span></a>
           <a :href="siteData.cvLink" download aria-label="Download CV (PDF)" class="action">Download CV <span aria-hidden="true">↓</span></a>
         </div>
         <div class="hero-socials"><a :href="`mailto:${siteData.email}`" class="text-link">Email me <span aria-hidden="true">↗</span></a><a :href="siteData.github" class="text-link" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a><a :href="siteData.socials[0].link" class="text-link" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
@@ -40,7 +41,7 @@ function nextProject() { featuredIndex.value = (featuredIndex.value+1)%spotlight
 .featured-bottom>span:last-child {display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--button);color:var(--button-ink);transition:transform .25s}
 .featured-link:hover .featured-bottom>span:last-child{transform:rotate(45deg)}
 
-.hero-name {font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--ink);margin-bottom:18px}.hero-name>span{margin-inline:10px;color:var(--control-border)}
+.hero-identity{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}.hero-name {font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--ink);margin-bottom:0}.hero-name>span{margin-inline:10px;color:var(--control-border)}
 .featured-link {display:block;color:var(--ink);}
 .spotlight-count {margin-left:8px;font-size:.6rem;letter-spacing:0;color:var(--muted)}
 .next-project {display:flex;align-items:center;gap:10px;min-height:44px;border-radius:999px;border:1px solid var(--control-border);padding:8px 14px;background:var(--surface);color:var(--accent);font-size:.72rem;font-weight:600;flex-shrink:0;transition:background .2s,transform .2s}
@@ -59,6 +60,7 @@ h1 em {font-style:normal;display:inline-block;margin-top:10px;color:var(--accent
 .hero-description { margin-top:24px; max-width:52ch; color:var(--muted); font-size:.96rem; line-height:1.8; }
 .hero-tags { margin-top:20px; display:flex; flex-wrap:wrap; gap:7px; }
 .hero-tags span { color:var(--accent); border:1px solid var(--line); border-radius:5px; padding:5px 8px; font-size:.67rem; font-weight:550; background:var(--surface); }
+.hero-actions .action{font-size:.78rem;padding-inline:16px}
 .hero-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
 .hero-socials { display:flex; gap:24px; margin-top:8px; }
 .featured-work { position:relative; display:block; color:var(--ink); border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); overflow:hidden; border-color:var(--control-border); transition:transform .25s,box-shadow .25s; }

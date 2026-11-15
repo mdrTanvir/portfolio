@@ -1,4 +1,5 @@
 const navigation = [
+    {name: 'Try the tool', href: 'ROLE-EXPLORER'},
     {name: 'Projects', href: 'PROJECTS'},
     {name: 'Experience', href: 'EXPERIENCE'},
     {name: 'About', href: 'ABOUT'},

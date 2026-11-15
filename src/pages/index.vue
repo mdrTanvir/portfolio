@@ -1,6 +1,7 @@
 <template>
   <main id="main-content" tabindex="-1">
     <HomeHeroAbout/>
+    <HomeRoleExplorer/>
     <HomeProjects/>
     <HomeExperience/>
     <HomeProfile/>
