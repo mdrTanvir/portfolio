@@ -17,8 +17,10 @@ import {experiences} from '~/config/data/data'
 <style scoped>
 .experience-content {position:relative;padding-left:24px;border-left:2px solid var(--line)}
 .experience-content::before {content:'';position:absolute;left:-6px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--soft)}
-.experience-row:first-child .experience-content::before {background:var(--pop);box-shadow:0 0 0 1px var(--pop-ink),0 0 0 5px var(--soft)}
+.experience-row:first-child .experience-content::before {background:var(--accent);box-shadow:0 0 0 5px var(--soft)}
 summary>span {transition:transform .2s}
+details[open] .experience-details {animation:details-open .25s ease-out}
+@keyframes details-open {from{opacity:.4;transform:translateY(-5px)}to{opacity:1;transform:none}}
 
 .experience-list { border-top:1px solid var(--line); }
 .experience-row { display:grid; grid-template-columns:240px 1fr; gap:48px; padding:36px 0; border-bottom:1px solid var(--line); }

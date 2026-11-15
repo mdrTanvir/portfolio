@@ -14,14 +14,14 @@
       <div class="profile-junction" aria-hidden="true"><div class="junction-ring"><span>TR</span></div><span>Your focus,<br/>my experience.</span></div>
       <div id="profile-evidence" class="evidence-panel" :aria-label="`${active.label} evidence`">
         <p class="evidence-status" role="status" aria-live="polite">Showing {{ active.label.toLowerCase() }} evidence</p>
-        <div :key="selected" class="evidence-cards">
+        <Transition name="evidence" mode="out-in"><div :key="selected" class="evidence-cards">
           <article v-for="item in active.evidence" :key="item.title" class="evidence-card">
             <div class="evidence-kicker"><span>{{ item.type }}</span><span>{{ item.date }}</span></div>
             <h4><a :href="item.url" :target="item.external ? '_blank' : undefined" :rel="item.external ? 'noopener noreferrer' : undefined" @click="navigateEvidence($event,item)">{{ item.title }} <span aria-hidden="true">↗</span></a></h4>
             <p v-if="item.company" class="evidence-company">{{ item.company }}</p>
             <p class="evidence-description">{{ item.description }}</p>
           </article>
-        </div>
+        </div></Transition>
       </div>
     </div>
     <div class="explorer-footer"><span>Start with a focus. Open the work behind it.</span><a href="/#EXPERIENCE" class="text-link" @click.prevent="scrollTo('EXPERIENCE')">Full experience <span aria-hidden="true">↗</span></a></div>
@@ -50,6 +50,7 @@ const active = computed(() => lenses.find(lens => lens.id === selected.value)!)
 function navigateEvidence(event:MouseEvent,item:Evidence) { if (!item.external) {event.preventDefault(); scrollTo('EXPERIENCE')} }
 </script>
 <style scoped>
+.evidence-enter-active{transition:opacity .22s,transform .22s}.evidence-leave-active{transition:opacity .1s}.evidence-enter-from{opacity:0;transform:translateY(8px)}.evidence-leave-to{opacity:0}
 .profile-explorer { border:1px solid var(--line); border-radius:20px; background:var(--surface); overflow:hidden; margin-bottom:44px; }
 .explorer-heading { padding:28px 30px 0; display:flex; justify-content:space-between; gap:24px; align-items:end; }
 h3 { font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:550; letter-spacing:-.035em; line-height:1.25; margin-top:8px; }
@@ -71,9 +72,9 @@ h3 { font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:550; letter-spacing:-.035
 .profile-junction {text-align:center;font-size:.7rem;line-height:1.6;color:var(--muted);}
 .junction-ring {height:110px;width:110px;max-width:100%;margin:0 auto;padding:8px;border:1px solid var(--control-border);border-radius:50%;background:var(--surface);}
 .profile-junction>span {position:absolute;top:calc(100% + 12px);left:0;right:0;padding:2px 4px}
-.junction-ring>span {display:flex;align-items:center;justify-content:center;height:100%;border-radius:50%;background:var(--pop);border:1px solid var(--pop-ink);color:var(--pop-ink);font-size:2.2rem;font-weight:500;letter-spacing:-.07em}
+.junction-ring>span {display:flex;align-items:center;justify-content:center;height:100%;border-radius:50%;background:var(--silver);border:1px solid var(--silver-ink);color:var(--silver-ink);font-size:2.2rem;font-weight:500;letter-spacing:-.07em}
 .evidence-status {font-size:.7rem;line-height:1.5;color:var(--muted);margin-bottom:12px;}
-.evidence-cards {display:grid;gap:14px;min-height:400px;animation:evidence-enter .18s ease-out}
+.evidence-cards {display:grid;gap:14px;min-height:400px;}
 .evidence-card {background:var(--page);border:1px solid var(--line);border-radius:12px;padding:20px;}
 .evidence-kicker {display:flex;justify-content:space-between;gap:12px;font-size:.62rem;line-height:1.6;color:var(--muted)}
 .evidence-kicker span:last-child {white-space:nowrap}

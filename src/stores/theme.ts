@@ -3,9 +3,9 @@ import {defineStore} from 'pinia'
 export const useThemeStore = defineStore(
     'theme',
     () => {
-        const darkMode = ref(false)
-        // A new preference key resets the former dark-mode default for returning visitors.
-        const theme = useCookie<'light' | 'dark'>('portfolio-theme', {
+        const darkMode = ref(true)
+        // Start the graphite redesign consistently; preserve subsequent visitor choices.
+        const theme = useCookie<'light' | 'dark'>('portfolio-appearance-v2', {
             maxAge: 60 * 60 * 24 * 30, // 30 days
             sameSite: 'lax',
             secure: false,

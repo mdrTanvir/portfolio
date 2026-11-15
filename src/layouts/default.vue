@@ -11,6 +11,7 @@
 </template>
 <script setup lang="ts">
 useEntranceMotion()
+usePointerLight()
 </script>
 <style scoped>
 .portfolio-shell { position: relative; background: var(--page); color: var(--ink); min-height: 100vh; overflow: clip; }

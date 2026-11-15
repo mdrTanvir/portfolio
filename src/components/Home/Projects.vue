@@ -30,10 +30,10 @@ const skillMap = Object.fromEntries(Object.values(skills).flat().map(skill => [s
 </script>
 <style scoped>
 .project-card {animation:project-appear .3s ease-out}
-.project-card[data-project="1"] .browser-bar {box-shadow:inset 0 3px var(--coral)}
-.project-card[data-project="2"] .browser-bar {box-shadow:inset 0 3px var(--violet)}
+.project-card[data-project="1"] .browser-bar {box-shadow:inset 0 3px var(--accent)}
+.project-card[data-project="2"] .browser-bar {box-shadow:inset 0 3px var(--control-border)}
 .project-card[data-project="3"] .browser-bar {box-shadow:inset 0 3px var(--accent)}
-.project-card[data-project="4"] .browser-bar {box-shadow:inset 0 3px var(--pop)}
+.project-card[data-project="4"] .browser-bar {box-shadow:inset 0 3px var(--silver)}
 @keyframes project-appear {from{opacity:.4;transform:translateY(10px)}to{opacity:1;transform:none}}
 
 .projects-section { overflow-anchor:none; }
@@ -49,7 +49,7 @@ const skillMap = Object.fromEntries(Object.values(skills).flat().map(skill => [s
 .project-card { min-width:0; display:flex; flex-direction:column; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); overflow:hidden; transition:border-color .2s,box-shadow .2s; }
 .project-visual { display:block; margin:14px 14px 0; border:1px solid var(--line); border-radius:10px; overflow:hidden; color:var(--muted); background:var(--soft); }
 .browser-bar { display:flex; align-items:center; justify-content:space-between; gap:10px; height:34px; padding:0 12px; font-size:.62rem; border-bottom:1px solid var(--line); }
-.browser-dots { display:flex; gap:4px; } .browser-dots i { width:7px; height:7px; border-radius:50%; background:var(--coral); } .browser-dots i:nth-child(2){background:var(--pop)} .browser-dots i:nth-child(3){background:var(--violet)}
+.browser-dots { display:flex; gap:4px; } .browser-dots i { width:7px; height:7px; border-radius:50%; background:var(--accent); } .browser-dots i:nth-child(2){background:var(--silver)} .browser-dots i:nth-child(3){background:var(--control-border)}
 .project-image { aspect-ratio:1.77778; overflow:hidden; }
 .project-image img { width:100%; height:100%; object-fit:contain; object-position:top; transition:transform .35s; }
 .project-body { padding:26px; display:flex; flex-direction:column; flex:1; }

@@ -1,11 +1,8 @@
 <template>
-  <div class="ambient-field" aria-hidden="true"><div class="ambient-orb orb-violet"></div><div class="ambient-orb orb-mint"></div><div class="ambient-orb orb-coral"></div><div class="ambient-grid"></div></div>
+  <div class="ambient-field" aria-hidden="true"><div class="blue-horizon"></div><div class="technical-grid"></div></div>
 </template>
 <style scoped>
-.ambient-field { position:absolute; inset:0 0 auto; height:1000px; overflow:hidden; pointer-events:none; }
-.ambient-orb { position:absolute; width:580px; height:580px; border-radius:50%; filter:blur(85px); opacity:.2; }
-.orb-violet { background:#9465f4; top:-230px; left:-160px; }
-.orb-mint { background:#b6ec69; top:40px; right:-250px; opacity:.15; }
-.orb-coral { background:#ff947d; top:480px; left:40%; width:300px; height:300px; opacity:.09; }
-.ambient-grid { position:absolute; inset:0; background-image:radial-gradient(var(--control-border) .7px,transparent .7px); background-size:28px 28px; opacity:.13; mask-image:linear-gradient(#000,transparent 85%); }
+.ambient-field {position:absolute;inset:0 0 auto;height:900px;overflow:hidden;pointer-events:none}
+.blue-horizon {position:absolute;top:-340px;left:20%;right:-10%;height:680px;background:radial-gradient(ellipse,rgba(49,105,255,.14),transparent 65%)}
+.technical-grid {position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;opacity:.16;mask-image:linear-gradient(#000,transparent 80%)}
 </style>

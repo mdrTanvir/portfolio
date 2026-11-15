@@ -18,7 +18,9 @@ for (const [name,selector] of [['light',':root'],['dark','.dark']]) {
    checked++;
   }
  }
- if (ratio(tokens['pop-ink'],tokens.pop) < 4.5) throw Error(`${name} highlight text fails contrast`);
+ if (ratio(tokens['silver-ink'],tokens.silver) < 4.5) throw Error(`${name} highlight text fails contrast`);
+ checked++;
+ if (ratio(tokens['button-ink'],tokens.button) < 4.5) throw Error(`${name} primary button text fails contrast`);
  checked++;
  console.log(`${name}: secondary text on surface ${ratio(tokens.muted,tokens.surface).toFixed(2)}:1; accent ${ratio(tokens.accent,tokens.surface).toFixed(2)}:1`);
 }
