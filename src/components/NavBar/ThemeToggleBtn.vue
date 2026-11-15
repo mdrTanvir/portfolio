@@ -8,7 +8,7 @@ const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 </script>
 <style scoped>
-.theme-toggle { display:flex; align-items:center; justify-content:center; width:44px; height:44px; padding:11px; border:1px solid transparent; border-radius:8px; color:var(--ink); background:transparent; transition:background .18s; }
-.theme-toggle:hover { background:var(--soft); }
+.theme-toggle { display:flex; align-items:center; justify-content:center; width:44px; height:44px; padding:11px; border:1px solid transparent; border-radius:50%; color:var(--ink); background:transparent; transition:background .18s,transform .25s; }
+.theme-toggle:hover { background:var(--soft); transform:rotate(15deg); }
 .theme-toggle :deep(svg) { width:20px; height:20px; }
 </style>

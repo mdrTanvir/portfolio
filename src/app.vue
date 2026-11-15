@@ -9,5 +9,5 @@
 const themeStore = useThemeStore()
 const {darkMode} = storeToRefs(themeStore)
 onMounted(() => themeStore.setTheme())
-useHead(() => ({meta: [{name: 'theme-color', content: darkMode.value ? '#0b1218' : '#fcfcfd'}]}))
+useHead(() => ({meta: [{name: 'theme-color', content: darkMode.value ? '#100d1c' : '#f8f5ff'}]}))
 </script>

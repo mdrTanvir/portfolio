@@ -18,6 +18,8 @@ for (const [name,selector] of [['light',':root'],['dark','.dark']]) {
    checked++;
   }
  }
+ if (ratio(tokens['pop-ink'],tokens.pop) < 4.5) throw Error(`${name} highlight text fails contrast`);
+ checked++;
  console.log(`${name}: secondary text on surface ${ratio(tokens.muted,tokens.surface).toFixed(2)}:1; accent ${ratio(tokens.accent,tokens.surface).toFixed(2)}:1`);
 }
 console.log(`${checked} palette checks passed. Image text, composited gradients and overall WCAG conformance require separate review.`);

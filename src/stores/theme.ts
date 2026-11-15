@@ -14,6 +14,9 @@ export const useThemeStore = defineStore(
             }
         })
 
+        // Render saved theme consistently on the server and during hydration.
+        darkMode.value = theme.value === 'dark'
+
         function toggleTheme() {
             darkMode.value = !darkMode.value
             setTheme(darkMode.value)

@@ -1,7 +1,7 @@
 <template>
   <section id="CONTACT" tabindex="-1" class="contain content-section contact-section">
     <div class="contact-panel">
-      <div class="contact-copy"><p class="eyebrow">05 / Get in touch</p><h2>Let’s talk about<br/>your team.</h2><p class="contact-intro">Hiring in software, data or IT support? Explore my CV or get in touch to discuss the role.</p>
+      <div class="contact-copy"><span class="contact-spark" aria-hidden="true">✳</span><p class="eyebrow">05 / Get in touch</p><h2>Let’s talk about<br/>your team.</h2><p class="contact-intro">Hiring in software, data or IT support? Explore my CV or get in touch to discuss the role.</p>
         <a class="contact-email" :href="`mailto:${siteData.email}`">{{ siteData.email }} <span aria-hidden="true">↗</span></a>
         <div class="contact-buttons"><a :href="`mailto:${siteData.email}`" class="action action-primary">Write an email <span aria-hidden="true">↗</span></a><button type="button" class="action" @click="copyEmail">{{ copied ? 'Copied ✓' : 'Copy email' }}</button></div><p class="copy-status" role="status" aria-live="polite">{{ copyStatus }}</p>
         <dl class="contact-facts"><div><dt>Based in</dt><dd>{{ siteData.address }}</dd></div><div><dt>Phone</dt><dd><a :href="`tel:${siteData.phone.replace(/ /g, '')}`">{{ siteData.phone }}</a></dd></div></dl>
@@ -136,6 +136,11 @@ const submitForm = async () => {
 </script>
 
 <style scoped>
+.contact-copy {position:relative}.contact-spark {position:absolute;right:0;top:-12px;display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:var(--pop);color:var(--pop-ink);font-size:3rem;transform:rotate(-12deg);transition:transform .4s}
+.contact-panel:hover .contact-spark {transform:rotate(45deg)}
+.contact-panel {box-shadow:inset 0 5px var(--violet),var(--shadow) !important}
+@media(max-width:479px){.contact-spark{width:42px;height:42px;font-size:2rem;top:-8px}}
+
 .contact-panel { display:grid;grid-template-columns:1fr 1.1fr;gap:64px;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,4vw,48px);background:var(--surface);box-shadow:var(--shadow); }
 h2 {margin-top:18px;font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.05em;font-weight:550}
 .contact-intro {margin-top:24px;font-size:.94rem;line-height:1.8;color:var(--muted);max-width:37ch}

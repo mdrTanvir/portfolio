@@ -57,7 +57,8 @@ h3 { font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:550; letter-spacing:-.035
 .explorer-map { position:relative; display:grid; grid-template-columns:25% 18% minmax(0,1fr); align-items:center; gap:5%; margin:28px 30px; min-height:400px; }
 .map-connections { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
 .map-connections path { stroke:var(--line); stroke-width:1.5; vector-effect:non-scaling-stroke; transition:stroke .18s; }
-.map-connections path.is-active {stroke:var(--accent);stroke-width:2;}
+.map-connections path.is-active {stroke:var(--accent);stroke-width:2;stroke-dasharray:6 7;animation:signal .8s linear 3;}
+@keyframes signal {to{stroke-dashoffset:-26}}
 .focus-controls,.profile-junction,.evidence-panel {position:relative;z-index:1;min-width:0}
 .focus-controls {display:grid;gap:14px}
 .focus-controls button {display:flex;align-items:center;gap:12px;text-align:left;padding:18px 14px;min-height:88px;width:100%;border:1px solid var(--control-border);border-radius:12px;background:var(--surface);color:var(--ink);transition:background .18s,border-color .18s;}
@@ -70,7 +71,7 @@ h3 { font-size:clamp(1.2rem,2.2vw,1.6rem); font-weight:550; letter-spacing:-.035
 .profile-junction {text-align:center;font-size:.7rem;line-height:1.6;color:var(--muted);}
 .junction-ring {height:110px;width:110px;max-width:100%;margin:0 auto;padding:8px;border:1px solid var(--control-border);border-radius:50%;background:var(--surface);}
 .profile-junction>span {position:absolute;top:calc(100% + 12px);left:0;right:0;padding:2px 4px}
-.junction-ring>span {display:flex;align-items:center;justify-content:center;height:100%;border-radius:50%;background:var(--soft);border:1px solid var(--line);color:var(--ink);font-size:2.2rem;font-weight:500;letter-spacing:-.07em}
+.junction-ring>span {display:flex;align-items:center;justify-content:center;height:100%;border-radius:50%;background:var(--pop);border:1px solid var(--pop-ink);color:var(--pop-ink);font-size:2.2rem;font-weight:500;letter-spacing:-.07em}
 .evidence-status {font-size:.7rem;line-height:1.5;color:var(--muted);margin-bottom:12px;}
 .evidence-cards {display:grid;gap:14px;min-height:400px;animation:evidence-enter .18s ease-out}
 .evidence-card {background:var(--page);border:1px solid var(--line);border-radius:12px;padding:20px;}

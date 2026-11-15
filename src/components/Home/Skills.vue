@@ -8,6 +8,7 @@
 import {skills} from '~/config/data/data'
 </script>
 <style scoped>
+article {box-shadow:inset 0 4px var(--violet);transition:box-shadow .2s,border-color .2s} article:nth-child(2){box-shadow:inset 0 4px var(--coral)} article:nth-child(3){box-shadow:inset 0 4px var(--accent)} article:nth-child(4){box-shadow:inset 0 4px var(--pop)} li {transition:transform .18s,color .18s} @media(hover:hover){li:hover{transform:translateY(-3px);color:var(--accent)}}
 .skills-grid {display:grid;grid-template-columns:1fr 1fr;gap:24px}
 article {padding:28px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
 .skill-heading {display:flex;gap:14px;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--line)}
