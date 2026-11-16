@@ -1,6 +1,8 @@
 # Tanvir Rahman Portfolio
 
-A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a Nuxt application with server-rendered, prerendered public routes, responsive project filters and accessible controls, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-focused deployment defaults.
+A Nuxt 3 portfolio site for presenting projects, experience, skills, education, contact details, and downloadable resume content. The app is built as a Nuxt application with server-rendered, prerendered public routes, responsive project filters and accessible controls, Vercel Analytics, Vercel Speed Insights, Web3Forms contact handling, and security-aware deployment defaults.
+
+Practical web development supported by reproducible data analysis is the focus of this portfolio. The weather dashboard, health analysis and portfolio application lead the project evidence; PromptPilot demonstrates an AI integration prototype.
 
 ## About Tanvir
 
@@ -10,9 +12,11 @@ IT graduate based in Launceston, Tasmania, with experience in PHP/Laravel and Vu
 
 | Project | Evidence |
 | --- | --- |
+| IoT Weather Dashboard | [PHP, validated JSON endpoint and seasonal fallback](https://github.com/mdrTanvir/Weather-prediction-IOT) · [Dashboard](https://weather.tanvirrahman.dev/) |
 | Global Health Analytics | [Notebooks, clustering and temporal evaluation](https://github.com/mdrTanvir/SDG-Health-Analytics) · [Dashboard](https://health.tanvirrahman.dev/) |
-| IoT Weather Dashboard | [PHP, Sense HAT workflow and methodology](https://github.com/mdrTanvir/Weather-prediction-IOT) · [Dashboard](https://weather.tanvirrahman.dev/) |
-| Airport Efficiency Analysis | [Python statistical analysis](https://github.com/mdrTanvir/Melbourne-airport-luggage-efficiency-analysis) |
+| Portfolio Application | [Nuxt 3, accessible interactions and automated checks](https://github.com/mdrTanvir/portfolio) |
+| Melbourne Airport Case Study | [Interactive research communication and reconstructed descriptive summaries](https://github.com/mdrTanvir/melbourne-luggage-case-study) |
+| PromptPilot — MVP/prototype | [Laravel/Nuxt prompt analysis, clarification and Gemini integration](https://github.com/mdrTanvir/promptPilot) |
 
 The weather demonstration includes synthetic data. In-sample model fit is not a forecast accuracy guarantee. Project analysis is separate from professional employment.
 
@@ -135,7 +139,9 @@ Security measures currently implemented:
 - Contact form validation, honeypot field, and no debug logging.
 - Web3Forms access key treated as a public form access key, following Web3Forms guidance.
 - `.env.example` contains placeholders only.
-- GitHub Actions runs build and dependency audit.
+- GitHub Actions enforces build, role-evidence, CV consistency and contrast checks.
+- The CI dependency audit uses `yarn audit --level high || true`: findings are advisory and do not fail the job. The local `security:audit` script uses a moderate reporting threshold.
+- CSP is report-only: it reports violations and does not block resources. These controls demonstrate security-aware development, not a dedicated cybersecurity investigation.
 - Gitleaks scans for accidental secrets.
 - Dependabot checks npm and GitHub Actions dependencies.
 - Public vulnerability contact file at `/.well-known/security.txt`.
@@ -255,7 +261,7 @@ Deployment checklist:
 
 ## Keep the CV consistent with the website
 
-The public PDF is generated from the same `src/config/data` files used by the website. Update those files first, then regenerate and visually review the PDF before committing it. The CV uses the site's role order, dates, descriptions, highlights, skill groups, education and all four projects. Its profile includes the first and final About paragraphs.
+The public PDF is generated from the same `src/config/data` files used by the website. Update those files first, then regenerate and visually review the PDF before committing it. The CV uses the site's role order, dates, descriptions, highlights, skill groups, education and all published projects. Its profile includes the first and final About paragraphs.
 
 Requires Python 3 and `reportlab`:
 

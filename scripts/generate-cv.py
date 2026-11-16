@@ -22,6 +22,9 @@ for name,kw in {
  'HeadingTR':dict(fontName='Helvetica-Bold',fontSize=10.5,leading=14,spaceBefore=10,spaceAfter=6,textColor=blue),
  'JobTR':dict(fontName='Helvetica-Bold',fontSize=9.5,leading=13,spaceBefore=6,spaceAfter=2,textColor=ink),
  'MetaTR':dict(fontSize=8.5,leading=11.5,spaceAfter=4,textColor=colors.HexColor('#475569')),
+ 'ProjectBodyTR':dict(fontSize=8.5,leading=11,spaceAfter=4,textColor=ink),
+ 'ProjectJobTR':dict(fontName='Helvetica-Bold',fontSize=9.5,leading=12,spaceBefore=5,spaceAfter=2,textColor=ink),
+ 'ProjectMetaTR':dict(fontSize=8,leading=10,spaceAfter=3,textColor=colors.HexColor('#475569')),
  'BulletTR':dict(fontSize=9,leading=12.5,leftIndent=10,firstLineIndent=-8,spaceAfter=3,textColor=ink),
 }.items():styles.add(ParagraphStyle(name=name,**kw))
 def clean(s):
@@ -50,11 +53,11 @@ for e in content['educations']:
  story.append(KeepTogether([para(e['title']+' | '+e['institution'],'JobTR'),para(e['duration'],'MetaTR'),para(e['description'])]))
 story.append(heading('Projects'))
 for p in content['projects']:
- block=[para(p['name'],'JobTR'),para(p['for']+' | '+p['date'],'MetaTR'),para(p['description']),para('Tools: '+' | '.join(p['skills']),'MetaTR')]
+ block=[para(p['name'],'ProjectJobTR'),para(p['for']+' | '+p['date'],'ProjectMetaTR'),para(p['description'],'ProjectBodyTR'),para('Tools: '+' | '.join(p['skills']),'ProjectMetaTR')]
  links=[]
- if p['url']:links.append(link(p['url'],'Platform website' if p['name']=='ExerTime Platform' else 'Live dashboard'))
+ if p['url']:links.append(link(p['url'],'Platform website' if p['name']=='ExerTime Platform' else 'Project website'))
  if p['repository']:links.append(link(p['repository'],'Repository and methodology'))
- if links:block.append(Paragraph(' | '.join(links),styles['MetaTR']))
+ if links:block.append(Paragraph(' | '.join(links),styles['ProjectMetaTR']))
  story.append(KeepTogether(block))
 def footer(c,d):
  c.setStrokeColor(colors.HexColor('#cbd5e1'));c.line(38,33,557,33)

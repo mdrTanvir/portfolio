@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import {works, skills} from '~/config/data/data'
 defineProps({all: {type: Boolean, default: false}})
-const filters = [{name:'All work', ids:[1,2,3,4]}, {name:'Software',ids:[4]}, {name:'Data',ids:[2,3]}, {name:'IoT',ids:[1]}]
+const filters = [{name:'All work', ids:[1,2,5,3,6,4]}, {name:'Software',ids:[5,6,4]}, {name:'Data',ids:[2,3]}, {name:'IoT',ids:[1]}]
 const projectHost = (project: {url: string}) => project.url ? new URL(project.url).hostname : 'github.com / analysis'
 const selected = ref('All work')
 const visibleProjects = computed(() => works.filter(project => filters.find(filter => filter.name === selected.value)!.ids.includes(project.id)))
